@@ -1,0 +1,20 @@
+{
+ "n_addresses": 213338784,
+ "n_pairs": 744543633,
+ "n_designated": 400,
+ "baseline_lcc_share": 0.9999869268965178,
+ "remove_designated_pct": 0.002263103458721716,
+ "remove_top_degree_undesignated_pct": 26.873258540762478,
+ "remove_degree_matched_pct_mean": 0.0024187268088652716,
+ "remove_degree_matched_pct": [
+  0.0034091850584339056,
+  0.0016823283658595756,
+  0.002164667002302334
+ ],
+ "remove_random_pct_mean": 1.2189821977740914e-05,
+ "designated_median_degree": 18.0,
+ "network_median_degree": 2.0,
+ "designated_share_top1pct_degree": 0.3825,
+ "remove_top_degree_undesignated_1000_pct": 34.23216946127282,
+ "remove_top_degree_undesignated_10000_pct": 48.370715939937604
+}

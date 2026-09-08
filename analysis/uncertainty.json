@@ -1,0 +1,75 @@
+{
+ "n_resamples": 2000,
+ "unit": "addresses unless stated",
+ "quantities": {
+  "median_days_last_activity_to_signed": {
+   "point": 31.5,
+   "ci_addresses": [
+    9.0,
+    44.5
+   ],
+   "ci_orders": [
+    -77.0,
+    65.51249999999993
+   ],
+   "n": 178
+  },
+  "share_dormant_30d_at_signing": {
+   "point": 0.5056179775280899,
+   "ci_addresses": [
+    0.438061797752809,
+    0.5786516853932584
+   ],
+   "ci_orders": [
+    0.27871070518266783,
+    0.75
+   ],
+   "n": 178
+  },
+  "share_frozen": {
+   "point": 0.8081632653061225,
+   "ci_addresses": [
+    0.773469387755102,
+    0.8408163265306122
+   ],
+   "ci_orders": [
+    0.46234998723295595,
+    0.973405799019089
+   ],
+   "n": 490
+  },
+  "frozen_share_of_inflow": {
+   "point": 0.0007804178643537763,
+   "ci_addresses": [
+    0.0004178468826005415,
+    0.0015083582950392153
+   ],
+   "ci_orders": [
+    0.0002489032037835713,
+    0.005950056340827536
+   ],
+   "n": 396
+  },
+  "median_days_last_transfer_to_freeze": {
+   "point": 110.0,
+   "ci_addresses": [
+    79.0,
+    147.5
+   ],
+   "ci_orders": [
+    -1.0,
+    225.0
+   ],
+   "n": 396
+  },
+  "counterparty_share_active_after": {
+   "point": 0.36970446613950614,
+   "ci_addresses": [
+    0.3634159801256137,
+    0.37599295215339856
+   ],
+   "n": 22637,
+   "note": "normal approximation over independent counterparties"
+  }
+ }
+}

@@ -1,0 +1,115 @@
+{
+  "dataset": "ofac_terrorist_financing_eth",
+  "n_nodes": 515593,
+  "n_edges": 1044341,
+  "n_roles": 9,
+  "seed_cluster": 5,
+  "role_stats": {
+    "0": {
+      "size": 207,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.3880275785923004
+    },
+    "1": {
+      "size": 80457,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2674548923969269
+    },
+    "2": {
+      "size": 333,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.43861642479896545
+    },
+    "3": {
+      "size": 19469,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2837058901786804
+    },
+    "4": {
+      "size": 48117,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.3016519546508789
+    },
+    "5": {
+      "size": 8084,
+      "seed_count": 5,
+      "seed_pct": 0.06,
+      "mean_score": 0.22297099232673645
+    },
+    "6": {
+      "size": 4580,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.29234248399734497
+    },
+    "7": {
+      "size": 317660,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 7.191266195150092e-05
+    },
+    "8": {
+      "size": 36686,
+      "seed_count": 1,
+      "seed_pct": 0.0,
+      "mean_score": 0.25311973690986633
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.3317411357400472
+    },
+    "role_0": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.35467708650495616
+    },
+    "role_1": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.33767740255366474
+    },
+    "role_2": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.33175901832715377
+    },
+    "role_3": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.3428433614508991
+    },
+    "role_4": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.36311630462660527
+    },
+    "role_5": {
+      "connectivity": 0.9999149128153173,
+      "n_components": 8,
+      "path_efficiency": 0.3414153278136594
+    },
+    "role_6": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.33381169318387127
+    },
+    "role_7": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.2941131967664113
+    },
+    "role_8": {
+      "connectivity": 0.9999958229952466,
+      "n_components": 2,
+      "path_efficiency": 0.34296881657792266
+    }
+  }
+}

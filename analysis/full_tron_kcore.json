@@ -1,0 +1,32 @@
+{
+ "n_addresses": 213338784,
+ "n_pairs": 744543633,
+ "n_designated": 400,
+ "degree_one_share": 0.12129602276161844,
+ "full_graph": {
+  "designated": {
+   "connectivity_loss_pct": 0.002263103458721716,
+   "n_dropped_from_lcc": 4828,
+   "share_of_dropped_with_degree_one": 0.968102734051367,
+   "share_of_dropped_isolated_by_removal": 0.995857497928749
+  },
+  "top_degree_400": {
+   "connectivity_loss_pct": 26.873258540762478,
+   "n_dropped_from_lcc": 57330226,
+   "share_of_dropped_with_degree_one": 0.12719067250842514,
+   "share_of_dropped_isolated_by_removal": 0.9568014261796212
+  },
+  "top_degree_1000": {
+   "connectivity_loss_pct": 34.23216946127282,
+   "n_dropped_from_lcc": 73029197,
+   "share_of_dropped_with_degree_one": 0.11502945869718381,
+   "share_of_dropped_isolated_by_removal": 0.9537224132424734
+  },
+  "top_degree_10000": {
+   "connectivity_loss_pct": 48.370715939937604,
+   "n_dropped_from_lcc": 103187311,
+   "share_of_dropped_with_degree_one": 0.11786809717330457,
+   "share_of_dropped_isolated_by_removal": 0.949717218621968
+  }
+ }
+}

@@ -1,0 +1,146 @@
+{
+  "dataset": "israel_tron",
+  "n_nodes": 596633,
+  "n_edges": 927265,
+  "n_transfers": 2672246,
+  "n_roles": 9,
+  "n_seeds_in_graph": 389,
+  "seed_cluster": 4,
+  "role_stats": {
+    "0": {
+      "size": 16632,
+      "avg_in": 4.752,
+      "avg_out": 8.118,
+      "avg_ic": 0.0014,
+      "seed_count": 23,
+      "seed_pct": 0.1383,
+      "mean_score": 0.1317
+    },
+    "1": {
+      "size": 76108,
+      "avg_in": 1.346,
+      "avg_out": 0.003,
+      "avg_ic": 0.0011,
+      "seed_count": 8,
+      "seed_pct": 0.0105,
+      "mean_score": 0.0789
+    },
+    "2": {
+      "size": 26334,
+      "avg_in": 0.012,
+      "avg_out": 4.306,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.056
+    },
+    "3": {
+      "size": 100258,
+      "avg_in": 0.002,
+      "avg_out": 1.629,
+      "avg_ic": 0.0,
+      "seed_count": 4,
+      "seed_pct": 0.004,
+      "mean_score": 0.1594
+    },
+    "4": {
+      "size": 47817,
+      "avg_in": 47.118,
+      "avg_out": 38.463,
+      "avg_ic": 0.0072,
+      "seed_count": 347,
+      "seed_pct": 0.7257,
+      "mean_score": 0.1746
+    },
+    "5": {
+      "size": 84150,
+      "avg_in": 1.477,
+      "avg_out": 0.01,
+      "avg_ic": 0.0005,
+      "seed_count": 4,
+      "seed_pct": 0.0048,
+      "mean_score": 0.046
+    },
+    "6": {
+      "size": 13498,
+      "avg_in": 0.072,
+      "avg_out": 15.531,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.066
+    },
+    "7": {
+      "size": 140949,
+      "avg_in": 0.0,
+      "avg_out": 1.486,
+      "avg_ic": 0.0,
+      "seed_count": 1,
+      "seed_pct": 0.0007,
+      "mean_score": 0.0518
+    },
+    "8": {
+      "size": 90887,
+      "avg_in": 1.231,
+      "avg_out": 0.012,
+      "avg_ic": 0.0003,
+      "seed_count": 2,
+      "seed_pct": 0.0022,
+      "mean_score": 0.0213
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 0.999982,
+      "n_components": 2,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 0.999824,
+      "n_components": 93,
+      "removed": 16632
+    },
+    "role_1": {
+      "connectivity": 0.999979,
+      "n_components": 2,
+      "removed": 76108
+    },
+    "role_2": {
+      "connectivity": 0.999967,
+      "n_components": 10,
+      "removed": 26334
+    },
+    "role_3": {
+      "connectivity": 0.999984,
+      "n_components": 4,
+      "removed": 100258
+    },
+    "role_4": {
+      "connectivity": 0.001797,
+      "n_components": 547082,
+      "removed": 47817
+    },
+    "role_5": {
+      "connectivity": 0.999975,
+      "n_components": 4,
+      "removed": 84150
+    },
+    "role_6": {
+      "connectivity": 0.998127,
+      "n_components": 1083,
+      "removed": 13498
+    },
+    "role_7": {
+      "connectivity": 0.999921,
+      "n_components": 32,
+      "removed": 140949
+    },
+    "role_8": {
+      "connectivity": 0.999978,
+      "n_components": 2,
+      "removed": 90887
+    }
+  },
+  "model": "WCFRM v2",
+  "run": "v6_runs/v2_israel_tron_seed42"
+}

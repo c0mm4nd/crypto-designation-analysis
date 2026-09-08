@@ -1,0 +1,146 @@
+{
+  "dataset": "ukraine_tron",
+  "n_nodes": 117621,
+  "n_edges": 129159,
+  "n_transfers": 246226,
+  "n_roles": 9,
+  "n_seeds_in_graph": 1,
+  "seed_cluster": 6,
+  "role_stats": {
+    "0": {
+      "size": 31770,
+      "avg_in": 1.126,
+      "avg_out": 0.0,
+      "avg_ic": 0.0049,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2037
+    },
+    "1": {
+      "size": 32729,
+      "avg_in": 1.023,
+      "avg_out": 0.002,
+      "avg_ic": 0.0017,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.108
+    },
+    "2": {
+      "size": 3356,
+      "avg_in": 0.006,
+      "avg_out": 1.607,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1321
+    },
+    "3": {
+      "size": 8953,
+      "avg_in": 1.882,
+      "avg_out": 0.006,
+      "avg_ic": 0.0046,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1712
+    },
+    "4": {
+      "size": 6651,
+      "avg_in": 22.055,
+      "avg_out": 24.844,
+      "avg_ic": 0.0071,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1856
+    },
+    "5": {
+      "size": 2147,
+      "avg_in": 1.311,
+      "avg_out": 2.047,
+      "avg_ic": 0.0025,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1051
+    },
+    "6": {
+      "size": 2697,
+      "avg_in": 3.871,
+      "avg_out": 14.06,
+      "avg_ic": 0.0005,
+      "seed_count": 1,
+      "seed_pct": 0.0371,
+      "mean_score": 0.1731
+    },
+    "7": {
+      "size": 12771,
+      "avg_in": 0.0,
+      "avg_out": 1.153,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1574
+    },
+    "8": {
+      "size": 16547,
+      "avg_in": 0.008,
+      "avg_out": 1.114,
+      "avg_ic": 0.0001,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1376
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 31770
+    },
+    "role_1": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 32729
+    },
+    "role_2": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 3356
+    },
+    "role_3": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 8953
+    },
+    "role_4": {
+      "connectivity": 0.021258,
+      "n_components": 108612,
+      "removed": 6651
+    },
+    "role_5": {
+      "connectivity": 0.997419,
+      "n_components": 299,
+      "removed": 2147
+    },
+    "role_6": {
+      "connectivity": 0.974662,
+      "n_components": 581,
+      "removed": 2697
+    },
+    "role_7": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 12771
+    },
+    "role_8": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 16547
+    }
+  },
+  "model": "WCFRM v2",
+  "run": "v6_runs/v2_ukraine_tron_seed42"
+}

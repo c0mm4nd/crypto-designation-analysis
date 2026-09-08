@@ -1,0 +1,27 @@
+\begin{tabular}{p{4.0cm}lrll}
+\toprule
+\textbf{Candidate set} & \textbf{Score} & \textbf{AUC} & \textbf{95\% CI} & \textbf{$\Delta$AUC (IC $-$ score), paired 95\% CI} \\
+\midrule
+all addresses ($n$=596,633, 389 positives) & diffusion reach (ROTOR) & 0.891 & [0.876, 0.906] & -- \\
+ & in-degree & 0.924 & [0.909, 0.934] & -0.033 [-0.043, -0.026] \\
+ & out-degree & 0.863 & [0.845, 0.880] & +0.029 [+0.014, +0.048] \\
+ & total degree & 0.945 & [0.936, 0.958] & -0.055 [-0.065, -0.044] \\
+ & PageRank & 0.929 & [0.918, 0.941] & -0.038 [-0.046, -0.029] \\
+ & learned importance (ROTOR) & 0.894 & [0.877, 0.909] & -0.003 [-0.017, +0.009] \\
+\addlinespace
+seeds vs.\ direct counterparties ($n$=21,917, 389 positives) & diffusion reach (ROTOR) & 0.662 & [0.637, 0.685] & -- \\
+ & in-degree & 0.645 & [0.614, 0.666] & +0.017 [+0.002, +0.029] \\
+ & out-degree & 0.602 & [0.572, 0.636] & +0.059 [+0.041, +0.082] \\
+ & total degree & 0.619 & [0.589, 0.644] & +0.043 [+0.029, +0.056] \\
+ & PageRank & 0.711 & [0.692, 0.730] & -0.050 [-0.066, -0.037] \\
+ & learned importance (ROTOR) & 0.624 & [0.610, 0.635] & +0.037 [+0.019, +0.055] \\
+\addlinespace
+seeds vs.\ hop-2 addresses ($n$=575,105, 389 positives) & diffusion reach (ROTOR) & 0.899 & [0.886, 0.911] & -- \\
+ & in-degree & 0.934 & [0.924, 0.948] & -0.035 [-0.044, -0.025] \\
+ & out-degree & 0.872 & [0.855, 0.888] & +0.026 [+0.007, +0.043] \\
+ & total degree & 0.958 & [0.946, 0.968] & -0.058 [-0.071, -0.045] \\
+ & PageRank & 0.937 & [0.927, 0.946] & -0.038 [-0.046, -0.029] \\
+ & learned importance (ROTOR) & 0.904 & [0.887, 0.919] & -0.004 [-0.019, +0.010] \\
+\addlinespace
+\bottomrule
+\end{tabular}

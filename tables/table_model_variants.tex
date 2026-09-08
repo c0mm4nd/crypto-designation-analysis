@@ -1,0 +1,14 @@
+\small
+\caption{\textbf{Role-assignment variants on the primary network.} Every column is computed from labels that never enter training: entity categories come from third-party address directories (525 labelled addresses) and designations from the seizure orders. NMI and purity measure agreement between roles and entity categories. Role AUC scores each address by the designated-address density of its role and reports the area under the ROC curve for separating designated from undesignated addresses; unlike the density of the densest role it does not fall mechanically when roles are large, so it is comparable across partitions of different shape. AMI is the agreement between partitions from three independently trained models. Learned variants are reported as mean $\pm$ s.d. over the same three training seeds; the first row is deterministic. Reading down the table, learning improves agreement with entity labels and removes the role collapse of the $k$-means head, but no learned variant improves on a plain $k$-means of the same behavioural features in placing designated addresses, and all are less reproducible across training seeds. We adopt the last row and, because of this, rest the structural claims of the paper on address-level tests that use no partition (Supplementary Table~\ref{tab:backbone-tests}).}
+\label{tab:model-variants}
+\begin{tabular}{lccccc}
+\toprule
+Role assignment & NMI & Purity & Role AUC & Densest role (\%) & AMI \\
+\midrule
+$k$-means on behavioural features (no learning) & 0.147 & 0.910 & 0.960 & 2.298 & --- \\
+$k$-means head (v3) & 0.129 $\pm$ 0.025 & 0.900 $\pm$ 0.019 & 0.930 $\pm$ 0.018 & 2.641 $\pm$ 0.733 & 0.698 \\
+Prototype head & 0.157 $\pm$ 0.019 & 0.886 $\pm$ 0.005 & 0.950 $\pm$ 0.003 & 0.887 $\pm$ 0.130 & 0.623 \\
+Prototype head, warm start & 0.154 $\pm$ 0.013 & 0.882 $\pm$ 0.000 & 0.948 $\pm$ 0.002 & 0.842 $\pm$ 0.068 & 0.647 \\
+Prototype head, warm start + behavioural skip & 0.174 $\pm$ 0.009 & 0.895 $\pm$ 0.014 & 0.949 $\pm$ 0.005 & 0.857 $\pm$ 0.136 & 0.592 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,115 @@
+{
+  "dataset": "ofac_russia_ukraine_eth",
+  "n_nodes": 51093,
+  "n_edges": 156456,
+  "n_roles": 9,
+  "seed_cluster": 7,
+  "role_stats": {
+    "0": {
+      "size": 8191,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2890857458114624
+    },
+    "1": {
+      "size": 29276,
+      "seed_count": 1,
+      "seed_pct": 0.0,
+      "mean_score": 0.005861309822648764
+    },
+    "2": {
+      "size": 534,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.07034651190042496
+    },
+    "3": {
+      "size": 1173,
+      "seed_count": 1,
+      "seed_pct": 0.09,
+      "mean_score": 0.4166110157966614
+    },
+    "4": {
+      "size": 3589,
+      "seed_count": 1,
+      "seed_pct": 0.03,
+      "mean_score": 0.17584852874279022
+    },
+    "5": {
+      "size": 5008,
+      "seed_count": 2,
+      "seed_pct": 0.04,
+      "mean_score": 0.43941664695739746
+    },
+    "6": {
+      "size": 1148,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.5131376385688782
+    },
+    "7": {
+      "size": 795,
+      "seed_count": 3,
+      "seed_pct": 0.38,
+      "mean_score": 0.43908536434173584
+    },
+    "8": {
+      "size": 1379,
+      "seed_count": 2,
+      "seed_pct": 0.15,
+      "mean_score": 0.48585543036460876
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.3672083907678709
+    },
+    "role_0": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.3309484929458208
+    },
+    "role_1": {
+      "connectivity": 0.9996349603671256,
+      "n_components": 3,
+      "path_efficiency": 0.30932073708965563
+    },
+    "role_2": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.3706825080365468
+    },
+    "role_3": {
+      "connectivity": 0.9990762124711317,
+      "n_components": 21,
+      "path_efficiency": 0.37106127001832523
+    },
+    "role_4": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.3705878675517322
+    },
+    "role_5": {
+      "connectivity": 0.9998481067592492,
+      "n_components": 4,
+      "path_efficiency": 0.38623043814538066
+    },
+    "role_6": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.37853223311268464
+    },
+    "role_7": {
+      "connectivity": 0.9999601069134719,
+      "n_components": 2,
+      "path_efficiency": 0.3840741313785015
+    },
+    "role_8": {
+      "connectivity": 0.9889561666431976,
+      "n_components": 231,
+      "path_efficiency": 0.3737407528938474
+    }
+  }
+}

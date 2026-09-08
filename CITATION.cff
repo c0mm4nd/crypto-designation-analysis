@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Cryptocurrency designation: analysis code and outputs"
+message: "If you use this software or these outputs, please cite the paper."
+type: software
+authors:
+  - family-names: Mao
+    given-names: "Qian'ang"
+  - family-names: Wang
+    given-names: Jiaxin
+  - family-names: Yan
+    given-names: Jiaqi
+license: MIT

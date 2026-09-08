@@ -1,0 +1,106 @@
+{
+ "israel_tron": {
+  "n_addresses": 596633,
+  "n_designated": 389,
+  "baseline": {
+   "addresses": 0.9999815632055217,
+   "value": 0.9999998863905891,
+   "transfers": 0.9999955093954673
+  },
+  "removals": {
+   "designated": {
+    "addresses": 0.5237897154882876,
+    "value": 4.391081370503769,
+    "transfers": 5.80660226611891
+   },
+   "top_degree_undesignated": {
+    "addresses": 47.588778842983736,
+    "value": 26.797766142412883,
+    "transfers": 41.02690857162958
+   },
+   "random_undesignated": {
+    "addresses": 0.027674947533640193,
+    "value": 0.055603131254144955,
+    "transfers": 0.1004028838791804
+   }
+  }
+ },
+ "ofac_iran_tron": {
+  "n_addresses": 8881,
+  "n_designated": 9,
+  "baseline": {
+   "addresses": 1.0,
+   "value": 1.0,
+   "transfers": 1.0
+  },
+  "removals": {
+   "designated": {
+    "addresses": 2.4008115419296705,
+    "value": 9.594201332815011,
+    "transfers": 7.2937848112456845
+   },
+   "top_degree_undesignated": {
+    "addresses": 45.98737601442742,
+    "value": 34.04037516465597,
+    "transfers": 30.187428167270802
+   },
+   "random_undesignated": {
+    "addresses": 0.0,
+    "value": 0.048591515091556126,
+    "transfers": 0.07072761029086605
+   }
+  }
+ },
+ "ofac_russia_ukraine_tron": {
+  "n_addresses": 10882,
+  "n_designated": 5,
+  "baseline": {
+   "addresses": 0.9997243153832016,
+   "value": 0.9999800072730962,
+   "transfers": 0.9998450621300858
+  },
+  "removals": {
+   "designated": {
+    "addresses": 4.929200942411627,
+    "value": 10.26218667819242,
+    "transfers": 10.273972602739722
+   },
+   "top_degree_undesignated": {
+    "addresses": 31.75465275620397,
+    "value": 33.403643723423485,
+    "transfers": 25.06043513295729
+   },
+   "random_undesignated": {
+    "addresses": 1.2676318827953281e-05,
+    "value": 0.0002594841984837615,
+    "transfers": 0.027893138287982122
+   }
+  }
+ },
+ "ofac_terrorist_financing_tron": {
+  "n_addresses": 97178,
+  "n_designated": 21,
+  "baseline": {
+   "addresses": 0.9998868056556011,
+   "value": 0.9999996357720731,
+   "transfers": 0.9999631751604182
+  },
+  "removals": {
+   "designated": {
+    "addresses": 1.3577526041281707,
+    "value": 6.430815989376814,
+    "transfers": 4.103665740897022
+   },
+   "top_degree_undesignated": {
+    "addresses": 25.039632904976862,
+    "value": 4.155271160786899,
+    "transfers": 13.285050098970396
+   },
+   "random_undesignated": {
+    "addresses": 2.4469161585827237e-06,
+    "value": 0.03267106419083676,
+    "transfers": 0.02117506252781176
+   }
+  }
+ }
+}

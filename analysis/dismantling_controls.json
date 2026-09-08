@@ -1,0 +1,710 @@
+{
+  "israel_tron": {
+    "n_nodes": 596633,
+    "n_edges": 927265,
+    "baseline": {
+      "connectivity": 0.999982,
+      "n_components": 2
+    },
+    "roles": {
+      "role_0": {
+        "budget": 16632,
+        "budget_share_pct": 2.7876,
+        "role_connectivity": 0.999824,
+        "role_n_components": 93,
+        "random_connectivity_mean": 0.975552,
+        "random_connectivity_min": 0.966341,
+        "random_connectivity_max": 0.9815,
+        "random_n_components_mean": 14165.3,
+        "topdegree_connectivity": 2.8e-05,
+        "topdegree_n_components": 577261
+      },
+      "role_1": {
+        "budget": 76108,
+        "budget_share_pct": 12.7563,
+        "role_connectivity": 0.999979,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.899802,
+        "random_connectivity_min": 0.887287,
+        "random_connectivity_max": 0.909413,
+        "random_n_components_mean": 52087.3,
+        "topdegree_connectivity": 4e-06,
+        "topdegree_n_components": 520513
+      },
+      "role_2": {
+        "budget": 26334,
+        "budget_share_pct": 4.4138,
+        "role_connectivity": 0.999967,
+        "role_n_components": 10,
+        "random_connectivity_mean": 0.962107,
+        "random_connectivity_min": 0.952223,
+        "random_connectivity_max": 0.967308,
+        "random_n_components_mean": 21595.0,
+        "topdegree_connectivity": 1.2e-05,
+        "topdegree_n_components": 569559
+      },
+      "role_3": {
+        "budget": 100258,
+        "budget_share_pct": 16.804,
+        "role_connectivity": 0.999984,
+        "role_n_components": 4,
+        "random_connectivity_mean": 0.859719,
+        "random_connectivity_min": 0.854376,
+        "random_connectivity_max": 0.867769,
+        "random_n_components_mean": 69542.0,
+        "topdegree_connectivity": 2e-06,
+        "topdegree_n_components": 496375
+      },
+      "role_4": {
+        "budget": 47817,
+        "budget_share_pct": 8.0145,
+        "role_connectivity": 0.001797,
+        "role_n_components": 547082,
+        "random_connectivity_mean": 0.933846,
+        "random_connectivity_min": 0.925911,
+        "random_connectivity_max": 0.939419,
+        "random_n_components_mean": 36243.7,
+        "topdegree_connectivity": 5e-06,
+        "topdegree_n_components": 548680
+      },
+      "role_5": {
+        "budget": 84150,
+        "budget_share_pct": 14.1041,
+        "role_connectivity": 0.999975,
+        "role_n_components": 4,
+        "random_connectivity_mean": 0.884254,
+        "random_connectivity_min": 0.875851,
+        "random_connectivity_max": 0.889372,
+        "random_n_components_mean": 59250.3,
+        "topdegree_connectivity": 2e-06,
+        "topdegree_n_components": 512483
+      },
+      "role_6": {
+        "budget": 13498,
+        "budget_share_pct": 2.2624,
+        "role_connectivity": 0.998127,
+        "role_n_components": 1083,
+        "random_connectivity_mean": 0.980642,
+        "random_connectivity_min": 0.975292,
+        "random_connectivity_max": 0.984036,
+        "random_n_components_mean": 11274.0,
+        "topdegree_connectivity": 6.2e-05,
+        "topdegree_n_components": 579021
+      },
+      "role_7": {
+        "budget": 140949,
+        "budget_share_pct": 23.6241,
+        "role_connectivity": 0.999921,
+        "role_n_components": 32,
+        "random_connectivity_mean": 0.802434,
+        "random_connectivity_min": 0.794487,
+        "random_connectivity_max": 0.809067,
+        "random_n_components_mean": 89928.7,
+        "topdegree_connectivity": 2e-06,
+        "topdegree_n_components": 455684
+      },
+      "role_8": {
+        "budget": 90887,
+        "budget_share_pct": 15.2333,
+        "role_connectivity": 0.999978,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.871718,
+        "random_connectivity_min": 0.863265,
+        "random_connectivity_max": 0.877725,
+        "random_n_components_mean": 64811.7,
+        "topdegree_connectivity": 2e-06,
+        "topdegree_n_components": 505746
+      }
+    }
+  },
+  "ukraine_tron": {
+    "n_nodes": 117621,
+    "n_edges": 129159,
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1
+    },
+    "roles": {
+      "role_0": {
+        "budget": 31770,
+        "budget_share_pct": 27.0105,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.673527,
+        "random_connectivity_min": 0.623312,
+        "random_connectivity_max": 0.700469,
+        "random_n_components_mean": 26590.0,
+        "topdegree_connectivity": 1.2e-05,
+        "topdegree_n_components": 85851
+      },
+      "role_1": {
+        "budget": 32729,
+        "budget_share_pct": 27.8258,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.668536,
+        "random_connectivity_min": 0.622862,
+        "random_connectivity_max": 0.693611,
+        "random_n_components_mean": 26793.3,
+        "topdegree_connectivity": 1.2e-05,
+        "topdegree_n_components": 84892
+      },
+      "role_2": {
+        "budget": 3356,
+        "budget_share_pct": 2.8532,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.97654,
+        "random_connectivity_min": 0.965274,
+        "random_connectivity_max": 0.995703,
+        "random_n_components_mean": 2681.7,
+        "topdegree_connectivity": 9e-06,
+        "topdegree_n_components": 114265
+      },
+      "role_3": {
+        "budget": 8953,
+        "budget_share_pct": 7.6117,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.917517,
+        "random_connectivity_min": 0.869097,
+        "random_connectivity_max": 0.954872,
+        "random_n_components_mean": 8964.3,
+        "topdegree_connectivity": 9e-06,
+        "topdegree_n_components": 108668
+      },
+      "role_4": {
+        "budget": 6651,
+        "budget_share_pct": 5.6546,
+        "role_connectivity": 0.021258,
+        "role_n_components": 108612,
+        "random_connectivity_mean": 0.949881,
+        "random_connectivity_min": 0.922979,
+        "random_connectivity_max": 0.968045,
+        "random_n_components_mean": 5562.7,
+        "topdegree_connectivity": 9e-06,
+        "topdegree_n_components": 110970
+      },
+      "role_5": {
+        "budget": 2147,
+        "budget_share_pct": 1.8254,
+        "role_connectivity": 0.997419,
+        "role_n_components": 299,
+        "random_connectivity_mean": 0.972548,
+        "random_connectivity_min": 0.950881,
+        "random_connectivity_max": 0.992457,
+        "random_n_components_mean": 3171.0,
+        "topdegree_connectivity": 1.7e-05,
+        "topdegree_n_components": 115461
+      },
+      "role_6": {
+        "budget": 2697,
+        "budget_share_pct": 2.293,
+        "role_connectivity": 0.974662,
+        "role_n_components": 581,
+        "random_connectivity_mean": 0.977298,
+        "random_connectivity_min": 0.965847,
+        "random_connectivity_max": 0.995954,
+        "random_n_components_mean": 2610.0,
+        "topdegree_connectivity": 1.7e-05,
+        "topdegree_n_components": 114913
+      },
+      "role_7": {
+        "budget": 12771,
+        "budget_share_pct": 10.8578,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.858948,
+        "random_connectivity_min": 0.759676,
+        "random_connectivity_max": 0.916242,
+        "random_n_components_mean": 14790.3,
+        "topdegree_connectivity": 1e-05,
+        "topdegree_n_components": 104850
+      },
+      "role_8": {
+        "budget": 16547,
+        "budget_share_pct": 14.0681,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.837466,
+        "random_connectivity_min": 0.747482,
+        "random_connectivity_max": 0.884896,
+        "random_n_components_mean": 16429.0,
+        "topdegree_connectivity": 1e-05,
+        "topdegree_n_components": 101074
+      }
+    }
+  },
+  "ukraine_eth": {
+    "n_nodes": 23869069,
+    "n_edges": 35364630,
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1
+    },
+    "roles": {
+      "role_0": {
+        "budget": 1754491,
+        "budget_share_pct": 7.3505,
+        "role_connectivity": 0.999993,
+        "role_n_components": 159,
+        "random_connectivity_mean": 0.97802,
+        "random_connectivity_min": 0.951666,
+        "random_connectivity_max": 0.995745,
+        "random_n_components_mean": 486084.7,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 22114527
+      },
+      "role_1": {
+        "budget": 1647657,
+        "budget_share_pct": 6.9029,
+        "role_connectivity": 0.999999,
+        "role_n_components": 25,
+        "random_connectivity_mean": 0.985069,
+        "random_connectivity_min": 0.972815,
+        "random_connectivity_max": 0.995745,
+        "random_n_components_mean": 331788.3,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 22221351
+      },
+      "role_2": {
+        "budget": 3988344,
+        "budget_share_pct": 16.7093,
+        "role_connectivity": 0.999999,
+        "role_n_components": 14,
+        "random_connectivity_mean": 0.874487,
+        "random_connectivity_min": 0.851359,
+        "random_connectivity_max": 0.913445,
+        "random_n_components_mean": 2495293.7,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 19880713
+      },
+      "role_3": {
+        "budget": 2256423,
+        "budget_share_pct": 9.4533,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.933072,
+        "random_connectivity_min": 0.916248,
+        "random_connectivity_max": 0.961363,
+        "random_n_components_mean": 1446483.0,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 21612627
+      },
+      "role_4": {
+        "budget": 3068447,
+        "budget_share_pct": 12.8553,
+        "role_connectivity": 0.999999,
+        "role_n_components": 19,
+        "random_connectivity_mean": 0.90132,
+        "random_connectivity_min": 0.882409,
+        "random_connectivity_max": 0.936151,
+        "random_n_components_mean": 2052599.7,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 20800606
+      },
+      "role_5": {
+        "budget": 2985276,
+        "budget_share_pct": 12.5069,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.904678,
+        "random_connectivity_min": 0.887463,
+        "random_connectivity_max": 0.936149,
+        "random_n_components_mean": 1990673.0,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 20883777
+      },
+      "role_6": {
+        "budget": 1699095,
+        "budget_share_pct": 7.1184,
+        "role_connectivity": 0.996938,
+        "role_n_components": 67878,
+        "random_connectivity_mean": 0.984889,
+        "random_connectivity_min": 0.972275,
+        "random_connectivity_max": 0.995745,
+        "random_n_components_mean": 335001.7,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 22169916
+      },
+      "role_7": {
+        "budget": 4066856,
+        "budget_share_pct": 17.0382,
+        "role_connectivity": 0.909875,
+        "role_n_components": 1784685,
+        "random_connectivity_mean": 0.873534,
+        "random_connectivity_min": 0.850484,
+        "random_connectivity_max": 0.911461,
+        "random_n_components_mean": 2504309.7,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 19802203
+      },
+      "role_8": {
+        "budget": 2402480,
+        "budget_share_pct": 10.0652,
+        "role_connectivity": 0.127744,
+        "role_n_components": 18723980,
+        "random_connectivity_mean": 0.923166,
+        "random_connectivity_min": 0.887723,
+        "random_connectivity_max": 0.960168,
+        "random_n_components_mean": 1649353.0,
+        "topdegree_connectivity": 0.0,
+        "topdegree_n_components": 21466571
+      }
+    }
+  },
+  "ofac_iran_tron": {
+    "n_nodes": 8881,
+    "n_edges": 10487,
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1
+    },
+    "roles": {
+      "role_0": {
+        "budget": 131,
+        "budget_share_pct": 1.4751,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.994514,
+        "random_connectivity_min": 0.9904,
+        "random_connectivity_max": 0.998743,
+        "random_n_components_mean": 49.0,
+        "topdegree_connectivity": 0.0008,
+        "topdegree_n_components": 8683
+      },
+      "role_1": {
+        "budget": 2679,
+        "budget_share_pct": 30.1655,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.695367,
+        "random_connectivity_min": 0.618026,
+        "random_connectivity_max": 0.775234,
+        "random_n_components_mean": 1889.3,
+        "topdegree_connectivity": 0.000161,
+        "topdegree_n_components": 6202
+      },
+      "role_2": {
+        "budget": 469,
+        "budget_share_pct": 5.2809,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.962633,
+        "random_connectivity_min": 0.94282,
+        "random_connectivity_max": 0.975868,
+        "random_n_components_mean": 315.3,
+        "topdegree_connectivity": 0.000119,
+        "topdegree_n_components": 8412
+      },
+      "role_3": {
+        "budget": 910,
+        "budget_share_pct": 10.2466,
+        "role_connectivity": 0.935893,
+        "role_n_components": 512,
+        "random_connectivity_mean": 0.828169,
+        "random_connectivity_min": 0.789612,
+        "random_connectivity_max": 0.850834,
+        "random_n_components_mean": 1365.7,
+        "topdegree_connectivity": 0.000125,
+        "topdegree_n_components": 7971
+      },
+      "role_4": {
+        "budget": 859,
+        "budget_share_pct": 9.6723,
+        "role_connectivity": 0.160309,
+        "role_n_components": 6732,
+        "random_connectivity_mean": 0.887185,
+        "random_connectivity_min": 0.860135,
+        "random_connectivity_max": 0.912989,
+        "random_n_components_mean": 903.0,
+        "topdegree_connectivity": 0.000125,
+        "topdegree_n_components": 8022
+      },
+      "role_5": {
+        "budget": 1133,
+        "budget_share_pct": 12.7576,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.92497,
+        "random_connectivity_min": 0.862416,
+        "random_connectivity_max": 0.974703,
+        "random_n_components_mean": 577.0,
+        "topdegree_connectivity": 0.000129,
+        "topdegree_n_components": 7748
+      },
+      "role_6": {
+        "budget": 176,
+        "budget_share_pct": 1.9818,
+        "role_connectivity": 0.92062,
+        "role_n_components": 692,
+        "random_connectivity_mean": 0.994295,
+        "random_connectivity_min": 0.988972,
+        "random_connectivity_max": 0.998277,
+        "random_n_components_mean": 50.7,
+        "topdegree_connectivity": 0.000804,
+        "topdegree_n_components": 8679
+      },
+      "role_7": {
+        "budget": 1134,
+        "budget_share_pct": 12.7688,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.919711,
+        "random_connectivity_min": 0.856331,
+        "random_connectivity_max": 0.974313,
+        "random_n_components_mean": 617.3,
+        "topdegree_connectivity": 0.000129,
+        "topdegree_n_components": 7747
+      },
+      "role_8": {
+        "budget": 1390,
+        "budget_share_pct": 15.6514,
+        "role_connectivity": 1.0,
+        "role_n_components": 1,
+        "random_connectivity_mean": 0.855337,
+        "random_connectivity_min": 0.824856,
+        "random_connectivity_max": 0.914698,
+        "random_n_components_mean": 1079.3,
+        "topdegree_connectivity": 0.000133,
+        "topdegree_n_components": 7491
+      }
+    }
+  },
+  "ofac_russia_ukraine_tron": {
+    "n_nodes": 10882,
+    "n_edges": 12768,
+    "baseline": {
+      "connectivity": 0.999724,
+      "n_components": 2
+    },
+    "roles": {
+      "role_0": {
+        "budget": 2259,
+        "budget_share_pct": 20.7591,
+        "role_connectivity": 0.999652,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.854575,
+        "random_connectivity_min": 0.781862,
+        "random_connectivity_max": 0.893309,
+        "random_n_components_mean": 1253.3,
+        "topdegree_connectivity": 0.000116,
+        "topdegree_n_components": 8623
+      },
+      "role_1": {
+        "budget": 1652,
+        "budget_share_pct": 15.181,
+        "role_connectivity": 0.999675,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.920946,
+        "random_connectivity_min": 0.888624,
+        "random_connectivity_max": 0.952329,
+        "random_n_components_mean": 728.7,
+        "topdegree_connectivity": 0.000108,
+        "topdegree_n_components": 9230
+      },
+      "role_2": {
+        "budget": 1163,
+        "budget_share_pct": 10.6874,
+        "role_connectivity": 0.999691,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.935487,
+        "random_connectivity_min": 0.9039,
+        "random_connectivity_max": 0.969647,
+        "random_n_components_mean": 626.0,
+        "topdegree_connectivity": 0.000103,
+        "topdegree_n_components": 9719
+      },
+      "role_3": {
+        "budget": 1940,
+        "budget_share_pct": 17.8276,
+        "role_connectivity": 0.999665,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.878812,
+        "random_connectivity_min": 0.815813,
+        "random_connectivity_max": 0.925856,
+        "random_n_components_mean": 1083.0,
+        "topdegree_connectivity": 0.000112,
+        "topdegree_n_components": 8942
+      },
+      "role_4": {
+        "budget": 585,
+        "budget_share_pct": 5.3759,
+        "role_connectivity": 0.074293,
+        "role_n_components": 9248,
+        "random_connectivity_mean": 0.963258,
+        "random_connectivity_min": 0.946101,
+        "random_connectivity_max": 0.98048,
+        "random_n_components_mean": 377.3,
+        "topdegree_connectivity": 0.000291,
+        "topdegree_n_components": 10289
+      },
+      "role_5": {
+        "budget": 259,
+        "budget_share_pct": 2.3801,
+        "role_connectivity": 0.981644,
+        "role_n_components": 194,
+        "random_connectivity_mean": 0.989049,
+        "random_connectivity_min": 0.982585,
+        "random_connectivity_max": 0.993128,
+        "random_n_components_mean": 115.3,
+        "topdegree_connectivity": 0.000471,
+        "topdegree_n_components": 10391
+      },
+      "role_6": {
+        "budget": 871,
+        "budget_share_pct": 8.004,
+        "role_connectivity": 0.923784,
+        "role_n_components": 763,
+        "random_connectivity_mean": 0.951021,
+        "random_connectivity_min": 0.912097,
+        "random_connectivity_max": 0.977824,
+        "random_n_components_mean": 489.3,
+        "topdegree_connectivity": 0.0003,
+        "topdegree_n_components": 10005
+      },
+      "role_7": {
+        "budget": 1749,
+        "budget_share_pct": 16.0724,
+        "role_connectivity": 0.999672,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.891967,
+        "random_connectivity_min": 0.820541,
+        "random_connectivity_max": 0.952261,
+        "random_n_components_mean": 986.0,
+        "topdegree_connectivity": 0.000109,
+        "topdegree_n_components": 9133
+      },
+      "role_8": {
+        "budget": 404,
+        "budget_share_pct": 3.7126,
+        "role_connectivity": 0.999809,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.985494,
+        "random_connectivity_min": 0.981867,
+        "random_connectivity_max": 0.988166,
+        "random_n_components_mean": 151.0,
+        "topdegree_connectivity": 0.000286,
+        "topdegree_n_components": 10372
+      }
+    }
+  },
+  "ofac_terrorist_financing_tron": {
+    "n_nodes": 97178,
+    "n_edges": 126685,
+    "baseline": {
+      "connectivity": 0.999887,
+      "n_components": 2
+    },
+    "roles": {
+      "role_0": {
+        "budget": 6853,
+        "budget_share_pct": 7.052,
+        "role_connectivity": 0.999878,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.943017,
+        "random_connectivity_min": 0.93065,
+        "random_connectivity_max": 0.961915,
+        "random_n_components_mean": 5137.0,
+        "topdegree_connectivity": 3.3e-05,
+        "topdegree_n_components": 90304
+      },
+      "role_1": {
+        "budget": 22333,
+        "budget_share_pct": 22.9815,
+        "role_connectivity": 0.999813,
+        "role_n_components": 5,
+        "random_connectivity_mean": 0.815521,
+        "random_connectivity_min": 0.803434,
+        "random_connectivity_max": 0.838787,
+        "random_n_components_mean": 13792.7,
+        "topdegree_connectivity": 1.3e-05,
+        "topdegree_n_components": 74845
+      },
+      "role_2": {
+        "budget": 8585,
+        "budget_share_pct": 8.8343,
+        "role_connectivity": 7.9e-05,
+        "role_n_components": 88560,
+        "random_connectivity_mean": 0.933607,
+        "random_connectivity_min": 0.921461,
+        "random_connectivity_max": 0.956374,
+        "random_n_components_mean": 5872.3,
+        "topdegree_connectivity": 2.3e-05,
+        "topdegree_n_components": 88585
+      },
+      "role_3": {
+        "budget": 11697,
+        "budget_share_pct": 12.0367,
+        "role_connectivity": 0.999871,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.903179,
+        "random_connectivity_min": 0.868731,
+        "random_connectivity_max": 0.937121,
+        "random_n_components_mean": 8264.3,
+        "topdegree_connectivity": 1.2e-05,
+        "topdegree_n_components": 85481
+      },
+      "role_4": {
+        "budget": 10998,
+        "budget_share_pct": 11.3174,
+        "role_connectivity": 0.999872,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.908355,
+        "random_connectivity_min": 0.873068,
+        "random_connectivity_max": 0.938489,
+        "random_n_components_mean": 7888.3,
+        "topdegree_connectivity": 1.2e-05,
+        "topdegree_n_components": 86180
+      },
+      "role_5": {
+        "budget": 7534,
+        "budget_share_pct": 7.7528,
+        "role_connectivity": 0.999855,
+        "role_n_components": 4,
+        "random_connectivity_mean": 0.937877,
+        "random_connectivity_min": 0.924658,
+        "random_connectivity_max": 0.960812,
+        "random_n_components_mean": 5559.0,
+        "topdegree_connectivity": 3.3e-05,
+        "topdegree_n_components": 89632
+      },
+      "role_6": {
+        "budget": 4843,
+        "budget_share_pct": 4.9836,
+        "role_connectivity": 0.999794,
+        "role_n_components": 10,
+        "random_connectivity_mean": 0.95682,
+        "random_connectivity_min": 0.947907,
+        "random_connectivity_max": 0.973542,
+        "random_n_components_mean": 3977.3,
+        "topdegree_connectivity": 3.2e-05,
+        "topdegree_n_components": 92253
+      },
+      "role_7": {
+        "budget": 23554,
+        "budget_share_pct": 24.238,
+        "role_connectivity": 0.999959,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.800052,
+        "random_connectivity_min": 0.784459,
+        "random_connectivity_max": 0.816826,
+        "random_n_components_mean": 14705.3,
+        "topdegree_connectivity": 1.4e-05,
+        "topdegree_n_components": 73624
+      },
+      "role_8": {
+        "budget": 781,
+        "budget_share_pct": 0.8037,
+        "role_connectivity": 0.999907,
+        "role_n_components": 2,
+        "random_connectivity_mean": 0.992068,
+        "random_connectivity_min": 0.981732,
+        "random_connectivity_max": 0.998361,
+        "random_n_components_mean": 755.7,
+        "topdegree_connectivity": 0.012314,
+        "topdegree_n_components": 93968
+      }
+    }
+  }
+}

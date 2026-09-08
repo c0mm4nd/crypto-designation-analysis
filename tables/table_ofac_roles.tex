@@ -1,0 +1,65 @@
+\begin{table}[htbp]
+\centering
+\caption{ROTOR role profiles for the OFAC Iran (TRON) network ($N$=8,881, $K$=9, 9 OFAC-listed addresses in graph). Degrees count individual transfers. Connectivity is the largest-connected-component share of retained addresses after removing every address in the role; the intact network has connectivity 1. $^*$anchor-densest role.}
+\label{tab:ofac-iran-roles}
+\small
+\begin{tabular}{llrrrrrrrr}
+\toprule
+\textbf{Role} & \textbf{Family} & \textbf{Size} & \textbf{\%} & $\bar{d}_{in}$ & $\bar{d}_{out}$ & \textbf{Anchors} & \textbf{Density (\%)} & \textbf{Conn.\ after} & \textbf{Comp.\ after} \\
+\midrule
+R0 & receive-dominant & 131 & 1.5 & 1.01 & 0.00 & 0 & 0.000 & 1.000 & 1 \\
+R1 & receive-dominant & 2,679 & 30.2 & 1.09 & 0.00 & 0 & 0.000 & 1.000 & 1 \\
+R2 & receive-dominant & 469 & 5.3 & 1.67 & 0.00 & 0 & 0.000 & 1.000 & 1 \\
+R3 & send-dominant & 910 & 10.2 & 0.29 & 4.13 & 1 & 0.110 & 0.936 & 512 \\
+R4$^*$ & high-degree bilateral & 859 & 9.7 & 19.92 & 14.77 & 7 & 0.815 & 0.160 & 6,732 \\
+R5 & receive-dominant & 1,133 & 12.8 & 1.25 & 0.00 & 1 & 0.088 & 1.000 & 1 \\
+R6 & high-degree bilateral & 176 & 2.0 & 0.00 & 15.65 & 0 & 0.000 & 0.921 & 692 \\
+R7 & send-dominant & 1,134 & 12.8 & 0.00 & 1.71 & 0 & 0.000 & 1.000 & 1 \\
+R8 & send-dominant & 1,390 & 15.7 & 0.00 & 1.07 & 0 & 0.000 & 1.000 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{ROTOR role profiles for the OFAC Russia--Ukraine (TRON) network ($N$=10,882, $K$=9, 5 OFAC-listed addresses in graph). Degrees count individual transfers. Connectivity is the largest-connected-component share of retained addresses after removing every address in the role; the intact network has connectivity 1. $^*$anchor-densest role.}
+\label{tab:ofac-ru-roles}
+\small
+\begin{tabular}{llrrrrrrrr}
+\toprule
+\textbf{Role} & \textbf{Family} & \textbf{Size} & \textbf{\%} & $\bar{d}_{in}$ & $\bar{d}_{out}$ & \textbf{Anchors} & \textbf{Density (\%)} & \textbf{Conn.\ after} & \textbf{Comp.\ after} \\
+\midrule
+R0 & receive-dominant & 2,259 & 20.8 & 1.12 & 0.00 & 0 & 0.000 & 1.000 & 2 \\
+R1 & receive-dominant & 1,652 & 15.2 & 1.25 & 0.02 & 0 & 0.000 & 1.000 & 2 \\
+R2 & receive-dominant & 1,163 & 10.7 & 1.33 & 0.02 & 0 & 0.000 & 1.000 & 2 \\
+R3 & send-dominant & 1,940 & 17.8 & 0.00 & 1.13 & 0 & 0.000 & 1.000 & 2 \\
+R4$^*$ & high-degree bilateral & 585 & 5.4 & 44.09 & 28.96 & 5 & 0.855 & 0.074 & 9,248 \\
+R5 & send-dominant & 259 & 2.4 & 1.27 & 2.97 & 0 & 0.000 & 0.982 & 194 \\
+R6 & high-degree bilateral & 871 & 8.0 & 0.01 & 11.14 & 0 & 0.000 & 0.924 & 763 \\
+R7 & send-dominant & 1,749 & 16.1 & 0.00 & 1.15 & 0 & 0.000 & 1.000 & 2 \\
+R8 & send-dominant & 404 & 3.7 & 0.01 & 1.43 & 0 & 0.000 & 1.000 & 2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{ROTOR role profiles for the OFAC terrorist financing (TRON) network ($N$=97,178, $K$=9, 21 OFAC-listed addresses in graph). Degrees count individual transfers. Connectivity is the largest-connected-component share of retained addresses after removing every address in the role; the intact network has connectivity 1. $^*$anchor-densest role.}
+\label{tab:ofac-tf-roles}
+\small
+\begin{tabular}{llrrrrrrrr}
+\toprule
+\textbf{Role} & \textbf{Family} & \textbf{Size} & \textbf{\%} & $\bar{d}_{in}$ & $\bar{d}_{out}$ & \textbf{Anchors} & \textbf{Density (\%)} & \textbf{Conn.\ after} & \textbf{Comp.\ after} \\
+\midrule
+R0 & send-dominant & 6,853 & 7.1 & 0.00 & 1.80 & 1 & 0.015 & 1.000 & 2 \\
+R1 & receive-dominant & 22,333 & 23.0 & 1.10 & 0.00 & 0 & 0.000 & 1.000 & 5 \\
+R2$^*$ & high-degree bilateral & 8,585 & 8.8 & 26.89 & 28.36 & 19 & 0.221 & 0.000 & 88,560 \\
+R3 & send-dominant & 11,697 & 12.0 & 0.00 & 1.46 & 1 & 0.009 & 1.000 & 2 \\
+R4 & receive-dominant & 10,998 & 11.3 & 2.23 & 0.00 & 0 & 0.000 & 1.000 & 2 \\
+R5 & receive-dominant & 7,534 & 7.8 & 1.23 & 0.03 & 0 & 0.000 & 1.000 & 4 \\
+R6 & receive-dominant & 4,843 & 5.0 & 7.55 & 0.04 & 0 & 0.000 & 1.000 & 10 \\
+R7 & send-dominant & 23,554 & 24.2 & 0.00 & 1.87 & 0 & 0.000 & 1.000 & 2 \\
+R8 & high-degree bilateral & 781 & 0.8 & 0.00 & 10.74 & 0 & 0.000 & 1.000 & 2 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,16 @@
+\small
+\caption{\textbf{Reproducibility of the role-level result across training seeds.} For each independently trained model of the primary network we take the role with the highest density of designated addresses and report its size, how many of the 389 designated addresses it holds, and the connectivity lost when it is removed. Under the $k$-means head the answer depends on the seed: the role holds between 16\% and 44\% of the designated addresses and its removal costs between 2\% and 78\% of connectivity, and in two of three seeds it is not the role whose removal costs most. Under the prototype head the same role holds 86--94\% of the designated addresses, its removal costs 99.4--99.8\%, and it is the most damaging role in every seed. Agreement between partitions is lower for the prototype head (Supplementary Table~\ref{tab:model-variants}), but the conclusion drawn from them is what has to be reproducible, and it is.}
+\label{tab:role-reproducibility}
+\begin{tabular}{llcccc}
+\toprule
+Role assignment & Seed & Role size (\%) & Designated held & Connectivity loss (\%) & Also most damaging \\
+\midrule
+$k$-means head & 42 & 1.0 & 170 of 389 & 2.2 & no \\
+ & 43 & 0.6 & 111 of 389 & 9.1 & no \\
+ & 44 & 0.6 & 61 of 389 & 78.2 & yes \\
+\midrule
+Prototype head (adopted) & 42 & 8.0 & 347 of 389 & 99.8 & yes \\
+ & 43 & 5.4 & 334 of 389 & 99.4 & yes \\
+ & 44 & 7.7 & 367 of 389 & 99.4 & yes \\
+\bottomrule
+\end{tabular}

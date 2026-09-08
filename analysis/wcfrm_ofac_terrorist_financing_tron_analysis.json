@@ -1,0 +1,146 @@
+{
+  "dataset": "ofac_terrorist_financing_tron",
+  "n_nodes": 97178,
+  "n_edges": 126685,
+  "n_transfers": 325867,
+  "n_roles": 9,
+  "n_seeds_in_graph": 21,
+  "seed_cluster": 2,
+  "role_stats": {
+    "0": {
+      "size": 6853,
+      "avg_in": 0.002,
+      "avg_out": 1.801,
+      "avg_ic": 0.0,
+      "seed_count": 1,
+      "seed_pct": 0.0146,
+      "mean_score": 0.0913
+    },
+    "1": {
+      "size": 22333,
+      "avg_in": 1.102,
+      "avg_out": 0.0,
+      "avg_ic": 0.0007,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0603
+    },
+    "2": {
+      "size": 8585,
+      "avg_in": 26.892,
+      "avg_out": 28.361,
+      "avg_ic": 0.016,
+      "seed_count": 19,
+      "seed_pct": 0.2213,
+      "mean_score": 0.232
+    },
+    "3": {
+      "size": 11697,
+      "avg_in": 0.001,
+      "avg_out": 1.458,
+      "avg_ic": 0.0,
+      "seed_count": 1,
+      "seed_pct": 0.0085,
+      "mean_score": 0.0839
+    },
+    "4": {
+      "size": 10998,
+      "avg_in": 2.229,
+      "avg_out": 0.002,
+      "avg_ic": 0.0057,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2104
+    },
+    "5": {
+      "size": 7534,
+      "avg_in": 1.228,
+      "avg_out": 0.032,
+      "avg_ic": 0.0068,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2406
+    },
+    "6": {
+      "size": 4843,
+      "avg_in": 7.555,
+      "avg_out": 0.044,
+      "avg_ic": 0.0104,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2297
+    },
+    "7": {
+      "size": 23554,
+      "avg_in": 0.0,
+      "avg_out": 1.873,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0438
+    },
+    "8": {
+      "size": 781,
+      "avg_in": 0.0,
+      "avg_out": 10.743,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0415
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 0.999887,
+      "n_components": 2,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 0.999878,
+      "n_components": 2,
+      "removed": 6853
+    },
+    "role_1": {
+      "connectivity": 0.999813,
+      "n_components": 5,
+      "removed": 22333
+    },
+    "role_2": {
+      "connectivity": 7.9e-05,
+      "n_components": 88560,
+      "removed": 8585
+    },
+    "role_3": {
+      "connectivity": 0.999871,
+      "n_components": 2,
+      "removed": 11697
+    },
+    "role_4": {
+      "connectivity": 0.999872,
+      "n_components": 2,
+      "removed": 10998
+    },
+    "role_5": {
+      "connectivity": 0.999855,
+      "n_components": 4,
+      "removed": 7534
+    },
+    "role_6": {
+      "connectivity": 0.999794,
+      "n_components": 10,
+      "removed": 4843
+    },
+    "role_7": {
+      "connectivity": 0.999959,
+      "n_components": 2,
+      "removed": 23554
+    },
+    "role_8": {
+      "connectivity": 0.999907,
+      "n_components": 2,
+      "removed": 781
+    }
+  },
+  "model": "WCFRM v2",
+  "run": "v6_runs/v2_ofac_terrorist_financing_tron_seed42"
+}

@@ -1,0 +1,146 @@
+{
+ "israel_tron": {
+  "two_hop": {
+   "n_addresses": 596633,
+   "n_pairs": 927265,
+   "n_designated": 389,
+   "baseline_lcc_share": 0.9999815632055217,
+   "designated_median_degree": 14.0,
+   "network_median_degree": 1.0,
+   "remove_designated_pct": 0.5237897154882876,
+   "remove_top_degree_undesignated_pct": 47.588778842983736,
+   "remove_degree_matched_pct": [
+    2.8767288904835153,
+    3.290157863779064,
+    3.235816692441229
+   ],
+   "remove_degree_matched_pct_mean": 3.134234482234603,
+   "remove_random_pct_mean": 0.1021424786262289
+  },
+  "hop1": {
+   "n_addresses": 21917,
+   "n_pairs": 158022,
+   "n_designated": 389,
+   "baseline_lcc_share": 1.0,
+   "designated_median_degree": 14.0,
+   "network_median_degree": 4.0,
+   "remove_designated_pct": 26.24489037532516,
+   "remove_top_degree_undesignated_pct": 0.01393534002229746,
+   "remove_degree_matched_pct": [
+    0.0,
+    0.0,
+    0.00929022668153534
+   ],
+   "remove_degree_matched_pct_mean": 0.003096742227178447,
+   "remove_random_pct_mean": 0.001548371113587373
+  }
+ },
+ "ofac_iran_tron": {
+  "two_hop": {
+   "n_addresses": 8881,
+   "n_pairs": 10487,
+   "n_designated": 9,
+   "baseline_lcc_share": 1.0,
+   "designated_median_degree": 3.0,
+   "network_median_degree": 1.0,
+   "remove_designated_pct": 2.4008115419296705,
+   "remove_top_degree_undesignated_pct": 45.98737601442742,
+   "remove_degree_matched_pct": [
+    0.822813345356177,
+    4.012623985572583,
+    0.5522993688007238
+   ],
+   "remove_degree_matched_pct_mean": 1.7959122332431614,
+   "remove_random_pct_mean": 0.29681394649834586
+  },
+  "hop1": {
+   "n_addresses": 409,
+   "n_pairs": 1001,
+   "n_designated": 9,
+   "baseline_lcc_share": 1.0,
+   "designated_median_degree": 3.0,
+   "network_median_degree": 1.0,
+   "remove_designated_pct": 60.5,
+   "remove_top_degree_undesignated_pct": 0.0,
+   "remove_degree_matched_pct": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "remove_degree_matched_pct_mean": 0.0,
+   "remove_random_pct_mean": 0.0
+  }
+ },
+ "ofac_russia_ukraine_tron": {
+  "two_hop": {
+   "n_addresses": 10882,
+   "n_pairs": 12768,
+   "n_designated": 5,
+   "baseline_lcc_share": 0.9997243153832016,
+   "designated_median_degree": 8.0,
+   "network_median_degree": 1.0,
+   "remove_designated_pct": 4.929200942411627,
+   "remove_top_degree_undesignated_pct": 31.75465275620397,
+   "remove_degree_matched_pct": [
+    0.5333949886945466,
+    2.768082952613482,
+    0.643749949875716
+   ],
+   "remove_degree_matched_pct_mean": 1.3150759637279148,
+   "remove_random_pct_mean": 1.2676318827953281e-05
+  },
+  "hop1": {
+   "n_addresses": 798,
+   "n_pairs": 1056,
+   "n_designated": 5,
+   "baseline_lcc_share": 0.9962406015037594,
+   "designated_median_degree": 8.0,
+   "network_median_degree": 1.0,
+   "remove_designated_pct": 82.91179899593138,
+   "remove_top_degree_undesignated_pct": 1.5213305098860208,
+   "remove_degree_matched_pct": [
+    0.0023793095243695994,
+    0.0023793095243695994,
+    0.0023793095243695994
+   ],
+   "remove_degree_matched_pct_mean": 0.0023793095243695994,
+   "remove_random_pct_mean": 0.0023793095243695994
+  }
+ },
+ "ofac_terrorist_financing_tron": {
+  "two_hop": {
+   "n_addresses": 97178,
+   "n_pairs": 126685,
+   "n_designated": 21,
+   "baseline_lcc_share": 0.9998868056556011,
+   "designated_median_degree": 25.0,
+   "network_median_degree": 1.0,
+   "remove_designated_pct": 1.3577526041281707,
+   "remove_top_degree_undesignated_pct": 25.039632904976862,
+   "remove_degree_matched_pct": [
+    3.1375479201399714,
+    1.1848170268638714,
+    2.1328745665092463
+   ],
+   "remove_degree_matched_pct_mean": 2.151746504504363,
+   "remove_random_pct_mean": 0.0010318253522563954
+  },
+  "hop1": {
+   "n_addresses": 2238,
+   "n_pairs": 8852,
+   "n_designated": 21,
+   "baseline_lcc_share": 1.0,
+   "designated_median_degree": 25.0,
+   "network_median_degree": 2.0,
+   "remove_designated_pct": 43.166441136671175,
+   "remove_top_degree_undesignated_pct": 0.0,
+   "remove_degree_matched_pct": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "remove_degree_matched_pct_mean": 0.0,
+   "remove_random_pct_mean": 0.0
+  }
+ }
+}

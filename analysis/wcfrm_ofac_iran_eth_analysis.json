@@ -1,0 +1,60 @@
+{
+  "dataset": "ofac_iran_eth",
+  "n_nodes": 234768,
+  "n_edges": 414164,
+  "n_roles": 4,
+  "seed_cluster": 0,
+  "role_stats": {
+    "0": {
+      "size": 50784,
+      "seed_count": 3,
+      "seed_pct": 0.01,
+      "mean_score": 0.3215115964412689
+    },
+    "1": {
+      "size": 181109,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 1.553880974825006e-05
+    },
+    "2": {
+      "size": 0,
+      "seed_count": 0,
+      "seed_pct": 0,
+      "mean_score": 0.0
+    },
+    "3": {
+      "size": 2875,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 1.553880974825006e-05
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.45758959206398386
+    },
+    "role_0": {
+      "connectivity": 0.0,
+      "n_components": 0,
+      "path_efficiency": 0.0
+    },
+    "role_1": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.4254111130814301
+    },
+    "role_2": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.45758959206398386
+    },
+    "role_3": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "path_efficiency": 0.4628017107702513
+    }
+  }
+}

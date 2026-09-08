@@ -1,0 +1,146 @@
+{
+  "dataset": "ofac_iran_tron",
+  "n_nodes": 8881,
+  "n_edges": 10487,
+  "n_transfers": 22622,
+  "n_roles": 9,
+  "n_seeds_in_graph": 9,
+  "seed_cluster": 4,
+  "role_stats": {
+    "0": {
+      "size": 131,
+      "avg_in": 1.015,
+      "avg_out": 0.0,
+      "avg_ic": 0.0202,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.4544
+    },
+    "1": {
+      "size": 2679,
+      "avg_in": 1.087,
+      "avg_out": 0.0,
+      "avg_ic": 0.0044,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.177
+    },
+    "2": {
+      "size": 469,
+      "avg_in": 1.67,
+      "avg_out": 0.002,
+      "avg_ic": 0.005,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1941
+    },
+    "3": {
+      "size": 910,
+      "avg_in": 0.288,
+      "avg_out": 4.131,
+      "avg_ic": 0.0005,
+      "seed_count": 1,
+      "seed_pct": 0.1099,
+      "mean_score": 0.192
+    },
+    "4": {
+      "size": 859,
+      "avg_in": 19.919,
+      "avg_out": 14.767,
+      "avg_ic": 0.0391,
+      "seed_count": 7,
+      "seed_pct": 0.8149,
+      "mean_score": 0.4159
+    },
+    "5": {
+      "size": 1133,
+      "avg_in": 1.255,
+      "avg_out": 0.0,
+      "avg_ic": 0.0144,
+      "seed_count": 1,
+      "seed_pct": 0.0883,
+      "mean_score": 0.3602
+    },
+    "6": {
+      "size": 176,
+      "avg_in": 0.0,
+      "avg_out": 15.653,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0792
+    },
+    "7": {
+      "size": 1134,
+      "avg_in": 0.0,
+      "avg_out": 1.706,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0295
+    },
+    "8": {
+      "size": 1390,
+      "avg_in": 0.0,
+      "avg_out": 1.07,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1897
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 131
+    },
+    "role_1": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 2679
+    },
+    "role_2": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 469
+    },
+    "role_3": {
+      "connectivity": 0.935893,
+      "n_components": 512,
+      "removed": 910
+    },
+    "role_4": {
+      "connectivity": 0.160309,
+      "n_components": 6732,
+      "removed": 859
+    },
+    "role_5": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 1133
+    },
+    "role_6": {
+      "connectivity": 0.92062,
+      "n_components": 692,
+      "removed": 176
+    },
+    "role_7": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 1134
+    },
+    "role_8": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 1390
+    }
+  },
+  "model": "WCFRM v2",
+  "run": "v6_runs/v2_ofac_iran_tron_seed42"
+}

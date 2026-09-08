@@ -1,0 +1,32 @@
+{
+ "n_addresses": 213338784,
+ "n_pairs": 744543633,
+ "n_designated": 400,
+ "total_value_usdt": 15501844697258.285,
+ "decomposition": {
+  "designated": {
+   "incident_pct": 0.06871602063158783,
+   "stranded_pct": 3.805998650627364e-09,
+   "incident_usdt": 10652250800.444706,
+   "stranded_usdt": 590.0
+  },
+  "top_degree_400": {
+   "incident_pct": 44.94682669335663,
+   "stranded_pct": 0.0220243386500342,
+   "incident_usdt": 6967587270349.977,
+   "stranded_usdt": 3414178773.126534
+  },
+  "top_degree_1000": {
+   "incident_pct": 47.06389967847252,
+   "stranded_pct": 0.03253858859628172,
+   "incident_usdt": 7295772636630.251,
+   "stranded_usdt": 5044081470.875386
+  },
+  "top_degree_10000": {
+   "incident_pct": 54.284431051668875,
+   "stranded_pct": 0.06196507571238822,
+   "incident_usdt": 8415088196419.961,
+   "stranded_usdt": 9605729803.472935
+  }
+ }
+}

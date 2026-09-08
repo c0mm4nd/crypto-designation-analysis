@@ -1,0 +1,18 @@
+\caption{\textbf{Selecting the strength of the prototype marginal constraint.} The constraint of unbalanced optimal transport is present only to stop the prototype head from collapsing, so we fix $\beta$ at the weakest value that keeps all nine prototypes occupied. The criterion uses no address labels. Below $\beta=0.25$ prototypes are left empty; above it the roles are driven towards equal size, which a heavy-tailed transfer network has no reason to obey. Values are for the Aid for Ukraine TRON network (117,621 addresses, $K=9$, training seed 42); the transition occurs in the same place on the primary network.}
+\label{tab:balance}
+\begin{tabular}{ccccc}
+\toprule
+$\beta$ & Non-empty roles & Largest role (\%) & Smallest role & Size spread \\
+\midrule
+0.00 & 4 & 100.0 & 4 & $29399\times$ \\
+0.10 & 4 & 68.3 & 2 & $40154\times$ \\
+0.15 & 5 & 66.9 & 15 & $5243\times$ \\
+0.20 & 6 & 36.6 & 193 & $223\times$ \\
+0.25\;$\leftarrow$ used & 9 & 32.7 & 664 & $58\times$ \\
+0.30 & 9 & 26.5 & 2,573 & $12\times$ \\
+0.50 & 9 & 19.2 & 8,376 & $3\times$ \\
+0.75 & 9 & 16.7 & 8,124 & $2\times$ \\
+\midrule
+\multicolumn{5}{l}{\footnotesize $k$-means head (v3, same network): 3 non-empty roles, largest 66.2\%, spread $17\times$} \\
+\bottomrule
+\end{tabular}

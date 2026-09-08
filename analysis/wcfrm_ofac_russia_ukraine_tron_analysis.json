@@ -1,0 +1,146 @@
+{
+  "dataset": "ofac_russia_ukraine_tron",
+  "n_nodes": 10882,
+  "n_edges": 12768,
+  "n_transfers": 32271,
+  "n_roles": 9,
+  "n_seeds_in_graph": 5,
+  "seed_cluster": 4,
+  "role_stats": {
+    "0": {
+      "size": 2259,
+      "avg_in": 1.122,
+      "avg_out": 0.0,
+      "avg_ic": 0.0123,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2615
+    },
+    "1": {
+      "size": 1652,
+      "avg_in": 1.246,
+      "avg_out": 0.019,
+      "avg_ic": 0.007,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.2586
+    },
+    "2": {
+      "size": 1163,
+      "avg_in": 1.328,
+      "avg_out": 0.021,
+      "avg_ic": 0.0013,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1053
+    },
+    "3": {
+      "size": 1940,
+      "avg_in": 0.002,
+      "avg_out": 1.133,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1403
+    },
+    "4": {
+      "size": 585,
+      "avg_in": 44.085,
+      "avg_out": 28.961,
+      "avg_ic": 0.02,
+      "seed_count": 5,
+      "seed_pct": 0.8547,
+      "mean_score": 0.3096
+    },
+    "5": {
+      "size": 259,
+      "avg_in": 1.27,
+      "avg_out": 2.973,
+      "avg_ic": 0.0017,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0848
+    },
+    "6": {
+      "size": 871,
+      "avg_in": 0.006,
+      "avg_out": 11.144,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.1426
+    },
+    "7": {
+      "size": 1749,
+      "avg_in": 0.0,
+      "avg_out": 1.154,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0337
+    },
+    "8": {
+      "size": 404,
+      "avg_in": 0.015,
+      "avg_out": 1.433,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0748
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 0.999724,
+      "n_components": 2,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 0.999652,
+      "n_components": 2,
+      "removed": 2259
+    },
+    "role_1": {
+      "connectivity": 0.999675,
+      "n_components": 2,
+      "removed": 1652
+    },
+    "role_2": {
+      "connectivity": 0.999691,
+      "n_components": 2,
+      "removed": 1163
+    },
+    "role_3": {
+      "connectivity": 0.999665,
+      "n_components": 2,
+      "removed": 1940
+    },
+    "role_4": {
+      "connectivity": 0.074293,
+      "n_components": 9248,
+      "removed": 585
+    },
+    "role_5": {
+      "connectivity": 0.981644,
+      "n_components": 194,
+      "removed": 259
+    },
+    "role_6": {
+      "connectivity": 0.923784,
+      "n_components": 763,
+      "removed": 871
+    },
+    "role_7": {
+      "connectivity": 0.999672,
+      "n_components": 2,
+      "removed": 1749
+    },
+    "role_8": {
+      "connectivity": 0.999809,
+      "n_components": 2,
+      "removed": 404
+    }
+  },
+  "model": "WCFRM v2",
+  "run": "v6_runs/v2_ofac_russia_ukraine_tron_seed42"
+}

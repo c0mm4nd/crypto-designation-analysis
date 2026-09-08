@@ -1,0 +1,843 @@
+{
+ "n_designated": 400,
+ "designated": {
+  "isolated_share_pct": 0.0022536966437319596,
+  "throughput_pct": 0.06871602063158783,
+  "connectivity_loss_pct": 0.002263103458721716,
+  "stranded_usdt": 590.0
+ },
+ "draws": [
+  {
+   "isolated_share_pct": 0.0033688264930327775,
+   "throughput_pct": 0.01425307122271308,
+   "connectivity_loss_pct": 0.0034091850584339056,
+   "stranded_usdt": 3167.649748
+  },
+  {
+   "isolated_share_pct": 0.0016560545429086966,
+   "throughput_pct": 0.010458606815516473,
+   "connectivity_loss_pct": 0.0016823283658595756,
+   "stranded_usdt": 12138.529999999999
+  },
+  {
+   "isolated_share_pct": 0.002148699129548108,
+   "throughput_pct": 0.030092991279792782
+  },
+  {
+   "isolated_share_pct": 0.0012782509874078732,
+   "throughput_pct": 0.013177969428123753
+  },
+  {
+   "isolated_share_pct": 0.001684647615967692,
+   "throughput_pct": 0.030273039258011305
+  },
+  {
+   "isolated_share_pct": 0.0016658980598634326,
+   "throughput_pct": 0.014519618651081218
+  },
+  {
+   "isolated_share_pct": 0.0019513600515507796,
+   "throughput_pct": 0.01475097899774551
+  },
+  {
+   "isolated_share_pct": 0.00203385809840952,
+   "throughput_pct": 0.021856059081849268
+  },
+  {
+   "isolated_share_pct": 0.0016733978823051364,
+   "throughput_pct": 0.02398430464744228
+  },
+  {
+   "isolated_share_pct": 0.0022719774609336126,
+   "throughput_pct": 0.01347681514998162
+  },
+  {
+   "isolated_share_pct": 0.0017005847386563123,
+   "throughput_pct": 0.04021018414002798
+  },
+  {
+   "isolated_share_pct": 0.0023357259516880936,
+   "throughput_pct": 0.01342685778499997
+  },
+  {
+   "isolated_share_pct": 0.003171487415035449,
+   "throughput_pct": 0.030255616695865847
+  },
+  {
+   "isolated_share_pct": 0.0013879358906177897,
+   "throughput_pct": 0.021156407479677584
+  },
+  {
+   "isolated_share_pct": 0.0025546270192053203,
+   "throughput_pct": 0.010785115392976956
+  },
+  {
+   "isolated_share_pct": 0.0022044790589582793,
+   "throughput_pct": 0.03174694956429709
+  },
+  {
+   "isolated_share_pct": 0.0019058923779979508,
+   "throughput_pct": 0.02483665670552221
+  },
+  {
+   "isolated_share_pct": 0.0017498023234299928,
+   "throughput_pct": 0.009870014423863713
+  },
+  {
+   "isolated_share_pct": 0.0024435358992875842,
+   "throughput_pct": 0.03676150080951189
+  },
+  {
+   "isolated_share_pct": 0.0020671385604945805,
+   "throughput_pct": 0.013367818670890035
+  },
+  {
+   "isolated_share_pct": 0.0023005705339926076,
+   "throughput_pct": 0.01626643400849088
+  },
+  {
+   "isolated_share_pct": 0.0021951042809061497,
+   "throughput_pct": 0.021954907752828632
+  },
+  {
+   "isolated_share_pct": 0.0023221325235125057,
+   "throughput_pct": 0.013738772141553848
+  },
+  {
+   "isolated_share_pct": 0.0024200989541572604,
+   "throughput_pct": 0.012356672848498505
+  },
+  {
+   "isolated_share_pct": 0.0026202504655702275,
+   "throughput_pct": 0.023673938221381672
+  },
+  {
+   "isolated_share_pct": 0.0023919746200008717,
+   "throughput_pct": 0.020311412015508505
+  },
+  {
+   "isolated_share_pct": 0.0022649463773945153,
+   "throughput_pct": 0.010933368093051597
+  },
+  {
+   "isolated_share_pct": 0.0017052721276823771,
+   "throughput_pct": 0.0236725856093849
+  },
+  {
+   "isolated_share_pct": 0.0018707369603024647,
+   "throughput_pct": 0.014389041323803073
+  },
+  {
+   "isolated_share_pct": 0.0017371463730596179,
+   "throughput_pct": 0.01283177451828856
+  },
+  {
+   "isolated_share_pct": 0.0026104069486154917,
+   "throughput_pct": 0.015619318580753208
+  },
+  {
+   "isolated_share_pct": 0.0017418337620856827,
+   "throughput_pct": 0.018691520536544222
+  },
+  {
+   "isolated_share_pct": 0.002823214410398834,
+   "throughput_pct": 0.01642242463509764
+  },
+  {
+   "isolated_share_pct": 0.0019358916677647657,
+   "throughput_pct": 0.018082482807822087
+  },
+  {
+   "isolated_share_pct": 0.0018838616495754463,
+   "throughput_pct": 0.018868746787158705
+  },
+  {
+   "isolated_share_pct": 0.003960374988122156,
+   "throughput_pct": 0.01873514162268999
+  },
+  {
+   "isolated_share_pct": 0.0020427641375590434,
+   "throughput_pct": 0.016574501632543405
+  },
+  {
+   "isolated_share_pct": 0.0014366847364888635,
+   "throughput_pct": 0.02645741968551221
+  },
+  {
+   "isolated_share_pct": 0.001772301790755104,
+   "throughput_pct": 0.023729300911845597
+  },
+  {
+   "isolated_share_pct": 0.004154432893801239,
+   "throughput_pct": 0.01652554320568478
+  },
+  {
+   "isolated_share_pct": 0.0021088563228265573,
+   "throughput_pct": 0.0198617084853513
+  },
+  {
+   "isolated_share_pct": 0.0016504296760774188,
+   "throughput_pct": 0.010982701014161439
+  },
+  {
+   "isolated_share_pct": 0.002057763782442451,
+   "throughput_pct": 0.021685676441711484
+  },
+  {
+   "isolated_share_pct": 0.003020084749493556,
+   "throughput_pct": 0.017605278858083107
+  },
+  {
+   "isolated_share_pct": 0.0016715229266947105,
+   "throughput_pct": 0.012562015411599167
+  },
+  {
+   "isolated_share_pct": 0.0017976136914958538,
+   "throughput_pct": 0.017809166568176247
+  },
+  {
+   "isolated_share_pct": 0.0033983570438969857,
+   "throughput_pct": 0.014881278044501628
+  },
+  {
+   "isolated_share_pct": 0.0019640160019211545,
+   "throughput_pct": 0.023969552142062183
+  },
+  {
+   "isolated_share_pct": 0.0015463696396987802,
+   "throughput_pct": 0.009618500880445531
+  },
+  {
+   "isolated_share_pct": 0.002587438742387774,
+   "throughput_pct": 0.02617689512193291
+  },
+  {
+   "isolated_share_pct": 0.0011891905959126418,
+   "throughput_pct": 0.016694448269426045
+  },
+  {
+   "isolated_share_pct": 0.003258204112017648,
+   "throughput_pct": 0.015830375431780532
+  },
+  {
+   "isolated_share_pct": 0.001417466441481998,
+   "throughput_pct": 0.022135659835970007
+  },
+  {
+   "isolated_share_pct": 0.0014601216816191877,
+   "throughput_pct": 0.02319127574691169
+  },
+  {
+   "isolated_share_pct": 0.0014638715928400395,
+   "throughput_pct": 0.023290205520986897
+  },
+  {
+   "isolated_share_pct": 0.0027158732017019496,
+   "throughput_pct": 0.03143719396309712
+  },
+  {
+   "isolated_share_pct": 0.001087005515144429,
+   "throughput_pct": 0.01683279339567043
+  },
+  {
+   "isolated_share_pct": 0.0023432257741297976,
+   "throughput_pct": 0.019820953368901884
+  },
+  {
+   "isolated_share_pct": 0.0019251106730048166,
+   "throughput_pct": 0.010518759489706934
+  },
+  {
+   "isolated_share_pct": 0.0015740252349525626,
+   "throughput_pct": 0.019171489158248557
+  },
+  {
+   "isolated_share_pct": 0.001438090953196683,
+   "throughput_pct": 0.01926743309996465
+  },
+  {
+   "isolated_share_pct": 0.00356429061541968,
+   "throughput_pct": 0.016152121794589094
+  },
+  {
+   "isolated_share_pct": 0.001662148148642581,
+   "throughput_pct": 0.014900009106857579
+  },
+  {
+   "isolated_share_pct": 0.0016119930860636874,
+   "throughput_pct": 0.023330907048810953
+  },
+  {
+   "isolated_share_pct": 0.0030318032220587178,
+   "throughput_pct": 0.016906277737284828
+  },
+  {
+   "isolated_share_pct": 0.001816363247600113,
+   "throughput_pct": 0.018401618265944143
+  },
+  {
+   "isolated_share_pct": 0.0017976136914958538,
+   "throughput_pct": 0.012535199847627078
+  },
+  {
+   "isolated_share_pct": 0.001971047085460252,
+   "throughput_pct": 0.018430549173966974
+  },
+  {
+   "isolated_share_pct": 0.0032136739162700323,
+   "throughput_pct": 0.018825450575800397
+  },
+  {
+   "isolated_share_pct": 0.0016790227491364142,
+   "throughput_pct": 0.02278661236358924
+  },
+  {
+   "isolated_share_pct": 0.0028171208046649495,
+   "throughput_pct": 0.016482376076227434
+  },
+  {
+   "isolated_share_pct": 0.004049904118519994,
+   "throughput_pct": 0.015909132662495915
+  },
+  {
+   "isolated_share_pct": 0.002200260408834821,
+   "throughput_pct": 0.03731543221574757
+  },
+  {
+   "isolated_share_pct": 0.001683710138162479,
+   "throughput_pct": 0.01597925063435985
+  },
+  {
+   "isolated_share_pct": 0.0015341824282310117,
+   "throughput_pct": 0.018105618255567963
+  },
+  {
+   "isolated_share_pct": 0.0015529319843352709,
+   "throughput_pct": 0.015800276689129235
+  },
+  {
+   "isolated_share_pct": 0.0035103856416199347,
+   "throughput_pct": 0.015274844172682626
+  },
+  {
+   "isolated_share_pct": 0.0018487062318799602,
+   "throughput_pct": 0.015911642544298353
+  },
+  {
+   "isolated_share_pct": 0.0024074430037868853,
+   "throughput_pct": 0.031808006902330176
+  },
+  {
+   "isolated_share_pct": 0.0015660566736082524,
+   "throughput_pct": 0.016708999828402623
+  },
+  {
+   "isolated_share_pct": 0.002354475507792353,
+   "throughput_pct": 0.01412607526482721
+  },
+  {
+   "isolated_share_pct": 0.001465277809547859,
+   "throughput_pct": 0.015910002733346123
+  },
+  {
+   "isolated_share_pct": 0.002855557394678681,
+   "throughput_pct": 0.012795532772646839
+  },
+  {
+   "isolated_share_pct": 0.0016241802975314559,
+   "throughput_pct": 0.023632178997824556
+  },
+  {
+   "isolated_share_pct": 0.0018098009029636224,
+   "throughput_pct": 0.022048260687808005
+  },
+  {
+   "isolated_share_pct": 0.0015890248798359698,
+   "throughput_pct": 0.02038255614290414
+  },
+  {
+   "isolated_share_pct": 0.0032136739162700323,
+   "throughput_pct": 0.017165606618955807
+  },
+  {
+   "isolated_share_pct": 0.0014319973474627987,
+   "throughput_pct": 0.015109627708626625
+  },
+  {
+   "isolated_share_pct": 0.001745114934403928,
+   "throughput_pct": 0.014452478117794683
+  },
+  {
+   "isolated_share_pct": 0.0016888662660911502,
+   "throughput_pct": 0.018054489354915035
+  },
+  {
+   "isolated_share_pct": 0.001452621859177484,
+   "throughput_pct": 0.01669602278624738
+  },
+  {
+   "isolated_share_pct": 0.002309476573142131,
+   "throughput_pct": 0.012866583753595916
+  },
+  {
+   "isolated_share_pct": 0.001659335715226942,
+   "throughput_pct": 0.010567768511114399
+  },
+  {
+   "isolated_share_pct": 0.0019396415789856175,
+   "throughput_pct": 0.017346460389896377
+  },
+  {
+   "isolated_share_pct": 0.002100887761482247,
+   "throughput_pct": 0.02101593540356685
+  },
+  {
+   "isolated_share_pct": 0.003170549937230236,
+   "throughput_pct": 0.014229669376172037
+  },
+  {
+   "isolated_share_pct": 0.0034480433675732726,
+   "throughput_pct": 0.022320074661767615
+  },
+  {
+   "isolated_share_pct": 0.004902071443458576,
+   "throughput_pct": 0.01722814578283114
+  },
+  {
+   "isolated_share_pct": 0.0015782438850760207,
+   "throughput_pct": 0.018178707533430465
+  },
+  {
+   "isolated_share_pct": 0.0035746028712770224,
+   "throughput_pct": 0.017984018109445277
+  },
+  {
+   "isolated_share_pct": 0.001742302500988289,
+   "throughput_pct": 0.01643486527992969
+  },
+  {
+   "isolated_share_pct": 0.001611524347161081,
+   "throughput_pct": 0.02054850947630184
+  },
+  {
+   "isolated_share_pct": 0.0017169906002475392,
+   "throughput_pct": 0.019378164498075497
+  },
+  {
+   "isolated_share_pct": 0.0019194858061735388,
+   "throughput_pct": 0.01046734463516216
+  },
+  {
+   "isolated_share_pct": 0.0016518358927852383,
+   "throughput_pct": 0.021931659631219905
+  },
+  {
+   "isolated_share_pct": 0.001659335715226942,
+   "throughput_pct": 0.018970963378647773
+  },
+  {
+   "isolated_share_pct": 0.0015848062297125116,
+   "throughput_pct": 0.012866246007874046
+  },
+  {
+   "isolated_share_pct": 0.0019902653804671176,
+   "throughput_pct": 0.018879307101369425
+  },
+  {
+   "isolated_share_pct": 0.001820113158820965,
+   "throughput_pct": 0.0226008447053722
+  },
+  {
+   "isolated_share_pct": 0.0018294879368730946,
+   "throughput_pct": 0.012562331666843129
+  },
+  {
+   "isolated_share_pct": 0.0017263653782996688,
+   "throughput_pct": 0.008958794909603433
+  },
+  {
+   "isolated_share_pct": 0.0018210506366261778,
+   "throughput_pct": 0.01572572434743765
+  },
+  {
+   "isolated_share_pct": 0.0017057408665849835,
+   "throughput_pct": 0.01375913068231808
+  },
+  {
+   "isolated_share_pct": 0.0017774579186837752,
+   "throughput_pct": 0.0142106158455953
+  },
+  {
+   "isolated_share_pct": 0.003534291325652865,
+   "throughput_pct": 0.012611667297595962
+  },
+  {
+   "isolated_share_pct": 0.0014901209713860024,
+   "throughput_pct": 0.011306801304554555
+  },
+  {
+   "isolated_share_pct": 0.0012716886427713823,
+   "throughput_pct": 0.01275469720877918
+  },
+  {
+   "isolated_share_pct": 0.0017338652007413725,
+   "throughput_pct": 0.014213681048301773
+  },
+  {
+   "isolated_share_pct": 0.0022996330561873947,
+   "throughput_pct": 0.012623566615361192
+  },
+  {
+   "isolated_share_pct": 0.001954641223869025,
+   "throughput_pct": 0.01644796028355129
+  },
+  {
+   "isolated_share_pct": 0.001747927367819567,
+   "throughput_pct": 0.020576408248401613
+  },
+  {
+   "isolated_share_pct": 0.0018112071196714418,
+   "throughput_pct": 0.021600420570816778
+  },
+  {
+   "isolated_share_pct": 0.0030566463838968615,
+   "throughput_pct": 0.019217833424742106
+  },
+  {
+   "isolated_share_pct": 0.0023694751526757603,
+   "throughput_pct": 0.01883269374811681
+  },
+  {
+   "isolated_share_pct": 0.0020127648477922286,
+   "throughput_pct": 0.02201323052136407
+  },
+  {
+   "isolated_share_pct": 0.001684647615967692,
+   "throughput_pct": 0.017002577817995947
+  },
+  {
+   "isolated_share_pct": 0.002525096468341112,
+   "throughput_pct": 0.0242552621212514
+  },
+  {
+   "isolated_share_pct": 0.001954641223869025,
+   "throughput_pct": 0.01547419444890343
+  },
+  {
+   "isolated_share_pct": 0.00422614994590003,
+   "throughput_pct": 0.015883943961822546
+  },
+  {
+   "isolated_share_pct": 0.0016644918431556132,
+   "throughput_pct": 0.01624660938605803
+  },
+  {
+   "isolated_share_pct": 0.001965422218628974,
+   "throughput_pct": 0.01632540875464352
+  },
+  {
+   "isolated_share_pct": 0.0017662081850212197,
+   "throughput_pct": 0.01505040937497393
+  },
+  {
+   "isolated_share_pct": 0.004331147460083883,
+   "throughput_pct": 0.015404688127542502
+  },
+  {
+   "isolated_share_pct": 0.0018702682213998583,
+   "throughput_pct": 0.009264532164075736
+  },
+  {
+   "isolated_share_pct": 0.001428247436241947,
+   "throughput_pct": 0.02382071794226749
+  },
+  {
+   "isolated_share_pct": 0.0018838616495754463,
+   "throughput_pct": 0.017712761147633777
+  },
+  {
+   "isolated_share_pct": 0.0024768163613726447,
+   "throughput_pct": 0.021007665443962827
+  },
+  {
+   "isolated_share_pct": 0.0015196515222502106,
+   "throughput_pct": 0.013521452418424746
+  },
+  {
+   "isolated_share_pct": 0.001805582252840164,
+   "throughput_pct": 0.01689388725376689
+  },
+  {
+   "isolated_share_pct": 0.0020390142263381913,
+   "throughput_pct": 0.01414154354925043
+  },
+  {
+   "isolated_share_pct": 0.0033542955870519767,
+   "throughput_pct": 0.019044989947599306
+  },
+  {
+   "isolated_share_pct": 0.0014474657312488126,
+   "throughput_pct": 0.013122702638324761
+  },
+  {
+   "isolated_share_pct": 0.0018158945086975066,
+   "throughput_pct": 0.01534123435911924
+  },
+  {
+   "isolated_share_pct": 0.0016724604044999235,
+   "throughput_pct": 0.016535218504220087
+  },
+  {
+   "isolated_share_pct": 0.0019696408687524323,
+   "throughput_pct": 0.023302727573670017
+  },
+  {
+   "isolated_share_pct": 0.003216955088588278,
+   "throughput_pct": 0.01464566887206329
+  },
+  {
+   "isolated_share_pct": 0.0011390355333337483,
+   "throughput_pct": 0.023119340345500256
+  },
+  {
+   "isolated_share_pct": 0.0013916858018386414,
+   "throughput_pct": 0.008899219252111953
+  },
+  {
+   "isolated_share_pct": 0.0018135508141844741,
+   "throughput_pct": 0.013228293474569048
+  },
+  {
+   "isolated_share_pct": 0.0017769891797811688,
+   "throughput_pct": 0.009051240760536301
+  },
+  {
+   "isolated_share_pct": 0.0031302383916060788,
+   "throughput_pct": 0.010640889398647978
+  },
+  {
+   "isolated_share_pct": 0.0027871215148981346,
+   "throughput_pct": 0.013978512378136564
+  },
+  {
+   "isolated_share_pct": 0.002055888826832025,
+   "throughput_pct": 0.025232583413064044
+  },
+  {
+   "isolated_share_pct": 0.00211776236197608,
+   "throughput_pct": 0.017569591239875743
+  },
+  {
+   "isolated_share_pct": 0.001656523281811303,
+   "throughput_pct": 0.025816185619519733
+  },
+  {
+   "isolated_share_pct": 0.002591188653608626,
+   "throughput_pct": 0.027184927042489634
+  },
+  {
+   "isolated_share_pct": 0.002111668756242196,
+   "throughput_pct": 0.019286751118305776
+  },
+  {
+   "isolated_share_pct": 0.0011910655515230677,
+   "throughput_pct": 0.01419864338850318
+  },
+  {
+   "isolated_share_pct": 0.001195284201646526,
+   "throughput_pct": 0.01580996813675488
+  },
+  {
+   "isolated_share_pct": 0.0021383868736907655,
+   "throughput_pct": 0.014962744281914511
+  },
+  {
+   "isolated_share_pct": 0.0016757415768181689,
+   "throughput_pct": 0.02122811355592323
+  },
+  {
+   "isolated_share_pct": 0.0013007504547329842,
+   "throughput_pct": 0.02130675781864285
+  },
+  {
+   "isolated_share_pct": 0.0016551170651034836,
+   "throughput_pct": 0.019599555624703526
+  },
+  {
+   "isolated_share_pct": 0.0022058852756660988,
+   "throughput_pct": 0.01581330327249207
+  },
+  {
+   "isolated_share_pct": 0.0018683932657894324,
+   "throughput_pct": 0.03209193245549236
+  },
+  {
+   "isolated_share_pct": 0.0032516417673811573,
+   "throughput_pct": 0.011225443097866532
+  },
+  {
+   "isolated_share_pct": 0.002372287586091399,
+   "throughput_pct": 0.012237019905638451
+  },
+  {
+   "isolated_share_pct": 0.0029563362587390744,
+   "throughput_pct": 0.024254317284515433
+  },
+  {
+   "isolated_share_pct": 0.0015824625351994791,
+   "throughput_pct": 0.01030587336163196
+  },
+  {
+   "isolated_share_pct": 0.0027041547291367877,
+   "throughput_pct": 0.018000661052346746
+  },
+  {
+   "isolated_share_pct": 0.0015918373132516087,
+   "throughput_pct": 0.015125755459816101
+  },
+  {
+   "isolated_share_pct": 0.0022644776384919086,
+   "throughput_pct": 0.0307890389710643
+  },
+  {
+   "isolated_share_pct": 0.0017483961067221734,
+   "throughput_pct": 0.022810492437669798
+  },
+  {
+   "isolated_share_pct": 0.0012984067602199519,
+   "throughput_pct": 0.01309341979134979
+  },
+  {
+   "isolated_share_pct": 0.0015379323394518634,
+   "throughput_pct": 0.012880936168945334
+  },
+  {
+   "isolated_share_pct": 0.0014615278983270072,
+   "throughput_pct": 0.014983549994366324
+  },
+  {
+   "isolated_share_pct": 0.00189136147201715,
+   "throughput_pct": 0.01182210225810144
+  },
+  {
+   "isolated_share_pct": 0.0017966762136906408,
+   "throughput_pct": 0.01748386748296339
+  },
+  {
+   "isolated_share_pct": 0.002235884565432913,
+   "throughput_pct": 0.0177134840044442
+  },
+  {
+   "isolated_share_pct": 0.0019307355398360943,
+   "throughput_pct": 0.009900442674924341
+  },
+  {
+   "isolated_share_pct": 0.0016888662660911502,
+   "throughput_pct": 0.015495546784162883
+  },
+  {
+   "isolated_share_pct": 0.0017488648456247798,
+   "throughput_pct": 0.025938370384342203
+  },
+  {
+   "isolated_share_pct": 0.0030219597051039816,
+   "throughput_pct": 0.015009463329835394
+  },
+  {
+   "isolated_share_pct": 0.002323538740220325,
+   "throughput_pct": 0.015302814022625249
+  },
+  {
+   "isolated_share_pct": 0.0019447977069142889,
+   "throughput_pct": 0.012704538908339521
+  },
+  {
+   "isolated_share_pct": 0.003216486349685671,
+   "throughput_pct": 0.012040250353143272
+  },
+  {
+   "isolated_share_pct": 0.0014962145771198867,
+   "throughput_pct": 0.0169198414083648
+  },
+  {
+   "isolated_share_pct": 0.0014610591594244006,
+   "throughput_pct": 0.020787979078288877
+  },
+  {
+   "isolated_share_pct": 0.0016354300311940116,
+   "throughput_pct": 0.014585105723186513
+  },
+  {
+   "isolated_share_pct": 0.002137918134788159,
+   "throughput_pct": 0.015238301166542217
+  },
+  {
+   "isolated_share_pct": 0.0017155843835397198,
+   "throughput_pct": 0.016519159929867806
+  },
+  {
+   "isolated_share_pct": 0.0019330792343491268,
+   "throughput_pct": 0.017217978516322837
+  },
+  {
+   "isolated_share_pct": 0.00229494566716133,
+   "throughput_pct": 0.018452208733473252
+  },
+  {
+   "isolated_share_pct": 0.0031438318197816667,
+   "throughput_pct": 0.010892686858871374
+  },
+  {
+   "isolated_share_pct": 0.0033833573990135783,
+   "throughput_pct": 0.01151206186676543
+  },
+  {
+   "isolated_share_pct": 0.00292493075226444,
+   "throughput_pct": 0.019671334139716203
+  },
+  {
+   "isolated_share_pct": 0.001501370705048558,
+   "throughput_pct": 0.016912200961987693
+  },
+  {
+   "isolated_share_pct": 0.0021299495734438487,
+   "throughput_pct": 0.015003664172414645
+  },
+  {
+   "isolated_share_pct": 0.0026464998441161906,
+   "throughput_pct": 0.013007044105461834
+  },
+  {
+   "isolated_share_pct": 0.0017699580962420715,
+   "throughput_pct": 0.017958314964310898
+  }
+ ],
+ "isolated_share_pct_summary": {
+  "mean": 0.0021177647056705934,
+  "sd": 0.0006908850863179661,
+  "ci": [
+   0.001269778531743261,
+   0.003962613216382103
+  ],
+  "designated": 0.0022536966437319596,
+  "designated_percentile": 68.5
+ },
+ "throughput_pct_summary": {
+  "mean": 0.017762096220831036,
+  "sd": 0.005541922131944872,
+  "ci": [
+   0.009863726585278258,
+   0.03174847599774792
+  ],
+  "designated": 0.06871602063158783,
+  "designated_percentile": 100.0
+ },
+ "stranded_usdt_exact_draws": [
+  3167.649748,
+  12138.529999999999
+ ],
+ "connectivity_loss_exact_draws": [
+  0.0034091850584339056,
+  0.0016823283658595756
+ ]
+}

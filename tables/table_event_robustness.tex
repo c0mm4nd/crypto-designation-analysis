@@ -1,0 +1,24 @@
+\caption{\textbf{Robustness of the designation event study.} The upper block repeats the aggregate comparison under three definitions of the event: the date the seizure order was signed, the date it was published, and the date the address was frozen by Tether. Ratio is mean weekly USDT volume in weeks 7--26 after the event divided by the mean over the 26 weeks before it. Pre-trend is the ordinary-least-squares slope of $\log_{10}$ weekly volume over the pre-period, in decades per week, and the adjacent column is the ratio of the last pre-event week to the first: for the two dates an outside observer could act on they are near zero and one respectively, so the fall does not begin before the event. The freeze row is different in kind and is included only for completeness: the blacklist blocks the address from sending, so a post-event ratio of zero follows from the mechanism rather than from anything the freeze reveals about behaviour. The middle block holds the data collection fixed, recomputing both the designated and the placebo series from the crawled graph, whose per-address histories are truncated newest-first, so that the two arms are cut the same way. The block below it repeats the placebo with each designated address matched, without replacement, to the undesignated counterparty whose volume in the 26 pre-event weeks is closest to its own, which removes regression to the mean after selection on past volume as an explanation. Nearest-neighbour matching on a continuous quantity is nearly deterministic, so the five orderings we ran give only two distinct assignments; the range of those is shown, and the designated row is restricted to the addresses that were actually matched. The lower block treats the order rather than the address as the unit: the ratio recomputed dropping one order at a time, and a 95\% interval from 500 resamples of the seven orders with replacement.}
+\label{tab:event-robustness}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Event definition & Addresses & Ratio & Pre-trend & Last/first pre-week & Any post-event transfer \\
+\midrule
+Order signed & 178 & 0.0075 & +0.004 & 1.06 & 41\% \\
+Order published & 178 & 0.0016 & -0.011 & 0.93 & 39\% \\
+Address frozen by Tether & 98 & 0.0000 & -0.006 & 0.48 & 14\% \\
+\midrule
+\multicolumn{6}{l}{\emph{Same collection for both arms: crawled histories, truncated newest-first}} \\
+\quad Designated addresses & 178 & 0.0285 & +0.030 & 3.84 & 39\% \\
+\quad Placebo counterparties & 3,000 & 0.7725 & +0.017 & 2.95 & 59\% \\
+\midrule
+\multicolumn{6}{l}{\emph{Placebo matched on pre-event volume as well as on prior activity}} \\
+\quad Designated, matched subset & 154 & 0.0285 & +0.030 & 3.84 & 42\% \\
+\quad Volume-matched placebo & 154 & 0.616--0.785 & & & 81\% \\
+\midrule
+\multicolumn{6}{l}{\emph{Order as the unit of assignment}} \\
+\quad Leave one order out & 8 orders & 0.0067--0.0409 & & & \\
+\quad Cluster bootstrap, 95\% CI & 8 orders & 0.0075 [0.0000, 0.0844] & & & \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,146 @@
+{
+  "dataset": "ukraine_eth",
+  "n_nodes": 23869069,
+  "n_edges": 35364630,
+  "n_transfers": 85062218,
+  "n_roles": 9,
+  "n_seeds_in_graph": 1,
+  "seed_cluster": 8,
+  "role_stats": {
+    "0": {
+      "size": 1754491,
+      "avg_in": 1.434,
+      "avg_out": 0.026,
+      "avg_ic": 0.0001,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0024
+    },
+    "1": {
+      "size": 1647657,
+      "avg_in": 1.621,
+      "avg_out": 1.496,
+      "avg_ic": 0.0001,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0039
+    },
+    "2": {
+      "size": 3988344,
+      "avg_in": 0.0,
+      "avg_out": 1.073,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0434
+    },
+    "3": {
+      "size": 2256423,
+      "avg_in": 1.055,
+      "avg_out": 0.0,
+      "avg_ic": 0.0001,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0028
+    },
+    "4": {
+      "size": 3068447,
+      "avg_in": 1.093,
+      "avg_out": 0.0,
+      "avg_ic": 0.0001,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0018
+    },
+    "5": {
+      "size": 2985276,
+      "avg_in": 1.136,
+      "avg_out": 0.0,
+      "avg_ic": 0.0001,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0023
+    },
+    "6": {
+      "size": 1699095,
+      "avg_in": 0.068,
+      "avg_out": 7.162,
+      "avg_ic": 0.0,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0532
+    },
+    "7": {
+      "size": 4066856,
+      "avg_in": 8.131,
+      "avg_out": 1.266,
+      "avg_ic": 0.0002,
+      "seed_count": 0,
+      "seed_pct": 0.0,
+      "mean_score": 0.0035
+    },
+    "8": {
+      "size": 2402480,
+      "avg_in": 15.636,
+      "avg_out": 25.37,
+      "avg_ic": 0.0002,
+      "seed_count": 1,
+      "seed_pct": 0.0,
+      "mean_score": 0.0045
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 0.999993,
+      "n_components": 159,
+      "removed": 1754491
+    },
+    "role_1": {
+      "connectivity": 0.999999,
+      "n_components": 25,
+      "removed": 1647657
+    },
+    "role_2": {
+      "connectivity": 0.999999,
+      "n_components": 14,
+      "removed": 3988344
+    },
+    "role_3": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 2256423
+    },
+    "role_4": {
+      "connectivity": 0.999999,
+      "n_components": 19,
+      "removed": 3068447
+    },
+    "role_5": {
+      "connectivity": 1.0,
+      "n_components": 1,
+      "removed": 2985276
+    },
+    "role_6": {
+      "connectivity": 0.996938,
+      "n_components": 67878,
+      "removed": 1699095
+    },
+    "role_7": {
+      "connectivity": 0.909875,
+      "n_components": 1784685,
+      "removed": 4066856
+    },
+    "role_8": {
+      "connectivity": 0.127744,
+      "n_components": 18723980,
+      "removed": 2402480
+    }
+  },
+  "model": "ROTOR",
+  "run": "v6_runs/v2_ukraine_eth_full_seed42"
+}
