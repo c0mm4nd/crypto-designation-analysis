@@ -39,6 +39,10 @@ def find(name: str, required: bool = True) -> Path:
     for c in candidates:
         if c.exists():
             return c
+    for c in candidates:
+        gz = c.with_suffix(c.suffix + ".gz")
+        if gz.exists():
+            return gz
     if required:
         tried = "\n  ".join(str(c) for c in candidates)
         raise FileNotFoundError(f"{name} not found. Tried:\n  {tried}")
