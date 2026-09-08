@@ -27,6 +27,8 @@ import openpyxl
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import find, out_path, exists as _has  # noqa: E402
 sys.path.insert(0, str(ROOT))
 from labels.classify import classify  # noqa: E402
 
@@ -65,9 +67,9 @@ def load_complete_designated_transfers(truncate: bool = True) -> pd.DataFrame | 
     # The 490-address export is the one to use: an earlier export listed only the 389
     # addresses the two-hop crawl had reached, so the other 101 appeared in it only through
     # transfers with one of those, and their balances and last-transfer dates were partial.
-    path = ROOT / "ch_data" / "designated_usdt_transfers_complete_490.csv"
+    path = find("ch_data/designated_usdt_transfers_complete_490.csv", required=False)
     if not path.exists():
-        path = ROOT / "ch_data" / "designated_usdt_transfers_complete.csv"
+        path = find("ch_data/designated_usdt_transfers_complete.csv", required=False)
     if not path.exists():
         return None
     raw = pd.read_csv(path, usecols=["blockTimestamp", "transactionHash", "logIndex", "from_hex", "to_hex", "value"])
@@ -92,13 +94,13 @@ def tron_b58_to_hex(addr: str) -> str:
 def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame, signed: dict,
                        txn: pd.DataFrame | None = None) -> dict:
     """Match designated addresses against Tether TRC-20 blacklist events (from ClickHouse export)."""
-    path = ROOT / "ch_data" / "tron_usdt_blacklist_added.csv"
+    path = find("ch_data/tron_usdt_blacklist_added.csv", required=False)
     if not path.exists():
         return {}
     bl = pd.read_csv(path)
     bl["t"] = pd.to_datetime(bl["blockTimestamp"], unit="ms")
     first_bl = bl.groupby(bl["addr_hex"].str.lower())["t"].min()
-    des = pd.read_csv(ROOT / "ch_data" / "tron_usdt_blackfunds_destroyed.csv")
+    des = pd.read_csv(find("ch_data/tron_usdt_blackfunds_destroyed.csv"))
     des["amount"] = des["data"].apply(lambda x: int(str(x)[-64:], 16) / 1e6 if isinstance(x, str) and len(str(x)) >= 64 else 0.0)
     destroyed = des.groupby(des["addr_hex"].str.lower())["amount"].sum()
     rows = []
@@ -172,12 +174,12 @@ def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame,
     vi, ci = weekly_series(fin, "to", ev_fr)
     vo, co = weekly_series(fout, "from", ev_fr)
     out["event_study_freeze"] = {"n_addresses": len(ev_fr), "weeks": list(range(-W, W + 1)), "inflow_usdt": vi.tolist(), "outflow_usdt": vo.tolist(), "transfers": (ci + co).tolist()}
-    e.to_csv(ROOT / "ch_data" / "designated_tether_enforcement.csv", index=False)
+    e.to_csv(out_path("ch_data/designated_tether_enforcement.csv"), index=False)
     return out
 
 
 def load_edges(name: str, ts_unit: str = "ms", lower: bool = False) -> pd.DataFrame:
-    df = pd.read_csv(ROOT / name, usecols=["from", "to", "value", "block_timestamp"])
+    df = pd.read_csv(find(name), usecols=["from", "to", "value", "block_timestamp"])
     df = df[(df["value"] > 0) & (df["value"] <= VALUE_CAP)].copy()
     df["t"] = pd.to_datetime(df["block_timestamp"], unit=ts_unit)
     if lower:
@@ -187,7 +189,7 @@ def load_edges(name: str, ts_unit: str = "ms", lower: bool = False) -> pd.DataFr
 
 
 def israel_seed_dates() -> pd.DataFrame:
-    ws = openpyxl.load_workbook(ROOT / "IsraelAddrs.xlsx").active
+    ws = openpyxl.load_workbook(find("IsraelAddrs.xlsx")).active
     rows = []
     for r in ws.iter_rows(min_row=2, values_only=True):
         if len(r) < 5 or not r[3]:
@@ -201,7 +203,13 @@ def israel_seed_dates() -> pd.DataFrame:
 
 
 def label_map(chain: str) -> dict[str, str]:
-    con = sqlite3.connect(ROOT / "labels_cache" / "labels.db")
+    if not _has("labels_cache/labels.db"):
+        # Third-party entity labels are used under the providers' terms and are not
+        # redistributed, so they are absent from the deposited archive. The label-derived
+        # statistics are lower bounds and are reported as such; everything else is unaffected.
+        print("labels_cache/labels.db not present: label-derived statistics will be empty")
+        return {}
+    con = sqlite3.connect(find("labels_cache/labels.db"))
     recs: dict[str, dict] = defaultdict(dict)
     for addr, source, raw in con.execute("select address, source, raw_json from labels where chain=?", (chain,)):
         try:
@@ -360,6 +368,40 @@ def main():
         "per_address": per_address_ratio(sin, sout, ev_in),
     }
 
+    # How concentrated the aggregate series is. The event study pools eight orders, but the
+    # designated addresses differ in size by four orders of magnitude, so the aggregate
+    # weekly volume can be one operator's series. Report the share each order contributes to
+    # the pre-event total, and the participation trend, which is a different quantity from
+    # aggregate volume and behaves differently.
+    ev_act = act[act["addr"].isin(ev_in)].copy()
+    ev_act["order"] = ev_act["addr"].map(dict(zip(seeds["address"], seeds["order"])))
+    ev_act["week"] = (ev_act["t"] - ev_act["addr"].map(signed)).dt.days // 7
+    pre_w = ev_act[(ev_act["week"] >= -W) & (ev_act["week"] < 0)]
+    by_ord = pre_w.groupby("order")["value"].sum().sort_values(ascending=False)
+    fl_first = act.groupby("addr")["t"].min()
+    covered = [a_ for a_ in ev_in
+               if fl_first[a_] <= signed[a_] - pd.Timedelta(weeks=W) and DATA_END >= signed[a_] + pd.Timedelta(weeks=W)]
+    cov_act = ev_act[ev_act["addr"].isin(covered)]
+    act_share = (cov_act[(cov_act["week"] >= -W) & (cov_act["week"] <= W)]
+                 .groupby("week")["addr"].nunique() / max(len(covered), 1) * 100)
+    pre_share = act_share.reindex(range(-W, 0)).fillna(0.0)
+    slope = float(np.polyfit(pre_share.index, pre_share.to_numpy(), 1)[0]) if len(pre_share) > 1 else 0.0
+    out["nbctf_event_concentration"] = {
+        "pre_event_volume_by_order_usdt": {str(k): float(v) for k, v in by_ord.items()},
+        "pre_event_volume_share_by_order": {str(k): float(v / by_ord.sum()) for k, v in by_ord.items()},
+        "largest_order": str(by_ord.index[0]),
+        "largest_order_pre_event_share": float(by_ord.iloc[0] / by_ord.sum()),
+        "largest_order_window_share": float(ev_act.groupby("order")["value"].sum().max()
+                                            / ev_act["value"].sum()),
+        "n_addresses_covering_full_window": int(len(covered)),
+        "active_share_pct_by_week": {str(k): float(v) for k, v in act_share.items()},
+        "pre_event_active_share_slope_pp_per_week": slope,
+        "active_share_week_minus26": float(pre_share.iloc[0]), "active_share_week_minus1": float(pre_share.iloc[-1]),
+    }
+    print(f"event concentration: {by_ord.index[0]} is {100*by_ord.iloc[0]/by_ord.sum():.1f}% of pre-event volume; "
+          f"active share {pre_share.iloc[0]:.1f}% -> {pre_share.iloc[-1]:.1f}% before the order "
+          f"({slope:+.2f} pp/week, n={len(covered)})")
+
     # placebo: non-designated hop-1 addresses, pseudo-event dates drawn from the real signing dates
     hop1 = list(set(sin["from"]).union(sout["to"]) - seed_set)
     h1_frames = df[df["from"].isin(hop1) | df["to"].isin(hop1)]
@@ -390,13 +432,28 @@ def main():
     # ============================================================ B. counterparty persistence
     cps = pd.concat([sin[sin["to"].isin(ev_in)].rename(columns={"from": "cp", "to": "seed"}), sout[sout["from"].isin(ev_in)].rename(columns={"to": "cp", "from": "seed"})])
     cps = cps[~cps["cp"].isin(seed_set)]
-    cp_first = cps.assign(d=cps["seed"].map(signed)).groupby("cp")["d"].min()
+    cps = cps.assign(d=cps["seed"].map(signed))
+    # The question is whether a counterparty that dealt with a designated address *before* its
+    # order kept transacting afterwards. Counting every counterparty, including those whose
+    # only contact came after the order, answers a different question and answers it
+    # circularly: such an address is active after the order by construction.
+    n_cp_all = int(cps["cp"].nunique())
+    cps_pre = cps[cps["t"] < cps["d"]]
+    cp_first = cps_pre.groupby("cp")["d"].min()
+    # A counterparty's own later activity is only observable if the crawl reached it; the
+    # designated addresses have complete histories but their counterparties do not.
     cp_last = h1_act[h1_act["addr"].isin(cp_first.index)].groupby("addr")["t"].max()
     cp_df = pd.DataFrame({"d": cp_first, "last": cp_last}).dropna()
+    n_cp_pre = int(len(cp_first))
     cp_df = cp_df[cp_df["d"] <= DATA_END - pd.Timedelta(days=MIN_POST_DAYS)]
     # volume-weighted persistence: share of counterparty volume (with anyone) that occurs after the order
     cp_vol = h1_act[h1_act["addr"].isin(cp_df.index)].assign(d=lambda x: x["addr"].map(cp_df["d"]))
-    out["counterparty_persistence"] = {"n_counterparties": int(len(cp_df)), "share_active_after_order": float((cp_df["last"] > cp_df["d"]).mean()),
+    out["counterparty_persistence"] = {"n_counterparties": int(len(cp_df)),
+                                       "n_counterparties_all": n_cp_all,
+                                       "n_counterparties_before_order": n_cp_pre,
+                                       "n_counterparties_only_after_order": n_cp_all - n_cp_pre,
+                                       "n_dropped_not_in_crawl": n_cp_pre - int(len(cp_df)),
+                                       "share_active_after_order": float((cp_df["last"] > cp_df["d"]).mean()),
                                        "share_active_90d_after_order": float((cp_df["last"] > cp_df["d"] + pd.Timedelta(days=90)).mean()),
                                        "volume_share_after_order": float(cp_vol.loc[cp_vol["t"] > cp_vol["d"], "value"].sum() / cp_vol["value"].sum()),
                                        "designated_share_active_after_order": out["nbctf_timing"]["share_active_after_signing"]}
@@ -410,6 +467,9 @@ def main():
     scum = (seed_vol.cumsum() / seed_vol.sum()).to_numpy()
     out["concentration"] = {"n_counterparties": int(len(cpv)), "top10_share": float(cum[9]), "top100_share": float(cum[99]), "top1pct_share": float(cum[len(cpv) // 100 - 1]),
                             "counterparty_lorenz": [float(cum[int(i)]) for i in np.linspace(0, len(cpv) - 1, 200)],
+                            "counterparty_lorenz_log_rank": [int(i) + 1 for i in np.unique(np.geomspace(1, len(cpv), 400).astype(int)) - 1],
+                            "counterparty_lorenz_log": [float(cum[int(i)]) for i in np.unique(np.geomspace(1, len(cpv), 400).astype(int)) - 1],
+                            "n_counterparties_ranked": int(len(cpv)),
                             "n_designated_with_volume": int(len(seed_vol)), "designated_top10_share": float(scum[9]), "designated_top1pct_share": float(scum[max(len(seed_vol) // 100 - 1, 0)]),
                             "labelled_addresses": int(sum(1 for a in nodes if lm.get(a, "UNKNOWN") != "UNKNOWN")),
                             "seed_inflow_share_from_labelled_cex": float(sin.loc[sin["from"].map(lambda a: lm.get(a, "UNKNOWN")) == "CEX", "value"].sum() / sin["value"].sum()),
@@ -437,7 +497,7 @@ def main():
     # ============================================================ D. Ukraine donations
     ukr = {}
     for tag, fname, unit, anchor, lower in [("tron", "ukraine_tron_usdt_edges_2hop.csv", "ms", UKR_TRON, False), ("eth", "ukraine_eth_usdt_edges_2hop.csv", "s", UKR_ETH, True)]:
-        ch = ROOT / "ch_data" / "ukraine_eth_anchor_usdt.csv"
+        ch = find("ch_data/ukraine_eth_anchor_usdt.csv", required=False)
         if tag == "eth" and ch.exists():
             raw = pd.read_csv(ch)
             du = pd.DataFrame({"from": raw["from_addr"].str.lower(), "to": raw["to_addr"].str.lower(), "value": raw["raw_value"].astype(float) / 1e6, "t": pd.to_datetime(raw["blockTimestamp"], unit="s")})
@@ -464,11 +524,14 @@ def main():
                     "share_donations_below_100": float((don["value"] < 100).mean()), "cex_volume_share": float(don.loc[don["from"].map(lambda a: lmc.get(a, "UNKNOWN")) == "CEX", "value"].sum() / don["value"].sum()),
                     "windows": windows, "peak_day": str(daily["sum"].idxmax().date()), "peak_day_volume": float(daily["sum"].max()),
                     "donor_lorenz": [float(x) for x in (dv.cumsum() / dv.sum()).to_numpy()[np.linspace(0, len(dv) - 1, 200).astype(int)]],
+                    "donor_lorenz_log_rank": [int(i) + 1 for i in np.unique(np.geomspace(1, len(dv), 400).astype(int)) - 1],
+                    "donor_lorenz_log": [float(x) for x in (dv.cumsum() / dv.sum()).to_numpy()[np.unique(np.geomspace(1, len(dv), 400).astype(int)) - 1]],
+                    "n_donors_ranked": int(len(dv)),
                     "donation_size_hist": {"bin_edges_usdt": [float(x) for x in np.logspace(-1, 7, 33)], "counts": [int(c) for c in np.histogram(don["value"], bins=np.logspace(-1, 7, 33))[0]]},
                     "daily": {"date": [str(k.date()) for k in daily.index], "volume_usdt": daily["sum"].tolist(), "donations": daily["count"].astype(int).tolist(), "donors": donors_daily.reindex(daily.index).fillna(0).astype(int).tolist()}}
     out["ukraine"] = ukr
 
-    with open(ROOT / "phenomena.json", "w") as f:
+    with open(out_path("phenomena.json"), "w") as f:
         json.dump(out, f, indent=1, default=str)
     t, e, p, c, k, u = out["nbctf_timing"], out["nbctf_event_study"], out["placebo_event_study"], out["counterparty_persistence"], out["concentration"], out["ukraine"]
     print(f"designated in window: {t['n_designated_in_window']}, after window: {t['n_designated_after_window']}; median days last activity->signed {t['median_days_last_activity_to_signed']}; dormant>30d {t['share_dormant_30d_at_signing']:.2f}; active after {t['share_active_after_signing']:.2f}; signed->published median {t['median_days_signed_to_published']} d; volume after signing share {t['volume_after_signing_share']:.3f}")

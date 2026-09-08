@@ -17,11 +17,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 import os
 
 import pandas as pd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
 CAP = 1e8
 
 # The six networks of the study. Ukraine Ethereum is assembled from a full-node export
@@ -47,8 +50,9 @@ def main():
     out = {"value_cap_usdt": CAP, "crawled_networks": {}, "full_node_exports": {}}
     total = 0
     for name, fname in NETWORKS:
-        path = os.path.join(ROOT, fname)
-        if not os.path.exists(path):
+        try:
+            path = find(fname)
+        except FileNotFoundError:
             print(f"[skip] {fname} not present")
             continue
         v = pd.read_csv(path, usecols=["value"])["value"]
@@ -61,8 +65,9 @@ def main():
     print(f"total over cap across the crawled networks: {total:,}")
 
     for name, fname, col in FULL_NODE:
-        path = os.path.join(ROOT, fname)
-        if not os.path.exists(path):
+        try:
+            path = find(fname)
+        except FileNotFoundError:
             continue
         cols = pd.read_csv(path, nrows=0).columns
         c = col if col in cols else next((x for x in cols if x.lower() == "value"), None)
@@ -73,7 +78,7 @@ def main():
         out["full_node_exports"][name] = {"records": int(len(v)), "over_cap": n}
         print(f"[{name:32}] {len(v):>10,} records, {n:>6,} over cap (full-node export)")
 
-    with open(os.path.join(ROOT, args.out), "w") as f:
+    with open(out_path(args.out), "w") as f:
         json.dump(out, f, indent=1)
     print(f"saved {args.out}")
 

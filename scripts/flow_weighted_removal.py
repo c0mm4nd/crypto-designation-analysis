@@ -11,10 +11,11 @@ what moved:
   share of transfers, the same thing unweighted by size;
   share of addresses, the measure used elsewhere, for comparison.
 
-Run on the crawled sanctions networks, where per-edge values are available. The complete
-TRON network is exported without values, so the value-weighted measure there would require
-a second pass over 2.4 billion rows; the crawled networks are where the metric objection
-bites hardest in any case, since that is where degree-one addresses dominate.
+Run on the crawled sanctions networks, where per-edge values are available. The value-weighted
+measure on the complete network is computed separately, from the value-carrying export that
+scripts/export_full_tron_network.sh produces, by scripts/full_network_value_removal.py and
+scripts/full_network_stranded.py. The crawled networks are where the metric objection bites
+hardest in any case, since that is where degree-one addresses dominate.
 
 Usage:
   python scripts/flow_weighted_removal.py [--out flow_weighted_removal.json]
@@ -33,6 +34,8 @@ from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
 sys.path.insert(0, ROOT)
 from model.train_v2 import load_seed_addresses  # noqa: E402
 
@@ -46,7 +49,7 @@ VALUE_CAP = 1e8
 
 
 def build(csv: str, seeds: str):
-    df = pd.read_csv(os.path.join(ROOT, csv), usecols=["from", "to", "value"])
+    df = pd.read_csv(find(csv), usecols=["from", "to", "value"])
     df = df[(df["value"] > 0) & (df["value"] <= VALUE_CAP)]
     nodes = sorted(set(df["from"]) | set(df["to"]))
     idx = {a: i for i, a in enumerate(nodes)}
@@ -54,7 +57,7 @@ def build(csv: str, seeds: str):
     g = df.groupby([df["from"].map(idx), df["to"].map(idx)])["value"].agg(["sum", "size"])
     pairs = np.array(list(g.index))
     anchors = np.zeros(n, bool)
-    for a in load_seed_addresses(os.path.join(ROOT, seeds), "tron"):
+    for a in load_seed_addresses(str(find(seeds)), "tron"):
         if a in idx:
             anchors[idx[a]] = True
     return n, pairs[:, 0], pairs[:, 1], g["sum"].to_numpy(), g["size"].to_numpy(), anchors
@@ -101,7 +104,7 @@ def main():
               f"{r['designated']['value']:6.2f}% value | top-degree "
               f"{r['top_degree_undesignated']['addresses']:6.2f}% addr "
               f"{r['top_degree_undesignated']['value']:6.2f}% value", flush=True)
-    with open(os.path.join(ROOT, args.out), "w") as f:
+    with open(out_path(args.out), "w") as f:
         json.dump(out, f, indent=1)
     print(f"saved {args.out}")
 

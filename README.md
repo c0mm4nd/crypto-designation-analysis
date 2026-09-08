@@ -104,3 +104,22 @@ integer-overflow artefacts of the crawl; `scripts/count_overflow_records.py` rep
 `zero_value_pairs.json`, `wcfrm_results.json` and `verified_metrics.json` are read by
 `scripts/generate_source_data.py` and by the Methods, and are now deposited with the rest so
 that the figure source data can be regenerated from the archive alone.
+
+## Running from the archive (v1.2.0)
+
+`scripts/paths.py` resolves every input against both layouts, so the scripts run unchanged
+whether they sit in the working tree (outputs in the root, record-level inputs in `ch_data/`)
+or in this archive (outputs in `analysis/`, inputs in `data/`).
+
+`data/` now also carries the seizure-order list with the signing and publication date of each
+of the twenty orders (`IsraelAddrs.xlsx`), the OFAC and Aid for Ukraine anchor lists, and the
+crawled two-hop edge lists of the five TRON networks. Two inputs remain outside the deposit:
+the complete TRON USDT network, which `scripts/export_full_tron_network.sh` rebuilds from any
+archival node — the script now emits both the count-only and the value-carrying export — and
+the third-party entity labels, which are used under their providers' terms. The scripts run
+without the labels and report the label-derived statistics, which the manuscript gives as
+lower bounds, as empty.
+
+`scripts/label_complete_network_hubs.py` names the highest-activity undesignated addresses of
+the complete network, and `analysis/complete_network_hubs.json` records the ranking and the
+aggregate entity composition (per-address labels are not redistributed).

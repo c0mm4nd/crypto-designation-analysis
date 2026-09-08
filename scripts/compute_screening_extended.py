@@ -14,6 +14,8 @@ degree distribution by crawl hop. Output: screening_extended.json
 from __future__ import annotations
 
 import json
+import os
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -23,6 +25,8 @@ from scipy.sparse import coo_matrix, csr_matrix
 from sklearn.metrics import roc_auc_score
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
 K_VALUES = [500, 1000, 2000, 5000, 10000]
 THRESHOLDS = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
 N_BOOT = 200
@@ -83,7 +87,7 @@ def recall_at_k(scores, labels, k):
 
 
 def main():
-    df = pd.read_csv(ROOT / "israel_tron_usdt_edges_2hop.csv", usecols=["from", "to", "value"])
+    df = pd.read_csv(find("israel_tron_usdt_edges_2hop.csv"), usecols=["from", "to", "value"])
     df = df[(df["value"] > 0) & (df["value"] <= 1e8)]
     nodes = pd.unique(pd.concat([df["from"], df["to"]]))
     idx = {a: i for i, a in enumerate(nodes)}

@@ -52,6 +52,42 @@ GROUP BY fi, ti" > "$F" 2>> logs/export.err
 done
 echo "buckets complete: $(ls "$OUT"/*.ok 2>/dev/null | wc -l)/32"
 
+# ---------------------------------------------------------------------------------------
+# The value-carrying export. Every quantity in the paper that is weighted by USDT rather than
+# by address count reads this one: the throughput and stranded-value decomposition, the
+# degree-matched throughput interval, and the count of zero-value pairs. It is the same
+# aggregation as above with the transferred amount summed per directed pair, so the records
+# are 24 bytes (two UInt64 hashes and a Float64) rather than 20.
+#
+# The amount is the data field of the Transfer event, a 64-character big-endian hex string,
+# scaled by 1e6 for USDT's six decimals. Only the low 8 bytes can hold a real amount, so the
+# last 16 hex characters are decoded and reversed for reinterpretAsUInt64, which reads
+# little-endian. This reproduces the deposited per-address histories exactly; amounts above
+# 1e8 USDT are integer-overflow artefacts and are dropped downstream, as for the crawls.
+OUTV=${3:-tron_full_val}
+mkdir -p "$OUTV"
+for B in $(seq 0 31); do
+  F=$OUTV/bucket_$B.bin
+  for ATTEMPT in 1 2 3 4; do
+    if [ -f "$F.ok" ]; then break; fi
+    docker exec -i "$CH" clickhouse-client --user "${CH_USER:-w3r}" --password "${CH_PASSWORD:?set CH_PASSWORD}" \
+      --max_bytes_before_external_group_by=6000000000 --max_memory_usage=12000000000 \
+      --format RowBinary --query "
+SELECT cityHash64(assumeNotNull(substring(topic1,25,40))) AS fi,
+       cityHash64(assumeNotNull(substring(topic2,25,40))) AS ti,
+       sum(reinterpretAsUInt64(reverse(unhex(substring(assumeNotNull(data), 49, 16)))) / 1000000.) AS val
+FROM tron.events
+WHERE address='$USDT' AND topic0='$TRANSFER'
+  AND topic2 IS NOT NULL AND blockTimestamp < $CUT
+  AND cityHash64(assumeNotNull(substring(topic1,25,40))) % 32 = $B
+GROUP BY fi, ti" > "$F" 2>> logs/export_val.err
+    rc=$?; sz=$(stat -c %s "$F")
+    if [ $rc -eq 0 ] && [ "$sz" -gt 0 ] && [ $(( sz % 24 )) -eq 0 ]; then touch "$F.ok"; fi
+    echo "value bucket $B attempt $ATTEMPT rc=$rc size=$sz mod=$(( sz % 24 ))"
+  done
+done
+echo "value buckets complete: $(ls "$OUTV"/*.ok 2>/dev/null | wc -l)/32"
+
 # Row and address counts quoted in the paper, from the same filter.
 docker exec -i "$CH" clickhouse-client --user "${CH_USER:-w3r}" --password "${CH_PASSWORD:?}" --query "
 SELECT count() AS transfers_before_cut,

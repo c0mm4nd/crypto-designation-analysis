@@ -27,6 +27,8 @@ import numpy as np
 import pandas as pd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
 sys.path.insert(0, ROOT)
 
 from scripts.compute_phenomena import (  # noqa: E402
@@ -90,7 +92,7 @@ def main():
         "ci_orders": ci(boot_orders(lambda f: (f["days_last_to_signed"] > 30).mean(), fl, "order", N, rng)),
         "n": int(len(fl))}
 
-    enf = pd.read_csv(os.path.join(ROOT, "ch_data", "designated_tether_enforcement.csv"))
+    enf = pd.read_csv(find("ch_data/designated_tether_enforcement.csv"))
     enf["frozen"] = enf["frozen_at"].notna()
     enf = enf.join(seeds["order"], on="address")
     q["share_frozen"] = {
@@ -111,7 +113,7 @@ def main():
         "ci_orders": ci(boot_orders(lambda f: f["last_transfer_to_freeze_days"].median(), fz, "order", N, rng)),
         "n": int(len(fz))}
 
-    ph = json.load(open(os.path.join(ROOT, "phenomena.json")))
+    ph = json.load(open(find("phenomena.json")))
     cp = ph["counterparty_persistence"]
     p_hat, n_cp = cp["share_active_after_order"], cp["n_counterparties"]
     se = float(np.sqrt(p_hat * (1 - p_hat) / n_cp))
@@ -120,7 +122,7 @@ def main():
         "note": "normal approximation over independent counterparties"}
 
     out["quantities"] = q
-    with open(os.path.join(ROOT, args.out), "w") as f:
+    with open(out_path(args.out), "w") as f:
         json.dump(out, f, indent=1)
     for k, v in q.items():
         a = v["ci_addresses"]; o = v.get("ci_orders")

@@ -45,10 +45,12 @@ NETWORKS = [
     ("ofac_terrorist_financing_tron", "ofac_terrorist_financing_tron_usdt_edges_2hop.csv", "ofac_terrorist_financing.csv", "tron"),
 ]
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
 
 
 def build(csv: str, seeds: str, chain: str, value_cap: float = 1e8):
-    df = pd.read_csv(os.path.join(ROOT, csv), usecols=["from", "to", "value"])
+    df = pd.read_csv(find(csv), usecols=["from", "to", "value"])
     df = df[(df["value"] > 0) & (df["value"] <= value_cap)]
     if chain == "eth":
         df["from"] = df["from"].str.lower(); df["to"] = df["to"].str.lower()
@@ -58,7 +60,7 @@ def build(csv: str, seeds: str, chain: str, value_cap: float = 1e8):
     s = df["from"].map(idx).to_numpy(np.int64); d = df["to"].map(idx).to_numpy(np.int64)
     pair = np.unique(s * n + d)
     anchors = np.zeros(n, bool)
-    for a in load_seed_addresses(os.path.join(ROOT, seeds), chain):
+    for a in load_seed_addresses(str(find(seeds)), chain):
         if a in idx:
             anchors[idx[a]] = True
     return n, (pair // n).astype(np.int64), (pair % n).astype(np.int64), anchors
@@ -139,7 +141,7 @@ def main():
         m = sub[s] & sub[d]
         rec["hop1"] = experiments(len(ki), remap[s[m]], remap[d[m]], anchors[ki], f"{tag} hop<=1")
         out[tag] = rec
-    with open(os.path.join(ROOT, args.out), "w") as f:
+    with open(out_path(args.out), "w") as f:
         json.dump(out, f, indent=1)
     print(f"saved {args.out}")
 

@@ -8,6 +8,7 @@ used by scripts/generate_ncomms_figures.py, so figures and source data cannot dr
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -15,7 +16,9 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "Source_Data.xlsx"
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
+OUT = out_path("Source_Data.xlsx")
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from generate_ncomms_figures import DATASETS, anchor_role, load_json, role_rows  # noqa: E402
@@ -76,8 +79,8 @@ def main() -> None:
                 ("Fig 3b", "Days from signing of the order to Tether blacklisting, per frozen address."),
                 ("Fig 3c", "Weekly USDT inflow and outflow relative to the week of blacklisting."),
                 ("Fig 3d", "Days from each frozen address's last transfer to its blacklisting."),
-                ("Supp Fig 1a-b", "Per-role statistics for the NBCTF TRON network."),
-                ("Supp Fig 1c", "Role removal versus budget-matched random and top-degree removal, NBCTF TRON network."),
+                ("Supp Fig 1a", "Per-role mean in- and out-degree and share of addresses, NBCTF TRON network."),
+                ("Supp Fig 1b", "Role removal versus budget-matched random and top-degree removal, NBCTF TRON network."),
                 ("Fig 3e", "Lifetime USDT inflow against the balance still held at the moment of freezing, per frozen designated address."),
                 ("Fig 4a", "Removal test on the complete TRON USDT network: addresses lost from the largest component, throughput of the removed set, and value stranded between surviving addresses."),
                 ("Supp Fig 4", "Connectivity loss for the anchor-densest role and the most damaging role in each network (learned partition)."),
@@ -160,7 +163,7 @@ def main() -> None:
         ).to_excel(xl, sheet_name="Verified AUC (SI 4.2)", index=False)
 
         # Fig 3a-b: per-role statistics for the primary network
-        role_frame(names["israel"], data["israel"]).to_excel(xl, sheet_name="Supp Fig 1a-b", index=False)
+        role_frame(names["israel"], data["israel"]).to_excel(xl, sheet_name="Supp Fig 1a", index=False)
 
         # Fig 3c: role removal versus budget-matched controls (primary network)
         ctrl = load_json("dismantling_controls.json")["israel_tron"]["roles"]
@@ -178,7 +181,7 @@ def main() -> None:
                     "top_degree_removal_loss_pct": round(100 * (1 - c["topdegree_connectivity"]), 4),
                 }
             )
-        pd.DataFrame(rows3c).to_excel(xl, sheet_name="Supp Fig 1c", index=False)
+        pd.DataFrame(rows3c).to_excel(xl, sheet_name="Supp Fig 1b", index=False)
 
         # Fig 5a: address-level backbone test
         bt = load_json("backbone_tests.json")

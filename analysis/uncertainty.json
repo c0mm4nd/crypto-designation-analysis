@@ -63,12 +63,12 @@
    "n": 396
   },
   "counterparty_share_active_after": {
-   "point": 0.36970446613950614,
+   "point": 0.2869179600886918,
    "ci_addresses": [
-    0.3634159801256137,
-    0.37599295215339856
+    0.28069481165477983,
+    0.2931411085226038
    ],
-   "n": 22637,
+   "n": 20295,
    "note": "normal approximation over independent counterparties"
   }
  }

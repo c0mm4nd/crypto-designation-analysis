@@ -15,10 +15,13 @@ fragments, \\input into online_appendix.tex):
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
 sys.path.insert(0, str(ROOT / "scripts"))
 from generate_ncomms_figures import DATASETS, anchor_role, load_json, role_rows  # noqa: E402
 
@@ -40,15 +43,15 @@ def fmt_int(x) -> str:
 
 
 def write(name: str, body: str) -> None:
-    (ROOT / name).write_text(body)
+    out_path(name).write_text(body)
     print(f"wrote {name}")
 
 
 def main() -> None:
     data = {key: load_json(fname) for key, _, fname, _ in DATASETS}
     names = {key: tex_escape(name) for key, name, _, _ in DATASETS}
-    controls = json.load(open(ROOT / "dismantling_controls.json")) if (ROOT / "dismantling_controls.json").exists() else None
-    screening = json.load(open(ROOT / "screening_extended.json")) if (ROOT / "screening_extended.json").exists() else None
+    controls = json.load(open(find("dismantling_controls.json"))) if find("dismantling_controls.json", required=False).exists() else None
+    screening = json.load(open(find("screening_extended.json"))) if find("screening_extended.json", required=False).exists() else None
 
     # ---- network overview
     rows = []

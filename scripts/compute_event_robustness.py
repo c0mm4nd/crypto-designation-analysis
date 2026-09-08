@@ -41,6 +41,8 @@ import numpy as np
 import pandas as pd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import find, out_path  # noqa: E402
 sys.path.insert(0, ROOT)
 
 from scripts.compute_phenomena import (  # noqa: E402
@@ -102,7 +104,7 @@ def main():
     act = act[act["addr"].isin(set(seeds.index))]
 
     # Tether freeze dates for the designated addresses
-    bl = pd.read_csv(os.path.join(ROOT, "ch_data", "designated_blacklist_match.csv"))
+    bl = pd.read_csv(find("ch_data/designated_blacklist_match.csv"))
     frozen = dict(zip(bl["address"], pd.to_datetime(bl["blacklisted_at"], errors="coerce")))
 
     out: dict = {"window_weeks": W, "data_end": str(DATA_END.date()), "value_cap_usdt": VALUE_CAP}
@@ -265,7 +267,7 @@ def main():
           f"placebo post/pre={lf['placebo_crawled']['ratio_post_to_pre']:.4f} "
           f"any-post={lf['placebo_crawled']['per_address']['share_any_post_activity']:.2f}", flush=True)
 
-    with open(os.path.join(ROOT, args.out), "w") as f:
+    with open(out_path(args.out), "w") as f:
         json.dump(out, f, indent=1)
     for k, v in defs.items():
         print(f"[{k:9}] n={v['n_addresses']:3d} post/pre={v['ratio_post_to_pre']:.4f} "
