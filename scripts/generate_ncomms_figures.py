@@ -645,7 +645,7 @@ def generate_designation():
     ax_a.text(-405, len(orders) - 0.42, "still active after signing", fontsize=5.2, color=MUTED, va="bottom")
     ax_a.text(405, len(orders) - 0.42, "dormant before signing", fontsize=5.2, color=MUTED,
               va="bottom", ha="right")
-    ax_a.text(med + 12, len(orders) - 0.45, f"pooled median {med:.1f} d", fontsize=5.4, color=INK, va="center")
+    ax_a.text(med + 14, -0.52, f"pooled median {med:.1f} d", fontsize=5.4, color=INK, va="center")
     light_grid(ax_a, axis="x")
 
     # ---- b. weekly volume normalised to pre-event mean
@@ -1001,9 +1001,9 @@ def generate_enforcement():
     ax_e.set_xlim(1e0, hi); ax_e.set_ylim(lo * 0.5, hi)
     ax_e.set_xlabel("USDT ever received by the address")
     ax_e.set_ylabel("USDT still held when frozen")
-    ax_e.text(2e3, 3e5, "everything received\nstill present", fontsize=5.4, color=INK_2,
+    ax_e.text(6e3, 1.2e5, "everything received\nstill present", fontsize=5.4, color=INK_2,
               rotation=39, va="bottom", linespacing=1.2)
-    ax_e.text(0.03, 0.97, f"{t['balance_at_freeze_total_usdt']/1e6:.1f} M of "
+    ax_e.text(0.03, 0.99, f"{t['balance_at_freeze_total_usdt']/1e6:.1f} M of "
               f"{t['lifetime_inflow_frozen_usdt']/1e9:.2f} bn USDT\nfrozen ("
               f"{100*t['balance_at_freeze_total_usdt']/t['lifetime_inflow_frozen_usdt']:.2f}%)",
               transform=ax_e.transAxes, fontsize=5.2, color=INK_2, ha="left", va="top",
