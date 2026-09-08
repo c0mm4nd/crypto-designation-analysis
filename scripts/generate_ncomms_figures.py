@@ -251,135 +251,6 @@ def unique_edges(key: str, data: dict) -> int:
     return int(data[key]["n_edges"])
 
 
-def generate_study_design():
-    data = {key: load_json(fname) for key, _, fname, _ in DATASETS}
-
-    fig = plt.figure(figsize=(FULL_WIDTH, 112 * MM))
-    gs = fig.add_gridspec(2, 2, height_ratios=[0.80, 1.0], width_ratios=[1.0, 1.15], hspace=0.30, wspace=0.85,
-                          left=0.15, right=0.975, top=0.965, bottom=0.175)
-    for lab, (fx, fy) in {"a": (0.012, 0.965), "b": (0.012, 0.585), "c": (0.545, 0.585)}.items():
-        fig.text(fx, fy, lab, fontsize=8, fontweight="bold", va="top", ha="left")
-    ax_a = fig.add_subplot(gs[0, :])
-    ax_b = fig.add_subplot(gs[1, 0])
-    ax_c = fig.add_subplot(gs[1, 1])
-
-    # ---- a. framework schematic
-    ax_a.set_axis_off()
-    ax_a.set_xlim(0, 1)
-    ax_a.set_ylim(0, 1)
-
-    col_x = [0.0, 0.215, 0.475, 0.745]
-    col_w = [0.175, 0.225, 0.235, 0.255]
-    top, hgt = 0.80, 0.16
-    headers = ["Public anchors", "USDT transfer network", "ROTOR", "Analyses"]
-    for x, w, head in zip(col_x, col_w, headers):
-        ax_a.text(x + w / 2, 0.985, head, ha="center", va="top", fontsize=6.8, fontweight="bold", color=INK)
-
-    # column 1: anchors
-    rounded_box(ax_a, col_x[0], 0.58, col_w[0], 0.26, SETTING_COLORS["sanctions"],
-                "sanctions designations\nNBCTF (Israel): 490 listed\nOFAC: 56 listed, 3 programmes", fontsize=5.6)
-    rounded_box(ax_a, col_x[0], 0.22, col_w[0], 0.26, SETTING_COLORS["fundraising"],
-                "public donation wallets\nAid for Ukraine\n1 disclosed address per chain", fontsize=5.6)
-    ax_a.text(col_x[0] + col_w[0] / 2, 0.10, "TRON and Ethereum, 2-hop\ntransfer neighbourhoods", ha="center", va="top", fontsize=5.4, color=INK_2, linespacing=1.25)
-
-    # column 2: toy network
-    bx, bw = col_x[1], col_w[1]
-    ax_a.add_patch(FancyBboxPatch((bx, 0.16), bw, 0.70, boxstyle="round,pad=0,rounding_size=0.012", lw=0.6, edgecolor=GRID, facecolor="#FAFAFA", zorder=1))
-    draw_toy_network(ax_a, bx + 0.015, 0.20, bw - 0.03, 0.62)
-    ax_a.text(bx + bw / 2, 0.10, "nodes: addresses; directed edges: transfers\nwith value and timing attributes", ha="center", va="top", fontsize=5.4, color=INK_2, linespacing=1.25)
-
-    # column 3: model
-    mx, mw = col_x[2], col_w[2]
-    steps = [
-        ("direction-aware attention encoder", "#374151"),
-        ("hierarchical self-supervised\nclustering regulariser", "#374151"),
-        ("independent-cascade\nimportance target", "#374151"),
-    ]
-    sy = [0.66, 0.42, 0.18]
-    for (txt, col), y in zip(steps, sy):
-        rounded_box(ax_a, mx, y, mw, 0.19, col, txt, fontsize=5.6, fill_alpha="0D")
-    for y in (0.66, 0.42):
-        arrow(ax_a, (mx + mw / 2, y), (mx + mw / 2, y - 0.045), scale=5, lw=0.7)
-    ax_a.text(mx + mw / 2, 0.10, "outputs: functional role per address\nand a continuous importance score", ha="center", va="top", fontsize=5.4, color=INK_2, linespacing=1.25)
-
-    # column 4: analyses
-    axx, aw = col_x[3], col_w[3]
-    analyses = [
-        ("sanctioned-address screening\nAUC, threshold recall, verified negatives", "#374151", 0.66),
-        ("role-targeted dismantling\nconnectivity loss, fragmentation", "#374151", 0.42),
-        ("cross-context comparison\nsanctions vs public fundraising", "#374151", 0.18),
-    ]
-    for txt, col, y in analyses:
-        rounded_box(ax_a, axx, y, aw, 0.19, col, txt, fontsize=5.6, fill_alpha="0D")
-    ax_a.text(axx + aw / 2, 0.10, "six networks, up to 0.86 M addresses\nand 0.93 M directed edges", ha="center", va="top", fontsize=5.4, color=INK_2, linespacing=1.25)
-
-    # inter-column arrows
-    for i in range(3):
-        x_end = col_x[i] + col_w[i]
-        arrow(ax_a, (x_end + 0.006, 0.52), (col_x[i + 1] - 0.006, 0.52), scale=7, lw=1.0)
-
-    # ---- b. network scale: addresses and transfers per network (shared log axis)
-    y = np.arange(len(DATASETS))[::-1]
-    nodes = np.array([data[k]["n_nodes"] for k, *_ in DATASETS], dtype=float)
-    edges = np.array([unique_edges(k, data) for k, *_ in DATASETS], dtype=float)
-    seeds = [sum(r["seed_count"] for r in role_rows(data[k])) for k, *_ in DATASETS]
-    ks = [data[k]["n_roles"] for k, *_ in DATASETS]
-    for yi, n, e, (key, name, _, setting) in zip(y, nodes, edges, DATASETS):
-        c = SETTING_COLORS[setting]
-        ax_b.plot([n, e], [yi, yi], color=c, lw=1.2, alpha=0.5, zorder=2)
-        ax_b.plot(n, yi, "o", ms=4.2, color=c, mec="white", mew=0.5, zorder=3)
-        ax_b.plot(e, yi, "o", ms=4.2, mfc="white", mec=c, mew=1.0, zorder=3)
-    ax_b.set_yticks(y)
-    ax_b.set_yticklabels([name for _, name, _, _ in DATASETS])
-    ax_b.set_xscale("log")
-    ax_b.set_xlim(4e3, 6e6)
-    ax_b.set_xlabel("count (log scale)")
-    light_grid(ax_b, axis="x")
-    ax_b.tick_params(axis="y", length=0)
-    # annotation columns: K and anchors
-    for yi, k, s in zip(y, ks, seeds):
-        ax_b.text(1.02, yi, f"{k}", transform=ax_b.get_yaxis_transform(), ha="left", va="center", fontsize=6, color=INK_2)
-        ax_b.text(1.15, yi, f"{s}", transform=ax_b.get_yaxis_transform(), ha="left", va="center", fontsize=6, color=INK_2)
-    ax_b.text(1.02, 1.01, "K", transform=ax_b.transAxes, ha="left", va="bottom", fontsize=6, color=INK, fontweight="bold")
-    ax_b.text(1.15, 1.01, "anchors", transform=ax_b.transAxes, ha="left", va="bottom", fontsize=6, color=INK, fontweight="bold")
-    scale_handles = [
-        Line2D([], [], marker="o", ls="", ms=4.2, color=NEUTRAL, mec="white", label="addresses"),
-        Line2D([], [], marker="o", ls="", ms=4.2, mfc="white", mec=NEUTRAL, mew=1.0, label="unique directed edges"),
-    ]
-
-    # ---- c. role composition of the three focal networks
-    focal = [("israel", "NBCTF Israel\nsanctions (TRON)"), ("ukr_tron", "Aid for Ukraine\n(TRON)"), ("ukr_eth", "Aid for Ukraine\n(Ethereum)")]
-    yc = np.arange(len(focal))[::-1]
-    for yi, (key, name) in zip(yc, focal):
-        rows = role_rows(data[key])
-        anchor = anchor_role(data[key])
-        left = 0.0
-        for r in rows:
-            width = r["share"] * 100
-            ax_c.barh(yi, width, left=left, height=0.55, color=FAMILY_COLORS[r["family"]], edgecolor="white", linewidth=0.6, zorder=2)
-            if width > 5.5:
-                ax_c.text(left + width / 2, yi, f"R{r['role']}", ha="center", va="center", fontsize=5.6, color="white", fontweight="bold", zorder=3)
-            if r["role"] == anchor:
-                ax_c.plot(left + width / 2, yi + 0.42, marker="v", ms=3.5, color=INK, zorder=4, clip_on=False)
-            left += width
-    ax_c.set_yticks(yc)
-    ax_c.set_yticklabels([name for _, name in focal])
-    ax_c.set_xlim(0, 100)
-    ax_c.set_ylim(-0.6, len(focal) - 0.2)
-    ax_c.set_xlabel("share of addresses (%)")
-    light_grid(ax_c, axis="x")
-    ax_c.tick_params(axis="y", length=0)
-    fam_handles = [Patch(facecolor=FAMILY_COLORS[f], edgecolor="none", label=FAMILY_LABELS[f]) for f in FAMILY_ORDER]
-    fam_handles.append(Line2D([], [], marker="v", ls="", ms=3.5, color=INK, label="role with most anchor addresses"))
-    fig.legend(handles=scale_handles + fam_handles, loc="lower center", bbox_to_anchor=(0.5, 0.005), ncol=4, columnspacing=1.2,
-               handletextpad=0.5, handlelength=1.0, handleheight=0.8, labelspacing=0.35)
-
-    fig.savefig(ROOT / "fig_study_design.pdf")
-    fig.savefig(ROOT / "fig_study_design.png", dpi=300)
-    plt.close(fig)
-
-
-# --------------------------------------------------------------------------- Figure 2
 def generate_model_performance():
     """Supplementary screening figure, computed entirely from screening_extended.json.
 
@@ -589,18 +460,18 @@ def generate_timelines():
     ax_a.set_axis_off()
     ax_a.set_xlim(0, 1)
     ax_a.set_ylim(0, 1)
-    col_x = [0.0, 0.215, 0.475, 0.745]
-    col_w = [0.175, 0.225, 0.235, 0.255]
+    col_x = [0.0, 0.245, 0.495, 0.755]
+    col_w = [0.215, 0.205, 0.225, 0.245]
     headers = ["Public anchors", "USDT transfer network", "Role learning (ROTOR)", "Analyses"]
     for x, w, head in zip(col_x, col_w, headers):
         ax_a.text(x + w / 2, 0.985, head, ha="center", va="top", fontsize=6.8, fontweight="bold", color=INK)
-    rounded_box(ax_a, col_x[0], 0.58, col_w[0], 0.26, SETTING_COLORS["sanctions"], "sanctions designations\nNBCTF (Israel): 20 seizure orders\nOFAC: 3 programmes", fontsize=5.6)
-    rounded_box(ax_a, col_x[0], 0.22, col_w[0], 0.26, SETTING_COLORS["fundraising"], "public donation wallets\nAid for Ukraine\n1 disclosed address per chain", fontsize=5.6)
+    rounded_box(ax_a, col_x[0], 0.58, col_w[0], 0.26, SETTING_COLORS["sanctions"], "sanctions designations\nNBCTF (Israel): 20 orders\nOFAC: 3 programmes", fontsize=5.6)
+    rounded_box(ax_a, col_x[0], 0.22, col_w[0], 0.26, SETTING_COLORS["fundraising"], "public donation wallets\nAid for Ukraine\n1 address per chain", fontsize=5.6)
     ax_a.text(col_x[0] + col_w[0] / 2, 0.10, "TRON and Ethereum, 2-hop\nneighbourhoods to 1 Jan 2025", ha="center", va="top", fontsize=5.4, color=INK_2, linespacing=1.25)
     bx, bw = col_x[1], col_w[1]
     ax_a.add_patch(FancyBboxPatch((bx, 0.16), bw, 0.70, boxstyle="round,pad=0,rounding_size=0.012", lw=0.6, edgecolor=GRID, facecolor="#FAFAFA", zorder=1))
     draw_toy_network(ax_a, bx + 0.015, 0.20, bw - 0.03, 0.62)
-    ax_a.text(bx + bw / 2, 0.10, "nodes: addresses; directed edges: transfers\nwith value and timing attributes", ha="center", va="top", fontsize=5.4, color=INK_2, linespacing=1.25)
+    ax_a.text(bx + bw / 2, 0.10, "nodes: addresses; edges: transfers\nwith value and timing", ha="center", va="top", fontsize=5.4, color=INK_2, linespacing=1.25)
     mx, mw = col_x[2], col_w[2]
     for txt, y in [("direction-aware attention encoder", 0.66), ("prototype head,\noptimal-transport targets", 0.42), ("functional roles per address\n(donor, relay, collector, hub)", 0.18)]:
         rounded_box(ax_a, mx, y, mw, 0.19, "#374151", txt, fontsize=5.6, fill_alpha="0D")
@@ -620,7 +491,7 @@ def generate_timelines():
     vol = np.array(m["designated_volume_usdt"]) / 1e6
     ax_b.bar(months, np.maximum(vol, 1e-3), width=26, color=SETTING_COLORS["sanctions"], alpha=0.85, zorder=3)
     ax_b.set_yscale("log")
-    ax_b.set_ylim(0.01, 3000)
+    ax_b.set_ylim(0.01, 2.0e5)
     ax_b.set_ylabel("USDT through designated\naddresses per month (million)")
     i = 0
     for o in ph["nbctf_orders"]:
@@ -628,30 +499,46 @@ def generate_timelines():
         if d > np.datetime64("2025-01-01") or o["n_addresses"] < 3:
             continue
         ax_b.axvline(d, color=INK_2, lw=0.6, ls=(0, (2, 2)), zorder=2)
-        if o["n_addresses"] >= 5:
-            ax_b.text(d, 2500 if i % 2 == 0 else 400, f"{o['order'].replace('ASO ', '')} (n={o['n_addresses']})", rotation=90, ha="right", va="top", fontsize=4.6, color=INK_2)
+        if o["n_addresses"] >= 10:
+            ax_b.text(d + np.timedelta64(22 * (1 if i % 2 else -1), 'D'), (2.0e3, 8.0e3, 3.2e4, 1.28e5)[i % 4], f"{o['order'].replace('ASO ', '')} ({o['n_addresses']})", rotation=90, ha="center", va="bottom", fontsize=5.0, color=INK_2)
             i += 1
     ax_b.xaxis.set_major_locator(mdates.YearLocator())
     ax_b.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax_b.set_xlim(np.datetime64("2020-01-01"), np.datetime64("2025-01-15"))
     light_grid(ax_b, axis="y")
 
-    # ---- c. Ukraine TRON daily donations
+    # ---- c. Ukraine TRON donations, cumulative on a log time axis
+    # A thousand daily bars in 66 mm are mostly narrower than a pixel, and the claim the panel
+    # supports is cumulative: the campaign was over in its first week. Log days since the
+    # invasion gives that week a third of the axis instead of a third of a millimetre.
     u = ph["ukraine"]["tron"]
     days = np.array([np.datetime64(x) for x in u["daily"]["date"]])
-    dv = np.array(u["daily"]["volume_usdt"]) / 1e3
-    ax_c.bar(days, np.maximum(dv, 1e-2), width=1.0, color=SETTING_COLORS["fundraising"], alpha=0.9, zorder=3)
-    ax_c.set_yscale("log")
-    ax_c.set_ylim(0.1, 3000)
-    ax_c.set_ylabel("USDT donated to the official\nTRON address per day (thousand)")
-    ax_c.axvline(np.datetime64("2022-02-24"), color=INK_2, lw=0.6, ls=(0, (2, 2)), zorder=2)
-    ax_c.text(np.datetime64("2022-02-24"), 2000, "invasion\n24 Feb 2022", rotation=90, ha="right", va="top", fontsize=4.8, color=INK_2, linespacing=1.1)
+    t0 = np.datetime64("2022-02-24")
+    el = (days - t0).astype("timedelta64[D]").astype(float) + 1.0
+    keep = el >= 1
+    el = el[keep]
+    cv = np.cumsum(np.array(u["daily"]["volume_usdt"])[keep]) / u["volume_usdt"] * 100
+    cn = np.cumsum(np.array(u["daily"]["donations"])[keep]) / u["n_donations"] * 100
+    ax_c.step(el, cv, where="post", color=SETTING_COLORS["fundraising"], lw=1.4, zorder=4,
+              label="share of USDT donated")
+    ax_c.step(el, cn, where="post", color=INK_2, lw=1.1, ls=(0, (3, 1.6)), zorder=3,
+              label="share of donations made")
+    ax_c.axvspan(1, 7, color=SETTING_COLORS["fundraising"], alpha=0.10, lw=0, zorder=1)
     w1 = u["windows"]["week1"]
-    ax_c.text(0.99, 0.95, f"first week: {w1['volume_usdt']/1e6:.2f} M USDT from {w1['donors']:,} donors\ntotal: {u['volume_usdt']/1e6:.2f} M USDT, {u['n_donations']:,} donations, {u['n_donors']:,} donors",
-              transform=ax_c.transAxes, fontsize=5.2, color=INK_2, ha="right", va="top", linespacing=1.25)
-    ax_c.xaxis.set_major_locator(mdates.YearLocator())
-    ax_c.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
-    ax_c.set_xlim(np.datetime64("2022-01-01"), np.datetime64("2025-01-15"))
+    ax_c.text(8.5, w1["volume_usdt"] / u["volume_usdt"] * 100 - 6,
+              f"first week: {w1['volume_usdt']/1e6:.2f} M USDT\nfrom {w1['donors']:,} donors",
+              fontsize=5.2, color=INK_2, va="top", linespacing=1.25)
+    ax_c.set_xscale("log")
+    ax_c.set_xlim(1, 1100)
+    ax_c.set_ylim(0, 104)
+    ax_c.set_xlabel("days since the invasion of 24 February 2022 (log scale)")
+    ax_c.set_ylabel("cumulative share of the\ncampaign's total (%)")
+    ax_c.set_xticks([1, 7, 30, 90, 365, 1000])
+    ax_c.set_xticklabels(["1", "7", "30", "90", "365", "1,000"])
+    ax_c.text(0.99, 0.06, f"total: {u['volume_usdt']/1e6:.2f} M USDT, {u['n_donations']:,} donations, {u['n_donors']:,} donors",
+              transform=ax_c.transAxes, fontsize=5.2, color=MUTED, ha="right", va="bottom")
+    ax_c.legend(loc="upper left", bbox_to_anchor=(0.02, 1.0), frameon=False, fontsize=5.2,
+                handlelength=1.8, labelspacing=0.3)
     light_grid(ax_c, axis="y")
 
     # ---- d. network scale
@@ -722,27 +609,44 @@ def generate_designation():
     weeks = np.arange(-W, W + 1)
 
     fig = plt.figure(figsize=(FULL_WIDTH, 110 * MM))
-    gs = fig.add_gridspec(2, 2, hspace=0.50, wspace=0.42, left=0.085, right=0.975, top=0.955, bottom=0.10)
+    gs = fig.add_gridspec(2, 2, hspace=0.50, wspace=0.46, left=0.135, right=0.975, top=0.955, bottom=0.10)
     ax_a = fig.add_subplot(gs[0, 0])
     ax_b = fig.add_subplot(gs[0, 1])
     ax_c = fig.add_subplot(gs[1, 0])
     ax_d = fig.add_subplot(gs[1, 1])
-    for ax, lab in zip([ax_a, ax_b, ax_c, ax_d], "abcd"):
-        panel_label(ax, lab, dx=-0.20)
+    for ax, lab, dx in zip([ax_a, ax_b, ax_c, ax_d], "abcd", (-0.34, -0.20, -0.20, -0.20)):
+        panel_label(ax, lab, dx=dx)
 
-    # ---- a. days from last observed activity to signing
+    # ---- a. lag to signing, one row per order
+    # The unit of assignment is the order, not the address, and the order medians run from
+    # -279 to +163 days. A pooled histogram hides exactly the variation the text is about.
+    by = t["days_last_activity_to_signed_by_order"]
+    signed = t["signed_by_order"]
+    orders = sorted(by, key=lambda o: signed[o])
     dd = np.array(t["days_last_activity_to_signed"])
-    bins = np.arange(-400, 401, 25)
-    ax_a.hist(np.clip(dd, -399, 399), bins=bins, color=SETTING_COLORS["sanctions"], alpha=0.85, zorder=3)
-    ax_a.axvline(0, color=INK_2, lw=0.7, zorder=4)
-    ax_a.axvline(np.median(dd), color=INK, lw=0.8, ls=(0, (3, 2)), zorder=4)
-    ax_a.text(np.median(dd) + 8, ax_a.get_ylim()[1] * 0.95, f"median {np.median(dd):.0f} d", fontsize=5.6, color=INK, va="top")
-    ax_a.text(-380, ax_a.get_ylim()[1] * 0.95, "still active\nafter signing", fontsize=5.4, color=INK_2, va="top")
-    ax_a.text(380, ax_a.get_ylim()[1] * 0.95, "dormant\nbefore signing", fontsize=5.4, color=INK_2, va="top", ha="right")
+    rng = np.random.default_rng(7)
+    y = np.arange(len(orders))[::-1]
+    for yi, o in zip(y, orders):
+        v = np.clip(np.array(by[o]), -400, 400)
+        ax_a.scatter(v, yi + rng.uniform(-0.22, 0.22, len(v)), s=3.2, lw=0,
+                     color=SETTING_COLORS["sanctions"], alpha=0.55, zorder=3)
+        m = float(np.median(v))
+        ax_a.plot([m, m], [yi - 0.34, yi + 0.34], color=INK, lw=1.2, zorder=5,
+                  solid_capstyle="butt")
+    ax_a.axvline(0, color=INK_2, lw=0.7, zorder=2)
+    med = float(np.median(dd))
+    ax_a.axvline(med, color=INK, lw=0.8, ls=(0, (3, 2)), zorder=2)
+    ax_a.set_yticks(y)
+    ax_a.set_yticklabels([f"{o}  ($n$ = {len(by[o])})" for o in orders], fontsize=5.2)
+    ax_a.tick_params(axis="y", length=0)
+    ax_a.set_ylim(-0.7, len(orders) - 0.3)
+    ax_a.set_xlim(-420, 420)
     ax_a.set_xlabel("days from last observed transfer to signing of the seizure order")
-    ax_a.set_ylabel(f"designated addresses (n = {t['n_designated_in_window']})")
-    ax_a.set_xlim(-400, 400)
-    light_grid(ax_a, axis="y")
+    ax_a.text(-405, len(orders) - 0.42, "still active after signing", fontsize=5.2, color=MUTED, va="bottom")
+    ax_a.text(405, len(orders) - 0.42, "dormant before signing", fontsize=5.2, color=MUTED,
+              va="bottom", ha="right")
+    ax_a.text(med + 12, len(orders) - 0.45, f"pooled median {med:.1f} d", fontsize=5.4, color=INK, va="center")
+    light_grid(ax_a, axis="x")
 
     # ---- b. weekly volume normalised to pre-event mean
     ev = np.array(e["volume_usdt"]) / e["pre_mean_weekly_volume"]
@@ -1000,14 +904,17 @@ def generate_enforcement():
     W = ph["window_weeks"]
     weeks = np.arange(-W, W + 1)
 
-    fig = plt.figure(figsize=(FULL_WIDTH, 110 * MM))
-    gs = fig.add_gridspec(2, 2, hspace=0.80, wspace=0.45, left=0.085, right=0.975, top=0.955, bottom=0.11, width_ratios=[1.0, 1.1])
-    ax_a = fig.add_subplot(gs[0, 0])
-    ax_b = fig.add_subplot(gs[0, 1])
+    fig = plt.figure(figsize=(FULL_WIDTH, 112 * MM))
+    gs = fig.add_gridspec(2, 3, hspace=0.85, wspace=0.50, left=0.075, right=0.985, top=0.955,
+                          bottom=0.11, width_ratios=[1.0, 0.86, 0.86])
+    ax_a = fig.add_subplot(gs[0, 0:2])
+    ax_b = fig.add_subplot(gs[0, 2])
     ax_c = fig.add_subplot(gs[1, 0])
     ax_d = fig.add_subplot(gs[1, 1])
-    for ax, lab in zip([ax_a, ax_b, ax_c, ax_d], "abcd"):
-        panel_label(ax, lab, dx=-0.22)
+    ax_e = fig.add_subplot(gs[1, 2])
+    for ax, lab, dx in zip([ax_a, ax_b, ax_c, ax_d, ax_e], "abcde",
+                           (-0.11, -0.26, -0.26, -0.26, -0.26)):
+        panel_label(ax, lab, dx=dx)
 
     # ---- a. freeze coverage by order (stacked bars)
     orders = [o for o in t["by_order"] if o["n"] >= 3]
@@ -1041,9 +948,9 @@ def generate_enforcement():
     ax_b.hist(np.clip(dd, -99, 399), bins=bins, color="#0072B2", alpha=0.85, zorder=3)
     ax_b.axvline(0, color=INK_2, lw=0.7, zorder=4)
     ax_b.axvline(np.median(dd), color=INK, lw=0.8, ls=(0, (3, 2)), zorder=4)
-    ax_b.text(np.median(dd) + 6, ax_b.get_ylim()[1] * 0.95, f"median {np.median(dd):.0f} d", fontsize=5.6, color=INK, va="top")
-    ax_b.text(0.99, 0.95, f"{t['n_frozen']} of {t['n_designated']} designated addresses frozen\n{t['n_frozen_before_signing']} before signing, {t['n_frozen_within_30d']} within 30 d, {t['n_frozen_after_30d']} later", transform=ax_b.transAxes, fontsize=5.2, color=INK_2, ha="right", va="top", linespacing=1.25)
-    ax_b.set_xlabel("days from signing of the order to Tether blacklisting")
+    ax_b.text(np.median(dd) + 14, ax_b.get_ylim()[1] * 0.60, f"median {np.median(dd):.0f} d", fontsize=5.4, color=INK, va="top")
+    ax_b.text(0.99, 0.97, f"{t['n_frozen']} of {t['n_designated']} frozen\n{t['n_frozen_before_signing']} before signing\n{t['n_frozen_within_30d']} within 30 d after\n{t['n_frozen_after_30d']} later", transform=ax_b.transAxes, fontsize=5.2, color=INK_2, ha="right", va="top", linespacing=1.3)
+    ax_b.set_xlabel("days from signing of the order\nto Tether blacklisting", linespacing=1.35)
     ax_b.set_ylabel("frozen designated addresses")
     ax_b.set_xlim(-100, 400)
     light_grid(ax_b, axis="y")
@@ -1057,7 +964,7 @@ def generate_enforcement():
     ax_c.plot(weeks[m], vi[m], color="#009E73", lw=1.3, marker="o", ms=2.4, mec="white", mew=0.3, zorder=3, label="inflow to frozen addresses")
     ax_c.plot(weeks[m], vo[m], color="#D55E00", lw=1.3, marker="o", ms=2.4, mec="white", mew=0.3, zorder=3, label="outflow from frozen addresses")
     ax_c.set_xlabel("weeks relative to Tether blacklisting")
-    ax_c.set_ylabel(f"USDT per week (million), n = {e['n_addresses']} addresses")
+    ax_c.set_ylabel(f"USDT per week (million)\n$n$ = {e['n_addresses']} frozen addresses", linespacing=1.35)
     ax_c.set_ylim(0, max(vi[m].max(), vo[m].max()) * 1.25)
     light_grid(ax_c)
     ax_c.legend(loc="upper left", labelspacing=0.3, handlelength=1.6)
@@ -1073,6 +980,36 @@ def generate_enforcement():
     ax_d.set_ylabel("frozen designated addresses")
     ax_d.text(0.99, 0.82, f"{t['share_of_frozen_addresses_with_positive_balance']*100:.0f}% held more than\n1 USDT when frozen", transform=ax_d.transAxes, fontsize=5.2, color=INK_2, ha="right", va="top", linespacing=1.25)
     light_grid(ax_d, axis="y")
+
+    # ---- e. what was still there when the lock closed
+    # Every address is one point: everything it ever received against what remained at the
+    # freeze. The y = x line is the seizure the order asks for; the cloud sits four to six
+    # decades below it, which is the paragraph this figure is under.
+    inflow = np.array(t["per_address_lifetime_inflow_usdt"])
+    bal = np.array(t["per_address_balance_at_freeze_usdt"])
+    ok = inflow > 0
+    lo, hi = 1e-3, 1e10
+    xs = inflow[ok]
+    ys = np.clip(bal[ok], lo, None)
+    zero = bal[ok] <= 0
+    ax_e.plot([lo, hi], [lo, hi], color=INK_2, lw=0.8, ls=(0, (3, 2)), zorder=2)
+    ax_e.scatter(xs[~zero], ys[~zero], s=3.4, lw=0, color=SETTING_COLORS["sanctions"],
+                 alpha=0.55, zorder=4)
+    ax_e.scatter(xs[zero], np.full(int(zero.sum()), lo * 1.6), s=3.4, lw=0, color=MUTED,
+                 alpha=0.55, marker="v", zorder=3)
+    ax_e.set_xscale("log"); ax_e.set_yscale("log")
+    ax_e.set_xlim(1e0, hi); ax_e.set_ylim(lo * 0.5, hi)
+    ax_e.set_xlabel("USDT ever received by the address")
+    ax_e.set_ylabel("USDT still held when frozen")
+    ax_e.text(2e3, 3e5, "everything received\nstill present", fontsize=5.0, color=INK_2,
+              rotation=39, va="bottom", linespacing=1.2)
+    ax_e.text(0.03, 0.97, f"{t['balance_at_freeze_total_usdt']/1e6:.1f} M of "
+              f"{t['lifetime_inflow_frozen_usdt']/1e9:.2f} bn USDT\nfrozen ("
+              f"{100*t['balance_at_freeze_total_usdt']/t['lifetime_inflow_frozen_usdt']:.2f}%)",
+              transform=ax_e.transAxes, fontsize=5.2, color=INK_2, ha="left", va="top",
+              linespacing=1.25)
+    ax_e.text(1.6e0, lo * 2.2, "nothing left", fontsize=5.0, color=MUTED, va="bottom")
+    light_grid(ax_e)
 
     fig.savefig(ROOT / "fig_enforcement.pdf")
     fig.savefig(ROOT / "fig_enforcement.png", dpi=300)

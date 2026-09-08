@@ -89,7 +89,8 @@ def tron_b58_to_hex(addr: str) -> str:
     return n.to_bytes(25, "big").hex()[2:42]
 
 
-def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame, signed: dict) -> dict:
+def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame, signed: dict,
+                       txn: pd.DataFrame | None = None) -> dict:
     """Match designated addresses against Tether TRC-20 blacklist events (from ClickHouse export)."""
     path = ROOT / "ch_data" / "tron_usdt_blacklist_added.csv"
     if not path.exists():
@@ -136,7 +137,7 @@ def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame,
            "median_days_signed_to_frozen_all": float(fz["days_signed_to_frozen"].median()), "median_days_signed_to_frozen_after": float(fz.loc[fz["days_signed_to_frozen"] >= 0, "days_signed_to_frozen"].median()),
            "balance_at_freeze_total_usdt": float(fz["balance_at_freeze"].clip(lower=0).sum()), "lifetime_inflow_frozen_usdt": float(fz["lifetime_in"].sum()),
            "share_of_frozen_addresses_with_positive_balance": float((fz["balance_at_freeze"] > 1).mean()),
-           "share_of_frozen_addresses_with_any_balance": float((fz["balance_at_freeze"] > 0).mean()),
+           "share_of_frozen_addresses_with_any_balance": float((fz["balance_at_freeze"] >= 1e-6).mean()),
            "median_balance_at_freeze_usdt": float(fz["balance_at_freeze"].clip(lower=0).median()),
            "out_last30d_total_usdt": float(fz["out_last30d"].sum()), "in_last30d_total_usdt": float(fz["in_last30d"].sum()),
            "share_frozen_addresses_with_transfer_after_freeze": float((fz["transfers_after_freeze"] > 0).mean()),
@@ -144,15 +145,18 @@ def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame,
            "destroyed_usdt_total": float(e["destroyed_usdt"].sum()), "n_addresses_with_destroyed_funds": int((e["destroyed_usdt"] > 0).sum()),
            "days_signed_to_frozen": fz["days_signed_to_frozen"].astype(float).tolist(), "by_order": by_order,
            "days_last_transfer_to_freeze": [float(x) for x in fz["last_transfer_to_freeze_days"].dropna()],
+           "per_address_lifetime_inflow_usdt": [float(x) for x in fz["lifetime_in"]],
+           "per_address_balance_at_freeze_usdt": [float(x) for x in fz["balance_at_freeze"].clip(lower=0.0)],
            "n_never_frozen_2021_2022_orders": int(e[(e["signed"] < pd.Timestamp("2023-01-01")) & e["frozen_at"].isna()].shape[0]),
            "n_2021_2022_orders": int(e[e["signed"] < pd.Timestamp("2023-01-01")].shape[0]),
            "blacklist_total_events": int(len(bl)), "blacklist_unique_addresses": int(first_bl.shape[0]), "blacklist_first": str(bl["t"].min().date()), "blacklist_last": str(bl["t"].max().date())}
     # What happens after a freeze. The blacklist blocks the address from sending, but not
     # others from sending to it, so the two directions have to be reported separately.
     ev_fr = dict(zip(fz["address"], fz["frozen_at"]))
-    post_in = act[act["to"].isin(ev_fr)].copy(); post_in["ev"] = post_in["to"].map(ev_fr)
+    tx = act.drop_duplicates(subset=["from", "to", "value", "t"]) if txn is None else txn
+    post_in = tx[tx["to"].isin(ev_fr)].copy(); post_in["ev"] = post_in["to"].map(ev_fr)
     post_in = post_in[post_in["t"] > post_in["ev"]]
-    post_out = act[act["from"].isin(ev_fr)].copy(); post_out["ev"] = post_out["from"].map(ev_fr)
+    post_out = tx[tx["from"].isin(ev_fr)].copy(); post_out["ev"] = post_out["from"].map(ev_fr)
     post_out = post_out[post_out["t"] > post_out["ev"]]
     out["after_freeze"] = {
         "n_frozen": int(len(ev_fr)),
@@ -335,6 +339,10 @@ def main():
         "share_active_after_signing": float((inwin["max"] > inwin["signed"]).mean()),
         "median_days_signed_to_published": float(fl["days_signed_to_published"].median()),
         "days_last_activity_to_signed": inwin["days_last_to_signed"].astype(float).tolist(),
+        "days_last_activity_to_signed_by_order": {
+            str(o): [float(x) for x in g["days_last_to_signed"].dropna()]
+            for o, g in inwin.groupby("order")},
+        "signed_by_order": {str(o): str(g["signed"].iloc[0].date()) for o, g in inwin.groupby("order")},
         "volume_after_signing_share": float(act[act["addr"].isin(inwin.index) & (act["t"] > act["addr"].map(signed))]["value"].sum() / act[act["addr"].isin(inwin.index)]["value"].sum()),
     }
 
@@ -416,7 +424,7 @@ def main():
               f"({len(act_enf):,} address-transfers, against {len(act):,} inside the event window)")
     else:
         act_enf = act
-    out["tether_enforcement"] = tether_enforcement(df, seeds, act_enf, signed)
+    out["tether_enforcement"] = tether_enforcement(df, seeds, act_enf, signed, txn=full)
     out["tether_enforcement"]["history_end"] = str((full if full is not None else complete)["t"].max().date())
 
     # monthly volume through designated addresses and through the whole 2-hop network
