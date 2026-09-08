@@ -281,7 +281,7 @@ def generate_model_performance():
     ax_a.set_xscale("log")
     ax_a.set_xlabel("review-set size $K$ (addresses)")
     ax_a.set_ylabel("designated addresses recovered (%)")
-    ax_a.legend(fontsize=5.0, frameon=False, loc="upper left", handlelength=1.6, labelspacing=0.25)
+    ax_a.legend(fontsize=5.4, frameon=False, loc="upper left", handlelength=1.6, labelspacing=0.25)
     light_grid(ax_a)
 
     # b, c. ROC-AUC with 95% bootstrap CI, over all addresses and restricted to hop-1
@@ -500,7 +500,7 @@ def generate_timelines():
             continue
         ax_b.axvline(d, color=INK_2, lw=0.6, ls=(0, (2, 2)), zorder=2)
         if o["n_addresses"] >= 10:
-            ax_b.text(d + np.timedelta64(22 * (1 if i % 2 else -1), 'D'), (2.0e3, 8.0e3, 3.2e4, 1.28e5)[i % 4], f"{o['order'].replace('ASO ', '')} ({o['n_addresses']})", rotation=90, ha="center", va="bottom", fontsize=5.0, color=INK_2)
+            ax_b.text(d + np.timedelta64(22 * (1 if i % 2 else -1), 'D'), (2.0e3, 8.0e3, 3.2e4, 1.28e5)[i % 4], f"{o['order'].replace('ASO ', '')} ({o['n_addresses']})", rotation=90, ha="center", va="bottom", fontsize=5.4, color=INK_2)
             i += 1
     ax_b.xaxis.set_major_locator(mdates.YearLocator())
     ax_b.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
@@ -745,7 +745,7 @@ def draw_removal_columns(axes):
             v, ci = r[2 + col]
             c = r[1]
             if v is None:
-                ax.text(lo * 1.6, yi, "not applicable", fontsize=4.8, color=MUTED, va="center")
+                ax.text(lo * 1.6, yi, "not applicable", fontsize=5.4, color=MUTED, va="center")
                 continue
             vv = max(v, lo * 1.25)
             if ci is not None:
@@ -820,9 +820,9 @@ def generate_backbone():
     ph = load_json("phenomena.json")
     k, u = ph["concentration"], ph["ukraine"]["tron"]
 
-    fig = plt.figure(figsize=(FULL_WIDTH, 126 * MM))
+    fig = plt.figure(figsize=(FULL_WIDTH, 106 * MM))
     gs = fig.add_gridspec(2, 3, width_ratios=[1.0, 1.0, 1.10], height_ratios=[1.0, 1.32],
-                          wspace=0.30, hspace=0.48, left=0.235, right=0.975, top=0.945, bottom=0.155)
+                          wspace=0.30, hspace=0.55, left=0.235, right=0.975, top=0.945, bottom=0.155)
     ax_a1 = fig.add_subplot(gs[0, 0])
     ax_a2 = fig.add_subplot(gs[0, 1])
     ax_a3 = fig.add_subplot(gs[0, 2])
@@ -936,7 +936,7 @@ def generate_enforcement():
         ax_a.bar(x, vals, bottom=bottoms, color=col, width=0.7, edgecolor="white", linewidth=0.5, label=lab, zorder=3)
         bottoms += vals
     ax_a.set_xticks(x)
-    ax_a.set_xticklabels([f"{o['signed'][2:7]} (n={o['n']})" for o in orders], fontsize=5.0, rotation=90)
+    ax_a.set_xticklabels([f"{o['signed'][2:7]} (n={o['n']})" for o in orders], fontsize=5.4, rotation=90)
     ax_a.set_ylabel("designated addresses (%)")
     ax_a.set_ylim(0, 100)
     light_grid(ax_a, axis="y")
@@ -991,7 +991,7 @@ def generate_enforcement():
     lo, hi = 1e-3, 1e10
     xs = inflow[ok]
     ys = np.clip(bal[ok], lo, None)
-    zero = bal[ok] <= 0
+    zero = bal[ok] < 1e-6
     ax_e.plot([lo, hi], [lo, hi], color=INK_2, lw=0.8, ls=(0, (3, 2)), zorder=2)
     ax_e.scatter(xs[~zero], ys[~zero], s=3.4, lw=0, color=SETTING_COLORS["sanctions"],
                  alpha=0.55, zorder=4)
@@ -1001,14 +1001,14 @@ def generate_enforcement():
     ax_e.set_xlim(1e0, hi); ax_e.set_ylim(lo * 0.5, hi)
     ax_e.set_xlabel("USDT ever received by the address")
     ax_e.set_ylabel("USDT still held when frozen")
-    ax_e.text(2e3, 3e5, "everything received\nstill present", fontsize=5.0, color=INK_2,
+    ax_e.text(2e3, 3e5, "everything received\nstill present", fontsize=5.4, color=INK_2,
               rotation=39, va="bottom", linespacing=1.2)
     ax_e.text(0.03, 0.97, f"{t['balance_at_freeze_total_usdt']/1e6:.1f} M of "
               f"{t['lifetime_inflow_frozen_usdt']/1e9:.2f} bn USDT\nfrozen ("
               f"{100*t['balance_at_freeze_total_usdt']/t['lifetime_inflow_frozen_usdt']:.2f}%)",
               transform=ax_e.transAxes, fontsize=5.2, color=INK_2, ha="left", va="top",
               linespacing=1.25)
-    ax_e.text(1.6e0, lo * 2.2, "nothing left", fontsize=5.0, color=MUTED, va="bottom")
+    ax_e.text(1.6e0, lo * 2.2, "nothing left", fontsize=5.4, color=MUTED, va="bottom")
     light_grid(ax_e)
 
     fig.savefig(ROOT / "fig_enforcement.pdf")

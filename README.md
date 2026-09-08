@@ -96,3 +96,11 @@ in `analysis/` can be recomputed rather than only re-read:
 The complete TRON USDT network (2.38 billion transfers) is not deposited: it is 40 GB in the
 binary bucket form the analysis uses. `scripts/export_full_tron_network.sh` rebuilds it from any
 archival TRON node indexed in ClickHouse.
+
+## analysis/ additions in v1.1.2
+
+`overflow_records.json` records, per crawled network, how many records were dropped as
+integer-overflow artefacts of the crawl; `scripts/count_overflow_records.py` reproduces it.
+`zero_value_pairs.json`, `wcfrm_results.json` and `verified_metrics.json` are read by
+`scripts/generate_source_data.py` and by the Methods, and are now deposited with the rest so
+that the figure source data can be regenerated from the archive alone.

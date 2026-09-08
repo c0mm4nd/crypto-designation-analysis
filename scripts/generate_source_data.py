@@ -64,15 +64,18 @@ def main() -> None:
         readme = pd.DataFrame(
             [
                 ("Fig 1a", "Study-design schematic; no plotted data."),
-                ("Fig 1b", "Monthly USDT volume through NBCTF-designated addresses and seizure-order signing dates."),
-                ("Fig 1c", "Daily USDT donations to the official Aid for Ukraine TRON address."),
+                ("Fig 1b", "Monthly USDT volume through NBCTF-designated addresses."),
+                ("Fig 1b orders", "Seizure-order signing dates and the number of addresses each names."),
+                ("Fig 1c", "Daily and cumulative USDT donations to the official Aid for Ukraine TRON address; the panel plots the cumulative shares."),
                 ("Fig 1d", "Addresses, unique directed edges, roles K and anchor addresses per network."),
                 ("Fig 1e", "Share of addresses per learned role in the three focal networks."),
                 ("Fig 2a", "Days from last observed transfer to signing, per designated address, with the order that named it."),
                 ("Fig 2b-c", "Weekly volume, transfers and share of active addresses relative to the event, designated versus placebo."),
                 ("Fig 2d", "Persistence after the order for designated addresses and their counterparties."),
-                ("Fig 3a-b", "Tether blacklisting of designated addresses by order; days from signing to freeze."),
-                ("Fig 3c-d", "Weekly in/outflow relative to the freeze; days from last transfer to freeze."),
+                ("Fig 3a", "Tether blacklisting of designated addresses by seizure order."),
+                ("Fig 3b", "Days from signing of the order to Tether blacklisting, per frozen address."),
+                ("Fig 3c", "Weekly USDT inflow and outflow relative to the week of blacklisting."),
+                ("Fig 3d", "Days from each frozen address's last transfer to its blacklisting."),
                 ("Supp Fig 1a-b", "Per-role statistics for the NBCTF TRON network."),
                 ("Supp Fig 1c", "Role removal versus budget-matched random and top-degree removal, NBCTF TRON network."),
                 ("Fig 3e", "Lifetime USDT inflow against the balance still held at the moment of freezing, per frozen designated address."),
@@ -81,7 +84,10 @@ def main() -> None:
                 ("Fig 4b", "Connectivity loss from removing the designated addresses and from removing the same number of undesignated hubs, at each crawl boundary and on the complete network."),
                 ("Fig 4c", "Cumulative volume share by top share of addresses: counterparties of designated addresses and Ukraine donors."),
                 ("Supp Fig 2", "Donation-size histogram, Aid for Ukraine TRON address."),
-                ("Supp Fig screening", "Recall@K and ROC-AUC per score on the primary benchmark; naive versus verified-negative AUC."),
+                ("Supp Fig 3a", "Recall of designated addresses among the K highest-ranked, per score."),
+                ("Supp Fig 3b", "ROC-AUC per score over all addresses, with bootstrap intervals."),
+                ("Supp Fig 3c", "ROC-AUC per score restricted to designated addresses and their direct counterparties."),
+                ("Verified AUC (SI 4.2)", "Naive against verified-negative AUC; reported in Supplementary Note 4.2, not plotted."),
             ],
             columns=["sheet", "description"],
         )
@@ -127,7 +133,14 @@ def main() -> None:
             rows2b.append({"score": m, "auc": results["auc"][m]["auc"], "ci95_low": results["auc"][m]["ci_low"], "ci95_high": results["auc"][m]["ci_high"], "source": "wcfrm_results.json"})
         pd.DataFrame(rows2b).to_excel(xl, sheet_name="Supp Fig 3b", index=False)
 
-        # Fig 2c
+        # Supp Fig 3c: designated addresses against their direct counterparties, the set an
+        # analyst reviews, which is the restriction the panel draws.
+        hop1 = ext["candidate_sets"]["hop1"]
+        pd.DataFrame([{"score": k, "auc": v["auc"], "ci95_low": v["ci_low"], "ci95_high": v["ci_high"],
+                       "n_candidates": hop1["n_candidates"], "n_positives": hop1["n_positives"]}
+                      for k, v in hop1["methods"].items()]
+                     ).to_excel(xl, sheet_name="Supp Fig 3c", index=False)
+        # Verified-negative AUC, reported in Supplementary Note 4.2 rather than in a figure
         pd.DataFrame(
             [
                 {
@@ -144,7 +157,7 @@ def main() -> None:
                 }
                 for tag in VERIFIED_TAGS
             ]
-        ).to_excel(xl, sheet_name="Supp Fig 3c", index=False)
+        ).to_excel(xl, sheet_name="Verified AUC (SI 4.2)", index=False)
 
         # Fig 3a-b: per-role statistics for the primary network
         role_frame(names["israel"], data["israel"]).to_excel(xl, sheet_name="Supp Fig 1a-b", index=False)
