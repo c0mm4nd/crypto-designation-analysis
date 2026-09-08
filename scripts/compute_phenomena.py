@@ -117,7 +117,9 @@ def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame,
             row["out_last30d"] = float(last30[last30["from"] == a]["value"].sum())
             row["in_last30d"] = float(last30[last30["to"] == a]["value"].sum())
             row["transfers_after_freeze"] = int((f["t"] > fr).sum())
-            row["last_transfer_to_freeze_days"] = (fr - f["t"].max()).days if len(f) else None
+            # the interval to the freeze must use the last transfer *before* it; a blacklisted
+            # address can still receive, and counting those made the interval negative
+            row["last_transfer_to_freeze_days"] = (fr - pre["t"].max()).days if len(pre) else None
         rows.append(row)
     e = pd.DataFrame(rows)
     fz = e[e["frozen_at"].notna()].copy()
@@ -134,6 +136,7 @@ def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame,
            "median_days_signed_to_frozen_all": float(fz["days_signed_to_frozen"].median()), "median_days_signed_to_frozen_after": float(fz.loc[fz["days_signed_to_frozen"] >= 0, "days_signed_to_frozen"].median()),
            "balance_at_freeze_total_usdt": float(fz["balance_at_freeze"].clip(lower=0).sum()), "lifetime_inflow_frozen_usdt": float(fz["lifetime_in"].sum()),
            "share_of_frozen_addresses_with_positive_balance": float((fz["balance_at_freeze"] > 1).mean()),
+           "share_of_frozen_addresses_with_any_balance": float((fz["balance_at_freeze"] > 0).mean()),
            "median_balance_at_freeze_usdt": float(fz["balance_at_freeze"].clip(lower=0).median()),
            "out_last30d_total_usdt": float(fz["out_last30d"].sum()), "in_last30d_total_usdt": float(fz["in_last30d"].sum()),
            "share_frozen_addresses_with_transfer_after_freeze": float((fz["transfers_after_freeze"] > 0).mean()),
@@ -286,6 +289,27 @@ def main():
                          "first_activity": str(g["min"].min().date()) if g["min"].notna().any() else None})
     by_order.sort(key=lambda r: r["signed"])
     out["nbctf_orders"] = by_order
+    # The largest order is quoted in the text on both the in-window and the complete basis,
+    # and separately by direction, so record all four rather than leaving the reader to
+    # reconstruct which of them a single "volume" figure means.
+    largest = seeds["order"].value_counts().idxmax()
+    sep = seeds[seeds["order"] == largest]
+    sep_set = set(sep["address"])
+    src = load_complete_designated_transfers(truncate=False)
+    if src is None:
+        src = act
+    win = src[src["t"] < DATA_END]
+    def io(frame, addrs):
+        return (float(frame.loc[frame["to"].isin(addrs), "value"].sum()),
+                float(frame.loc[frame["from"].isin(addrs), "value"].sum()))
+    win_in, win_out = io(win, sep_set)
+    all_in, all_out = io(src, sep_set)
+    out["nbctf_largest_order"] = {
+        "order": str(largest), "signed": str(sep["signed"].iloc[0].date()), "n_named": int(len(sep)),
+        "n_with_transfer_in_window": int(len(set(win.loc[win["to"].isin(sep_set), "to"]).union(
+            win.loc[win["from"].isin(sep_set), "from"]))),
+        "inflow_in_window_usdt": win_in, "outflow_in_window_usdt": win_out,
+        "inflow_complete_usdt": all_in, "outflow_complete_usdt": all_out}
     out["nbctf_totals"] = {"n_seeds_in_graph": int(len(seed_set_in_graph)), "n_seeds_named": int(len(seed_set)), "transfers_in_graph": int(len(df)), "volume_in_graph_usdt": float(df["value"].sum()),
                            "seed_inflow_usdt": float(sin["value"].sum()), "seed_outflow_usdt": float(sout["value"].sum()),
                            "seed_in_transfers": int(len(sin)), "seed_out_transfers": int(len(sout)),
@@ -293,8 +317,17 @@ def main():
 
     inwin = fl[(fl["signed"] <= DATA_END - pd.Timedelta(days=MIN_POST_DAYS)) & fl["max"].notna()]
     postwin = fl[fl["signed"] > DATA_END]
+    # The complement of the in-window set has to be counted on the same basis as the set
+    # itself, that is among addresses with an observed transfer. Counting every named address
+    # instead mixes in addresses that never appear in the data and does not add up to 400.
+    obs = fl[fl["max"].notna()]
+    outside = obs[obs["signed"] > DATA_END - pd.Timedelta(days=MIN_POST_DAYS)]
     out["nbctf_timing"] = {
         "n_designated_in_window": int(len(inwin)), "n_designated_after_window": int(len(postwin)),
+        "n_observed": int(len(obs)),
+        "n_observed_outside_window": int(len(outside)),
+        "n_observed_signed_after_window": int((outside["signed"] > DATA_END).sum()),
+        "n_observed_signed_within_90d_of_window_end": int((outside["signed"] <= DATA_END).sum()),
         "median_days_last_activity_to_signed": float(inwin["days_last_to_signed"].median()),
         "iqr_days_last_activity_to_signed": inwin["days_last_to_signed"].quantile([0.25, 0.75]).tolist(),
         "share_dormant_30d_at_signing": float((inwin["days_last_to_signed"] > 30).mean()),

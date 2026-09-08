@@ -74,10 +74,11 @@ def main() -> None:
                 ("Fig 3c-d", "Weekly in/outflow relative to the freeze; days from last transfer to freeze."),
                 ("Supp Fig 2a-b", "Per-role statistics for the NBCTF TRON network."),
                 ("Supp Fig 2c", "Role removal versus budget-matched random and top-degree removal, NBCTF TRON network."),
-                ("Fig 4a", "Removal test on the complete TRON USDT network: addresses lost from the largest component and throughput of the removed set."),
+                ("Fig 4a", "Removal test on the complete TRON USDT network: addresses lost from the largest component, throughput of the removed set, and value stranded between surviving addresses."),
                 ("SuppFig cross-network", "Connectivity loss for the anchor-densest role and the most damaging role in each network (learned partition)."),
-                ("Fig 4b", "Cumulative volume share by top share of addresses: counterparties of designated addresses and Ukraine donors."),
-                ("Fig 4c", "Donation-size histogram, Aid for Ukraine TRON address."),
+                ("Fig 4b", "Connectivity loss from removing the designated addresses and from removing the same number of undesignated hubs, at each crawl boundary and on the complete network."),
+                ("Fig 4c", "Cumulative volume share by top share of addresses: counterparties of designated addresses and Ukraine donors."),
+                ("Supp Fig 4", "Donation-size histogram, Aid for Ukraine TRON address."),
                 ("Supp Fig screening", "Recall@K and ROC-AUC per score on the primary benchmark; naive versus verified-negative AUC."),
             ],
             columns=["sheet", "description"],
@@ -166,21 +167,40 @@ def main() -> None:
 
         # Fig 5a: address-level backbone test
         bt = load_json("backbone_tests.json")
-        fn = load_json("full_tron_backbone.json"); fv = load_json("full_tron_value_removal.json")["removals"]
+        fn = load_json("full_tron_backbone.json")
         fs = load_json("full_tron_stranded.json")["decomposition"]
+        dmi = load_json("degree_matched_interval.json")
+        iso, thr = dmi["isolated_share_pct_summary"], dmi["throughput_pct_summary"]
         rows4a = [{"removed": "the 400 designated addresses", "addresses_lost_pct": fn["remove_designated_pct"],
-                   "throughput_pct": fv["designated"]["value"], "value_stranded_usdt": fs["designated"]["stranded_usdt"]},
-                  {"removed": "400 undesignated, degree-matched", "addresses_lost_pct": fn["remove_degree_matched_pct_mean"],
-                   "throughput_pct": fv["degree_matched_undesignated"]["value"], "value_stranded_usdt": None},
+                   "throughput_pct": fs["designated"]["incident_pct"], "value_stranded_usdt": fs["designated"]["stranded_usdt"]},
+                  {"removed": "400 undesignated, degree-matched (200 draws)", "addresses_lost_pct": iso["mean"],
+                   "addresses_lost_ci_low": iso["ci"][0], "addresses_lost_ci_high": iso["ci"][1],
+                   "throughput_pct": thr["mean"], "throughput_ci_low": thr["ci"][0], "throughput_ci_high": thr["ci"][1],
+                   "value_stranded_usdt": float(sum(dmi["stranded_usdt_exact_draws"]) / len(dmi["stranded_usdt_exact_draws"])),
+                   "value_stranded_low": min(dmi["stranded_usdt_exact_draws"]), "value_stranded_high": max(dmi["stranded_usdt_exact_draws"])},
                   {"removed": "400 undesignated, at random", "addresses_lost_pct": fn["remove_random_pct_mean"],
                    "throughput_pct": None, "value_stranded_usdt": None},
                   {"removed": "400 undesignated, highest degree", "addresses_lost_pct": fn["remove_top_degree_undesignated_pct"],
-                   "throughput_pct": fv["top_degree_400"]["value"], "value_stranded_usdt": fs["top_degree_400"]["stranded_usdt"]},
+                   "throughput_pct": fs["top_degree_400"]["incident_pct"], "value_stranded_usdt": fs["top_degree_400"]["stranded_usdt"]},
                   {"removed": "1,000 undesignated, highest degree", "addresses_lost_pct": fn["remove_top_degree_undesignated_1000_pct"],
-                   "throughput_pct": fv["top_degree_1000"]["value"], "value_stranded_usdt": fs["top_degree_1000"]["stranded_usdt"]},
+                   "throughput_pct": fs["top_degree_1000"]["incident_pct"], "value_stranded_usdt": fs["top_degree_1000"]["stranded_usdt"]},
                   {"removed": "10,000 undesignated, highest degree", "addresses_lost_pct": fn["remove_top_degree_undesignated_10000_pct"],
-                   "throughput_pct": fv["top_degree_10000"]["value"], "value_stranded_usdt": fs["top_degree_10000"]["stranded_usdt"]}]
+                   "throughput_pct": fs["top_degree_10000"]["incident_pct"], "value_stranded_usdt": fs["top_degree_10000"]["stranded_usdt"]}]
         pd.DataFrame(rows4a).to_excel(xl, sheet_name="Fig 4a", index=False)
+
+        bs = load_json("boundary_sensitivity.json")
+        rows4b = []
+        for tag, name in [("israel_tron", "NBCTF Israel"), ("ofac_iran_tron", "OFAC Iran"),
+                          ("ofac_russia_ukraine_tron", "OFAC Russia-Ukraine"),
+                          ("ofac_terrorist_financing_tron", "OFAC terrorism")]:
+            for key, gl in (("two_hop", "two hops"), ("hop1", "one hop")):
+                rows4b.append({"network": name, "boundary": gl,
+                               "loss_removing_designated_pct": bs[tag][key]["remove_designated_pct"],
+                               "loss_removing_top_degree_undesignated_pct": bs[tag][key]["remove_top_degree_undesignated_pct"]})
+        rows4b.append({"network": "complete TRON USDT network", "boundary": "none",
+                       "loss_removing_designated_pct": fn["remove_designated_pct"],
+                       "loss_removing_top_degree_undesignated_pct": fn["remove_top_degree_undesignated_pct"]})
+        pd.DataFrame(rows4b).to_excel(xl, sheet_name="Fig 4b", index=False)
 
         # Supplementary cross-network role figure
         rows = []
@@ -217,7 +237,7 @@ def main() -> None:
                       {"group": "undesignated counterparties", "n": c["n_counterparties"], "share_active_after_order": c["share_active_after_order"], "share_active_90d_after_order": c["share_active_90d_after_order"], "volume_share_after_order": c["volume_share_after_order"]}]).to_excel(xl, sheet_name="Fig 2d", index=False)
         k = ph["concentration"]
         xs = [i * 100 / 199 for i in range(200)]
-        pd.DataFrame({"top_share_of_addresses_pct": xs, "counterparties_cumulative_volume_share": k["counterparty_lorenz"], "ukraine_donors_cumulative_volume_share": ph["ukraine"]["tron"]["donor_lorenz"]}).to_excel(xl, sheet_name="Fig 4b", index=False)
+        pd.DataFrame({"top_share_of_addresses_pct": xs, "counterparties_cumulative_volume_share": k["counterparty_lorenz"], "ukraine_donors_cumulative_volume_share": ph["ukraine"]["tron"]["donor_lorenz"]}).to_excel(xl, sheet_name="Fig 4c", index=False)
         te = ph["tether_enforcement"]
         pd.DataFrame(te["by_order"]).to_excel(xl, sheet_name="Fig 3a", index=False)
         pd.DataFrame({"days_signing_to_blacklist": te["days_signed_to_frozen"]}).to_excel(xl, sheet_name="Fig 3b", index=False)
@@ -225,7 +245,7 @@ def main() -> None:
         pd.DataFrame({"week_relative_to_freeze": ef["weeks"], "inflow_usdt": ef["inflow_usdt"], "outflow_usdt": ef["outflow_usdt"], "transfers": ef["transfers"]}).to_excel(xl, sheet_name="Fig 3c", index=False)
         pd.DataFrame({"days_last_transfer_to_blacklist": te["days_last_transfer_to_freeze"]}).to_excel(xl, sheet_name="Fig 3d", index=False)
         h = ph["ukraine"]["tron"]["donation_size_hist"]
-        pd.DataFrame({"bin_lower_usdt": h["bin_edges_usdt"][:-1], "bin_upper_usdt": h["bin_edges_usdt"][1:], "donations": h["counts"]}).to_excel(xl, sheet_name="Fig 4c", index=False)
+        pd.DataFrame({"bin_lower_usdt": h["bin_edges_usdt"][:-1], "bin_upper_usdt": h["bin_edges_usdt"][1:], "donations": h["counts"]}).to_excel(xl, sheet_name="Supp Fig 4", index=False)
 
     print(f"Wrote {OUT}")
 

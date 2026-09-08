@@ -78,3 +78,21 @@ public.
 ## Licence
 
 Code is released under the MIT licence. Analysis outputs are released under CC BY 4.0.
+
+## data/ (added in v1.1.0)
+
+The record-level inputs the Data Availability statement names, so that the analysis outputs
+in `analysis/` can be recomputed rather than only re-read:
+
+- `designated_usdt_transfers_complete_490.csv` — complete USDT TRC-20 transfer history of all
+  490 designated addresses, exported from the contract event logs of an archival TRON node.
+  Every timing, event-study and enforcement quantity in the paper is computed from this file.
+- `designated_tether_enforcement.csv`, `designated_blacklist_match.csv`,
+  `tron_usdt_blacklist_added.csv`, `tron_usdt_blackfunds_destroyed.csv` — the Tether blacklist
+  and fund-destruction events emitted by the USDT contract, and the match to designated addresses.
+- `ukraine_eth_anchor_usdt.csv` — complete USDT history of the Aid for Ukraine Ethereum address.
+- `*.sql` — the ClickHouse queries that produced the exports.
+
+The complete TRON USDT network (2.38 billion transfers) is not deposited: it is 40 GB in the
+binary bucket form the analysis uses. `scripts/export_full_tron_network.sh` rebuilds it from any
+archival TRON node indexed in ClickHouse.

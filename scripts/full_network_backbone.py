@@ -13,9 +13,12 @@ import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 
-DESIGNATED = "/tmp/designated_hash.tsv"
+# Paths are configurable so the scripts run outside the machine they were written on.
+DATA = os.environ.get("ROTOR_DATA", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-BUCKETS = sorted(glob.glob("/home/c0mm4nd/wcfrm/repo/tron_full2/bucket_*.bin"))
+DESIGNATED = os.environ.get("ROTOR_DESIGNATED_HASHES", os.path.join(DATA, "designated_hash.tsv"))
+
+BUCKETS = sorted(glob.glob(os.path.join(DATA, "tron_full2", "bucket_*.bin")))
 DT = np.dtype([("f", "<u8"), ("t", "<u8"), ("c", "<u4")])
 
 
@@ -62,7 +65,7 @@ def edge_arrays(nodes):
     return si, di
 
 
-CACHE = "/home/c0mm4nd/wcfrm/repo/tron_full2/graph_cache"
+CACHE = os.path.join(DATA, "tron_full2/graph_cache")
 
 
 def main():
@@ -160,7 +163,7 @@ def main():
     out["designated_median_degree"] = float(np.median(deg[anchors]))
     out["network_median_degree"] = float(np.median(deg))
     out["designated_share_top1pct_degree"] = float((rank[anchors] < n // 100).mean())
-    json.dump(out, open("/home/c0mm4nd/wcfrm/repo/full_tron_backbone.json", "w"), indent=1)
+    json.dump(out, open(os.path.join(DATA, "full_tron_backbone.json"), "w"), indent=1)
     print("saved full_tron_backbone.json", flush=True)
 
 if __name__ == "__main__":

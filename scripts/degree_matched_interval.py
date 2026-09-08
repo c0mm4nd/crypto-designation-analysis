@@ -28,11 +28,14 @@ import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 
-BUCKETS = sorted(glob.glob("/home/c0mm4nd/wcfrm/repo/tron_full_val/bucket_*.bin"))
+# Paths are configurable so the scripts run outside the machine they were written on.
+DATA = os.environ.get("ROTOR_DATA", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+BUCKETS = sorted(glob.glob(os.path.join(DATA, "tron_full_val", "bucket_*.bin")))
 DT = np.dtype([("f", "<u8"), ("t", "<u8"), ("v", "<f8")])
-CACHE = "/home/c0mm4nd/wcfrm/repo/tron_full2/graph_cache"
-DESIGNATED = "/tmp/designated_hash.tsv"
-OUT_DIR = "/home/c0mm4nd/wcfrm/repo"
+CACHE = os.path.join(DATA, "tron_full2/graph_cache")
+DESIGNATED = os.environ.get("ROTOR_DESIGNATED_HASHES", os.path.join(DATA, "designated_hash.tsv"))
+OUT_DIR = os.environ.get("ROTOR_OUT", DATA)
 
 
 def load():

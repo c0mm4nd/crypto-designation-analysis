@@ -32,9 +32,12 @@ import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components
 
-CACHE = "/home/c0mm4nd/wcfrm/repo/tron_full2/graph_cache"
-DESIGNATED = "/tmp/designated_hash.tsv"
-OUT_DIR = "/home/c0mm4nd/wcfrm/repo"
+# Paths are configurable so the scripts run outside the machine they were written on.
+DATA = os.environ.get("ROTOR_DATA", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+CACHE = os.path.join(DATA, "tron_full2/graph_cache")
+DESIGNATED = os.environ.get("ROTOR_DESIGNATED_HASHES", os.path.join(DATA, "designated_hash.tsv"))
+OUT_DIR = os.environ.get("ROTOR_OUT", DATA)
 
 
 def load():

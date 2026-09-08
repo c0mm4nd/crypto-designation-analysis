@@ -3,10 +3,10 @@
  "unit": "addresses unless stated",
  "quantities": {
   "median_days_last_activity_to_signed": {
-   "point": 31.5,
+   "point": 32.5,
    "ci_addresses": [
-    9.0,
-    44.5
+    9.5,
+    46.0
    ],
    "ci_orders": [
     -77.0,
@@ -15,14 +15,14 @@
    "n": 178
   },
   "share_dormant_30d_at_signing": {
-   "point": 0.5056179775280899,
+   "point": 0.5112359550561798,
    "ci_addresses": [
-    0.438061797752809,
-    0.5786516853932584
+    0.43820224719101125,
+    0.5842696629213483
    ],
    "ci_orders": [
     0.27871070518266783,
-    0.75
+    0.7635135135135135
    ],
    "n": 178
   },
@@ -51,14 +51,14 @@
    "n": 396
   },
   "median_days_last_transfer_to_freeze": {
-   "point": 110.0,
+   "point": 117.0,
    "ci_addresses": [
-    79.0,
-    147.5
+    82.5,
+    158.0
    ],
    "ci_orders": [
-    -1.0,
-    225.0
+    9.0,
+    227.0
    ],
    "n": 396
   },

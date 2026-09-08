@@ -65,7 +65,10 @@ def main():
     N = args.resamples
 
     seeds = israel_seed_dates().set_index("address")
-    comp = load_complete_designated_transfers(truncate=False)
+    # Timing quantities are defined on the observation window that the event study uses, so
+    # they are computed on the truncated history; the enforcement quantities below need the
+    # untruncated one, because many addresses were frozen after the window closed.
+    comp = load_complete_designated_transfers(truncate=True)
     act = pd.concat([comp.assign(addr=comp["from"]), comp.assign(addr=comp["to"])])
     act = act[act["addr"].isin(set(seeds.index))]
     last = act.groupby("addr")["t"].max()

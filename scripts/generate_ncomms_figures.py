@@ -50,11 +50,16 @@ mpl.rcParams.update(
 )
 
 # Okabe-Ito, validated for deutan/protan/tritan separation.
+# Two palettes that must not be confused. SETTING_COLORS identifies the empirical setting
+# (a designation programme or a public appeal) and FAMILY_COLORS identifies a learned role.
+# They previously shared two hues, so orange meant "sanctions" in one panel and "hub-like
+# role" in the next; the role hues are now disjoint from the setting hues. Both are drawn
+# from Okabe-Ito and both pass the colour-vision check in scripts/validate_palette.py.
 FAMILY_COLORS = {
-    "sender": "#0072B2",  # send-dominant, peripheral donors
-    "receiver": "#009E73",  # receive-dominant participants, sinks
+    "sender": "#332288",  # send-dominant, peripheral donors
+    "receiver": "#117733",  # receive-dominant participants, sinks
     "relay": "#E69F00",  # balanced low-degree intermediaries
-    "hub": "#D55E00",  # high-degree bilateral hubs and core collection
+    "hub": "#CC79A7",  # high-degree bilateral hubs and core collection
 }
 FAMILY_LABELS = {
     "sender": "send-dominant (donor-like)",
@@ -70,10 +75,14 @@ MUTED = "#9CA3AF"
 GRID = "#E5E7EB"
 HIGHLIGHT = "#D55E00"
 NEUTRAL = "#8A8F98"
+# Okabe-Ito vermillion and blue for the two settings the paper contrasts, with a dark
+# neutral for the OFAC programmes. Checked for colour-vision deficiency: the smallest
+# perceptual separation of any pair is 14.7 (OKLab x100) under tritanopia and 16.1 under
+# normal vision, against a floor of 15 for normal vision and 8 under simulated deficiency.
 SETTING_COLORS = {
     "sanctions": "#D55E00",
     "fundraising": "#0072B2",
-    "ofac": "#6B7280",
+    "ofac": "#525252",
 }
 
 DATASETS = [
@@ -564,14 +573,16 @@ def generate_timelines():
     data = {key: load_json(fname) for key, _, fname, _ in DATASETS}
 
     fig = plt.figure(figsize=(FULL_WIDTH, 150 * MM))
+    # panel d writes two annotation columns beyond its right edge, so the grid stops short
+    # of the figure margin to leave room for them
     gs = fig.add_gridspec(3, 2, height_ratios=[0.62, 1.0, 1.0], width_ratios=[1.25, 1.0], hspace=0.55, wspace=0.62,
-                          left=0.10, right=0.975, top=0.97, bottom=0.10)
+                          left=0.10, right=0.885, top=0.97, bottom=0.10)
     ax_a = fig.add_subplot(gs[0, :])
     ax_b = fig.add_subplot(gs[1, 0])
     ax_c = fig.add_subplot(gs[2, 0])
     ax_d = fig.add_subplot(gs[1, 1])
     ax_e = fig.add_subplot(gs[2, 1])
-    for lab, (fx, fy) in {"a": (0.012, 0.985), "b": (0.012, 0.695), "c": (0.012, 0.375), "d": (0.50, 0.695), "e": (0.50, 0.375)}.items():
+    for lab, (fx, fy) in {"a": (0.012, 0.985), "b": (0.012, 0.695), "c": (0.012, 0.375), "d": (0.44, 0.695), "e": (0.44, 0.375)}.items():
         fig.text(fx, fy, lab, fontsize=8, fontweight="bold", va="top", ha="left")
 
     # ---- a. schematic (reuse)
@@ -784,55 +795,193 @@ def generate_designation():
 
 
 # --------------------------------------------------------------------------- Figure 4 (backbone and concentration)
-def draw_backbone_panel(ax):
-    """Removal test on the complete network, with a degree-matched control.
+def draw_removal_columns(axes):
+    """Three aligned columns over the same removal sets: addresses, throughput, stranded value.
 
-    The crawled two-hop networks cannot answer whether designated addresses hold their
-    network together, because the answer changes sign with the crawl boundary
-    (compute_boundary_sensitivity.py). This panel therefore shows the complete TRON USDT
-    network, where there is no boundary, and adds the control that holds size fixed:
-    undesignated addresses drawn to the designated degree distribution.
+    The three measure different things and the paper turns on the difference. Addresses lost
+    counts accounts that lose their only route. Throughput is the value the removed set moved
+    itself, which says how large it was. Value stranded is USDT that was moving between two
+    addresses that both survive and that the removal separates, which is the only one of the
+    three that says the removed set carried anything for anyone else.
     """
-    d = load_json("full_tron_backbone.json")
-    vw = load_json("full_tron_value_removal.json")["removals"]
+    fn = load_json("full_tron_backbone.json")
+    fs = load_json("full_tron_stranded.json")["decomposition"]
     dmi = load_json("degree_matched_interval.json")
-    na = d["n_designated"]
+    na = fn["n_designated"]
+    iso, thr = dmi["isolated_share_pct_summary"], dmi["throughput_pct_summary"]
+    strand_draws = dmi.get("stranded_usdt_exact_draws", [])
+
     rows = [
-        (f"the {na} designated addresses", d["remove_designated_pct"], vw["designated"]["value"], SETTING_COLORS["sanctions"]),
-        (f"{na} undesignated, degree-matched", dmi["isolated_share_pct_summary"]["mean"],
-         dmi["throughput_pct_summary"]["mean"], NEUTRAL),
-        (f"{na} undesignated, at random", d["remove_random_pct_mean"], None, MUTED),
-        (f"{na} undesignated, highest degree", d["remove_top_degree_undesignated_pct"], vw[f"top_degree_{na}"]["value"], INK_2),
-        ("1,000 undesignated, highest degree", d["remove_top_degree_undesignated_1000_pct"], vw["top_degree_1000"]["value"], INK_2),
-        ("10,000 undesignated, highest degree", d["remove_top_degree_undesignated_10000_pct"], vw["top_degree_10000"]["value"], INK_2),
+        (f"the {na} designated", SETTING_COLORS["sanctions"],
+         (fn["remove_designated_pct"], None), (fs["designated"]["incident_pct"], None),
+         (fs["designated"]["stranded_usdt"], None)),
+        (f"{na} undesignated, degree-matched", NEUTRAL,
+         (iso["mean"], iso["ci"]), (thr["mean"], thr["ci"]),
+         (float(np.mean(strand_draws)) if strand_draws else None,
+          [min(strand_draws), max(strand_draws)] if strand_draws else None)),
+        (f"{na} undesignated, at random", MUTED,
+         (fn["remove_random_pct_mean"], None), (None, None), (None, None)),
+        (f"{na} undesignated, highest degree", INK_2,
+         (fn["remove_top_degree_undesignated_pct"], None), (fs[f"top_degree_{na}"]["incident_pct"], None),
+         (fs[f"top_degree_{na}"]["stranded_usdt"], None)),
+        ("1,000 undesignated, highest degree", INK_2,
+         (fn["remove_top_degree_undesignated_1000_pct"], None), (fs["top_degree_1000"]["incident_pct"], None),
+         (fs["top_degree_1000"]["stranded_usdt"], None)),
+        ("10,000 undesignated, highest degree", INK_2,
+         (fn["remove_top_degree_undesignated_10000_pct"], None), (fs["top_degree_10000"]["incident_pct"], None),
+         (fs["top_degree_10000"]["stranded_usdt"], None)),
     ]
     y = np.arange(len(rows))[::-1]
-    floor = 1e-4
-    h = 0.34
-    for yi, (label, v, vval, c) in zip(y, rows):
-        ax.barh(yi + h / 2, max(v, floor), height=h, color=c, edgecolor="white", linewidth=0.4, zorder=3)
-        if "degree-matched" in label:
-            for off, key in ((h / 2, "isolated_share_pct_summary"), (-h / 2, "throughput_pct_summary")):
-                lo, hi_ = dmi[key]["ci"]
-                ax.plot([lo, hi_], [yi + off, yi + off], color=INK, lw=0.8, zorder=5)
-        ax.text(max(v, floor) * 1.35, yi + h / 2, f"{v:.4f}%" if v < 0.1 else f"{v:.1f}%",
-                va="center", fontsize=4.9, color=INK_2)
-        if vval is not None:
-            ax.barh(yi - h / 2, max(vval, floor), height=h, color=c, alpha=0.45,
-                    edgecolor="white", linewidth=0.4, zorder=3)
-            ax.text(max(vval, floor) * 1.35, yi - h / 2, f"{vval:.4f}%" if vval < 0.1 else f"{vval:.1f}%",
-                    va="center", fontsize=4.9, color=MUTED)
-    ax.set_xscale("log")
-    ax.set_xlim(floor, 300)
+    specs = [(0, "addresses lost from the\nlargest component (%)", 1e-5, 300, "pct"),
+             (1, "throughput of the\nremoved set (% of value)", 5e-3, 300, "pct"),
+             (2, "USDT stranded between\nsurviving addresses", 1e2, 3e11, "usdt")]
+    for col, xlabel, lo, hi, kind in specs:
+        ax = axes[col]
+        for yi, r in zip(y, rows):
+            v, ci = r[2 + col]
+            c = r[1]
+            if v is None:
+                ax.text(lo * 1.6, yi, "not applicable", fontsize=4.8, color=MUTED, va="center")
+                continue
+            vv = max(v, lo * 1.25)
+            if ci is not None:
+                ax.plot([max(ci[0], lo * 1.25), ci[1]], [yi, yi], color=c, lw=1.0, zorder=3)
+            edge = "<" if v < lo else "o"
+            ax.plot(vv, yi, "o" if edge == "o" else "<", ms=4.0, color=c, mec="white", mew=0.6, zorder=4)
+            if kind == "pct":
+                txt = ("$<10^{-4}$" if v < 1e-4 else (f"{v:.4f}" if v < 0.1 else f"{v:.1f}"))
+            else:
+                txt = (f"{v:,.0f}" if v < 1e6 else f"{v/1e9:.2f} bn")
+            at = ci[1] if ci is not None else vv
+            ax.text(at * 1.55, yi, txt, fontsize=5.2, color=INK_2, va="center")
+        ax.set_xscale("log")
+        ax.set_xlim(lo, hi)
+        ax.set_ylim(-0.75, len(rows) - 0.25)
+        ax.set_xlabel(xlabel, fontsize=5.8, linespacing=1.35)
+        ax.set_yticks(y)
+        ax.set_yticklabels([r[0] for r in rows] if col == 0 else [])
+        ax.tick_params(axis="y", length=0)
+        light_grid(ax, axis="x")
+    axes[0].text(0.0, 1.045, "complete TRON USDT network: 213M addresses, 745M directed pairs, 15.5 trillion USDT",
+                 transform=axes[0].transAxes, fontsize=5.4, color=INK, va="bottom")
+
+
+def draw_boundary_panel(ax):
+    """Where the crawl stops decides the answer, and the answer reverses.
+
+    One dumbbell per network and boundary: the orange dot is the loss from removing the
+    designated addresses, the grey dot from removing the same number of undesignated hubs.
+    The orange dot is on the left at two hops and on the right at one hop, in every network.
+    """
+    bs = load_json("boundary_sensitivity.json")
+    fn = load_json("full_tron_backbone.json")
+    names = [("israel_tron", "NBCTF Israel"), ("ofac_iran_tron", "OFAC Iran"),
+             ("ofac_russia_ukraine_tron", "OFAC Russia--Ukr."),
+             ("ofac_terrorist_financing_tron", "OFAC terrorism")]
+    labels, des, top, kinds = [], [], [], []
+    for tag, name in names:
+        for key, gl in (("two_hop", "two hops"), ("hop1", "one hop")):
+            labels.append(f"{name}, {gl}")
+            des.append(bs[tag][key]["remove_designated_pct"])
+            top.append(bs[tag][key]["remove_top_degree_undesignated_pct"])
+            kinds.append(gl)
+    labels.append("complete network, no boundary")
+    des.append(fn["remove_designated_pct"])
+    top.append(fn["remove_top_degree_undesignated_pct"])
+    kinds.append("complete")
+
+    y = np.arange(len(labels))[::-1]
+    for yi, d, t, k in zip(y, des, top, kinds):
+        ax.plot([d, t], [yi, yi], color=GRID, lw=1.4, zorder=2, solid_capstyle="round")
+        ax.plot(t, yi, "o", ms=4.0, color=INK_2, mec="white", mew=0.6, zorder=4)
+        ax.plot(d, yi, "o", ms=4.0, color=SETTING_COLORS["sanctions"], mec="white", mew=0.6, zorder=5)
+    for yi, k in zip(y, kinds):
+        if k == "complete":
+            ax.axhline(yi + 0.5, color=MUTED, lw=0.6, ls=(0, (2, 2)), zorder=1)
     ax.set_yticks(y)
-    ax.set_yticklabels([r[0] for r in rows], fontsize=5.6)
-    ax.set_xlabel("connectivity loss (%, log scale)")
+    ax.set_yticklabels(labels, fontsize=5.2)
     ax.tick_params(axis="y", length=0)
+    ax.set_xlim(-4, 100)
+    ax.set_xlabel("connectivity loss (%)")
     light_grid(ax, axis="x")
-    ax.text(0.0, 1.02, f"complete network, {d['n_addresses']/1e6:.0f}M addresses",
-            transform=ax.transAxes, fontsize=5.2, color=INK, va="bottom")
-    ax.text(0.0, -0.30, "upper bar: addresses lost from the component; lower bar: throughput of the removed set",
-            transform=ax.transAxes, fontsize=5.0, color=INK_2, va="top")
+    handles = [Line2D([], [], marker="o", ls="", ms=4.0, color=SETTING_COLORS["sanctions"],
+                      label="the designated addresses removed"),
+               Line2D([], [], marker="o", ls="", ms=4.0, color=INK_2,
+                      label="the same number of undesignated hubs removed")]
+    ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(-0.50, -0.24),
+              frameon=False, fontsize=5.2, handlelength=1.0, labelspacing=0.3)
+
+
+def generate_backbone():
+    ph = load_json("phenomena.json")
+    k, u = ph["concentration"], ph["ukraine"]["tron"]
+
+    fig = plt.figure(figsize=(FULL_WIDTH, 126 * MM))
+    gs = fig.add_gridspec(2, 3, width_ratios=[1.0, 1.0, 1.10], height_ratios=[1.0, 1.32],
+                          wspace=0.30, hspace=0.48, left=0.235, right=0.975, top=0.945, bottom=0.155)
+    ax_a1 = fig.add_subplot(gs[0, 0])
+    ax_a2 = fig.add_subplot(gs[0, 1])
+    ax_a3 = fig.add_subplot(gs[0, 2])
+    ax_b = fig.add_subplot(gs[1, 0:2])
+    ax_c = fig.add_subplot(gs[1, 2])
+    panel_label(ax_a1, "a", dx=-0.62)
+    panel_label(ax_b, "b", dx=-0.30)
+    panel_label(ax_c, "c", dx=-0.28)
+
+    draw_removal_columns([ax_a1, ax_a2, ax_a3])
+    draw_boundary_panel(ax_b)
+
+    # ---- c. concentration of volume among counterparties and among donors
+    xs = np.linspace(0, 100, 200)
+    ax_c.plot(xs, np.array(k["counterparty_lorenz"]) * 100, color=SETTING_COLORS["sanctions"], lw=1.4,
+              zorder=3, label=f"counterparties of designated addresses ($n$ = {k['n_counterparties']:,})")
+    ax_c.plot(xs, np.array(u["donor_lorenz"]) * 100, color=SETTING_COLORS["fundraising"], lw=1.4,
+              zorder=3, label=f"donors to the Ukraine TRON address ($n$ = {u['n_donors']:,})")
+    ax_c.axvline(1.0, color=MUTED, lw=0.6, ls=(0, (2, 2)), zorder=2)
+    ax_c.text(1.15, 51.5, "top 1%", fontsize=5.2, color=INK_2, rotation=90, va="bottom")
+    ax_c.set_xscale("log")
+    ax_c.set_xlim(0.5, 100)
+    ax_c.set_ylim(50, 102)
+    ax_c.set_xlabel("top share of addresses by volume (%)")
+    ax_c.set_ylabel("share of USDT volume (%)")
+    light_grid(ax_c)
+    ax_c.text(1.3, k["top1pct_share"] * 100 - 6, f"{k['top1pct_share']*100:.0f}%", fontsize=5.4,
+              color=SETTING_COLORS["sanctions"])
+    ax_c.text(0.62, u["top1pct_donor_volume_share"] * 100 + 1.5, f"{u['top1pct_donor_volume_share']*100:.0f}%",
+              fontsize=5.4, color=SETTING_COLORS["fundraising"])
+    ax_c.legend(loc="upper left", bbox_to_anchor=(-0.30, -0.24), frameon=False, fontsize=5.2,
+                labelspacing=0.3, handlelength=1.6)
+
+    fig.savefig(ROOT / "fig_backbone.pdf")
+    fig.savefig(ROOT / "fig_backbone.png", dpi=300)
+    plt.close(fig)
+    print("wrote fig_backbone")
+
+
+def generate_donation_sizes_si():
+    """Donation-size distribution, moved out of the main text: it supports one sentence."""
+    u = load_json("phenomena.json")["ukraine"]["tron"]
+    fig, ax = plt.subplots(figsize=(88 * MM, 58 * MM))
+    fig.subplots_adjust(left=0.17, right=0.97, top=0.94, bottom=0.20)
+    h = u["donation_size_hist"]
+    edges_ = np.array(h["bin_edges_usdt"]); counts = np.array(h["counts"])
+    centers = np.sqrt(edges_[:-1] * edges_[1:])
+    ax.bar(centers, counts, width=np.diff(edges_) * 0.9, color=SETTING_COLORS["fundraising"],
+           alpha=0.85, zorder=3)
+    ax.set_xscale("log")
+    ax.set_xlim(0.5, 2e5)
+    ax.set_xlabel("donation size (USDT)")
+    ax.set_ylabel("number of donations")
+    ax.axvline(u["median_donation_usdt"], color=INK, lw=0.8, ls=(0, (3, 2)), zorder=4)
+    ax.text(u["median_donation_usdt"] * 1.5, counts.max() * 0.9,
+            f"median {u['median_donation_usdt']:.0f} USDT", fontsize=5.6, color=INK, va="top")
+    ax.text(0.98, 0.72, f"{u['share_donations_below_100']*100:.0f}% of donations\nbelow 100 USDT",
+            transform=ax.transAxes, fontsize=5.4, color=INK_2, ha="right", va="top", linespacing=1.25)
+    light_grid(ax, axis="y")
+    fig.savefig(ROOT / "fig_donation_sizes_si.pdf")
+    fig.savefig(ROOT / "fig_donation_sizes_si.png", dpi=300)
+    plt.close(fig)
+    print("wrote fig_donation_sizes_si")
 
 
 def generate_cross_network_si():
@@ -845,58 +994,6 @@ def generate_cross_network_si():
     plt.close(fig)
 
 
-def generate_backbone():
-    ph = load_json("phenomena.json")
-    data = {key: load_json(fname) for key, _, fname, _ in DATASETS}
-    k, u = ph["concentration"], ph["ukraine"]["tron"]
-
-    fig = plt.figure(figsize=(FULL_WIDTH, 72 * MM))
-    gs = fig.add_gridspec(1, 3, width_ratios=[1.45, 1.0, 1.0], wspace=0.55, left=0.19, right=0.985, top=0.94, bottom=0.34)
-    ax_a = fig.add_subplot(gs[0, 0])
-    ax_b = fig.add_subplot(gs[0, 1])
-    ax_c = fig.add_subplot(gs[0, 2])
-    panel_label(ax_a, "a", dx=-0.62)
-    panel_label(ax_b, "b", dx=-0.30)
-    panel_label(ax_c, "c", dx=-0.30)
-
-    draw_backbone_panel(ax_a)
-
-    # ---- b. concentration curves
-    xs = np.linspace(0, 100, 200)
-    ax_b.plot(xs, np.array(k["counterparty_lorenz"]) * 100, color=SETTING_COLORS["sanctions"], lw=1.4, zorder=3, label=f"counterparties of designated addresses (n = {k['n_counterparties']:,})")
-    ax_b.plot(xs, np.array(u["donor_lorenz"]) * 100, color=SETTING_COLORS["fundraising"], lw=1.4, zorder=3, label=f"donors to the Ukraine TRON address (n = {u['n_donors']:,})")
-    ax_b.plot([0, 100], [0, 100], color=MUTED, lw=0.6, ls=(0, (3, 2)), zorder=2)
-    ax_b.set_xscale("log")
-    ax_b.set_xlim(0.5, 100)
-    ax_b.set_xlabel("top share of addresses, ranked by volume (%)")
-    ax_b.set_ylabel("share of USDT volume (%)")
-    ax_b.set_ylim(0, 102)
-    light_grid(ax_b)
-    ax_b.text(1.15, k["top1pct_share"] * 100 - 12, f"top 1% of counterparties: {k['top1pct_share']*100:.0f}%", fontsize=5.2, color=SETTING_COLORS["sanctions"], ha="left")
-    ax_b.text(1.15, u["top1pct_donor_volume_share"] * 100 - 14, f"top 1% of donors: {u['top1pct_donor_volume_share']*100:.0f}%", fontsize=5.2, color=SETTING_COLORS["fundraising"], ha="left")
-    ax_b.legend(loc="upper left", bbox_to_anchor=(-0.02, -0.28), labelspacing=0.3, handlelength=1.6)
-
-    # ---- c. donation size distribution
-    h = u["donation_size_hist"]
-    edges_ = np.array(h["bin_edges_usdt"])
-    counts = np.array(h["counts"])
-    centers = np.sqrt(edges_[:-1] * edges_[1:])
-    ax_c.bar(centers, counts, width=np.diff(edges_) * 0.9, color=SETTING_COLORS["fundraising"], alpha=0.85, zorder=3)
-    ax_c.set_xscale("log")
-    ax_c.set_xlim(0.5, 2e6)
-    ax_c.set_xlabel("donation size (USDT)")
-    ax_c.set_ylabel("donations")
-    ax_c.axvline(u["median_donation_usdt"], color=INK, lw=0.8, ls=(0, (3, 2)), zorder=4)
-    ax_c.text(u["median_donation_usdt"] * 1.4, counts.max() * 0.62, f"median\n{u['median_donation_usdt']:.0f} USDT", fontsize=5.4, color=INK, va="top", linespacing=1.2)
-    ax_c.text(0.99, 0.80, f"{u['share_donations_below_100']*100:.0f}% of donations\nbelow 100 USDT", transform=ax_c.transAxes, fontsize=5.2, color=INK_2, ha="right", va="top", linespacing=1.25)
-    light_grid(ax_c, axis="y")
-
-    fig.savefig(ROOT / "fig_backbone.pdf")
-    fig.savefig(ROOT / "fig_backbone.png", dpi=300)
-    plt.close(fig)
-
-
-# --------------------------------------------------------------------------- Figure 3 (enforcement)
 def generate_enforcement():
     ph = load_json("phenomena.json")
     t = ph["tether_enforcement"]
@@ -974,7 +1071,7 @@ def generate_enforcement():
         ax_d.text(np.median(dl) + 10, ax_d.get_ylim()[1] * 0.95, f"median {np.median(dl):.0f} d", fontsize=5.6, color=INK, va="top")
     ax_d.set_xlabel("days from the address's last transfer to Tether blacklisting")
     ax_d.set_ylabel("frozen designated addresses")
-    ax_d.text(0.99, 0.82, f"{t['share_of_frozen_addresses_with_positive_balance']*100:.0f}% held a positive\nUSDT balance when frozen", transform=ax_d.transAxes, fontsize=5.2, color=INK_2, ha="right", va="top", linespacing=1.25)
+    ax_d.text(0.99, 0.82, f"{t['share_of_frozen_addresses_with_positive_balance']*100:.0f}% held more than\n1 USDT when frozen", transform=ax_d.transAxes, fontsize=5.2, color=INK_2, ha="right", va="top", linespacing=1.25)
     light_grid(ax_d, axis="y")
 
     fig.savefig(ROOT / "fig_enforcement.pdf")
@@ -988,5 +1085,6 @@ if __name__ == "__main__":
     generate_enforcement()
     generate_role_landscape()
     generate_backbone()
+    generate_donation_sizes_si()
     generate_cross_network_si()
     generate_model_performance()
