@@ -1,0 +1,1655 @@
+{
+ "orders": {
+  "ASO 15/22": {
+   "signed": "2022-03-07",
+   "public_from": "2022-03-07",
+   "n_designated_in_window": 42,
+   "n_counterparties_before_order": 1213,
+   "post_volume_from_counterparties_usdt": 2971670233.615103,
+   "share_of_post_volume_to_labelled_entities": 0.10501655566751138,
+   "top_destinations": [
+    {
+     "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
+     "usdt": 59586646.498481,
+     "transfers": 1,
+     "share_of_post_volume": 0.02005156757450591,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa",
+     "usdt": 57882051.575362995,
+     "transfers": 3,
+     "share_of_post_volume": 0.0194779524728584,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TUuF3a3Z4g1C3ui3EN4XLihDMGtgpSWPbM",
+     "usdt": 47915382.368925,
+     "transfers": 2,
+     "share_of_post_volume": 0.016124057719094514,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
+     "usdt": 46690904.132487,
+     "transfers": 4,
+     "share_of_post_volume": 0.015712007208715913,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
+     "usdt": 44484122.269168,
+     "transfers": 403,
+     "share_of_post_volume": 0.0149694006306521,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TSzujPhnBPbTyCVrTmx3F6reCABeJ59qhL",
+     "usdt": 33064033.540626,
+     "transfers": 90,
+     "share_of_post_volume": 0.011126414084110157,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
+     "usdt": 32423813.2028,
+     "transfers": 431,
+     "share_of_post_volume": 0.010910972838111889,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TQ1jmDKw4hwZhTFMBUpMvtYJq4DtMPzHEy",
+     "usdt": 27428403.790447,
+     "transfers": 412,
+     "share_of_post_volume": 0.00922996215400379,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
+     "usdt": 24471850.19,
+     "transfers": 9,
+     "share_of_post_volume": 0.008235049068762065,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
+     "usdt": 22781973.867439,
+     "transfers": 484,
+     "share_of_post_volume": 0.0076663869394836,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TEfW3vaNKv1fjxP6JrBqaYDyQAnPd6EzmP",
+     "usdt": 22690324.373947,
+     "transfers": 228,
+     "share_of_post_volume": 0.007635545868204803,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
+     "usdt": 21736156.687164,
+     "transfers": 1,
+     "share_of_post_volume": 0.007314457856490182,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "THFoT79HSFUb1jjDsF6kjDNYzBqp9BxSDW",
+     "usdt": 20111938.0,
+     "transfers": 49,
+     "share_of_post_volume": 0.0067678902498994244,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TEPSrSYPDSQ7yXpMFPq91Fb1QEWpMkRGfn",
+     "usdt": 20000000.0,
+     "transfers": 4,
+     "share_of_post_volume": 0.0067302218711090146,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TG2tzRjDHSnuVTq6Z44BAhWhpNvgE299sc",
+     "usdt": 19091532.0,
+     "transfers": 35,
+     "share_of_post_volume": 0.006424512310968881,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TYgPxVuFYhHLDGFhFU2UpinsedxpknXGmZ",
+     "usdt": 16172095.396703,
+     "transfers": 794,
+     "share_of_post_volume": 0.005442089507027598,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TSVmpi8QTWbRC6F9wqRucSSAWEczHQqq9M",
+     "usdt": 15988558.0,
+     "transfers": 81,
+     "share_of_post_volume": 0.00538032713695475,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGBYUnBNk7HWHkmh3S54AbrbwhYM6HnJrX",
+     "usdt": 15672798.0,
+     "transfers": 45,
+     "share_of_post_volume": 0.005274070394053681,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TVAeML9zabtzxs7kBNcqcfpe79gYyzUgFC",
+     "usdt": 15644955.0,
+     "transfers": 211,
+     "share_of_post_volume": 0.005264700915675817,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TAHV1AHmKSPotZDKTYRBqB4utDJUyn9DHa",
+     "usdt": 14308951.30201,
+     "transfers": 275,
+     "share_of_post_volume": 0.004815120850271076,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TQCHn8FBSDRko5W9yVSNxej36iDzWPBswP",
+     "usdt": 13724604.226247,
+     "transfers": 241,
+     "share_of_post_volume": 0.004618481576790139,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TLkJRoF1TN4YJULTvGonapNB9i5NCeq4ym",
+     "usdt": 13699000.0,
+     "transfers": 31,
+     "share_of_post_volume": 0.004609865470616119,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TVQwoUux7qxxaeMN2pa38RhSDHmUu2UWfG",
+     "usdt": 12887714.0,
+     "transfers": 32,
+     "share_of_post_volume": 0.004336858731569892,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TYdHV8pxoQBSDwQCR2fpyAQ5e6i4jTGTmk",
+     "usdt": 12647804.49432,
+     "transfers": 138,
+     "share_of_post_volume": 0.004256126521459167,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TBT7LBA64Dk7Bd5EoSev8QMe4ecfZnje5B",
+     "usdt": 12553576.200552,
+     "transfers": 110,
+     "share_of_post_volume": 0.004224417655279433,
+     "entity": null,
+     "was_a_counterparty": false
+    }
+   ],
+   "max_overlap_existing": 161,
+   "max_overlap_new": 51,
+   "top_new_by_overlap": [
+    {
+     "address": "TVPK634J7TSsB5mpv7wQuXB3uKHNBgYzfq",
+     "overlap": 51,
+     "usdt": 318056.729319,
+     "entity": null
+    },
+    {
+     "address": "TTYeqs9YdBSwuseu2Yib8NAohrRLmAuAnm",
+     "overlap": 33,
+     "usdt": 254001.85881900002,
+     "entity": null
+    },
+    {
+     "address": "TBEvhxtcaCN1gzhGNpfoLCgeKRQckEsimR",
+     "overlap": 29,
+     "usdt": 94972.993973,
+     "entity": null
+    },
+    {
+     "address": "TTKdGWjDdRZoV83y66gs9povbvo4wbMg8o",
+     "overlap": 29,
+     "usdt": 1233002.252685,
+     "entity": null
+    },
+    {
+     "address": "TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa",
+     "overlap": 29,
+     "usdt": 58125356.054363,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TBv24AyraA9qYyiPpYzoSTW1cRd4jqqWaM",
+     "overlap": 28,
+     "usdt": 121722.413726,
+     "entity": null
+    },
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
+     "overlap": 26,
+     "usdt": 39286838.385258004,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
+     "overlap": 26,
+     "usdt": 198305.042262,
+     "entity": null
+    },
+    {
+     "address": "TEgZr9tHVz1k1UxqPWkAN6XPnDa4yu7NB1",
+     "overlap": 24,
+     "usdt": 315138.99533,
+     "entity": null
+    },
+    {
+     "address": "TE5KA14V1WyPTfAeg56B4uZfjEGKA3foQF",
+     "overlap": 23,
+     "usdt": 0.129,
+     "entity": null
+    }
+   ],
+   "n_new_with_overlap_above_max_existing": 0
+  },
+  "ASO 5/24": {
+   "signed": "2024-03-24",
+   "public_from": "2024-03-28",
+   "n_designated_in_window": 42,
+   "n_counterparties_before_order": 146,
+   "post_volume_from_counterparties_usdt": 993834297.801892,
+   "share_of_post_volume_to_labelled_entities": 0.13023230918839354,
+   "top_destinations": [
+    {
+     "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
+     "usdt": 35457550.19,
+     "transfers": 11,
+     "share_of_post_volume": 0.035677527197866946,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TXCE8RYq6bhX2CueZBUjPbDYoJbMene5mN",
+     "usdt": 33544838.0,
+     "transfers": 11,
+     "share_of_post_volume": 0.03375294862955789,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
+     "usdt": 32405914.0428,
+     "transfers": 430,
+     "share_of_post_volume": 0.03260695884059709,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
+     "usdt": 22953519.847439,
+     "transfers": 487,
+     "share_of_post_volume": 0.023095922427115195,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TQk44sPs1rjKyEPuzXpAheJtd7vMQBeeZ2",
+     "usdt": 21206972.07706,
+     "transfers": 46,
+     "share_of_post_volume": 0.021338539154831356,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TXByfwCqw899fEPAWTuF3gkhPvfLMLvdr9",
+     "usdt": 20480240.447691,
+     "transfers": 1,
+     "share_of_post_volume": 0.02060729891591392,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
+     "usdt": 19749459.683122,
+     "transfers": 2,
+     "share_of_post_volume": 0.019871984421148244,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TUR6iqkZjsf6CXMg3bm5g9sBFZSLhmSjvm",
+     "usdt": 14510930.19476,
+     "transfers": 49,
+     "share_of_post_volume": 0.014600955337176908,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "THymE3vMHuPN8Sknshj7SZRxGwdeu1HqdS",
+     "usdt": 13684311.932101,
+     "transfers": 735,
+     "share_of_post_volume": 0.013769208772898266,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TD291XXvTPEwQdR7gjBapxeMunYRcg6VBG",
+     "usdt": 11361279.880912,
+     "transfers": 51,
+     "share_of_post_volume": 0.011431764737884629,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TYMVR7rgoxp1FERbzBhhcCwJCBkCTpLu8C",
+     "usdt": 10693661.184936,
+     "transfers": 146,
+     "share_of_post_volume": 0.010760004166275657,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "usdt": 9811656.461238,
+     "transfers": 1,
+     "share_of_post_volume": 0.009872527525905356,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TJDENsfBJs4RFETt1X1W8wMDc8M5XnJhCe",
+     "usdt": 9776435.450727,
+     "transfers": 1,
+     "share_of_post_volume": 0.009837088005867762,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TAzsQ9Gx8eqFNFSKbeXrbi45CuVPHzA8wr",
+     "usdt": 9519811.662521,
+     "transfers": 1,
+     "share_of_post_volume": 0.009578872135502261,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TMgeHXmwrUXdayMDy9cs7ubjt3zhDx5LzH",
+     "usdt": 9246260.694166,
+     "transfers": 176,
+     "share_of_post_volume": 0.009303624069541943,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGMwR6B5Lm9s9Dv9hTAaWr9Y9V6xNBSnJ4",
+     "usdt": 9108684.5756,
+     "transfers": 532,
+     "share_of_post_volume": 0.009165194435074426,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TApkMwKPaew1boeBvqncYLZGhLKKB5HDQq",
+     "usdt": 9070367.68,
+     "transfers": 13,
+     "share_of_post_volume": 0.009126639823219363,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TMSgnv2rJ5c3bBYmbYZwQh1meY2Cghqoac",
+     "usdt": 8096977.002129,
+     "transfers": 228,
+     "share_of_post_volume": 0.008147210274426478,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TPAZQXgN7QM3iYdkFojwqpN4xnxoBaxUVU",
+     "usdt": 7737080.295367,
+     "transfers": 243,
+     "share_of_post_volume": 0.007785080785075991,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TL4vDVXgNCjm2rMdr81duamwzcXYJmau3W",
+     "usdt": 7530650.171865,
+     "transfers": 34,
+     "share_of_post_volume": 0.0075773699785979184,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TEfW3vaNKv1fjxP6JrBqaYDyQAnPd6EzmP",
+     "usdt": 7166072.290833,
+     "transfers": 32,
+     "share_of_post_volume": 0.007210530273187919,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "THx8hzYGUBoVpgZ7emAC5vk5nna3E6fa79",
+     "usdt": 6551596.125,
+     "transfers": 238,
+     "share_of_post_volume": 0.006592241925530704,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TBe8WtDdgTmEfXfMCFWso5oTUn4fK9Lh6G",
+     "usdt": 6140896.351364,
+     "transfers": 228,
+     "share_of_post_volume": 0.006178994189419802,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TB2iP6zPR3Z7VAAq8kRnZgsoPP6qa9kjgH",
+     "usdt": 6108150.234385001,
+     "transfers": 17,
+     "share_of_post_volume": 0.006146044917039662,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TYJSbi7Aq4g9quPuoo8d3QAyP4L9DDMQAP",
+     "usdt": 6021340.084009,
+     "transfers": 17,
+     "share_of_post_volume": 0.00605869620049003,
+     "entity": null,
+     "was_a_counterparty": false
+    }
+   ],
+   "max_overlap_existing": 18,
+   "max_overlap_new": 26,
+   "top_new_by_overlap": [
+    {
+     "address": "TLyCjdn1SZdec9nETryvc127ALU4vWKFbb",
+     "overlap": 26,
+     "usdt": 2.315255,
+     "entity": null
+    },
+    {
+     "address": "TTfKXoGgtuqytwv84Vcv8HFoUrPDmtwGH4",
+     "overlap": 13,
+     "usdt": 1642651.293413,
+     "entity": null
+    },
+    {
+     "address": "TQ6qrV42GiD38t4XeMW4W46C9o5XjCiVaF",
+     "overlap": 12,
+     "usdt": 268348.495985,
+     "entity": null
+    },
+    {
+     "address": "TQU5FuEvcmKPJj3TBLX7Kms9YbKW5JWUoR",
+     "overlap": 12,
+     "usdt": 1143553.591465,
+     "entity": null
+    },
+    {
+     "address": "TS27tCYJgxhDd2ipjfHYPFU7BmWFaPHV4W",
+     "overlap": 12,
+     "usdt": 93226.40373,
+     "entity": null
+    },
+    {
+     "address": "TK9Aj1KDUFQu3t27EDKek2Wqo8DXkWKGUw",
+     "overlap": 12,
+     "usdt": 1611722.650108,
+     "entity": null
+    },
+    {
+     "address": "TCuMg2KrTjTPS9UrjvzFopfLXgZZCmi9Vs",
+     "overlap": 12,
+     "usdt": 273396.811027,
+     "entity": null
+    },
+    {
+     "address": "TVjDh8q67rt31WyPAQjDkD3ogZY8wx8ZdJ",
+     "overlap": 12,
+     "usdt": 1714659.09064,
+     "entity": null
+    },
+    {
+     "address": "TTcsAjEsbdHVDGqkD1ae5UvVVqVVdzechw",
+     "overlap": 12,
+     "usdt": 383954.667843,
+     "entity": null
+    },
+    {
+     "address": "THkp4Mqep7U5NACE66fsPEgHU7HxvtiVgd",
+     "overlap": 12,
+     "usdt": 2114.756931,
+     "entity": null
+    }
+   ],
+   "n_new_with_overlap_above_max_existing": 1
+  },
+  "ASO 29/23": {
+   "signed": "2023-05-21",
+   "public_from": "2023-06-28",
+   "n_designated_in_window": 39,
+   "n_counterparties_before_order": 19980,
+   "post_volume_from_counterparties_usdt": 14178647822.083248,
+   "share_of_post_volume_to_labelled_entities": 0.053579500204263664,
+   "top_destinations": [
+    {
+     "address": "TV6MuMXfmLbBqPZvBHdwFsDnQeVfnmiuSi",
+     "usdt": 145832568.561164,
+     "transfers": 2269,
+     "share_of_post_volume": 0.010285365035587506,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
+     "usdt": 143568299.639917,
+     "transfers": 5026,
+     "share_of_post_volume": 0.010125669347418964,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TAXSAU86j58GcBVbWxt41G7UQJZgr97yJ6",
+     "usdt": 114586423.624326,
+     "transfers": 84,
+     "share_of_post_volume": 0.008081618576198614,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TWbfuRFaCnHtMAgw9kDDdKduHwRSPFnmSQ",
+     "usdt": 111678700.495561,
+     "transfers": 217,
+     "share_of_post_volume": 0.007876540971814068,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TJudDixxk4fNbq1Jc1wvkzqk8WR68DL8qs",
+     "usdt": 105317393.0475,
+     "transfers": 132,
+     "share_of_post_volume": 0.007427886944442482,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TFVtEVFBWbSC5HrnaNEB8XBG19EAdiU4S6",
+     "usdt": 94164790.442906,
+     "transfers": 205,
+     "share_of_post_volume": 0.006641309638585163,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TTd9qHyjqiUkfTxe3gotbuTMpjU8LEbpkN",
+     "usdt": 89012371.468864,
+     "transfers": 1159,
+     "share_of_post_volume": 0.006277916807428364,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TQ5mpZPbQMSq2s1vSM3RJgiB1AsTsiTpFZ",
+     "usdt": 73421750.141711,
+     "transfers": 171,
+     "share_of_post_volume": 0.005178332310882043,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TByxYo5k6gAzAJdFBg3VqjvYhQn5LBQw59",
+     "usdt": 72356477.53,
+     "transfers": 376,
+     "share_of_post_volume": 0.005103200138542462,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TCA3m3GC4kcQ1nHRbQs97RdPWL6xQPf9yB",
+     "usdt": 68560221.355501,
+     "transfers": 134,
+     "share_of_post_volume": 0.004835455553717783,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TUiRuK9R5ixFWue5JfHkB8dtiu2SnfmXNi",
+     "usdt": 68286382.0,
+     "transfers": 121,
+     "share_of_post_volume": 0.00481614205084098,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TDjHshUdxPjdhGAnibV8eXeRTN7mu5t8BZ",
+     "usdt": 65843680.02791,
+     "transfers": 269,
+     "share_of_post_volume": 0.004643861731677858,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TYXn16VsCUfCn1WRy8iqkkHsYKBcgRPBBw",
+     "usdt": 62343666.80298,
+     "transfers": 159,
+     "share_of_post_volume": 0.004397010743568912,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TJNppTBzkvSPiM2NuMiZkZn9vfhrE2zai3",
+     "usdt": 60670802.0,
+     "transfers": 104,
+     "share_of_post_volume": 0.004279025952355288,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
+     "usdt": 59586646.498481,
+     "transfers": 1,
+     "share_of_post_volume": 0.004202561996474359,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TYnAGy25PK85xwvzSBmSwradWssaNt4nYc",
+     "usdt": 57457572.233112,
+     "transfers": 46,
+     "share_of_post_volume": 0.004052401396388576,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGAPaCRZ4pDnCMyRsFJg7UXP3NMcjXyBud",
+     "usdt": 55294871.0,
+     "transfers": 88,
+     "share_of_post_volume": 0.003899869133774394,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TSfafBVF9z8Lv7uKEfMDj9vCk4hFcEbKaR",
+     "usdt": 54650095.0,
+     "transfers": 68,
+     "share_of_post_volume": 0.0038543939934019985,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TTytieaLKQZB5k6j8gVLyByhwHg9kyTdth",
+     "usdt": 54338697.02484,
+     "transfers": 62,
+     "share_of_post_volume": 0.0038324315341416028,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TDH612GFGiE3LxZydTnZyfawbyZhARaRXq",
+     "usdt": 53803359.0,
+     "transfers": 64,
+     "share_of_post_volume": 0.00379467489954869,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TM1zzNDZD2DPASbKcgdVoTYhfmYgtfwx9R",
+     "usdt": 53741513.436183,
+     "transfers": 372,
+     "share_of_post_volume": 0.0037903130193050268,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TGTz8BzWkimGoKvEQFMKgGFiPB3qUsy5xZ",
+     "usdt": 53348278.021908,
+     "transfers": 77,
+     "share_of_post_volume": 0.003762578681079732,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TG1PjN7kR2bBUuKHtvwBWs8STaB28N5Hif",
+     "usdt": 51813934.3,
+     "transfers": 189,
+     "share_of_post_volume": 0.0036543635860183917,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TH6ZnJEQmyDZ2hDrR4nAFpofSovPn435J8",
+     "usdt": 51321693.0,
+     "transfers": 156,
+     "share_of_post_volume": 0.0036196465025435253,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
+     "usdt": 50708475.56264,
+     "transfers": 448,
+     "share_of_post_volume": 0.0035763971430097536,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    }
+   ],
+   "max_overlap_existing": 1162,
+   "max_overlap_new": 432,
+   "top_new_by_overlap": [
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
+     "overlap": 432,
+     "usdt": 219749172.596027,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TMepesyArZzc5ifTXRvjnbWTbsXdhbaBk1",
+     "overlap": 337,
+     "usdt": 129.775185,
+     "entity": null
+    },
+    {
+     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
+     "overlap": 104,
+     "usdt": 6747970.838028,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
+     "overlap": 102,
+     "usdt": 7029035.177637001,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TEoPgvcD4gqh9S19aDWuzFgBek9B7sxbhj",
+     "overlap": 97,
+     "usdt": 8487559.856764,
+     "entity": null
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "overlap": 92,
+     "usdt": 5011692.812894,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
+     "overlap": 91,
+     "usdt": 3689627.144958,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TMEj5xk1RL2DBziSr1YrG2t3wqtAyrxRdh",
+     "overlap": 76,
+     "usdt": 48039224.474782,
+     "entity": null
+    },
+    {
+     "address": "TP2sVUt2CdbvwxkgYkJzy7sKXu6tS4tHaZ",
+     "overlap": 72,
+     "usdt": 33371852.913561,
+     "entity": null
+    },
+    {
+     "address": "TXV39no9KvGCTKJEsag29xPjf72sBEsLE9",
+     "overlap": 70,
+     "usdt": 5101560.928148,
+     "entity": null
+    }
+   ],
+   "n_new_with_overlap_above_max_existing": 0
+  },
+  "ASO 34/23": {
+   "signed": "2023-07-04",
+   "public_from": "2023-07-05",
+   "n_designated_in_window": 25,
+   "n_counterparties_before_order": 27323,
+   "post_volume_from_counterparties_usdt": 2644118197.394207,
+   "share_of_post_volume_to_labelled_entities": 0.10299889516573608,
+   "top_destinations": [
+    {
+     "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
+     "usdt": 59586646.498481,
+     "transfers": 1,
+     "share_of_post_volume": 0.02253554570941797,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TM1zzNDZD2DPASbKcgdVoTYhfmYgtfwx9R",
+     "usdt": 48181571.038184,
+     "transfers": 118,
+     "share_of_post_volume": 0.018222169903625036,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
+     "usdt": 46690904.132487,
+     "transfers": 4,
+     "share_of_post_volume": 0.017658402781880606,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
+     "usdt": 45892484.508666,
+     "transfers": 792,
+     "share_of_post_volume": 0.01735644214161579,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
+     "usdt": 32423813.2028,
+     "transfers": 431,
+     "share_of_post_volume": 0.012262618681250273,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TNJkqw1L1QV3R6LPGpfRRd38ZagAoT7M9k",
+     "usdt": 31065615.0,
+     "transfers": 22,
+     "share_of_post_volume": 0.011748950947281908,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
+     "usdt": 24471850.19,
+     "transfers": 9,
+     "share_of_post_volume": 0.009255202817376752,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
+     "usdt": 23898483.867439,
+     "transfers": 492,
+     "share_of_post_volume": 0.009038356867325783,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TSPgNC4ZJRRiuUTTVrMF7hw49WaaDkgbi5",
+     "usdt": 23571484.665811,
+     "transfers": 427,
+     "share_of_post_volume": 0.008914686449736182,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
+     "usdt": 21736156.687164,
+     "transfers": 1,
+     "share_of_post_volume": 0.00822056922742149,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TXByfwCqw899fEPAWTuF3gkhPvfLMLvdr9",
+     "usdt": 20480240.447691,
+     "transfers": 1,
+     "share_of_post_volume": 0.007745584319140646,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TWXrq7g5Z1kf8dv98mz1JhdLX7xSnaUkZ7",
+     "usdt": 17437943.111145,
+     "transfers": 55,
+     "share_of_post_volume": 0.0065949937973008126,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGr4m8YPxPeGKS8ivZHffwkshPvFox64xX",
+     "usdt": 17269740.0,
+     "transfers": 41,
+     "share_of_post_volume": 0.006531379730686557,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TDDBJsVQXpx1zXcf3aLKbgvumCHB8JBWN5",
+     "usdt": 17217235.056053,
+     "transfers": 60,
+     "share_of_post_volume": 0.006511522470145503,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TZ7kLgS81Q2TuKataTfBhZoQksTp8pf1Zr",
+     "usdt": 14846775.047069,
+     "transfers": 44,
+     "share_of_post_volume": 0.005615019427535645,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TAHV1AHmKSPotZDKTYRBqB4utDJUyn9DHa",
+     "usdt": 14331256.30201,
+     "transfers": 276,
+     "share_of_post_volume": 0.005420051310918526,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TPKBiMaC38Cuiqaw5X2ghMaMU2o29Xj8st",
+     "usdt": 11835376.453969,
+     "transfers": 192,
+     "share_of_post_volume": 0.00447611474616862,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TKSitnfTLVMRbJsF1i2UH5hNUeHLDrXDiY",
+     "usdt": 11673373.0,
+     "transfers": 3,
+     "share_of_post_volume": 0.004414845376997206,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TXK3EszeMNrEjJpTTs6qCXXHeRjs2Y5sck",
+     "usdt": 11361910.106437,
+     "transfers": 33,
+     "share_of_post_volume": 0.004297050758787646,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TWCfWiAMTjNvnqXA3Qcq25KNscadHhv2dD",
+     "usdt": 11164657.658507,
+     "transfers": 109,
+     "share_of_post_volume": 0.004222450293451266,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TCVeQH7SnDTKFfCfZBCmVuhUugEXEx5gET",
+     "usdt": 11026418.646863,
+     "transfers": 110,
+     "share_of_post_volume": 0.004170168586914759,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TP4qzNYaJWgUBKGcJT4XCqZPF4cjZMXZRS",
+     "usdt": 10759247.610689,
+     "transfers": 13,
+     "share_of_post_volume": 0.004069125057000968,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TYMVR7rgoxp1FERbzBhhcCwJCBkCTpLu8C",
+     "usdt": 10617698.184936,
+     "transfers": 151,
+     "share_of_post_volume": 0.004015591358737215,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TMTuevggyCrJoZT34Ttz18Jvcqy3cAYEUR",
+     "usdt": 10476613.0,
+     "transfers": 221,
+     "share_of_post_volume": 0.003962233235384394,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TEe9KaHQ7q8R2s7wJx4bY1LtD7nu9TozMU",
+     "usdt": 10315526.489623,
+     "transfers": 114,
+     "share_of_post_volume": 0.0039013106523713686,
+     "entity": null,
+     "was_a_counterparty": false
+    }
+   ],
+   "max_overlap_existing": 2963,
+   "max_overlap_new": 443,
+   "top_new_by_overlap": [
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
+     "overlap": 443,
+     "usdt": 53804084.894085,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TMepesyArZzc5ifTXRvjnbWTbsXdhbaBk1",
+     "overlap": 84,
+     "usdt": 35.735814,
+     "entity": null
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "overlap": 75,
+     "usdt": 1029242.3214649999,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
+     "overlap": 71,
+     "usdt": 713342.825978,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
+     "overlap": 66,
+     "usdt": 827120.089774,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TDHYpZdTzGMYchX1sigGNt6LyYP77k4bNP",
+     "overlap": 65,
+     "usdt": 1424634.710568,
+     "entity": null
+    },
+    {
+     "address": "TDZuGhcLL8Dj64kf5HxST649ndWA5cTbA9",
+     "overlap": 65,
+     "usdt": 164483.542256,
+     "entity": null
+    },
+    {
+     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
+     "overlap": 64,
+     "usdt": 705231.044561,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TYuHA4pWz3tpDdf7SrbmCagBequ9YVGhch",
+     "overlap": 61,
+     "usdt": 652425.49201,
+     "entity": null
+    },
+    {
+     "address": "TUEXFfyo9hKTyQF6QR2fMxFT4MkYcwsdzk",
+     "overlap": 56,
+     "usdt": 55033.05,
+     "entity": null
+    }
+   ],
+   "n_new_with_overlap_above_max_existing": 0
+  },
+  "ASO 53/23": {
+   "signed": "2023-10-20",
+   "public_from": "2023-10-22",
+   "n_designated_in_window": 17,
+   "n_counterparties_before_order": 4054,
+   "post_volume_from_counterparties_usdt": 2147670896.349592,
+   "share_of_post_volume_to_labelled_entities": 0.12469728834707773,
+   "top_destinations": [
+    {
+     "address": "TCzMZXrcbVcUoWSF2F2ybxvpikFTkPHmUo",
+     "usdt": 60676389.92066,
+     "transfers": 134,
+     "share_of_post_volume": 0.02825218241015976,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TM1zzNDZD2DPASbKcgdVoTYhfmYgtfwx9R",
+     "usdt": 46784491.0,
+     "transfers": 4,
+     "share_of_post_volume": 0.021783826879397516,
+     "entity": "CEX",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
+     "usdt": 46690904.132487,
+     "transfers": 4,
+     "share_of_post_volume": 0.021740250897773854,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
+     "usdt": 44181288.524132,
+     "transfers": 162,
+     "share_of_post_volume": 0.020571721952011908,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
+     "usdt": 35457550.19,
+     "transfers": 11,
+     "share_of_post_volume": 0.016509768908386936,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TXCE8RYq6bhX2CueZBUjPbDYoJbMene5mN",
+     "usdt": 33544838.0,
+     "transfers": 11,
+     "share_of_post_volume": 0.01561917054285009,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
+     "usdt": 32445914.0428,
+     "transfers": 433,
+     "share_of_post_volume": 0.015107488814021039,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
+     "usdt": 23282686.867439,
+     "transfers": 491,
+     "share_of_post_volume": 0.01084090067384752,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
+     "usdt": 21736156.687164,
+     "transfers": 1,
+     "share_of_post_volume": 0.010120804227551374,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
+     "usdt": 19749459.683122,
+     "transfers": 2,
+     "share_of_post_volume": 0.009195757002011,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TWXrq7g5Z1kf8dv98mz1JhdLX7xSnaUkZ7",
+     "usdt": 18690902.369444,
+     "transfers": 60,
+     "share_of_post_volume": 0.008702870817504222,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TJNP7pH4vS4eftzcWv69PK3VYp1GcCJk1z",
+     "usdt": 17193675.0,
+     "transfers": 58,
+     "share_of_post_volume": 0.00800573077989937,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TTZT8zstp8xUsYK1wuRuUbqnA9Ae9RW2KH",
+     "usdt": 14263739.6,
+     "transfers": 24,
+     "share_of_post_volume": 0.006641492243641312,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TQk44sPs1rjKyEPuzXpAheJtd7vMQBeeZ2",
+     "usdt": 14052943.07706,
+     "transfers": 30,
+     "share_of_post_volume": 0.00654334102163691,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
+     "usdt": 12895269.635415,
+     "transfers": 2922,
+     "share_of_post_volume": 0.0060043043174506676,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TR5Q2Z15AfXBSX4PY7d389sgbDM8JTTphU",
+     "usdt": 12264401.823759,
+     "transfers": 31,
+     "share_of_post_volume": 0.005710559213054882,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TEe9KaHQ7q8R2s7wJx4bY1LtD7nu9TozMU",
+     "usdt": 11369948.793233,
+     "transfers": 122,
+     "share_of_post_volume": 0.005294083377745893,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TD291XXvTPEwQdR7gjBapxeMunYRcg6VBG",
+     "usdt": 11361279.880912,
+     "transfers": 51,
+     "share_of_post_volume": 0.005290046952828214,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TYMVR7rgoxp1FERbzBhhcCwJCBkCTpLu8C",
+     "usdt": 10727198.184936,
+     "transfers": 152,
+     "share_of_post_volume": 0.004994805397404731,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TP4qzNYaJWgUBKGcJT4XCqZPF4cjZMXZRS",
+     "usdt": 10709247.610689,
+     "transfers": 12,
+     "share_of_post_volume": 0.004986447238676822,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TB2iP6zPR3Z7VAAq8kRnZgsoPP6qa9kjgH",
+     "usdt": 10615627.234385,
+     "transfers": 31,
+     "share_of_post_volume": 0.004942855654666848,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TMTuevggyCrJoZT34Ttz18Jvcqy3cAYEUR",
+     "usdt": 10476613.0,
+     "transfers": 221,
+     "share_of_post_volume": 0.004878127751233746,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TUJt5ebH6tWNNfturqeEWiBqv7JDhjWeVP",
+     "usdt": 10000000.0,
+     "transfers": 1,
+     "share_of_post_volume": 0.004656206878342978,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TL4vDVXgNCjm2rMdr81duamwzcXYJmau3W",
+     "usdt": 9848800.841865,
+     "transfers": 39,
+     "share_of_post_volume": 0.004585805422332192,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "usdt": 9811656.461238,
+     "transfers": 1,
+     "share_of_post_volume": 0.00456851023027547,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    }
+   ],
+   "max_overlap_existing": 420,
+   "max_overlap_new": 83,
+   "top_new_by_overlap": [
+    {
+     "address": "THqkxgLR12HKLPj6NCUkoJ72yMEAv58o1y",
+     "overlap": 83,
+     "usdt": 556183.322533,
+     "entity": null
+    },
+    {
+     "address": "TMPrY21nXwTjASWziHPXfbocxvB4auXpUw",
+     "overlap": 77,
+     "usdt": 1008991.847163,
+     "entity": null
+    },
+    {
+     "address": "TUMjBBgXWZ1BToj1hL3SRMuCJAw5PBFeq2",
+     "overlap": 53,
+     "usdt": 282519.861372,
+     "entity": null
+    },
+    {
+     "address": "TCr8WyYjuKra3aPCo6mNFg4G2NeJYCeyhw",
+     "overlap": 47,
+     "usdt": 1005359.832319,
+     "entity": null
+    },
+    {
+     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
+     "overlap": 46,
+     "usdt": 540435.002893,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "overlap": 45,
+     "usdt": 11450220.895507,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TNHiU7JAEpEt5uVDV9fLJSPijHCHr89o5u",
+     "overlap": 44,
+     "usdt": 159382.666732,
+     "entity": null
+    },
+    {
+     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
+     "overlap": 43,
+     "usdt": 539227.998543,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
+     "overlap": 39,
+     "usdt": 1057568.017063,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu",
+     "overlap": 35,
+     "usdt": 493080.944405,
+     "entity": "CEX"
+    }
+   ],
+   "n_new_with_overlap_above_max_existing": 0
+  },
+  "ASO 44/21": {
+   "signed": "2021-06-30",
+   "public_from": "2021-07-01",
+   "n_designated_in_window": 9,
+   "n_counterparties_before_order": 83,
+   "post_volume_from_counterparties_usdt": 675426508.260288,
+   "share_of_post_volume_to_labelled_entities": 0.06367289875068201,
+   "top_destinations": [
+    {
+     "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
+     "usdt": 46690904.132487,
+     "transfers": 4,
+     "share_of_post_volume": 0.0691280303059912,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TXCE8RYq6bhX2CueZBUjPbDYoJbMene5mN",
+     "usdt": 33544838.0,
+     "transfers": 11,
+     "share_of_post_volume": 0.049664674971674164,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TSzujPhnBPbTyCVrTmx3F6reCABeJ59qhL",
+     "usdt": 32737800.000626,
+     "transfers": 78,
+     "share_of_post_volume": 0.04846981810789382,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TQ1jmDKw4hwZhTFMBUpMvtYJq4DtMPzHEy",
+     "usdt": 27428403.790447,
+     "transfers": 412,
+     "share_of_post_volume": 0.04060901290518636,
+     "entity": "UNKNOWN",
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TSPgNC4ZJRRiuUTTVrMF7hw49WaaDkgbi5",
+     "usdt": 22622140.180984,
+     "transfers": 396,
+     "share_of_post_volume": 0.03349311865069137,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
+     "usdt": 21736156.687164,
+     "transfers": 1,
+     "share_of_post_volume": 0.03218137935265575,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TMyp6ywvzgWLvRb93L58Bf5hqKrkobdjXx",
+     "usdt": 20341179.503497,
+     "transfers": 117,
+     "share_of_post_volume": 0.03011605149447015,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TGFEmE5YPLgQPZNVAgzTadcFEP4A7sFFaU",
+     "usdt": 13755199.774212,
+     "transfers": 93,
+     "share_of_post_volume": 0.02036520569742161,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TAKCDqcHDPhdrKag7qxDFt2VgshvTwqLNe",
+     "usdt": 10567283.49,
+     "transfers": 56,
+     "share_of_post_volume": 0.01564534906576054,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TDvf1dSBhR7dEskJs17HxGHheJrjXhiFyM",
+     "usdt": 7382518.976502,
+     "transfers": 1,
+     "share_of_post_volume": 0.010930158775552545,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TTKhC17M3xdXtrKDU5niLg4YH2rK742D8D",
+     "usdt": 6600000.0,
+     "transfers": 2,
+     "share_of_post_volume": 0.009771603452461136,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TAbCzk1UwjkMwEwiKRAmfJe2z2etZ6nGMj",
+     "usdt": 6085942.599293,
+     "transfers": 142,
+     "share_of_post_volume": 0.009010517835565422,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TV7Z1kvtQNGfC226DaFjEfYZPuySg8TdXK",
+     "usdt": 5932766.400001,
+     "transfers": 28,
+     "share_of_post_volume": 0.008783733429832605,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TJzGCzDC6V7Znd8GK4BqSUJMy1CMvPj8AN",
+     "usdt": 5586410.612129,
+     "transfers": 209,
+     "share_of_post_volume": 0.008270937761264434,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TTuxpvy4nutU752cvSsT2U8gWfXTrK4493",
+     "usdt": 5429000.0,
+     "transfers": 50,
+     "share_of_post_volume": 0.008037884112638108,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TXK3EszeMNrEjJpTTs6qCXXHeRjs2Y5sck",
+     "usdt": 5367746.000353,
+     "transfers": 18,
+     "share_of_post_volume": 0.007947194749846035,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TA8moGJ9Mve3ej1octjz7BBZDrfrfAsCBi",
+     "usdt": 4853500.0,
+     "transfers": 116,
+     "share_of_post_volume": 0.007185829902503049,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TBMwzhiFo8LGQFkWN9ifFgCJ2vC1WfMHdv",
+     "usdt": 4537359.762841,
+     "transfers": 39,
+     "share_of_post_volume": 0.0067177697460053575,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TVVv7j6kEtemMo89ZS1sZ6Jg54qfcH7s5V",
+     "usdt": 4507866.242852,
+     "transfers": 1,
+     "share_of_post_volume": 0.006674103233619031,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TNGBnNSp3JddQmapRTCywGkMtvR4X7s3qn",
+     "usdt": 4284109.3,
+     "transfers": 30,
+     "share_of_post_volume": 0.006342820791909221,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TWT3L694985N2sF8aCQpMbtpxCUgRPsfME",
+     "usdt": 4095581.970915,
+     "transfers": 8,
+     "share_of_post_volume": 0.006063697413156151,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TVwdt3srnsJPqy5NsA1AHz9eHVStWYPtq1",
+     "usdt": 4075983.773021,
+     "transfers": 265,
+     "share_of_post_volume": 0.0060346813800950866,
+     "entity": null,
+     "was_a_counterparty": true
+    },
+    {
+     "address": "TNJkqw1L1QV3R6LPGpfRRd38ZagAoT7M9k",
+     "usdt": 3976747.0,
+     "transfers": 3,
+     "share_of_post_volume": 0.005887756774964312,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TJ9yW4CfwSP2aq2LqNSmSV6LKRUmCEij9o",
+     "usdt": 3867364.104475,
+     "transfers": 110,
+     "share_of_post_volume": 0.005725810368971542,
+     "entity": null,
+     "was_a_counterparty": false
+    },
+    {
+     "address": "TLB3zhhtjQJHrvJHAycSk2CNqPVCK3Nxjz",
+     "usdt": 3832251.01,
+     "transfers": 186,
+     "share_of_post_volume": 0.005673823818183889,
+     "entity": null,
+     "was_a_counterparty": false
+    }
+   ],
+   "max_overlap_existing": 23,
+   "max_overlap_new": 13,
+   "top_new_by_overlap": [
+    {
+     "address": "TEMDMcqrabcHb7fxqhFTQwM8qwND4thPTV",
+     "overlap": 13,
+     "usdt": 27138.762919,
+     "entity": null
+    },
+    {
+     "address": "TEYFLJ2hWenLkDeTG1HtrnHiVGZoM3Ti3q",
+     "overlap": 13,
+     "usdt": 3849.051717,
+     "entity": null
+    },
+    {
+     "address": "THmqmfVN2jyAyT1ifC1ZdosyBtUBvjrXBh",
+     "overlap": 12,
+     "usdt": 17226.90353,
+     "entity": null
+    },
+    {
+     "address": "TEAwk1VVJdvr56SLy9VXKKJRKxYMuiQvSW",
+     "overlap": 12,
+     "usdt": 491105.95147,
+     "entity": null
+    },
+    {
+     "address": "TKi3eSuQzwRSj97UbF9EXVHYP9RNoXrPVk",
+     "overlap": 12,
+     "usdt": 479720.690336,
+     "entity": null
+    },
+    {
+     "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
+     "overlap": 11,
+     "usdt": 1188108.196316,
+     "entity": "CEX"
+    },
+    {
+     "address": "TWifMQL2C3MpWMTuBG6r3Ui5oFVqKwgKqN",
+     "overlap": 11,
+     "usdt": 217968.471112,
+     "entity": null
+    },
+    {
+     "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
+     "overlap": 11,
+     "usdt": 347745.878868,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TYASr5UV6HEcXatwdFQfmLVUqQQQMUxHLS",
+     "overlap": 11,
+     "usdt": 1512127.336827,
+     "entity": "UNKNOWN"
+    },
+    {
+     "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
+     "overlap": 11,
+     "usdt": 15286.868341,
+     "entity": null
+    }
+   ],
+   "n_new_with_overlap_above_max_existing": 0
+  }
+ },
+ "note": "Computed on the crawled two-hop graph, whose per-address histories are truncated newest-first; 'first seen' is therefore not used as a criterion."
+}

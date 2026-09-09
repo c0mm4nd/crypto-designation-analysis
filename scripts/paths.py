@@ -62,5 +62,10 @@ def out_path(name: str) -> Path:
     try:
         return find(name)
     except FileNotFoundError:
-        d = ROOT / "analysis"
-        return (d / name) if d.is_dir() else (ROOT / name)
+        pass
+    if Path(name).suffix == ".json":
+        for d in (ROOT, ROOT / "analysis"):
+            if d.is_dir() and any(d.glob("*.json")):
+                return d / name
+    d = ROOT / "analysis"
+    return (d / name) if d.is_dir() else (ROOT / name)

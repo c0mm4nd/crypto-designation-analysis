@@ -7,7 +7,7 @@ loses its route". This script repeats the removal tests with three measures that
 what moved:
 
   share of transferred value on edges whose endpoints both survive and remain in the
-    largest component, which is the value that could still have been routed;
+    largest component;
   share of transfers, the same thing unweighted by size;
   share of addresses, the measure used elsewhere, for comparison.
 

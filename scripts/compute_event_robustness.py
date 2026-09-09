@@ -141,6 +141,38 @@ def main():
                   "ratio_post_to_pre": summarise(v, c)["ratio_post_to_pre"]}
     out["leave_one_order_out"] = loo
 
+    # ---- 2b. one order at a time, and the two enforcement regimes separately.
+    # The pooled ratio is dominated by the order that moved the most, and that order predates
+    # the point at which the issuer began freezing designated addresses at all. Splitting on
+    # that date says whether the collapse looks different once enforcement was in place. The
+    # post-October-2023 group is small and its addresses have short post-windows, so this is
+    # descriptive.
+    REGIME = pd.Timestamp("2023-10-01")
+    per_order = {}
+    for o in order_list:
+        sub = {a: d for a, d in ev.items() if addr_order[a] == o}
+        if not sub:
+            continue
+        v, c = weekly(act, sub)
+        sm = summarise(v, c)
+        per_order[o] = {"n_addresses": len(sub), "signed": str(min(sub.values()).date()),
+                        "pre_mean_weekly_volume": sm["pre_mean_weekly_volume"],
+                        "ratio_post_to_pre": sm["ratio_post_to_pre"]}
+    out["per_order"] = per_order
+    regimes = {}
+    for name, keep in (("before_october_2023", lambda d: d < REGIME),
+                       ("from_october_2023", lambda d: d >= REGIME)):
+        sub = {a: d for a, d in ev.items() if keep(d)}
+        if not sub:
+            continue
+        v, c = weekly(act, sub)
+        regimes[name] = {"n_addresses": len(sub),
+                         "n_orders": len({addr_order[a] for a in sub}), **summarise(v, c)}
+    out["enforcement_regimes"] = regimes
+    for k, r in regimes.items():
+        print(f"  regime {k}: {r['n_orders']} orders, {r['n_addresses']} addresses, "
+              f"ratio {r['ratio_post_to_pre']:.4f}")
+
     rng = np.random.default_rng(0)
     boot = []
     for _ in range(500):
