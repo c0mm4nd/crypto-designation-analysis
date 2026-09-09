@@ -194,21 +194,36 @@ def main():
         # continuing from a wallet that a later order names. Those addresses are observable in
         # the complete histories, so the reach is measured there rather than in the crawl.
         post_c = comp[comp["t"] > cut]
+        pre_c = comp[comp["t"] < d]
+
+        def reach(frame, a):
+            m = frame[((frame["from"] == a) & (frame["to"].isin(cps)))
+                      | ((frame["to"] == a) & (frame["from"].isin(cps)))]
+            if not len(m):
+                return 0, 0.0
+            other = np.where(m["from"] == a, m["to"], m["from"])
+            pv = pd.Series(m["value"].to_numpy(), index=other).groupby(level=0).sum()
+            pv = pv[pv >= args.min_usdt]
+            return int(len(pv)), float(m["value"].sum())
+
         succ = []
         for a in sorted(later_designated):
-            m = post_c[((post_c["from"] == a) & (post_c["to"].isin(cps)))
-                       | ((post_c["to"] == a) & (post_c["from"].isin(cps)))]
-            if not len(m):
+            after, usdt = reach(post_c, a)
+            if after == 0:
                 continue
-            reached = (set(m["to"]) | set(m["from"])) & cps
+            before, _ = reach(pre_c, a)
             succ.append({"address": a, "order": str(order_of[a]), "signed": str(signed[a].date()),
-                         "reaches": len(reached), "usdt": float(m["value"].sum())})
-        succ.sort(key=lambda r: -r["reaches"])
+                         "reaches_after": after, "reaches_before": before, "usdt_after": usdt,
+                         "first_transfer": str(comp[(comp["from"] == a) | (comp["to"] == a)]["t"].min().date())})
+        succ.sort(key=lambda r: -r["reaches_after"])
+        n_pre_linked = sum(1 for r in succ if r["reaches_before"] > 0)
 
         out["orders"][str(order)] = {
             "later_designated_reaching_counterparties": succ[:10],
-            "max_reach_by_later_designated": succ[0]["reaches"] if succ else 0,
+            "max_reach_by_later_designated_after": succ[0]["reaches_after"] if succ else 0,
+            "max_reach_by_later_designated_before": max((r["reaches_before"] for r in succ), default=0),
             "n_later_designated_reaching_counterparties": len(succ),
+            "n_later_designated_already_linked_before_order": n_pre_linked,
             "signed": str(d.date()), "public_from": str(cut.date()),
             "n_designated_in_window": len(addrs),
             "n_counterparties_before_order": len(cps),
@@ -236,8 +251,9 @@ def main():
               f"best newcomer {top_new['overlap'] if top_new else 0} "
               f"(rank {top_new['network_rank'] if top_new else '-'}, "
               f"{e['n_designated_reaching_at_least_best_newcomer']} of {e['n_designated_with_observable_reach']} "
-              f"designated reach at least as far); later-designated max reach "
-              f"{e['max_reach_by_later_designated']} over {e['n_later_designated_reaching_counterparties']} addresses",
+              f"designated reach at least as far); later-designated reach after {e['max_reach_by_later_designated_after']} "
+              f"/ before {e['max_reach_by_later_designated_before']}, {e['n_later_designated_already_linked_before_order']} of "
+              f"{e['n_later_designated_reaching_counterparties']} already linked before the order",
               flush=True)
 
     with open(out_path(args.out), "w") as f:
