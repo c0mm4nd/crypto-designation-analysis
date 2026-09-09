@@ -143,6 +143,9 @@ def main():
             post_all[post_all["from"].isin(cps)].rename(columns={"to": "other", "from": "cp"})[["other", "cp", "value"]],
             post_all[post_all["to"].isin(cps)].rename(columns={"from": "other", "to": "cp"})[["other", "cp", "value"]],
         ], ignore_index=True)
+        pair_all = touch.groupby(["other", "cp"])["value"].sum()
+        pair_all = pair_all[pair_all >= args.min_usdt]
+        ov_any = pair_all.reset_index().groupby("other")["cp"].nunique()
         touch = touch[~touch["other"].isin(designated)]
         pairv = touch.groupby(["other", "cp"])["value"].sum()
         pairv = pairv[pairv >= args.min_usdt]
@@ -212,16 +215,41 @@ def main():
             if after == 0:
                 continue
             before, _ = reach(pre_c, a)
+            crawl_reach = int(ov_any.get(a, 0))
             succ.append({"address": a, "order": str(order_of[a]), "signed": str(signed[a].date()),
                          "reaches_after": after, "reaches_before": before, "usdt_after": usdt,
+                         "reach_on_crawl_observable_basis": crawl_reach,
                          "first_transfer": str(comp[(comp["from"] == a) | (comp["to"] == a)]["t"].min().date())})
         succ.sort(key=lambda r: -r["reaches_after"])
         n_pre_linked = sum(1 for r in succ if r["reaches_before"] > 0)
+
+        # size-matched null on the crawl: undesignated addresses whose post-cut degree lies
+        # within a factor of two of the wallet's, and their reach into the same observable set
+        post_deg = pd.concat([post_all["from"], post_all["to"]]).value_counts()
+        cp_deg = pd.concat([crawl["from"], crawl["to"]]).value_counts()
+        for r in succ[:3]:
+            a = r["address"]
+            dg = int(post_deg.get(a, 0))
+            band = post_deg[(post_deg >= dg / 2) & (post_deg <= dg * 2)].index
+            band = [b for b in band if b not in designated]
+            band_reach = ov_any.reindex(band).fillna(0).to_numpy()
+            r["crawl_post_degree"] = dg
+            r["size_matched_n"] = int(len(band))
+            r["size_matched_percentile"] = float((band_reach < r["reach_on_crawl_observable_basis"]).mean() * 100) if len(band) else None
+            # what it reaches: small addresses specific to the layer, or infrastructure
+            m = post_c[((post_c["from"] == a) & (post_c["to"].isin(cps))) | ((post_c["to"] == a) & (post_c["from"].isin(cps)))]
+            reached = set(np.where(m["from"] == a, m["to"], m["from"]))
+            degs = cp_deg.reindex(list(reached)).fillna(0)
+            r["reached_with_crawl_degree_le5"] = int((degs <= 5).sum())
+            r["reached_with_crawl_degree_ge100"] = int((degs >= 100).sum())
+            r["reached_in_top400_hubs"] = int(sum(1 for x in reached if x in hub_rank))
 
         out["orders"][str(order)] = {
             "later_designated_reaching_counterparties": succ[:10],
             "max_reach_by_later_designated_after": succ[0]["reaches_after"] if succ else 0,
             "max_reach_by_later_designated_before": max((r["reaches_before"] for r in succ), default=0),
+            "max_reach_by_later_designated_on_crawl_basis": max((r["reach_on_crawl_observable_basis"] for r in succ), default=0),
+            "max_reach_by_any_undesignated_on_crawl_basis": int(ov["overlap"].max()) if len(ov) else 0,
             "n_later_designated_reaching_counterparties": len(succ),
             "n_later_designated_already_linked_before_order": n_pre_linked,
             "signed": str(d.date()), "public_from": str(cut.date()),
