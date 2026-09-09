@@ -155,8 +155,12 @@ def main():
             continue
         v, c = weekly(act, sub)
         sm = summarise(v, c)
+        v4 = float(v[W - 4:W].mean())
         per_order[o] = {"n_addresses": len(sub), "signed": str(min(sub.values()).date()),
                         "pre_mean_weekly_volume": sm["pre_mean_weekly_volume"],
+                        "last_4_pre_weeks_mean_volume": v4,
+                        "share_of_pre_volume_in_last_4_weeks": float(v4 / sm["pre_mean_weekly_volume"])
+                        if sm["pre_mean_weekly_volume"] else 0.0,
                         "ratio_post_to_pre": sm["ratio_post_to_pre"]}
     out["per_order"] = per_order
     regimes = {}

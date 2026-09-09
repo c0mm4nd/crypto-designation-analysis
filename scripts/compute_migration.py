@@ -100,6 +100,12 @@ def main():
         "Computed on the crawled two-hop graph, whose per-address histories are truncated "
         "newest-first; 'first seen' is therefore not used as a criterion.")}
 
+    # when the crawl first sees each address, and which addresses were designated in a later
+    # order: both bear on whether a candidate is a successor or just a service
+    crawl_first_seen = pd.concat([crawl[["from", "t"]].rename(columns={"from": "a"}),
+                                  crawl[["to", "t"]].rename(columns={"to": "a"})],
+                                 ignore_index=True).groupby("a")["t"].min()
+
     orders = defaultdict(list)
     for a in in_window:
         orders[order_of[a]].append(a)
@@ -108,6 +114,7 @@ def main():
         if len(addrs) < args.min_designated:
             continue
         d = signed[addrs[0]]
+        later_designated = {a_ for a_ in designated if a_ in signed and signed[a_] > d}
         pub = published[addrs[0]]
         cut = pub if pd.notna(pub) and pub > d else d
 
@@ -145,12 +152,17 @@ def main():
         # the observable denominator: counterparties the crawl reached that transact afterwards
         observable = set(pairv.reset_index()["cp"])
 
-        # reference 1: how comprehensively the designated addresses themselves dealt with these
-        # counterparties before the order, which is what this business looks like
+        # reference: how comprehensively the designated addresses themselves dealt with these
+        # counterparties before the order. Measured on the same observable counterparties the
+        # newcomers are measured on, and with designated addresses excluded from the
+        # counterparty side, or the two sides are not comparable.
         dpair = pre.assign(other=np.where(pre["to"].isin(addrs), pre["to"], pre["from"]),
                            cp=np.where(pre["to"].isin(addrs), pre["from"], pre["to"]))
-        dpv = dpair.groupby(["other", "cp"])["value"].sum()
-        dpv = dpv[dpv >= args.min_usdt]
+        dpair = dpair[~dpair["cp"].isin(designated)]
+        dpv_all = dpair.groupby(["other", "cp"])["value"].sum()
+        dpv_all = dpv_all[dpv_all >= args.min_usdt]
+        d_ov_all = dpv_all.reset_index().groupby("other")["cp"].nunique()
+        dpv = dpv_all[dpv_all.index.get_level_values("cp").isin(observable)]
         d_ov = dpv.reset_index().groupby("other")["cp"].nunique()
 
         # reference 2: incumbents, as a distribution rather than a maximum
@@ -168,12 +180,35 @@ def main():
         def q(series, ps=(50, 75, 90, 100)):
             return {f"p{x}": float(np.percentile(series, x)) for x in ps} if len(series) else {}
 
+        first_seen = crawl_first_seen
         cands = []
         for a, r in new_only.head(10).iterrows():
             cands.append({"address": a, "overlap": int(r["overlap"]), "usdt": float(r["usdt"]),
+                          "share_of_post_volume": float(dest["sum"].get(a, 0.0) / total) if total else 0.0,
                           "entity": labels.get(a), "network_rank": hub_rank.get(a),
-                          "network_transfers": hub_tx.get(a)})
+                          "network_transfers": hub_tx.get(a),
+                          "crawl_first_seen": str(first_seen[a].date()) if a in first_seen.index else None,
+                          "designated_in_a_later_order": bool(a in later_designated)})
+        # --- succession within the programme. Removing designated addresses from the candidate
+        # set, as the newcomer test does, excludes the mode that matters most: an operator
+        # continuing from a wallet that a later order names. Those addresses are observable in
+        # the complete histories, so the reach is measured there rather than in the crawl.
+        post_c = comp[comp["t"] > cut]
+        succ = []
+        for a in sorted(later_designated):
+            m = post_c[((post_c["from"] == a) & (post_c["to"].isin(cps)))
+                       | ((post_c["to"] == a) & (post_c["from"].isin(cps)))]
+            if not len(m):
+                continue
+            reached = (set(m["to"]) | set(m["from"])) & cps
+            succ.append({"address": a, "order": str(order_of[a]), "signed": str(signed[a].date()),
+                         "reaches": len(reached), "usdt": float(m["value"].sum())})
+        succ.sort(key=lambda r: -r["reaches"])
+
         out["orders"][str(order)] = {
+            "later_designated_reaching_counterparties": succ[:10],
+            "max_reach_by_later_designated": succ[0]["reaches"] if succ else 0,
+            "n_later_designated_reaching_counterparties": len(succ),
             "signed": str(d.date()), "public_from": str(cut.date()),
             "n_designated_in_window": len(addrs),
             "n_counterparties_before_order": len(cps),
@@ -182,7 +217,11 @@ def main():
             "share_of_post_volume_to_labelled_entities": lab_share,
             "largest_single_recipient_share": float(dest["sum"].iloc[0] / total) if total and len(dest) else 0.0,
             "min_usdt_per_pair": args.min_usdt,
-            "designated_own_overlap": q(d_ov.to_numpy()),
+            "designated_own_overlap_observable": q(d_ov.to_numpy()),
+            "designated_own_overlap_all": q(d_ov_all.to_numpy()),
+            "n_designated_reaching_at_least_best_newcomer": int(
+                (d_ov >= (new_only["overlap"].max() if len(new_only) else 0)).sum()),
+            "n_designated_with_observable_reach": int(len(d_ov)),
             "incumbent_overlap": q(ov_pre.to_numpy()),
             "newcomer_overlap": q(new_only["overlap"].to_numpy()),
             "top_new_by_overlap": cands,
@@ -190,11 +229,16 @@ def main():
         }
         e = out["orders"][str(order)]
         top_new = cands[0] if cands else None
-        print(f"[{order}] {len(addrs)} designated; {len(cps):,} counterparties, {len(observable):,} observable after; "
-              f"{total/1e6:,.0f} M USDT moved on, largest recipient {100*e['largest_single_recipient_share']:.1f}%; "
-              f"overlap median designated {e['designated_own_overlap'].get('p50', 0):.0f} / "
+        do = e["designated_own_overlap_observable"]
+        print(f"[{order}] {len(cps):,} counterparties, {len(observable):,} observable; "
+              f"{total/1e6:,.0f} M moved on, largest recipient {100*e['largest_single_recipient_share']:.1f}%; "
+              f"reach into observable set: designated median {do.get('p50', 0):.0f} max {do.get('p100', 0):.0f} / "
               f"best newcomer {top_new['overlap'] if top_new else 0} "
-              f"(network rank {top_new['network_rank'] if top_new else '-'})", flush=True)
+              f"(rank {top_new['network_rank'] if top_new else '-'}, "
+              f"{e['n_designated_reaching_at_least_best_newcomer']} of {e['n_designated_with_observable_reach']} "
+              f"designated reach at least as far); later-designated max reach "
+              f"{e['max_reach_by_later_designated']} over {e['n_later_designated_reaching_counterparties']} addresses",
+              flush=True)
 
     with open(out_path(args.out), "w") as f:
         json.dump(out, f, indent=1)

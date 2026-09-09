@@ -1,6 +1,80 @@
 {
  "orders": {
   "ASO 5/24": {
+   "later_designated_reaching_counterparties": [
+    {
+     "address": "TYy8cFhadMXY6K9Bt5NBewZnQrZ6UpiZrA",
+     "order": "ASO 16/25",
+     "signed": "2025-04-07",
+     "reaches": 14,
+     "usdt": 1065157.938397
+    },
+    {
+     "address": "TGMRPZ5ncwSVYQ7GqUoejN1GMe19F8dsgY",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 13,
+     "usdt": 4476911.935907001
+    },
+    {
+     "address": "TLtkC5Pgctg2KMcfg2LBok3Mi2dprVc8WT",
+     "order": "ASO 33/24",
+     "signed": "2024-11-22",
+     "reaches": 13,
+     "usdt": 148103.951993
+    },
+    {
+     "address": "TGN9S92YLBCiCCH5XuKpdDTHwACZL3e1jr",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 12,
+     "usdt": 3223783.238025
+    },
+    {
+     "address": "TM2oFJftWCbu2urgqjKsJN8vxNEc1Jez6g",
+     "order": "ASO 33/24",
+     "signed": "2024-11-22",
+     "reaches": 12,
+     "usdt": 47877.042122
+    },
+    {
+     "address": "TUkxNX8KsL72RTRCdDqoG7MiXi9973wX4K",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 12,
+     "usdt": 1010335.840046
+    },
+    {
+     "address": "TJFA3AqnkgM55rvRCpZgy7fb4MX7UjyHrh",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 11,
+     "usdt": 3005745.4006359996
+    },
+    {
+     "address": "TL7jWVm3vhUmnE29tcg6DyDkP1CWPHeBFj",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 11,
+     "usdt": 538284.983153
+    },
+    {
+     "address": "TN3Wc7f3qFLPSgCrpeDvUxuJka3pQDF6F7",
+     "order": "ASO 33/24",
+     "signed": "2024-11-22",
+     "reaches": 11,
+     "usdt": 19245.816633
+    },
+    {
+     "address": "TPV2rmU42Q7vgteRNnc9rKkmXT5cEgGTST",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 11,
+     "usdt": 547859.808936
+    }
+   ],
+   "max_reach_by_later_designated": 14,
+   "n_later_designated_reaching_counterparties": 93,
    "signed": "2024-03-24",
    "public_from": "2024-03-28",
    "n_designated_in_window": 42,
@@ -10,12 +84,20 @@
    "share_of_post_volume_to_labelled_entities": 0.13023230918839354,
    "largest_single_recipient_share": 0.035677527197866946,
    "min_usdt_per_pair": 1.0,
-   "designated_own_overlap": {
-    "p50": 3.0,
-    "p75": 5.0,
-    "p90": 9.799999999999997,
-    "p100": 23.0
+   "designated_own_overlap_observable": {
+    "p50": 2.0,
+    "p75": 4.25,
+    "p90": 5.200000000000003,
+    "p100": 14.0
    },
+   "designated_own_overlap_all": {
+    "p50": 2.0,
+    "p75": 4.0,
+    "p90": 8.0,
+    "p100": 21.0
+   },
+   "n_designated_reaching_at_least_best_newcomer": 1,
+   "n_designated_with_observable_reach": 20,
    "incumbent_overlap": {
     "p50": 1.0,
     "p75": 2.0,
@@ -33,81 +115,111 @@
      "address": "TTfKXoGgtuqytwv84Vcv8HFoUrPDmtwGH4",
      "overlap": 13,
      "usdt": 1642651.2934130002,
+     "share_of_post_volume": 0.001652842226361201,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-04-08",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TQU5FuEvcmKPJj3TBLX7Kms9YbKW5JWUoR",
      "overlap": 12,
      "usdt": 1143553.591465,
+     "share_of_post_volume": 0.0011506481452635,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-04-02",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TCuMg2KrTjTPS9UrjvzFopfLXgZZCmi9Vs",
      "overlap": 12,
      "usdt": 273396.811027,
+     "share_of_post_volume": 0.00027509295224735557,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-07-15",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TS27tCYJgxhDd2ipjfHYPFU7BmWFaPHV4W",
      "overlap": 12,
      "usdt": 93226.40373,
+     "share_of_post_volume": 9.380477604384657e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-04-09",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TEHQ474NiHnETnikmiHkkWExoHUsYvU1dQ",
      "overlap": 12,
      "usdt": 693469.289582,
+     "share_of_post_volume": 0.0006977715411067792,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-09-04",
+     "designated_in_a_later_order": false
     },
     {
      "address": "THkp4Mqep7U5NACE66fsPEgHU7HxvtiVgd",
      "overlap": 12,
      "usdt": 2114.756931,
+     "share_of_post_volume": 2.127876785574117e-06,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-04-20",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TVjDh8q67rt31WyPAQjDkD3ogZY8wx8ZdJ",
      "overlap": 12,
      "usdt": 1714659.09064,
+     "share_of_post_volume": 0.0017252967566448337,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-05-26",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TQ6qrV42GiD38t4XeMW4W46C9o5XjCiVaF",
      "overlap": 12,
      "usdt": 268348.495985,
+     "share_of_post_volume": 0.00027001331769140833,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2022-11-06",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TDF9UtqpxUXyQLwmZYfa2WPBLbF9QixEVE",
      "overlap": 12,
      "usdt": 1240050.8518369999,
+     "share_of_post_volume": 0.0012477440701932668,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-04-23",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TMAHXwoAdPCGyVYd28eF3oi9SapzxVNyZ5",
      "overlap": 12,
      "usdt": 76015.352593,
+     "share_of_post_volume": 7.648694833849725e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-05-06",
+     "designated_in_a_later_order": false
     }
    ],
    "top_destinations": [
@@ -314,6 +426,80 @@
    ]
   },
   "ASO 15/22": {
+   "later_designated_reaching_counterparties": [
+    {
+     "address": "TVzsknku8cubpukTmUVn5Ro747Bgw3GS63",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 111,
+     "usdt": 1887875.933193
+    },
+    {
+     "address": "TQ4HeWsnzXexz2UKY3Ef94xg3rnWkawirR",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 106,
+     "usdt": 4444378.830344999
+    },
+    {
+     "address": "TMmEYcSL4KhzJuYpRH16aLsG16YoFyYKUq",
+     "order": "ASO 29/23",
+     "signed": "2023-05-21",
+     "reaches": 103,
+     "usdt": 3625009.5183119997
+    },
+    {
+     "address": "TDAegnxRRBVuRFJ1tkpmignshcu12nfoQF",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 85,
+     "usdt": 14778098.625209
+    },
+    {
+     "address": "TRAY8vmzneVCPfg7kDG7VQoJdBifNDARCX",
+     "order": "ASO 53/23",
+     "signed": "2023-10-20",
+     "reaches": 49,
+     "usdt": 5293148.780901
+    },
+    {
+     "address": "TR2iVPD66Bm35X1JpEg5Uc8TAvw38iznVF",
+     "order": "ASO 29/23",
+     "signed": "2023-05-21",
+     "reaches": 48,
+     "usdt": 39978669.511216
+    },
+    {
+     "address": "TU3bxJ7FRpwsfwwc7bQLa9Jr89e7UzWB3m",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 44,
+     "usdt": 450055.447056
+    },
+    {
+     "address": "TVoJZwG6SZrpk2Y11w2WW54HyvJmKTkeqG",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 40,
+     "usdt": 1389024.9488
+    },
+    {
+     "address": "TTxuaC7zJ5QbBhnUL2KEkQbFc5UEipE1fd",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 37,
+     "usdt": 2582314.133651
+    },
+    {
+     "address": "TK8qQuPSCeQx6AKuqHLX4xycSVFNXGVWQy",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 32,
+     "usdt": 1013076.155753
+    }
+   ],
+   "max_reach_by_later_designated": 111,
+   "n_later_designated_reaching_counterparties": 186,
    "signed": "2022-03-07",
    "public_from": "2022-03-07",
    "n_designated_in_window": 42,
@@ -323,12 +509,20 @@
    "share_of_post_volume_to_labelled_entities": 0.10501655566751138,
    "largest_single_recipient_share": 0.02005156757450591,
    "min_usdt_per_pair": 1.0,
-   "designated_own_overlap": {
-    "p50": 16.0,
-    "p75": 28.0,
-    "p90": 56.0,
-    "p100": 464.0
+   "designated_own_overlap_observable": {
+    "p50": 11.0,
+    "p75": 20.0,
+    "p90": 33.0,
+    "p100": 119.0
    },
+   "designated_own_overlap_all": {
+    "p50": 13.0,
+    "p75": 27.0,
+    "p90": 56.0,
+    "p100": 460.0
+   },
+   "n_designated_reaching_at_least_best_newcomer": 3,
+   "n_designated_with_observable_reach": 41,
    "incumbent_overlap": {
     "p50": 1.0,
     "p75": 1.0,
@@ -346,81 +540,111 @@
      "address": "TVPK634J7TSsB5mpv7wQuXB3uKHNBgYzfq",
      "overlap": 51,
      "usdt": 318056.729319,
+     "share_of_post_volume": 6.538872554597454e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2022-04-23",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TTYeqs9YdBSwuseu2Yib8NAohrRLmAuAnm",
      "overlap": 33,
      "usdt": 254001.858819,
+     "share_of_post_volume": 3.4583358699251634e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2022-09-05",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TBEvhxtcaCN1gzhGNpfoLCgeKRQckEsimR",
      "overlap": 29,
      "usdt": 94972.993973,
+     "share_of_post_volume": 2.31616863790664e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2022-10-14",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa",
      "overlap": 29,
      "usdt": 58125356.054363,
+     "share_of_post_volume": 0.0194779524728584,
      "entity": "UNKNOWN",
      "network_rank": 5,
-     "network_transfers": 37834288
+     "network_transfers": 37834288,
+     "crawl_first_seen": "2021-12-18",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TTKdGWjDdRZoV83y66gs9povbvo4wbMg8o",
      "overlap": 29,
      "usdt": 1233002.252685,
+     "share_of_post_volume": 0.0002951287941589936,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2022-02-15",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TBv24AyraA9qYyiPpYzoSTW1cRd4jqqWaM",
      "overlap": 28,
      "usdt": 121722.413726,
+     "share_of_post_volume": 2.4919795234450484e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2022-12-31",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
      "overlap": 26,
      "usdt": 39286838.385258,
+     "share_of_post_volume": 6.927793130314906e-07,
      "entity": "UNKNOWN",
      "network_rank": 4,
-     "network_transfers": 41225341
+     "network_transfers": 41225341,
+     "crawl_first_seen": "2023-10-18",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
      "overlap": 26,
      "usdt": 198305.042262,
+     "share_of_post_volume": 1.7399698189290102e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-10-13",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TEgZr9tHVz1k1UxqPWkAN6XPnDa4yu7NB1",
      "overlap": 24,
      "usdt": 315138.99533,
+     "share_of_post_volume": 7.127304804353766e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-01-14",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TRdbfBXXGgbcW6Ng392ujEAKUzUnw1VAZR",
      "overlap": 22,
      "usdt": 197215.999977,
+     "share_of_post_volume": 3.236770092621867e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2022-06-01",
+     "designated_in_a_later_order": false
     }
    ],
    "top_destinations": [
@@ -627,6 +851,80 @@
    ]
   },
   "ASO 29/23": {
+   "later_designated_reaching_counterparties": [
+    {
+     "address": "TUkxNX8KsL72RTRCdDqoG7MiXi9973wX4K",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 54,
+     "usdt": 2718635.653483
+    },
+    {
+     "address": "TGMRPZ5ncwSVYQ7GqUoejN1GMe19F8dsgY",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 46,
+     "usdt": 5433124.659233999
+    },
+    {
+     "address": "TRAY8vmzneVCPfg7kDG7VQoJdBifNDARCX",
+     "order": "ASO 53/23",
+     "signed": "2023-10-20",
+     "reaches": 43,
+     "usdt": 930535.831268
+    },
+    {
+     "address": "TFR1tsGZhkiMYQv1t8uMWPgXFGBEajHCGd",
+     "order": "ASO 53/23",
+     "signed": "2023-10-20",
+     "reaches": 35,
+     "usdt": 383033.073349
+    },
+    {
+     "address": "TJFA3AqnkgM55rvRCpZgy7fb4MX7UjyHrh",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 31,
+     "usdt": 4628109.445542
+    },
+    {
+     "address": "TAiDDDrzwXJNcKBXGPRdzF96o8pb7T7MmT",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 27,
+     "usdt": 1741108.4756480001
+    },
+    {
+     "address": "TL7jWVm3vhUmnE29tcg6DyDkP1CWPHeBFj",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 27,
+     "usdt": 934631.7116409999
+    },
+    {
+     "address": "TPGPpBcVrKZgqjEhqDiLRmDNxHbsEvpqLi",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 27,
+     "usdt": 2252509.72167
+    },
+    {
+     "address": "TGN9S92YLBCiCCH5XuKpdDTHwACZL3e1jr",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 24,
+     "usdt": 3276680.6406429997
+    },
+    {
+     "address": "TUhjhS9cBCEjAckAhPieBfTxBAEYrV9Nt6",
+     "order": "ASO 43/25",
+     "signed": "2025-09-01",
+     "reaches": 23,
+     "usdt": 379935.911583
+    }
+   ],
+   "max_reach_by_later_designated": 54,
+   "n_later_designated_reaching_counterparties": 144,
    "signed": "2023-05-21",
    "public_from": "2023-06-28",
    "n_designated_in_window": 39,
@@ -636,12 +934,20 @@
    "share_of_post_volume_to_labelled_entities": 0.053579500204263664,
    "largest_single_recipient_share": 0.010285365035587506,
    "min_usdt_per_pair": 1.0,
-   "designated_own_overlap": {
-    "p50": 191.0,
-    "p75": 411.0,
-    "p90": 824.6000000000015,
-    "p100": 3063.0
+   "designated_own_overlap_observable": {
+    "p50": 69.0,
+    "p75": 148.5,
+    "p90": 210.0,
+    "p100": 569.0
    },
+   "designated_own_overlap_all": {
+    "p50": 183.0,
+    "p75": 396.0,
+    "p90": 817.0000000000015,
+    "p100": 3038.0
+   },
+   "n_designated_reaching_at_least_best_newcomer": 1,
+   "n_designated_with_observable_reach": 39,
    "incumbent_overlap": {
     "p50": 1.0,
     "p75": 1.0,
@@ -659,81 +965,111 @@
      "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
      "overlap": 432,
      "usdt": 219749172.59602702,
+     "share_of_post_volume": 0.010125669347418964,
      "entity": "UNKNOWN",
      "network_rank": 4,
-     "network_transfers": 41225341
+     "network_transfers": 41225341,
+     "crawl_first_seen": "2023-10-18",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
      "overlap": 104,
      "usdt": 6747970.838028,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 57,
-     "network_transfers": 2296185
+     "network_transfers": 2296185,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
      "overlap": 102,
      "usdt": 7029035.177637,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 60,
-     "network_transfers": 2157410
+     "network_transfers": 2157410,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TEoPgvcD4gqh9S19aDWuzFgBek9B7sxbhj",
      "overlap": 97,
      "usdt": 8487559.856764,
+     "share_of_post_volume": 0.0002851285290031279,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-06-16",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
      "overlap": 92,
      "usdt": 5011692.812894,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 75,
-     "network_transfers": 1897147
+     "network_transfers": 1897147,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
      "overlap": 91,
      "usdt": 3689627.144958,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 63,
-     "network_transfers": 2082982
+     "network_transfers": 2082982,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TMEj5xk1RL2DBziSr1YrG2t3wqtAyrxRdh",
      "overlap": 76,
      "usdt": 48039224.474782,
+     "share_of_post_volume": 0.0014086694814207884,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-10-18",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TP2sVUt2CdbvwxkgYkJzy7sKXu6tS4tHaZ",
      "overlap": 72,
      "usdt": 33371852.913561,
+     "share_of_post_volume": 0.0018395467777214858,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-06-19",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TXV39no9KvGCTKJEsag29xPjf72sBEsLE9",
      "overlap": 70,
      "usdt": 5101560.928148,
+     "share_of_post_volume": 0.0002021090687988438,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-07-13",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TDHYpZdTzGMYchX1sigGNt6LyYP77k4bNP",
      "overlap": 65,
      "usdt": 1527698.868435,
+     "share_of_post_volume": 7.762935522812632e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-07-08",
+     "designated_in_a_later_order": false
     }
    ],
    "top_destinations": [
@@ -940,6 +1276,80 @@
    ]
   },
   "ASO 34/23": {
+   "later_designated_reaching_counterparties": [
+    {
+     "address": "TGMRPZ5ncwSVYQ7GqUoejN1GMe19F8dsgY",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 65,
+     "usdt": 6108939.364595
+    },
+    {
+     "address": "TRAY8vmzneVCPfg7kDG7VQoJdBifNDARCX",
+     "order": "ASO 53/23",
+     "signed": "2023-10-20",
+     "reaches": 48,
+     "usdt": 900309.8218360001
+    },
+    {
+     "address": "TUkxNX8KsL72RTRCdDqoG7MiXi9973wX4K",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 45,
+     "usdt": 1932104.6534830001
+    },
+    {
+     "address": "TFR1tsGZhkiMYQv1t8uMWPgXFGBEajHCGd",
+     "order": "ASO 53/23",
+     "signed": "2023-10-20",
+     "reaches": 32,
+     "usdt": 311552.770469
+    },
+    {
+     "address": "TJFA3AqnkgM55rvRCpZgy7fb4MX7UjyHrh",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 27,
+     "usdt": 3613589.6755419997
+    },
+    {
+     "address": "TDUTSmtJkPReweXCv4zjLfZE5ygPZPA9vN",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 26,
+     "usdt": 1177040.717467
+    },
+    {
+     "address": "TPGPpBcVrKZgqjEhqDiLRmDNxHbsEvpqLi",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 26,
+     "usdt": 1951205.72167
+    },
+    {
+     "address": "TAiDDDrzwXJNcKBXGPRdzF96o8pb7T7MmT",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 23,
+     "usdt": 845566.475648
+    },
+    {
+     "address": "TAqTwpsnSMirTXVCwH3zx6S3afDewsgzfp",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 23,
+     "usdt": 935482.9498350001
+    },
+    {
+     "address": "TKb6pfHUJJpH3XwdgdmDoKoLHvzUP5XPyx",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 23,
+     "usdt": 610106.399953
+    }
+   ],
+   "max_reach_by_later_designated": 65,
+   "n_later_designated_reaching_counterparties": 136,
    "signed": "2023-07-04",
    "public_from": "2023-07-05",
    "n_designated_in_window": 25,
@@ -949,12 +1359,20 @@
    "share_of_post_volume_to_labelled_entities": 0.10299889516573608,
    "largest_single_recipient_share": 0.02253554570941797,
    "min_usdt_per_pair": 1.0,
-   "designated_own_overlap": {
-    "p50": 390.0,
-    "p75": 1212.0,
-    "p90": 3541.2000000000007,
-    "p100": 8161.0
+   "designated_own_overlap_observable": {
+    "p50": 72.5,
+    "p75": 122.25,
+    "p90": 273.0000000000002,
+    "p100": 801.0
    },
+   "designated_own_overlap_all": {
+    "p50": 389.0,
+    "p75": 1205.0,
+    "p90": 3535.4000000000005,
+    "p100": 8155.0
+   },
+   "n_designated_reaching_at_least_best_newcomer": 1,
+   "n_designated_with_observable_reach": 22,
    "incumbent_overlap": {
     "p50": 1.0,
     "p75": 1.0,
@@ -972,81 +1390,111 @@
      "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
      "overlap": 443,
      "usdt": 53804084.894085,
+     "share_of_post_volume": 0.0032787786189043353,
      "entity": "UNKNOWN",
      "network_rank": 4,
-     "network_transfers": 41225341
+     "network_transfers": 41225341,
+     "crawl_first_seen": "2023-10-18",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
      "overlap": 75,
      "usdt": 1029242.321465,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 75,
-     "network_transfers": 1897147
+     "network_transfers": 1897147,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
      "overlap": 71,
      "usdt": 713342.825978,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 60,
-     "network_transfers": 2157410
+     "network_transfers": 2157410,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
      "overlap": 66,
      "usdt": 827120.089774,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 63,
-     "network_transfers": 2082982
+     "network_transfers": 2082982,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TDZuGhcLL8Dj64kf5HxST649ndWA5cTbA9",
      "overlap": 65,
      "usdt": 164483.542256,
+     "share_of_post_volume": 3.602960803714664e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-07-19",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TDHYpZdTzGMYchX1sigGNt6LyYP77k4bNP",
      "overlap": 65,
      "usdt": 1424634.710568,
+     "share_of_post_volume": 0.0003905809247051713,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-07-08",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
      "overlap": 64,
      "usdt": 705231.044561,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 57,
-     "network_transfers": 2296185
+     "network_transfers": 2296185,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TYuHA4pWz3tpDdf7SrbmCagBequ9YVGhch",
      "overlap": 61,
      "usdt": 652425.49201,
+     "share_of_post_volume": 0.0001775795962800512,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-07-09",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TUEXFfyo9hKTyQF6QR2fMxFT4MkYcwsdzk",
      "overlap": 56,
      "usdt": 55033.05,
+     "share_of_post_volume": 3.985468580937609e-06,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-07-22",
+     "designated_in_a_later_order": false
     },
     {
      "address": "THESRF9s9o5PY4wPijP7BfP8K7xi5LfFu1",
      "overlap": 48,
      "usdt": 69795.516474,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 338,
-     "network_transfers": 392909
+     "network_transfers": 392909,
+     "crawl_first_seen": "2023-12-13",
+     "designated_in_a_later_order": false
     }
    ],
    "top_destinations": [
@@ -1253,6 +1701,80 @@
    ]
   },
   "ASO 53/23": {
+   "later_designated_reaching_counterparties": [
+    {
+     "address": "TGMRPZ5ncwSVYQ7GqUoejN1GMe19F8dsgY",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 42,
+     "usdt": 5965974.490452999
+    },
+    {
+     "address": "TUkxNX8KsL72RTRCdDqoG7MiXi9973wX4K",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 27,
+     "usdt": 1581202.410046
+    },
+    {
+     "address": "TJFA3AqnkgM55rvRCpZgy7fb4MX7UjyHrh",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 26,
+     "usdt": 4411094.345542
+    },
+    {
+     "address": "TAqTwpsnSMirTXVCwH3zx6S3afDewsgzfp",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 23,
+     "usdt": 901027.569835
+    },
+    {
+     "address": "TAiDDDrzwXJNcKBXGPRdzF96o8pb7T7MmT",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 22,
+     "usdt": 1626859.475648
+    },
+    {
+     "address": "TGN9S92YLBCiCCH5XuKpdDTHwACZL3e1jr",
+     "order": "ASO 34/24",
+     "signed": "2024-12-24",
+     "reaches": 21,
+     "usdt": 3478839.304863
+    },
+    {
+     "address": "TKb6pfHUJJpH3XwdgdmDoKoLHvzUP5XPyx",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 20,
+     "usdt": 515090.54922900005
+    },
+    {
+     "address": "TYy8cFhadMXY6K9Bt5NBewZnQrZ6UpiZrA",
+     "order": "ASO 16/25",
+     "signed": "2025-04-07",
+     "reaches": 20,
+     "usdt": 2176830.388972
+    },
+    {
+     "address": "TPGPpBcVrKZgqjEhqDiLRmDNxHbsEvpqLi",
+     "order": "ASO 1/25",
+     "signed": "2025-01-26",
+     "reaches": 19,
+     "usdt": 1431700.8608010001
+    },
+    {
+     "address": "TUhjhS9cBCEjAckAhPieBfTxBAEYrV9Nt6",
+     "order": "ASO 43/25",
+     "signed": "2025-09-01",
+     "reaches": 19,
+     "usdt": 435557.1355
+    }
+   ],
+   "max_reach_by_later_designated": 42,
+   "n_later_designated_reaching_counterparties": 129,
    "signed": "2023-10-20",
    "public_from": "2023-10-22",
    "n_designated_in_window": 17,
@@ -1262,12 +1784,20 @@
    "share_of_post_volume_to_labelled_entities": 0.12469728834707773,
    "largest_single_recipient_share": 0.02825218241015976,
    "min_usdt_per_pair": 1.0,
-   "designated_own_overlap": {
-    "p50": 8.0,
-    "p75": 90.0,
-    "p90": 571.8000000000002,
-    "p100": 2051.0
+   "designated_own_overlap_observable": {
+    "p50": 2.0,
+    "p75": 44.5,
+    "p90": 217.39999999999992,
+    "p100": 387.0
    },
+   "designated_own_overlap_all": {
+    "p50": 5.0,
+    "p75": 89.0,
+    "p90": 562.2000000000003,
+    "p100": 2041.0
+   },
+   "n_designated_reaching_at_least_best_newcomer": 2,
+   "n_designated_with_observable_reach": 15,
    "incumbent_overlap": {
     "p50": 1.0,
     "p75": 1.0,
@@ -1285,81 +1815,111 @@
      "address": "THqkxgLR12HKLPj6NCUkoJ72yMEAv58o1y",
      "overlap": 83,
      "usdt": 556183.322533,
+     "share_of_post_volume": 8.078766762072715e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-02-05",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TMPrY21nXwTjASWziHPXfbocxvB4auXpUw",
      "overlap": 77,
      "usdt": 1008991.8471629999,
+     "share_of_post_volume": 0.0003727916826194561,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-08-30",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TUMjBBgXWZ1BToj1hL3SRMuCJAw5PBFeq2",
      "overlap": 52,
      "usdt": 282519.259371,
+     "share_of_post_volume": 1.9468812503847356e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2023-12-06",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TCr8WyYjuKra3aPCo6mNFg4G2NeJYCeyhw",
      "overlap": 47,
      "usdt": 1005359.832319,
+     "share_of_post_volume": 0.0002919119149808276,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-01-18",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
      "overlap": 46,
      "usdt": 540435.002893,
+     "share_of_post_volume": 4.656206878342978e-08,
      "entity": "UNKNOWN",
      "network_rank": 60,
-     "network_transfers": 2157410
+     "network_transfers": 2157410,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
      "overlap": 45,
      "usdt": 11450220.895507,
+     "share_of_post_volume": 0.00456851023027547,
      "entity": "UNKNOWN",
      "network_rank": 75,
-     "network_transfers": 1897147
+     "network_transfers": 1897147,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TNHiU7JAEpEt5uVDV9fLJSPijHCHr89o5u",
      "overlap": 44,
      "usdt": 159382.666732,
+     "share_of_post_volume": 7.895593379238008e-07,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2024-05-27",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
      "overlap": 43,
      "usdt": 539227.998543,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 57,
-     "network_transfers": 2296185
+     "network_transfers": 2296185,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
      "overlap": 39,
      "usdt": 1057568.017063,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 63,
-     "network_transfers": 2082982
+     "network_transfers": 2082982,
+     "crawl_first_seen": "2024-04-17",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu",
      "overlap": 35,
      "usdt": 493080.944405,
+     "share_of_post_volume": 4.6585349817821495e-05,
      "entity": "CEX",
      "network_rank": 23,
-     "network_transfers": 9941531
+     "network_transfers": 9941531,
+     "crawl_first_seen": "2023-11-25",
+     "designated_in_a_later_order": false
     }
    ],
    "top_destinations": [
@@ -1566,6 +2126,80 @@
    ]
   },
   "ASO 44/21": {
+   "later_designated_reaching_counterparties": [
+    {
+     "address": "TVzsknku8cubpukTmUVn5Ro747Bgw3GS63",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 23,
+     "usdt": 509291.897516
+    },
+    {
+     "address": "TXXfxvnjg4497duutm5uEHUgqAhSVoM4nS",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 22,
+     "usdt": 778657.250858
+    },
+    {
+     "address": "TY3TUu4RwSDmUqQAbQ66vU3tRdkqPC19M4",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 19,
+     "usdt": 1095780.0854680003
+    },
+    {
+     "address": "TMmEYcSL4KhzJuYpRH16aLsG16YoFyYKUq",
+     "order": "ASO 29/23",
+     "signed": "2023-05-21",
+     "reaches": 18,
+     "usdt": 1965996.7230879997
+    },
+    {
+     "address": "TJSUmTC6Jfyim9wSmrUPNPxJxnJXsGpvCU",
+     "order": "ASO 29/23",
+     "signed": "2023-05-21",
+     "reaches": 15,
+     "usdt": 22315298.136801995
+    },
+    {
+     "address": "TR2iVPD66Bm35X1JpEg5Uc8TAvw38iznVF",
+     "order": "ASO 29/23",
+     "signed": "2023-05-21",
+     "reaches": 15,
+     "usdt": 7273780.093692
+    },
+    {
+     "address": "THBPKbkuVSxNG7cq8bAvicrTm2YpMMZVKQ",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 14,
+     "usdt": 231245.67749799998
+    },
+    {
+     "address": "TQ4HeWsnzXexz2UKY3Ef94xg3rnWkawirR",
+     "order": "ASO 34/23",
+     "signed": "2023-07-04",
+     "reaches": 14,
+     "usdt": 895303.472634
+    },
+    {
+     "address": "TXs56ZWCpZ7yBBhDZ8J8tFqc9y31Ra9RHC",
+     "order": "ASO 15/22",
+     "signed": "2022-03-07",
+     "reaches": 12,
+     "usdt": 114461.297881
+    },
+    {
+     "address": "TQimtt6MmASiLDEsKsfDDaDq5CFRE2BY1F",
+     "order": "ASO 15/22",
+     "signed": "2022-03-07",
+     "reaches": 11,
+     "usdt": 373374.886437
+    }
+   ],
+   "max_reach_by_later_designated": 23,
+   "n_later_designated_reaching_counterparties": 152,
    "signed": "2021-06-30",
    "public_from": "2021-07-01",
    "n_designated_in_window": 9,
@@ -1575,12 +2209,20 @@
    "share_of_post_volume_to_labelled_entities": 0.06367289875068201,
    "largest_single_recipient_share": 0.0691280303059912,
    "min_usdt_per_pair": 1.0,
-   "designated_own_overlap": {
+   "designated_own_overlap_observable": {
+    "p50": 10.0,
+    "p75": 16.0,
+    "p90": 23.000000000000004,
+    "p100": 39.0
+   },
+   "designated_own_overlap_all": {
     "p50": 13.0,
     "p75": 22.0,
     "p90": 28.200000000000003,
     "p100": 49.0
    },
+   "n_designated_reaching_at_least_best_newcomer": 3,
+   "n_designated_with_observable_reach": 9,
    "incumbent_overlap": {
     "p50": 1.0,
     "p75": 1.0,
@@ -1598,81 +2240,111 @@
      "address": "TEYFLJ2hWenLkDeTG1HtrnHiVGZoM3Ti3q",
      "overlap": 13,
      "usdt": 3849.051717,
+     "share_of_post_volume": 5.698698037354342e-06,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-06-04",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TEMDMcqrabcHb7fxqhFTQwM8qwND4thPTV",
      "overlap": 13,
      "usdt": 27138.762919,
+     "share_of_post_volume": 4.0180186278003735e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-08-02",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TEAwk1VVJdvr56SLy9VXKKJRKxYMuiQvSW",
      "overlap": 12,
      "usdt": 491105.95146999997,
+     "share_of_post_volume": 0.0007208866479406252,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-06-13",
+     "designated_in_a_later_order": false
     },
     {
      "address": "THmqmfVN2jyAyT1ifC1ZdosyBtUBvjrXBh",
      "overlap": 12,
      "usdt": 17226.90353,
+     "share_of_post_volume": 2.5505222728630746e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-07-20",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TKi3eSuQzwRSj97UbF9EXVHYP9RNoXrPVk",
      "overlap": 12,
      "usdt": 479720.690336,
+     "share_of_post_volume": 0.0003465968354410292,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-08-02",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TLECAQpksCjNzboCNP4bpqiYJCQdELrkTW",
      "overlap": 11,
      "usdt": 1740.55,
+     "share_of_post_volume": 2.5769643013910955e-06,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-08-29",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
      "overlap": 11,
      "usdt": 15286.868341,
+     "share_of_post_volume": 2.2632911433065823e-05,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-10-13",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
      "overlap": 11,
      "usdt": 347745.878868,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 10,
-     "network_transfers": 31373120
+     "network_transfers": 31373120,
+     "crawl_first_seen": "2021-11-01",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TWifMQL2C3MpWMTuBG6r3Ui5oFVqKwgKqN",
      "overlap": 11,
      "usdt": 217968.471112,
+     "share_of_post_volume": 0.0003176784868344434,
      "entity": null,
      "network_rank": null,
-     "network_transfers": null
+     "network_transfers": null,
+     "crawl_first_seen": "2021-08-15",
+     "designated_in_a_later_order": false
     },
     {
      "address": "TYASr5UV6HEcXatwdFQfmLVUqQQQMUxHLS",
      "overlap": 11,
      "usdt": 1512127.336827,
+     "share_of_post_volume": 0.0,
      "entity": "UNKNOWN",
      "network_rank": 6,
-     "network_transfers": 32869522
+     "network_transfers": 32869522,
+     "crawl_first_seen": "2021-09-15",
+     "designated_in_a_later_order": false
     }
    ],
    "top_destinations": [

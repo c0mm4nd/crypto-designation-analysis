@@ -62,7 +62,7 @@ def load():
     return n, si, di, val, anchors
 
 
-def decompose(n, si, di, val, removed, total):
+def decompose(n, si, di, val, removed, total, baseline=0.0):
     """Value incident to the removed set, and value stranded between surviving addresses."""
     keep = ~removed
     incident = ~(keep[si] & keep[di])
@@ -72,7 +72,9 @@ def decompose(n, si, di, val, removed, total):
     big = np.bincount(lab[keep]).argmax()
     inbig = (lab == big) & keep
     stranded = surv & ~(inbig[si] & inbig[di])
-    return {"incident_pct": float(100 * val[incident].sum() / total),
+    return {"baseline_off_component_usdt": baseline,
+            "stranded_usdt_net_of_baseline": float(max(val[stranded].sum() - baseline, 0.0)),
+            "incident_pct": float(100 * val[incident].sum() / total),
             "stranded_pct": float(100 * val[stranded].sum() / total),
             "incident_usdt": float(val[incident].sum()),
             "stranded_usdt": float(val[stranded].sum())}
@@ -84,6 +86,10 @@ def main():
     args = ap.parse_args()
     n, si, di, val, anchors = load()
     total = float(val.sum())
+    # value already off the giant component with nothing removed
+    base = decompose(n, si, di, val, np.zeros(n, bool), total)
+    baseline = float(base["stranded_usdt"])
+    print(f"baseline value off the largest component: {baseline:,.0f} USDT", flush=True)
     na = int(anchors.sum())
     print(f"n={n:,} pairs={len(si):,} designated={na} total={total/1e12:.3f} trillion USDT", flush=True)
     deg = np.bincount(si, minlength=n) + np.bincount(di, minlength=n)
@@ -93,9 +99,9 @@ def main():
         m = np.zeros(n, bool); m[order[~anchors[order]][:b]] = True
         sets[label] = m
     out = {"n_addresses": int(n), "n_pairs": int(len(si)), "n_designated": na,
-           "total_value_usdt": total, "decomposition": {}}
+           "total_value_usdt": total, "baseline_off_component_usdt": baseline, "decomposition": {}}
     for name, mask in sets.items():
-        d = decompose(n, si, di, val, mask, total)
+        d = decompose(n, si, di, val, mask, total, baseline)
         out["decomposition"][name] = d
         print(f"[{name:20}] incident {d['incident_pct']:8.4f}%  stranded {d['stranded_pct']:10.6f}%  "
               f"({d['stranded_usdt']/1e6:.1f} M USDT stranded)", flush=True)

@@ -440,7 +440,7 @@ def main():
     # single draw as if it were the placebo overstates its precision, so repeat the whole
     # construction under a set of seeds and report the spread.
     seed_ratios, seed_tx = [], []
-    for sd in range(1, 13):
+    for sd in range(1, 301):
         r2 = np.random.default_rng(sd)
         pl = {}
         for addr, r in cand.sample(frac=1.0, random_state=sd).iterrows():
@@ -457,15 +457,44 @@ def main():
         if qv[:W].mean() > 0:
             seed_ratios.append(float(qv[W + 7:].mean() / qv[:W].mean()))
             seed_tx.append(float(qc[W + 7:].mean() / qc[:W].mean()))
+    sr = np.array(seed_ratios); st = np.array(seed_tx)
     out["placebo_event_study"]["across_seeds"] = {
         "n_seeds": len(seed_ratios),
-        "volume_ratio_min": min(seed_ratios), "volume_ratio_max": max(seed_ratios),
-        "volume_ratio_median": float(np.median(seed_ratios)),
-        "transfer_ratio_min": min(seed_tx), "transfer_ratio_max": max(seed_tx),
-        "transfer_ratio_median": float(np.median(seed_tx))}
-    print(f"placebo across {len(seed_ratios)} seeds: volume ratio "
-          f"{min(seed_ratios):.2f}-{max(seed_ratios):.2f} (median {np.median(seed_ratios):.2f}), "
-          f"transfers {min(seed_tx):.2f}-{max(seed_tx):.2f}")
+        "volume_ratio_min": float(sr.min()), "volume_ratio_max": float(sr.max()),
+        "volume_ratio_median": float(np.median(sr)),
+        "volume_ratio_iqr": [float(np.percentile(sr, 25)), float(np.percentile(sr, 75))],
+        "volume_ratio_95pct": [float(np.percentile(sr, 2.5)), float(np.percentile(sr, 97.5))],
+        "transfer_ratio_median": float(np.median(st)),
+        "transfer_ratio_95pct": [float(np.percentile(st, 2.5)), float(np.percentile(st, 97.5))]}
+    print(f"placebo across {len(seed_ratios)} seeds: volume ratio median {np.median(sr):.2f}, "
+          f"95% {np.percentile(sr, 2.5):.2f}-{np.percentile(sr, 97.5):.2f}, full {sr.min():.2f}-{sr.max():.2f}")
+
+    # The pseudo-dates above are drawn in proportion to addresses per order, but the designated
+    # volume series is 98% one order. Repeat with every pseudo-date fixed to that order's
+    # signing date, which is the calendar window the designated series actually occupies.
+    dom_order = by_ord.index[0]
+    dom_date = pd.Timestamp(min(signed[a_] for a_ in ev_in
+                                if dict(zip(seeds["address"], seeds["order"]))[a_] == dom_order))
+    dom_ratios = []
+    for sd in range(1, 101):
+        pl = {}
+        for addr, r in cand.sample(frac=1.0, random_state=sd).iterrows():
+            if r["min"] <= dom_date and r["max"] >= dom_date - pd.Timedelta(weeks=W):
+                pl[addr] = dom_date
+            if len(pl) >= 3000:
+                break
+        q_in = h1_act[h1_act["addr"].isin(pl) & (h1_act["to"] == h1_act["addr"])]
+        q_out = h1_act[h1_act["addr"].isin(pl) & (h1_act["from"] == h1_act["addr"])]
+        qv = weekly_series(q_in, "addr", pl)[0] + weekly_series(q_out, "addr", pl)[0]
+        if qv[:W].mean() > 0:
+            dom_ratios.append(float(qv[W + 7:].mean() / qv[:W].mean()))
+    dr = np.array(dom_ratios)
+    out["placebo_event_study"]["calendar_matched_to_dominant_order"] = {
+        "order": str(dom_order), "event_date": str(dom_date.date()), "n_seeds": len(dr),
+        "volume_ratio_median": float(np.median(dr)),
+        "volume_ratio_95pct": [float(np.percentile(dr, 2.5)), float(np.percentile(dr, 97.5))]}
+    print(f"placebo matched to {dom_order} ({dom_date.date()}): median {np.median(dr):.2f}, "
+          f"95% {np.percentile(dr, 2.5):.2f}-{np.percentile(dr, 97.5):.2f}")
 
     # ============================================================ B. counterparty persistence
     cps = pd.concat([sin[sin["to"].isin(ev_in)].rename(columns={"from": "cp", "to": "seed"}), sout[sout["from"].isin(ev_in)].rename(columns={"to": "cp", "from": "seed"})])

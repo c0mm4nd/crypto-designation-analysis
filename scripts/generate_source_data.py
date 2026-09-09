@@ -262,7 +262,13 @@ def main() -> None:
                       {"group": "undesignated counterparties", "n": c["n_counterparties"], "share_active_after_order": c["share_active_after_order"], "share_active_90d_after_order": c["share_active_90d_after_order"], "volume_share_after_order": c["volume_share_after_order"]}]).to_excel(xl, sheet_name="Fig 2d", index=False)
         k = ph["concentration"]
         xs = [i * 100 / 199 for i in range(200)]
-        pd.DataFrame({"top_share_of_addresses_pct": xs, "counterparties_cumulative_volume_share": k["counterparty_lorenz"], "ukraine_donors_cumulative_volume_share": ph["ukraine"]["tron"]["donor_lorenz"]}).to_excel(xl, sheet_name="Fig 4c", index=False)
+        pd.DataFrame({"counterparty_rank": k["counterparty_lorenz_log_rank"],
+                      "counterparty_top_share_pct": [r / k["n_counterparties_ranked"] * 100 for r in k["counterparty_lorenz_log_rank"]],
+                      "counterparties_cumulative_volume_share": k["counterparty_lorenz_log"]}).to_excel(xl, sheet_name="Fig 4c", index=False)
+        u_ = ph["ukraine"]["tron"]
+        pd.DataFrame({"donor_rank": u_["donor_lorenz_log_rank"],
+                      "donor_top_share_pct": [r / u_["n_donors_ranked"] * 100 for r in u_["donor_lorenz_log_rank"]],
+                      "donors_cumulative_volume_share": u_["donor_lorenz_log"]}).to_excel(xl, sheet_name="Fig 4c donors", index=False)
         te = ph["tether_enforcement"]
         pd.DataFrame(te["by_order"]).to_excel(xl, sheet_name="Fig 3a", index=False)
         pd.DataFrame({"days_signing_to_blacklist": te["days_signed_to_frozen"]}).to_excel(xl, sheet_name="Fig 3b", index=False)

@@ -33,12 +33,12 @@ mpl.rcParams.update(
     {
         "font.family": "sans-serif",
         "font.sans-serif": ["Arial", "Helvetica", "DejaVu Sans"],
-        "font.size": 7.5,
-        "axes.titlesize": 7.5,
-        "axes.labelsize": 7,
-        "xtick.labelsize": 6.5,
-        "ytick.labelsize": 6.5,
-        "legend.fontsize": 6.5,
+        "font.size": 8,
+        "axes.titlesize": 8,
+        "axes.labelsize": 7.5,
+        "xtick.labelsize": 7,
+        "ytick.labelsize": 7,
+        "legend.fontsize": 7,
         "axes.linewidth": 0.6,
         "xtick.major.width": 0.6,
         "ytick.major.width": 0.6,
@@ -177,7 +177,7 @@ def family_legend(ax, loc="lower right", ncol=1, families=FAMILY_ORDER, **kw):
     return ax.legend(handles=handles, loc=loc, ncol=ncol, handlelength=1.0, handleheight=0.8, **kw)
 
 
-def rounded_box(ax, x, y, w, h, color, text, fontsize=6.2, fill_alpha="1A", lw=0.8, text_color=INK, bold_first=False):
+def rounded_box(ax, x, y, w, h, color, text, fontsize=6.6, fill_alpha="1A", lw=0.8, text_color=INK, bold_first=False):
     box = FancyBboxPatch(
         (x, y), w, h,
         boxstyle="round,pad=0,rounding_size=0.012",
@@ -239,7 +239,7 @@ def draw_toy_network(ax, x0, y0, w, h):
     # anchor marker on the hub (disclosed address)
     hx, hy = P(hub)
     ax.plot(hx, hy, marker="*", ms=5, color="white", mec=INK, mew=0.3, zorder=5)
-    ax.text(hx, hy - 0.075, "anchor", ha="center", va="top", fontsize=6.0, color=INK_2, zorder=5)
+    ax.text(hx, hy - 0.075, "anchor", ha="center", va="top", fontsize=6.6, color=INK_2, zorder=5)
 
 
 CONTROL_TAGS = {"israel": "israel_tron", "ukr_tron": "ukraine_tron", "ukr_eth": "ukraine_eth", "ofac_iran": "ofac_iran_tron", "ofac_ru": "ofac_russia_ukraine_tron", "ofac_tf": "ofac_terrorist_financing_tron"}
@@ -287,7 +287,7 @@ def generate_model_performance():
     ax_a.set_xscale("log")
     ax_a.set_xlabel("review-set size $K$ (addresses)")
     ax_a.set_ylabel("designated addresses recovered (%)")
-    ax_a.legend(fontsize=6.0, frameon=False, loc="upper left", handlelength=1.6, labelspacing=0.25)
+    ax_a.legend(fontsize=6.6, frameon=False, loc="upper left", handlelength=1.6, labelspacing=0.25)
     light_grid(ax_a)
 
     # b, c. ROC-AUC with 95% bootstrap CI, over all addresses and restricted to hop-1
@@ -299,12 +299,12 @@ def generate_model_performance():
             r = m[name]
             ax.plot([r["ci_low"], r["ci_high"]], [y, y], color=colour[name], lw=1.1, zorder=3)
             ax.plot(r["auc"], y, "o", ms=3.6, color=colour[name], mec="white", mew=0.5, zorder=4)
-            ax.text(r["ci_high"] + 0.006, y, f"{r['auc']:.3f}", fontsize=6.0, va="center", color=INK_2)
+            ax.text(r["ci_high"] + 0.006, y, f"{r['auc']:.3f}", fontsize=6.6, va="center", color=INK_2)
         ax.axvline(0.5, color=MUTED, lw=0.6, ls=":", zorder=1)
-        ax.set_yticks(yv); ax.set_yticklabels(order, fontsize=6.0)
+        ax.set_yticks(yv); ax.set_yticklabels(order, fontsize=6.6)
         ax.tick_params(axis="y", length=0)
         ax.set_xlabel("ROC-AUC (95% bootstrap CI)")
-        ax.set_title(title, fontsize=6.0, color=INK, pad=4)
+        ax.set_title(title, fontsize=6.6, color=INK, pad=4)
         lo = min(m[nm]["ci_low"] for nm in order); hi = max(m[nm]["ci_high"] for nm in order)
         ax.set_xlim(lo - 0.03, hi + 0.06)
         light_grid(ax, axis="x")
@@ -333,7 +333,7 @@ def generate_role_landscape():
     yv = np.array([max(r["avg_in"], floor) for r in rows])
     sizes = np.array([40 + 900 * r["share"] for r in rows])
     ax_a.plot([floor, 60], [floor, 60], color=MUTED, lw=0.6, ls=(0, (3, 2)), zorder=1)
-    ax_a.text(0.09, 0.09, "in = out", color=MUTED, fontsize=6.0, rotation=45, ha="center", va="bottom", rotation_mode="anchor")
+    ax_a.text(0.09, 0.09, "in = out", color=MUTED, fontsize=6.6, rotation=45, ha="center", va="bottom", rotation_mode="anchor")
     for r, xi, yi, s_ in zip(rows, x, yv, sizes):
         ax_a.scatter(xi, yi, s=s_, color=FAMILY_COLORS[r["family"]], edgecolor="white", linewidth=0.6, alpha=0.9, zorder=3)
     # Several roles sit at the same mean degrees to within a pixel; label each cluster once
@@ -344,7 +344,7 @@ def generate_role_landscape():
     for grp in clusters.values():
         lab = ", ".join(f"R{r['role']}" for r, _, _ in sorted(grp, key=lambda g: g[0]["role"]))
         _, xi, yi = grp[0]
-        ax_a.annotate(lab, (xi, yi), xytext=(5, 5), textcoords="offset points", fontsize=6.0,
+        ax_a.annotate(lab, (xi, yi), xytext=(5, 5), textcoords="offset points", fontsize=6.6,
                       color=INK, ha="left", va="bottom", zorder=5)
     ax_a.set_xscale("log")
     ax_a.set_yscale("log")
@@ -355,8 +355,8 @@ def generate_role_landscape():
     light_grid(ax_a)
     for s_, lab, yy in [(40 + 900 * 0.02, "2%", 0.30), (40 + 900 * 0.10, "10%", 0.20), (40 + 900 * 0.45, "45%", 0.055)]:
         ax_a.scatter(1.10, yy, s=s_, color="none", edgecolor=INK_2, linewidth=0.5, transform=ax_a.transAxes, clip_on=False)
-        ax_a.text(1.17, yy, lab, transform=ax_a.transAxes, fontsize=6.0, va="center", ha="left", color=INK_2)
-    ax_a.text(1.10, 0.38, "share of\naddresses", transform=ax_a.transAxes, fontsize=6.0, ha="center", va="bottom", color=INK_2, linespacing=1.2)
+        ax_a.text(1.17, yy, lab, transform=ax_a.transAxes, fontsize=6.6, va="center", ha="left", color=INK_2)
+    ax_a.text(1.10, 0.38, "share of\naddresses", transform=ax_a.transAxes, fontsize=6.6, ha="center", va="bottom", color=INK_2, linespacing=1.2)
     present = [f for f in FAMILY_ORDER if any(r["family"] == f for r in rows)]
     family_legend(ax_a, loc="upper left", bbox_to_anchor=(0.0, 1.0), labelspacing=0.3, families=present)
 
@@ -407,12 +407,12 @@ def draw_cross_network_panel(ax, data):
         ax.plot(anc["loss"], yi, "o", ms=4.6, mfc="white", mec=c, mew=1.0, zorder=5)
         if worst["role"] == anc["role"]:
             if worst["loss"] > 75:
-                ax.text(worst["loss"] - 3.5, yi, f"R{worst['role']} (same role)", va="center", ha="right", fontsize=6.0, color=INK_2)
+                ax.text(worst["loss"] - 3.5, yi, f"R{worst['role']} (same role)", va="center", ha="right", fontsize=6.6, color=INK_2)
             else:
-                ax.text(worst["loss"] + 2.5, yi, f"R{worst['role']} (same role)", va="center", ha="left", fontsize=6.0, color=INK_2)
+                ax.text(worst["loss"] + 2.5, yi, f"R{worst['role']} (same role)", va="center", ha="left", fontsize=6.6, color=INK_2)
         else:
-            ax.text(anc["loss"] + 2.5 if anc["loss"] < worst["loss"] - 12 else anc["loss"] - 2.5, yi + 0.30, f"R{anc['role']}", va="center", ha="left", fontsize=6.0, color=INK_2)
-            ax.text(worst["loss"] + 2.5, yi, f"R{worst['role']}", va="center", ha="left", fontsize=6.0, color=INK_2)
+            ax.text(anc["loss"] + 2.5 if anc["loss"] < worst["loss"] - 12 else anc["loss"] - 2.5, yi + 0.30, f"R{anc['role']}", va="center", ha="left", fontsize=6.6, color=INK_2)
+            ax.text(worst["loss"] + 2.5, yi, f"R{worst['role']}", va="center", ha="left", fontsize=6.6, color=INK_2)
     ax.set_yticks(yd)
     ax.set_yticklabels([name for _, name, _, _ in DATASETS])
     ax.set_xlim(-2, 105)
@@ -454,23 +454,23 @@ def generate_timelines():
     headers = ["Public anchors", "USDT transfer network", "Role assignment", "Analyses"]
     for x, w, head in zip(col_x, col_w, headers):
         ax_a.text(x + w / 2, 0.985, head, ha="center", va="top", fontsize=6.8, fontweight="bold", color=INK)
-    rounded_box(ax_a, col_x[0], 0.56, col_w[0], 0.32, SETTING_COLORS["sanctions"], "sanctions designations\nNBCTF (Israel): 20 orders\nOFAC: 3 programmes", fontsize=6.0)
-    rounded_box(ax_a, col_x[0], 0.16, col_w[0], 0.32, SETTING_COLORS["fundraising"], "public donation wallets\nAid for Ukraine\n1 address per chain", fontsize=6.0)
-    ax_a.text(col_x[0] + col_w[0] / 2, 0.10, "TRON and Ethereum, 2-hop\nneighbourhoods to 1 Jan 2025", ha="center", va="top", fontsize=6.0, color=INK_2, linespacing=1.25)
+    rounded_box(ax_a, col_x[0], 0.56, col_w[0], 0.32, SETTING_COLORS["sanctions"], "sanctions designations\nNBCTF (Israel): 20 orders\nOFAC: 3 programmes", fontsize=6.6)
+    rounded_box(ax_a, col_x[0], 0.16, col_w[0], 0.32, SETTING_COLORS["fundraising"], "public donation wallets\nAid for Ukraine\n1 address per chain", fontsize=6.6)
+    ax_a.text(col_x[0] + col_w[0] / 2, 0.10, "TRON and Ethereum,\n2-hop neighbourhoods", ha="center", va="top", fontsize=6.6, color=INK_2, linespacing=1.25)
     bx, bw = col_x[1], col_w[1]
     ax_a.add_patch(FancyBboxPatch((bx, 0.16), bw, 0.70, boxstyle="round,pad=0,rounding_size=0.012", lw=0.6, edgecolor=GRID, facecolor="#FAFAFA", zorder=1))
     draw_toy_network(ax_a, bx + 0.015, 0.20, bw - 0.03, 0.62)
-    ax_a.text(bx + bw / 2, 0.10, "nodes: addresses; edges: transfers\nwith value and timing", ha="center", va="top", fontsize=6.0, color=INK_2, linespacing=1.25)
+    ax_a.text(bx + bw / 2, 0.10, "nodes: addresses\nedges: transfers", ha="center", va="top", fontsize=6.6, color=INK_2, linespacing=1.25)
     mx, mw = col_x[2], col_w[2]
     for txt, y in [("direction-aware attention encoder", 0.70), ("prototype head,\noptimal-transport targets", 0.42), ("functional roles per address\n(donor, relay, collector, hub)", 0.14)]:
-        rounded_box(ax_a, mx, y, mw, 0.24, "#374151", txt, fontsize=6.0, fill_alpha="0D")
+        rounded_box(ax_a, mx, y, mw, 0.24, "#374151", txt, fontsize=6.6, fill_alpha="0D")
     for y in (0.66, 0.42):
         arrow(ax_a, (mx + mw / 2, y), (mx + mw / 2, y - 0.045), scale=5, lw=0.7)
-    ax_a.text(mx + mw / 2, 0.10, "no curated role labels;\nanchors used only for evaluation", ha="center", va="top", fontsize=6.0, color=INK_2, linespacing=1.25)
+    ax_a.text(mx + mw / 2, 0.10, "no curated labels;\nanchors for evaluation only", ha="center", va="top", fontsize=6.6, color=INK_2, linespacing=1.25)
     axx, aw = col_x[3], col_w[3]
     for txt, y in [("timing of designation relative\nto observed activity", 0.70), ("role removal versus budget-\nmatched random removal", 0.42), ("persistence of counterparties;\nsanctions versus donations", 0.14)]:
-        rounded_box(ax_a, axx, y, aw, 0.24, "#374151", txt, fontsize=6.0, fill_alpha="0D")
-    ax_a.text(axx + aw / 2, 0.10, "six networks, 0.6 M to 23.9 M addresses;\n2.7 M and 85 M transfers in the two largest", ha="center", va="top", fontsize=6.0, color=INK_2, linespacing=1.25)
+        rounded_box(ax_a, axx, y, aw, 0.24, "#374151", txt, fontsize=6.6, fill_alpha="0D")
+    ax_a.text(axx + aw / 2, 0.10, "six networks,\n8.9 k to 23.9 M addresses", ha="center", va="top", fontsize=6.6, color=INK_2, linespacing=1.25)
     for i in range(3):
         arrow(ax_a, (col_x[i] + col_w[i] + 0.006, 0.52), (col_x[i + 1] - 0.006, 0.52), scale=7, lw=1.0)
 
@@ -492,7 +492,7 @@ def generate_timelines():
             continue
         ax_b.axvline(d, color=INK_2, lw=0.6, ls=(0, (2, 2)), zorder=2)
         if o["n_addresses"] >= 10:
-            ax_b.text(d + np.timedelta64(22 * (1 if i % 2 else -1), 'D'), (3.0e3, 3.0e4, 3.0e5, 3.0e6)[i % 4], f"{o['order'].replace('ASO ', '')} ({o['n_addresses']})", rotation=90, ha="center", va="bottom", fontsize=6.0, color=INK_2,
+            ax_b.text(d + np.timedelta64(22 * (1 if i % 2 else -1), 'D'), (3.0e3, 3.0e4, 3.0e5, 3.0e6)[i % 4], f"{o['order'].replace('ASO ', '')} ({o['n_addresses']})", rotation=90, ha="center", va="bottom", fontsize=6.6, color=INK_2,
                       bbox=dict(fc="white", ec="none", pad=0.8))
             i += 1
     ax_b.xaxis.set_major_locator(mdates.YearLocator())
@@ -520,7 +520,7 @@ def generate_timelines():
     w1 = u["windows"]["week1"]
     ax_c.text(1.15, 46,
               f"first week:\n{w1['volume_usdt']/1e6:.2f} M USDT from {w1['donors']:,} donors",
-              fontsize=6.0, color=INK_2, va="bottom", linespacing=1.25)
+              fontsize=6.6, color=INK_2, va="bottom", linespacing=1.25)
     ax_c.set_xscale("log")
     ax_c.set_xlim(1, 1100)
     ax_c.set_ylim(0, 104)
@@ -529,9 +529,9 @@ def generate_timelines():
     ax_c.set_xticks([1, 7, 30, 90, 365, 1000])
     ax_c.set_xticklabels(["1", "7", "30", "90", "365", "1,000"])
     ax_c.text(0.02, 0.97, f"total: {u['volume_usdt']/1e6:.2f} M USDT\n{u['n_donations']:,} donations from {u['n_donors']:,} donors",
-              transform=ax_c.transAxes, fontsize=6.0, color=MUTED, ha="left", va="top", linespacing=1.25,
+              transform=ax_c.transAxes, fontsize=6.6, color=MUTED, ha="left", va="top", linespacing=1.25,
               bbox=dict(fc="white", ec="none", pad=0.8))
-    ax_c.legend(loc="lower right", bbox_to_anchor=(1.0, 0.02), frameon=False, fontsize=6.0,
+    ax_c.legend(loc="lower right", bbox_to_anchor=(1.0, 0.02), frameon=False, fontsize=6.6,
                 handlelength=1.8, labelspacing=0.3)
     light_grid(ax_c, axis="y")
 
@@ -554,15 +554,15 @@ def generate_timelines():
     light_grid(ax_d, axis="x")
     ax_d.tick_params(axis="y", length=0)
     for yi, k, s_ in zip(y, ks, seeds):
-        ax_d.text(1.02, yi, f"{k}", transform=ax_d.get_yaxis_transform(), ha="left", va="center", fontsize=6.0, color=INK_2)
-        ax_d.text(1.15, yi, f"{s_}", transform=ax_d.get_yaxis_transform(), ha="left", va="center", fontsize=6.0, color=INK_2)
-    ax_d.text(1.02, 1.01, "K", transform=ax_d.transAxes, ha="left", va="bottom", fontsize=6.0, color=INK, fontweight="bold")
-    ax_d.text(1.15, 1.01, "anchors", transform=ax_d.transAxes, ha="left", va="bottom", fontsize=6.0, color=INK, fontweight="bold")
+        ax_d.text(1.02, yi, f"{k}", transform=ax_d.get_yaxis_transform(), ha="left", va="center", fontsize=6.6, color=INK_2)
+        ax_d.text(1.15, yi, f"{s_}", transform=ax_d.get_yaxis_transform(), ha="left", va="center", fontsize=6.6, color=INK_2)
+    ax_d.text(1.02, 1.01, "K", transform=ax_d.transAxes, ha="left", va="bottom", fontsize=6.6, color=INK, fontweight="bold")
+    ax_d.text(1.15, 1.01, "anchors", transform=ax_d.transAxes, ha="left", va="bottom", fontsize=6.6, color=INK, fontweight="bold")
     scale_handles = [
         Line2D([], [], marker="o", ls="", ms=4.2, color=NEUTRAL, mec="white", label="addresses"),
         Line2D([], [], marker="o", ls="", ms=4.2, mfc="white", mec=NEUTRAL, mew=1.0, label="unique directed edges"),
     ]
-    ax_d.legend(handles=scale_handles, loc="lower left", bbox_to_anchor=(0.0, 0.0), handletextpad=0.4, labelspacing=0.3)
+    ax_d.legend(handles=scale_handles, loc="upper left", bbox_to_anchor=(0.0, 1.02), frameon=False, handletextpad=0.4, labelspacing=0.3)
 
     # ---- e. role composition
     focal = [("israel", "NBCTF Israel\n(TRON)"), ("ukr_tron", "Ukraine aid\n(TRON)"), ("ukr_eth", "Ukraine aid\n(ETH)")]
@@ -575,7 +575,7 @@ def generate_timelines():
             width = r["share"] * 100
             ax_e.barh(yi, width, left=left, height=0.55, color=FAMILY_COLORS[r["family"]], edgecolor="white", linewidth=0.6, zorder=2)
             if width > 5.5:
-                ax_e.text(left + width / 2, yi, f"R{r['role']}", ha="center", va="center", fontsize=6.0, color="white", fontweight="bold", zorder=3)
+                ax_e.text(left + width / 2, yi, f"R{r['role']}", ha="center", va="center", fontsize=6.6, color="white", fontweight="bold", zorder=3)
             if r["role"] == anchor:
                 ax_e.plot(left + width / 2, yi + 0.42, marker="v", ms=3.5, color=INK, zorder=4, clip_on=False)
             left += width
@@ -631,27 +631,27 @@ def generate_designation():
     med = float(np.median(dd))
     ax_a.axvline(med, color=INK, lw=0.8, ls=(0, (3, 2)), zorder=2)
     ax_a.set_yticks(y)
-    ax_a.set_yticklabels([f"{o}  ($n$ = {len(by[o])})" for o in orders], fontsize=6.0)
+    ax_a.set_yticklabels([f"{o}  ($n$ = {len(by[o])})" for o in orders], fontsize=6.6)
     ax_a.tick_params(axis="y", length=0)
-    ax_a.set_ylim(-0.7, len(orders) - 0.3)
+    ax_a.set_ylim(-1.15, len(orders) - 0.3)
     ax_a.set_xlim(-700, 640)
     ax_a.set_xlabel("days from last observed transfer to signing of the seizure order")
-    ax_a.text(-685, len(orders) - 0.42, "still active after signing", fontsize=6.0, color=MUTED, va="bottom")
-    ax_a.text(625, len(orders) - 0.42, "dormant before signing", fontsize=6.0, color=MUTED,
+    ax_a.text(-685, len(orders) - 0.42, "still active after signing", fontsize=6.6, color=MUTED, va="bottom")
+    ax_a.text(625, len(orders) - 0.42, "dormant before signing", fontsize=6.6, color=MUTED,
               va="bottom", ha="right")
-    ax_a.text(med + 14, -0.52, f"pooled median {med:.1f} d", fontsize=6.0, color=INK, va="center")
+    ax_a.text(med + 20, -0.75, f"pooled median {med:.1f} d", fontsize=6.6, color=INK, va="center")
     light_grid(ax_a, axis="x")
 
     # ---- b. weekly volume normalised to pre-event mean
     ev = np.array(e["volume_usdt"]) / e["pre_mean_weekly_volume"]
     pv = np.array(p["volume_usdt"]) / p["pre_mean_weekly_volume"]
     ax_b.axvspan(-0.5, 0.5, color=GRID, zorder=1)
-    ax_b.plot(weeks, np.maximum(pv, 6e-3), color=MUTED, lw=1.0, marker="o", ms=2.2, mec="white", mew=0.3, zorder=3, label=f"placebo: undesignated counterparties (n = {p['n_addresses']:,})")
-    ax_b.plot(weeks, np.maximum(ev, 6e-3), color=SETTING_COLORS["sanctions"], lw=1.4, marker="o", ms=2.6, mec="white", mew=0.3, zorder=4, label=f"designated addresses (n = {e['n_addresses']})")
+    ax_b.plot(weeks, np.maximum(pv, 6e-3), color=MUTED, lw=1.0, marker="o", ms=2.2, mec="white", mew=0.3, zorder=3, label=f"placebo ($n$ = {p['n_addresses']:,})")
+    ax_b.plot(weeks, np.maximum(ev, 6e-3), color=SETTING_COLORS["sanctions"], lw=1.4, marker="o", ms=2.6, mec="white", mew=0.3, zorder=4, label=f"designated ($n$ = {e['n_addresses']})")
     ax_b.set_yscale("log")
     ax_b.set_ylim(0.005, 5)
     ax_b.set_xlabel("weeks relative to signing of the seizure order")
-    ax_b.set_ylabel("weekly USDT volume\n(relative to pre-signing mean; floor = 0.006)")
+    ax_b.set_ylabel("weekly USDT volume,\nrelative to pre-signing mean")
     ax_b.axhline(1, color=INK_2, lw=0.5, ls=(0, (2, 2)), zorder=2)
     light_grid(ax_b)
     ax_b.legend(loc="lower left", labelspacing=0.3, handlelength=1.6)
@@ -660,13 +660,19 @@ def generate_designation():
     ea = np.array(e["per_address"]["share_active_by_week"]) * 100
     pa = np.array(p["per_address"]["share_active_by_week"]) * 100
     ax_c.axvspan(-0.5, 0.5, color=GRID, zorder=1)
+    cov = ph.get("nbctf_event_concentration", {}).get("active_share_pct_by_week", {})
+    if cov:
+        cw = np.array(sorted(int(k) for k in cov))
+        cv = np.array([cov[str(k)] for k in cw])
+        ax_c.plot(cw, cv, color=SETTING_COLORS["sanctions"], lw=1.6, zorder=5,
+                  label=f"designated, full history ($n$ = {ph['nbctf_event_concentration']['n_addresses_covering_full_window']})")
     ax_c.plot(weeks, pa, color=MUTED, lw=1.0, marker="o", ms=2.2, mec="white", mew=0.3, zorder=3, label="placebo")
-    ax_c.plot(weeks, ea, color=SETTING_COLORS["sanctions"], lw=1.4, marker="o", ms=2.6, mec="white", mew=0.3, zorder=4, label="designated")
+    ax_c.plot(weeks, ea, color=SETTING_COLORS["sanctions"], lw=1.4, marker="o", ms=2.2, mec="white", mew=0.3, zorder=4, alpha=0.55, label="designated, any activity")
     ax_c.set_xlabel("weeks relative to signing of the seizure order")
     ax_c.set_ylabel("addresses with at least\none transfer in the week (%)")
     ax_c.set_ylim(0, max(ea.max(), pa.max()) * 1.25)
     light_grid(ax_c)
-    ax_c.legend(loc="upper right", labelspacing=0.3, handlelength=1.6)
+    ax_c.legend(loc="upper right", bbox_to_anchor=(1.0, 1.0), frameon=False, labelspacing=0.3, handlelength=1.6)
 
     # ---- d. persistence after designation
     groups = [
@@ -678,14 +684,14 @@ def generate_designation():
     for i, (lab, vals, col) in enumerate(groups):
         ax_d.bar(x + (i - 0.5) * wbar, vals, width=wbar - 0.04, color=col, alpha=0.9, zorder=3, label=lab.replace("\n", " "))
         for xi, v in zip(x + (i - 0.5) * wbar, vals):
-            ax_d.text(xi, v + 1.5, f"{v:.0f}%", ha="center", va="bottom", fontsize=6.0, color=INK)
+            ax_d.text(xi, v + 1.5, f"{v:.0f}%", ha="center", va="bottom", fontsize=6.6, color=INK)
     ax_d.set_xticks(x)
     ax_d.set_xticklabels(["share of addresses with any\ntransfer after the order", "share of the address's USDT\nvolume occurring after the order"])
     ax_d.set_ylabel("per cent")
     ax_d.set_ylim(0, 100)
     light_grid(ax_d, axis="y")
     ax_d.legend(loc="upper left", labelspacing=0.3, handlelength=1.0, handleheight=0.8)
-    ax_d.text(0.99, 0.97, f"{c['share_active_90d_after_order']*100:.0f}% of counterparties still active\n90 days after the order", transform=ax_d.transAxes, fontsize=6.0, color=INK_2, ha="right", va="top", linespacing=1.25)
+    ax_d.text(0.02, 0.97, f"{c['share_active_90d_after_order']*100:.0f}% of counterparties still\nactive 90 days after the order", transform=ax_d.transAxes, fontsize=6.6, color=INK_2, ha="left", va="top", linespacing=1.25)
 
     fig.savefig(ROOT / "fig_designation.pdf")
     fig.savefig(ROOT / "fig_designation.png", dpi=300)
@@ -741,10 +747,10 @@ def draw_removal_columns(axes):
                 for x in ci:
                     ax.plot(max(x, lo * 1.25), yi, "o", ms=3.4, color=c, mec="white", mew=0.5, zorder=4)
                 ax.text(max(ci[-1], lo * 1.25) * 1.55, yi, "  ".join(f"{x:,.0f}" for x in ci),
-                        fontsize=6.0, color=INK_2, va="center")
+                        fontsize=6.6, color=INK_2, va="center")
                 continue
             if v is None:
-                ax.text(lo * 1.6, yi, "not computed", fontsize=6.0, color=MUTED, va="center")
+                ax.text(lo * 1.6, yi, "not computed", fontsize=6.6, color=MUTED, va="center")
                 continue
             vv = max(v, lo * 1.25)
             if ci is not None:
@@ -756,17 +762,17 @@ def draw_removal_columns(axes):
             else:
                 txt = (f"{v:,.0f}" if v < 1e6 else f"{v/1e9:.2f} bn")
             at = ci[1] if ci is not None else vv
-            ax.text(at * 1.55, yi, txt, fontsize=6.0, color=INK_2, va="center")
+            ax.text(at * 1.55, yi, txt, fontsize=6.6, color=INK_2, va="center")
         ax.set_xscale("log")
         ax.set_xlim(lo, hi)
         ax.set_ylim(-0.75, len(rows) - 0.25)
-        ax.set_xlabel(xlabel, fontsize=6.0, linespacing=1.35)
+        ax.set_xlabel(xlabel, fontsize=6.6, linespacing=1.35)
         ax.set_yticks(y)
         ax.set_yticklabels([r[0] for r in rows] if col == 0 else [])
         ax.tick_params(axis="y", length=0)
         light_grid(ax, axis="x")
     axes[0].text(0.0, 1.045, "complete TRON USDT network: 213M addresses, 745M directed pairs, 15.5 trillion USDT",
-                 transform=axes[0].transAxes, fontsize=6.0, color=INK, va="bottom")
+                 transform=axes[0].transAxes, fontsize=6.6, color=INK, va="bottom")
 
 
 def draw_boundary_panel(ax):
@@ -802,7 +808,7 @@ def draw_boundary_panel(ax):
         if k == "complete":
             ax.axhline(yi + 0.5, color=MUTED, lw=0.6, ls=(0, (2, 2)), zorder=1)
     ax.set_yticks(y)
-    ax.set_yticklabels(labels, fontsize=6.0)
+    ax.set_yticklabels(labels, fontsize=6.6)
     ax.tick_params(axis="y", length=0)
     ax.set_xlim(-4, 100)
     ax.set_xlabel("connectivity loss (%)")
@@ -812,7 +818,7 @@ def draw_boundary_panel(ax):
                Line2D([], [], marker="o", ls="", ms=4.0, color=INK_2,
                       label="the same number of undesignated hubs removed")]
     ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(-0.50, -0.24),
-              frameon=False, fontsize=6.0, handlelength=1.0, labelspacing=0.3)
+              frameon=False, fontsize=6.6, handlelength=1.0, labelspacing=0.3)
 
 
 def generate_backbone():
@@ -840,24 +846,24 @@ def generate_backbone():
     cx = np.array(k["counterparty_lorenz_log_rank"]) / k["n_counterparties_ranked"] * 100
     ux = np.array(u["donor_lorenz_log_rank"]) / u["n_donors_ranked"] * 100
     ax_c.plot(cx, np.array(k["counterparty_lorenz_log"]) * 100, color=SETTING_COLORS["sanctions"], lw=1.4,
-              zorder=3, label=f"counterparties of designated addresses ($n$ = {k['n_counterparties']:,})")
+              zorder=3, label=f"counterparties of designated addresses")
     ax_c.plot(ux, np.array(u["donor_lorenz_log"]) * 100, color=SETTING_COLORS["fundraising"], lw=1.4,
-              zorder=3, label=f"donors to the Ukraine TRON address ($n$ = {u['n_donors']:,})")
+              zorder=3, label=f"Aid for Ukraine donors")
     ax_c.axvline(1.0, color=MUTED, lw=0.6, ls=(0, (2, 2)), zorder=2)
-    ax_c.text(1.18, 3, "top 1% of addresses", fontsize=6.0, color=INK_2, rotation=90, va="bottom")
+    ax_c.text(1.18, 3, "top 1% of addresses", fontsize=6.6, color=INK_2, rotation=90, va="bottom")
     ax_c.set_xscale("log")
     ax_c.set_xlim(1 / k["n_counterparties_ranked"] * 100 * 0.7, 100)
     ax_c.set_ylim(0, 103)
     ax_c.set_xlabel("top share of addresses by volume (%)")
     ax_c.set_ylabel("share of USDT volume (%)")
     light_grid(ax_c)
-    ax_c.text(0.85, k["top1pct_share"] * 100 - 9, f"{k['top1pct_share']*100:.0f}%", fontsize=6.0,
+    ax_c.text(1.3, k["top1pct_share"] * 100 - 11, f"{k['top1pct_share']*100:.0f}%", fontsize=6.6,
               color=SETTING_COLORS["sanctions"], ha="right",
               bbox=dict(fc="white", ec="none", pad=0.6))
-    ax_c.text(0.85, u["top1pct_donor_volume_share"] * 100 + 3, f"{u['top1pct_donor_volume_share']*100:.0f}%",
-              fontsize=6.0, color=SETTING_COLORS["fundraising"], ha="right",
+    ax_c.text(1.3, u["top1pct_donor_volume_share"] * 100 + 4, f"{u['top1pct_donor_volume_share']*100:.0f}%",
+              fontsize=6.6, color=SETTING_COLORS["fundraising"], ha="right",
               bbox=dict(fc="white", ec="none", pad=0.6))
-    ax_c.legend(loc="upper left", bbox_to_anchor=(-0.30, -0.24), frameon=False, fontsize=6.0,
+    ax_c.legend(loc="upper left", bbox_to_anchor=(-0.30, -0.24), frameon=False, fontsize=6.6,
                 labelspacing=0.3, handlelength=1.6)
 
     fig.savefig(ROOT / "fig_backbone.pdf")
@@ -882,9 +888,9 @@ def generate_donation_sizes_si():
     ax.set_ylabel("number of donations")
     ax.axvline(u["median_donation_usdt"], color=INK, lw=0.8, ls=(0, (3, 2)), zorder=4)
     ax.text(u["median_donation_usdt"] * 1.5, counts.max() * 0.9,
-            f"median {u['median_donation_usdt']:.0f} USDT", fontsize=6.0, color=INK, va="top")
+            f"median {u['median_donation_usdt']:.0f} USDT", fontsize=6.6, color=INK, va="top")
     ax.text(0.98, 0.72, f"{u['share_donations_below_100']*100:.0f}% of donations\nbelow 100 USDT",
-            transform=ax.transAxes, fontsize=6.0, color=INK_2, ha="right", va="top", linespacing=1.25)
+            transform=ax.transAxes, fontsize=6.6, color=INK_2, ha="right", va="top", linespacing=1.25)
     light_grid(ax, axis="y")
     fig.savefig(ROOT / "fig_donation_sizes_si.pdf")
     fig.savefig(ROOT / "fig_donation_sizes_si.png", dpi=300)
@@ -942,13 +948,13 @@ def generate_enforcement():
                  edgecolor=(INK_2 if col == "#FFFFFF" else "white"), linewidth=0.5, label=lab, zorder=3)
         bottoms += vals
     ax_a.set_xticks(x)
-    ax_a.set_xticklabels([f"{o['signed'][2:10]} (n={o['n']})" for o in orders], fontsize=6.0, rotation=90)
+    ax_a.set_xticklabels([f"{o['signed'][2:10]} (n={o['n']})" for o in orders], fontsize=6.6, rotation=90)
     ax_a.set_ylabel("designated addresses (%)")
     ax_a.set_ylim(0, 100)
     light_grid(ax_a, axis="y")
     ax_a.set_xlabel("seizure order (signing date, addresses with an observed transfer)")
     ax_a.legend(loc="upper left", bbox_to_anchor=(0.0, -0.62), ncol=2, columnspacing=0.8,
-                handlelength=1.0, handleheight=0.8, labelspacing=0.3, fontsize=6.0, frameon=False)
+                handlelength=1.0, handleheight=0.8, labelspacing=0.3, fontsize=6.6, frameon=False)
 
     # ---- b. days from signing to Tether freeze
     dd = np.array(t["days_signed_to_frozen"])
@@ -956,8 +962,8 @@ def generate_enforcement():
     ax_b.hist(np.clip(dd, -99, 399), bins=bins, color=INK_2, alpha=0.85, zorder=3)
     ax_b.axvline(0, color=INK_2, lw=0.7, zorder=4)
     ax_b.axvline(np.median(dd), color=INK, lw=0.8, ls=(0, (3, 2)), zorder=4)
-    ax_b.text(np.median(dd) + 14, ax_b.get_ylim()[1] * 0.60, f"median {np.median(dd):.0f} d", fontsize=6.0, color=INK, va="top")
-    ax_b.text(0.99, 0.97, f"{t['n_frozen']} of {t['n_designated']} frozen\n{t['n_frozen_before_signing']} before signing\n{t['n_frozen_within_30d']} within 30 d after\n{t['n_frozen_after_30d']} later", transform=ax_b.transAxes, fontsize=6.0, color=INK_2, ha="right", va="top", linespacing=1.3)
+    ax_b.text(120, ax_b.get_ylim()[1] * 0.55, f"median {np.median(dd):.0f} d", fontsize=6.6, color=INK, va="top")
+    ax_b.text(0.99, 0.97, f"{t['n_frozen']} of {t['n_designated']} frozen\n{t['n_frozen_before_signing']} before signing\n{t['n_frozen_within_30d']} within 30 d after\n{t['n_frozen_after_30d']} later", transform=ax_b.transAxes, fontsize=6.6, color=INK_2, ha="right", va="top", linespacing=1.3)
     ax_b.set_xlabel("days from signing of the order\nto Tether blacklisting", linespacing=1.35)
     ax_b.set_ylabel("frozen designated addresses")
     ax_b.set_xlim(-100, 400)
@@ -983,10 +989,10 @@ def generate_enforcement():
         bins = np.arange(-50, 801, 25)
         ax_d.hist(np.clip(dl, -49, 799), bins=bins, color=INK_2, alpha=0.85, zorder=3)
         ax_d.axvline(np.median(dl), color=INK, lw=0.8, ls=(0, (3, 2)), zorder=4)
-        ax_d.text(np.median(dl) + 10, ax_d.get_ylim()[1] * 0.95, f"median {np.median(dl):.0f} d", fontsize=6.0, color=INK, va="top")
+        ax_d.text(np.median(dl) + 10, ax_d.get_ylim()[1] * 0.95, f"median {np.median(dl):.0f} d", fontsize=6.6, color=INK, va="top")
     ax_d.set_xlabel("days from the address's last transfer to Tether blacklisting")
     ax_d.set_ylabel("frozen designated addresses")
-    ax_d.text(0.99, 0.82, f"{t['share_of_frozen_addresses_with_positive_balance']*100:.0f}% held more than\n1 USDT when frozen", transform=ax_d.transAxes, fontsize=6.0, color=INK_2, ha="right", va="top", linespacing=1.25)
+    ax_d.text(0.99, 0.82, f"{t['share_of_frozen_addresses_with_positive_balance']*100:.0f}% held more than\n1 USDT when frozen", transform=ax_d.transAxes, fontsize=6.6, color=INK_2, ha="right", va="top", linespacing=1.25)
     light_grid(ax_d, axis="y")
 
     # ---- e. what was still there when the lock closed
@@ -1009,14 +1015,14 @@ def generate_enforcement():
     ax_e.set_xlim(1e0, hi); ax_e.set_ylim(lo * 0.5, hi)
     ax_e.set_xlabel("USDT ever received by the address")
     ax_e.set_ylabel("USDT still held when frozen")
-    ax_e.text(6e3, 1.2e5, "everything received\nstill present", fontsize=6.0, color=INK_2,
+    ax_e.text(6e3, 1.2e5, "everything received\nstill present", fontsize=6.6, color=INK_2,
               rotation=39, va="bottom", linespacing=1.2)
     ax_e.text(0.03, 0.99, f"{t['balance_at_freeze_total_usdt']/1e6:.1f} M of "
               f"{t['lifetime_inflow_frozen_usdt']/1e9:.2f} bn USDT\nfrozen ("
               f"{100*t['balance_at_freeze_total_usdt']/t['lifetime_inflow_frozen_usdt']:.2f}%)",
-              transform=ax_e.transAxes, fontsize=6.0, color=INK_2, ha="left", va="top",
+              transform=ax_e.transAxes, fontsize=6.6, color=INK_2, ha="left", va="top",
               linespacing=1.25)
-    ax_e.text(1.6e0, lo * 2.2, "nothing left", fontsize=6.0, color=MUTED, va="bottom")
+    ax_e.text(1.6e0, lo * 2.2, "nothing left", fontsize=6.6, color=MUTED, va="bottom")
     light_grid(ax_e)
 
     fig.savefig(ROOT / "fig_enforcement.pdf")

@@ -421,48 +421,64 @@
    "n_addresses": 42,
    "signed": "2022-03-07",
    "pre_mean_weekly_volume": 1119927.8007978075,
+   "last_4_pre_weeks_mean_volume": 466432.19532325,
+   "share_of_pre_volume_in_last_4_weeks": 0.41648416531045646,
    "ratio_post_to_pre": 0.1396491954017811
   },
   "ASO 19/23": {
    "n_addresses": 3,
    "signed": "2023-03-28",
    "pre_mean_weekly_volume": 277762.4182131539,
+   "last_4_pre_weeks_mean_volume": 671298.3898407499,
+   "share_of_pre_volume_in_last_4_weeks": 2.416807839444996,
    "ratio_post_to_pre": 0.0
   },
   "ASO 2/24": {
    "n_addresses": 1,
    "signed": "2024-01-21",
    "pre_mean_weekly_volume": 32.61124411538461,
+   "last_4_pre_weeks_mean_volume": 0.0,
+   "share_of_pre_volume_in_last_4_weeks": 0.0,
    "ratio_post_to_pre": 0.0
   },
   "ASO 29/23": {
    "n_addresses": 39,
    "signed": "2023-05-21",
    "pre_mean_weekly_volume": 190947400.51417843,
+   "last_4_pre_weeks_mean_volume": 154754517.25967008,
+   "share_of_pre_volume_in_last_4_weeks": 0.810456266191375,
    "ratio_post_to_pre": 0.006794804780234286
   },
   "ASO 34/23": {
    "n_addresses": 25,
    "signed": "2023-07-04",
    "pre_mean_weekly_volume": 1311415.7644877692,
+   "last_4_pre_weeks_mean_volume": 159931.21121225,
+   "share_of_pre_volume_in_last_4_weeks": 0.12195309492464286,
    "ratio_post_to_pre": 3.059670402518958e-06
   },
   "ASO 44/21": {
    "n_addresses": 9,
    "signed": "2021-06-30",
    "pre_mean_weekly_volume": 167565.23372165387,
+   "last_4_pre_weeks_mean_volume": 37949.823894999994,
+   "share_of_pre_volume_in_last_4_weeks": 0.22647790983921667,
    "ratio_post_to_pre": 2.983912527049379e-07
   },
   "ASO 5/24": {
    "n_addresses": 42,
    "signed": "2024-03-24",
    "pre_mean_weekly_volume": 90693.19905519232,
+   "last_4_pre_weeks_mean_volume": 8746.6019005,
+   "share_of_pre_volume_in_last_4_weeks": 0.09644165154188862,
    "ratio_post_to_pre": 2.9770699767210616e-05
   },
   "ASO 53/23": {
    "n_addresses": 17,
    "signed": "2023-10-20",
    "pre_mean_weekly_volume": 852741.8768636922,
+   "last_4_pre_weeks_mean_volume": 408397.02854825,
+   "share_of_pre_volume_in_last_4_weeks": 0.4789222150673513,
    "ratio_post_to_pre": 4.06235473358104e-08
   }
  },

@@ -1246,13 +1246,33 @@
    "share_with_any_pre_activity": 0.9691525423728814
   },
   "across_seeds": {
-   "n_seeds": 12,
-   "volume_ratio_min": 0.6253990560600026,
-   "volume_ratio_max": 1.0554654730220314,
-   "volume_ratio_median": 0.8917154451100178,
-   "transfer_ratio_min": 0.6125631222238219,
-   "transfer_ratio_max": 0.9738908570871387,
-   "transfer_ratio_median": 0.7668317968283362
+   "n_seeds": 300,
+   "volume_ratio_min": 0.4231413128118165,
+   "volume_ratio_max": 1.4627190021324512,
+   "volume_ratio_median": 0.7266976969589751,
+   "volume_ratio_iqr": [
+    0.6300323805160614,
+    0.824057017324035
+   ],
+   "volume_ratio_95pct": [
+    0.4773885112318085,
+    1.132914281836705
+   ],
+   "transfer_ratio_median": 0.7662286199691013,
+   "transfer_ratio_95pct": [
+    0.6169101120043159,
+    0.9339458872944921
+   ]
+  },
+  "calendar_matched_to_dominant_order": {
+   "order": "ASO 29/23",
+   "event_date": "2023-05-21",
+   "n_seeds": 100,
+   "volume_ratio_median": 0.8605757461187826,
+   "volume_ratio_95pct": [
+    0.6216809962674762,
+    1.1495318730723203
+   ]
   }
  },
  "counterparty_persistence": {
