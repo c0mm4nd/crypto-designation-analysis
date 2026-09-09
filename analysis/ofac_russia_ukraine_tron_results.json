@@ -1,0 +1,52 @@
+{
+  "label": "OFAC_russia_ukraine",
+  "n_seeds": 10,
+  "stats": {
+    "nodes": 10884,
+    "edges": 12770,
+    "connectivity": 0.9997243660418964,
+    "path_efficiency": 0.2914107226995749,
+    "btw_std": 0.0013198183200085194,
+    "n_components": 2,
+    "avg_in": 1.1732818816611539,
+    "avg_out": 1.1732818816611539
+  },
+  "roles": {
+    "Donor": 7092,
+    "Core (Sanctioned)": 5,
+    "Speculator/Other": 3733,
+    "Core Asst./Remitter": 1,
+    "CEX/DEX Account": 1,
+    "Broker": 52
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 0.9997243660418964,
+      "path_efficiency": 0.29186299008271416,
+      "btw_std": 0.0013059481463178757,
+      "n_components": 2,
+      "removed": 0
+    },
+    "Donor": {
+      "connectivity": 0.9997362869198312,
+      "path_efficiency": 0.29273483790273247,
+      "btw_std": 0.0017799402756034021,
+      "n_components": 2,
+      "removed": 7092
+    },
+    "Speculator/Other": {
+      "connectivity": 0.38008670116067683,
+      "path_efficiency": 0.38223755750731914,
+      "btw_std": 0.00014276335874571802,
+      "n_components": 4426,
+      "removed": 3733
+    },
+    "Broker": {
+      "connectivity": 0.9360228951255539,
+      "path_efficiency": 0.30498856506987254,
+      "btw_std": 0.0007465050059115926,
+      "n_components": 692,
+      "removed": 52
+    }
+  }
+}

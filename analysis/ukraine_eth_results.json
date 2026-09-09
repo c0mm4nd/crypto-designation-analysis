@@ -1,0 +1,51 @@
+{
+  "label": "Ukraine-ETH",
+  "n_seeds": 1,
+  "stats": {
+    "nodes": 864702,
+    "edges": 888733,
+    "connectivity": 1.0,
+    "path_efficiency": 0.30761605249417034,
+    "btw_std": 0.000214151257974361,
+    "n_components": 1,
+    "avg_in": 1.0277910771572172,
+    "avg_out": 1.0277910771572172
+  },
+  "roles": {
+    "CEX/DEX Account": 1,
+    "Core (Sanctioned)": 1,
+    "Speculator/Other": 383141,
+    "Donor": 481431,
+    "Broker": 128
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.2996289961051678,
+      "btw_std": 0.00019386582046358004,
+      "n_components": 1,
+      "removed": 0
+    },
+    "Speculator/Other": {
+      "connectivity": 0.40004485413062935,
+      "path_efficiency": 0.4999947714058644,
+      "btw_std": 3.290775254763496e-05,
+      "n_components": 288916,
+      "removed": 383141
+    },
+    "Donor": {
+      "connectivity": 0.9999973908800822,
+      "path_efficiency": 0.3002780499745908,
+      "btw_std": 4.7853212751630275e-05,
+      "n_components": 2,
+      "removed": 481431
+    },
+    "Broker": {
+      "connectivity": 0.9999340715774474,
+      "path_efficiency": 0.30533501010839303,
+      "btw_std": 0.00020705000642074088,
+      "n_components": 58,
+      "removed": 128
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "label": "OFAC_iran",
+  "n_seeds": 16,
+  "stats": {
+    "nodes": 8883,
+    "edges": 10490,
+    "connectivity": 1.0,
+    "path_efficiency": 0.2654738198514876,
+    "btw_std": 0.001583525746852159,
+    "n_components": 1,
+    "avg_in": 1.1809073511201171,
+    "avg_out": 1.1809073511201171
+  },
+  "roles": {
+    "Core (Sanctioned)": 9,
+    "Speculator/Other": 3719,
+    "Donor": 5127,
+    "CEX/DEX Account": 2,
+    "Broker": 21,
+    "Core Asst./Remitter": 5
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.2651735625120905,
+      "btw_std": 0.0018077771451579126,
+      "n_components": 1,
+      "removed": 0
+    },
+    "Speculator/Other": {
+      "connectivity": 0.4525561580170411,
+      "path_efficiency": 0.41775437584150804,
+      "btw_std": 0.00015987323923410287,
+      "n_components": 2783,
+      "removed": 3719
+    },
+    "Donor": {
+      "connectivity": 0.9994675186368477,
+      "path_efficiency": 0.2762191919340667,
+      "btw_std": 0.001213538682068555,
+      "n_components": 3,
+      "removed": 5127
+    },
+    "Broker": {
+      "connectivity": 0.9557661927330173,
+      "path_efficiency": 0.2801849144834255,
+      "btw_std": 0.0011496460128583004,
+      "n_components": 393,
+      "removed": 21
+    }
+  }
+}

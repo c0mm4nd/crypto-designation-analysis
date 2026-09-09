@@ -1,0 +1,112 @@
+{
+  "ofac_iran_tron": {
+    "WCFRM (full)": {
+      "auc": 0.679,
+      "auc_ci": [
+        0.511,
+        0.853
+      ],
+      "recall_at_threshold_0.3": 1,
+      "silhouette": 0.7152,
+      "n_seeds_in_graph": 9
+    },
+    "A1: No edge features": {
+      "auc": 0.749,
+      "auc_ci": [
+        0.547,
+        0.943
+      ],
+      "recall_at_threshold_0.3": 4,
+      "silhouette": 0.778,
+      "n_seeds_in_graph": 9
+    },
+    "A2: No SSL loss": {
+      "auc": 0.702,
+      "auc_ci": [
+        0.526,
+        0.81
+      ],
+      "recall_at_threshold_0.3": 0,
+      "silhouette": 0.6276,
+      "n_seeds_in_graph": 9
+    }
+  },
+  "ofac_russia_ukraine_tron": {
+    "WCFRM (full)": {
+      "auc": 0.741,
+      "auc_ci": [
+        NaN,
+        NaN
+      ],
+      "recall_at_threshold_0.3": 1,
+      "silhouette": 0.7151,
+      "n_seeds_in_graph": 5
+    },
+    "A1: No edge features": {
+      "auc": 0.644,
+      "auc_ci": [
+        NaN,
+        NaN
+      ],
+      "recall_at_threshold_0.3": 0,
+      "silhouette": 0.7572,
+      "n_seeds_in_graph": 5
+    },
+    "A2: No SSL loss": {
+      "auc": 0.64,
+      "auc_ci": [
+        NaN,
+        NaN
+      ],
+      "recall_at_threshold_0.3": 1,
+      "silhouette": 0.5516,
+      "n_seeds_in_graph": 5
+    }
+  },
+  "ofac_terrorist_financing_tron": {
+    "WCFRM (full)": {
+      "auc": 0.86,
+      "auc_ci": [
+        0.742,
+        0.947
+      ],
+      "recall_at_threshold_0.3": 0,
+      "silhouette": 0.661,
+      "n_seeds_in_graph": 21
+    },
+    "A1: No edge features": {
+      "auc": 0.715,
+      "auc_ci": [
+        0.62,
+        0.791
+      ],
+      "recall_at_threshold_0.3": 6,
+      "silhouette": 0.7129,
+      "n_seeds_in_graph": 21
+    },
+    "A2: No SSL loss": {
+      "auc": 0.699,
+      "auc_ci": [
+        0.595,
+        0.773
+      ],
+      "recall_at_threshold_0.3": 0,
+      "silhouette": 0.4765,
+      "n_seeds_in_graph": 21
+    }
+  },
+  "averages": {
+    "WCFRM (full)": {
+      "mean_auc": 0.76,
+      "mean_silhouette": 0.6971
+    },
+    "A1: No edge features": {
+      "mean_auc": 0.703,
+      "mean_silhouette": 0.7494
+    },
+    "A2: No SSL loss": {
+      "mean_auc": 0.68,
+      "mean_silhouette": 0.5519
+    }
+  }
+}

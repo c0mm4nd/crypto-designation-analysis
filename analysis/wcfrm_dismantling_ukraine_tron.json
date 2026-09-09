@@ -1,0 +1,59 @@
+{
+  "n_nodes": 117673,
+  "n_edges": 247358,
+  "n_roles": 3,
+  "seed_address": "TEFccmfQ38cZS1DTZVhsxKVDckA8Y6VfCy",
+  "seed_cluster": 1,
+  "role_stats": {
+    "0": {
+      "size": 36218,
+      "avg_in": 0.588,
+      "avg_out": 2.499,
+      "avg_ic": 0.0025,
+      "seed_in_role": 0,
+      "seed_pct": 0.0
+    },
+    "1": {
+      "size": 77494,
+      "avg_in": 2.832,
+      "avg_out": 1.989,
+      "avg_ic": 0.0038,
+      "seed_in_role": 1,
+      "seed_pct": 0.00129
+    },
+    "2": {
+      "size": 3961,
+      "avg_in": 1.66,
+      "avg_out": 0.678,
+      "avg_ic": 0.0035,
+      "seed_in_role": 0,
+      "seed_pct": 0.0
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.243597,
+      "n_components": 1,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 0.931962,
+      "path_efficiency": 0.263995,
+      "n_components": 5543,
+      "removed": 36218
+    },
+    "role_1": {
+      "connectivity": 0.024764,
+      "path_efficiency": 0.343519,
+      "n_components": 38911,
+      "removed": 77494
+    },
+    "role_2": {
+      "connectivity": 0.996966,
+      "path_efficiency": 0.244221,
+      "n_components": 346,
+      "removed": 3961
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "dataset": "ofac_russia_ukraine_tron",
+  "n_nodes": 10884,
+  "n_edges": 12770,
+  "modularity": {
+    "WCFRM": 0.006203746026782102,
+    "GCN+KMeans": 0.24853794161061604,
+    "GAT+KMeans": 0.40603371555231144,
+    "GIN+KMeans": 0.128185354942553,
+    "GraphSAGE+KMeans": 0.32732271672677576,
+    "SuperGAT+KMeans": 0.3253540229119383,
+    "GATv2+KMeans": 0.3472360557107496,
+    "GNN-FiLM+KMeans": 0.13450335609308567
+  }
+}

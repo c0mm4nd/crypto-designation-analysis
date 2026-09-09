@@ -1,287 +1,115 @@
 {
  "orders": {
-  "ASO 15/22": {
-   "signed": "2022-03-07",
-   "public_from": "2022-03-07",
-   "n_designated_in_window": 42,
-   "n_counterparties_before_order": 1213,
-   "post_volume_from_counterparties_usdt": 2971670233.615103,
-   "share_of_post_volume_to_labelled_entities": 0.10501655566751138,
-   "top_destinations": [
-    {
-     "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
-     "usdt": 59586646.498481,
-     "transfers": 1,
-     "share_of_post_volume": 0.02005156757450591,
-     "entity": "CEX",
-     "was_a_counterparty": true
-    },
-    {
-     "address": "TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa",
-     "usdt": 57882051.575362995,
-     "transfers": 3,
-     "share_of_post_volume": 0.0194779524728584,
-     "entity": "UNKNOWN",
-     "was_a_counterparty": true
-    },
-    {
-     "address": "TUuF3a3Z4g1C3ui3EN4XLihDMGtgpSWPbM",
-     "usdt": 47915382.368925,
-     "transfers": 2,
-     "share_of_post_volume": 0.016124057719094514,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
-     "usdt": 46690904.132487,
-     "transfers": 4,
-     "share_of_post_volume": 0.015712007208715913,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
-     "usdt": 44484122.269168,
-     "transfers": 403,
-     "share_of_post_volume": 0.0149694006306521,
-     "entity": "UNKNOWN",
-     "was_a_counterparty": true
-    },
-    {
-     "address": "TSzujPhnBPbTyCVrTmx3F6reCABeJ59qhL",
-     "usdt": 33064033.540626,
-     "transfers": 90,
-     "share_of_post_volume": 0.011126414084110157,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
-     "usdt": 32423813.2028,
-     "transfers": 431,
-     "share_of_post_volume": 0.010910972838111889,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TQ1jmDKw4hwZhTFMBUpMvtYJq4DtMPzHEy",
-     "usdt": 27428403.790447,
-     "transfers": 412,
-     "share_of_post_volume": 0.00922996215400379,
-     "entity": "UNKNOWN",
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
-     "usdt": 24471850.19,
-     "transfers": 9,
-     "share_of_post_volume": 0.008235049068762065,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
-     "usdt": 22781973.867439,
-     "transfers": 484,
-     "share_of_post_volume": 0.0076663869394836,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TEfW3vaNKv1fjxP6JrBqaYDyQAnPd6EzmP",
-     "usdt": 22690324.373947,
-     "transfers": 228,
-     "share_of_post_volume": 0.007635545868204803,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
-     "usdt": 21736156.687164,
-     "transfers": 1,
-     "share_of_post_volume": 0.007314457856490182,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "THFoT79HSFUb1jjDsF6kjDNYzBqp9BxSDW",
-     "usdt": 20111938.0,
-     "transfers": 49,
-     "share_of_post_volume": 0.0067678902498994244,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TEPSrSYPDSQ7yXpMFPq91Fb1QEWpMkRGfn",
-     "usdt": 20000000.0,
-     "transfers": 4,
-     "share_of_post_volume": 0.0067302218711090146,
-     "entity": "UNKNOWN",
-     "was_a_counterparty": true
-    },
-    {
-     "address": "TG2tzRjDHSnuVTq6Z44BAhWhpNvgE299sc",
-     "usdt": 19091532.0,
-     "transfers": 35,
-     "share_of_post_volume": 0.006424512310968881,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TYgPxVuFYhHLDGFhFU2UpinsedxpknXGmZ",
-     "usdt": 16172095.396703,
-     "transfers": 794,
-     "share_of_post_volume": 0.005442089507027598,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TSVmpi8QTWbRC6F9wqRucSSAWEczHQqq9M",
-     "usdt": 15988558.0,
-     "transfers": 81,
-     "share_of_post_volume": 0.00538032713695475,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TGBYUnBNk7HWHkmh3S54AbrbwhYM6HnJrX",
-     "usdt": 15672798.0,
-     "transfers": 45,
-     "share_of_post_volume": 0.005274070394053681,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TVAeML9zabtzxs7kBNcqcfpe79gYyzUgFC",
-     "usdt": 15644955.0,
-     "transfers": 211,
-     "share_of_post_volume": 0.005264700915675817,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TAHV1AHmKSPotZDKTYRBqB4utDJUyn9DHa",
-     "usdt": 14308951.30201,
-     "transfers": 275,
-     "share_of_post_volume": 0.004815120850271076,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TQCHn8FBSDRko5W9yVSNxej36iDzWPBswP",
-     "usdt": 13724604.226247,
-     "transfers": 241,
-     "share_of_post_volume": 0.004618481576790139,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TLkJRoF1TN4YJULTvGonapNB9i5NCeq4ym",
-     "usdt": 13699000.0,
-     "transfers": 31,
-     "share_of_post_volume": 0.004609865470616119,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TVQwoUux7qxxaeMN2pa38RhSDHmUu2UWfG",
-     "usdt": 12887714.0,
-     "transfers": 32,
-     "share_of_post_volume": 0.004336858731569892,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TYdHV8pxoQBSDwQCR2fpyAQ5e6i4jTGTmk",
-     "usdt": 12647804.49432,
-     "transfers": 138,
-     "share_of_post_volume": 0.004256126521459167,
-     "entity": null,
-     "was_a_counterparty": false
-    },
-    {
-     "address": "TBT7LBA64Dk7Bd5EoSev8QMe4ecfZnje5B",
-     "usdt": 12553576.200552,
-     "transfers": 110,
-     "share_of_post_volume": 0.004224417655279433,
-     "entity": null,
-     "was_a_counterparty": false
-    }
-   ],
-   "max_overlap_existing": 161,
-   "max_overlap_new": 51,
-   "top_new_by_overlap": [
-    {
-     "address": "TVPK634J7TSsB5mpv7wQuXB3uKHNBgYzfq",
-     "overlap": 51,
-     "usdt": 318056.729319,
-     "entity": null
-    },
-    {
-     "address": "TTYeqs9YdBSwuseu2Yib8NAohrRLmAuAnm",
-     "overlap": 33,
-     "usdt": 254001.85881900002,
-     "entity": null
-    },
-    {
-     "address": "TBEvhxtcaCN1gzhGNpfoLCgeKRQckEsimR",
-     "overlap": 29,
-     "usdt": 94972.993973,
-     "entity": null
-    },
-    {
-     "address": "TTKdGWjDdRZoV83y66gs9povbvo4wbMg8o",
-     "overlap": 29,
-     "usdt": 1233002.252685,
-     "entity": null
-    },
-    {
-     "address": "TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa",
-     "overlap": 29,
-     "usdt": 58125356.054363,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TBv24AyraA9qYyiPpYzoSTW1cRd4jqqWaM",
-     "overlap": 28,
-     "usdt": 121722.413726,
-     "entity": null
-    },
-    {
-     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
-     "overlap": 26,
-     "usdt": 39286838.385258004,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
-     "overlap": 26,
-     "usdt": 198305.042262,
-     "entity": null
-    },
-    {
-     "address": "TEgZr9tHVz1k1UxqPWkAN6XPnDa4yu7NB1",
-     "overlap": 24,
-     "usdt": 315138.99533,
-     "entity": null
-    },
-    {
-     "address": "TE5KA14V1WyPTfAeg56B4uZfjEGKA3foQF",
-     "overlap": 23,
-     "usdt": 0.129,
-     "entity": null
-    }
-   ],
-   "n_new_with_overlap_above_max_existing": 0
-  },
   "ASO 5/24": {
    "signed": "2024-03-24",
    "public_from": "2024-03-28",
    "n_designated_in_window": 42,
    "n_counterparties_before_order": 146,
+   "n_counterparties_observable_after": 36,
    "post_volume_from_counterparties_usdt": 993834297.801892,
    "share_of_post_volume_to_labelled_entities": 0.13023230918839354,
+   "largest_single_recipient_share": 0.035677527197866946,
+   "min_usdt_per_pair": 1.0,
+   "designated_own_overlap": {
+    "p50": 3.0,
+    "p75": 5.0,
+    "p90": 9.799999999999997,
+    "p100": 23.0
+   },
+   "incumbent_overlap": {
+    "p50": 1.0,
+    "p75": 2.0,
+    "p90": 6.0,
+    "p100": 17.0
+   },
+   "newcomer_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 2.0,
+    "p100": 13.0
+   },
+   "top_new_by_overlap": [
+    {
+     "address": "TTfKXoGgtuqytwv84Vcv8HFoUrPDmtwGH4",
+     "overlap": 13,
+     "usdt": 1642651.2934130002,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TQU5FuEvcmKPJj3TBLX7Kms9YbKW5JWUoR",
+     "overlap": 12,
+     "usdt": 1143553.591465,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TCuMg2KrTjTPS9UrjvzFopfLXgZZCmi9Vs",
+     "overlap": 12,
+     "usdt": 273396.811027,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TS27tCYJgxhDd2ipjfHYPFU7BmWFaPHV4W",
+     "overlap": 12,
+     "usdt": 93226.40373,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TEHQ474NiHnETnikmiHkkWExoHUsYvU1dQ",
+     "overlap": 12,
+     "usdt": 693469.289582,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "THkp4Mqep7U5NACE66fsPEgHU7HxvtiVgd",
+     "overlap": 12,
+     "usdt": 2114.756931,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TVjDh8q67rt31WyPAQjDkD3ogZY8wx8ZdJ",
+     "overlap": 12,
+     "usdt": 1714659.09064,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TQ6qrV42GiD38t4XeMW4W46C9o5XjCiVaF",
+     "overlap": 12,
+     "usdt": 268348.495985,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TDF9UtqpxUXyQLwmZYfa2WPBLbF9QixEVE",
+     "overlap": 12,
+     "usdt": 1240050.8518369999,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TMAHXwoAdPCGyVYd28eF3oi9SapzxVNyZ5",
+     "overlap": 12,
+     "usdt": 76015.352593,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    }
+   ],
    "top_destinations": [
     {
      "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
@@ -289,7 +117,7 @@
      "transfers": 11,
      "share_of_post_volume": 0.035677527197866946,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TXCE8RYq6bhX2CueZBUjPbDYoJbMene5mN",
@@ -297,7 +125,7 @@
      "transfers": 11,
      "share_of_post_volume": 0.03375294862955789,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
@@ -305,7 +133,7 @@
      "transfers": 430,
      "share_of_post_volume": 0.03260695884059709,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
@@ -313,7 +141,7 @@
      "transfers": 487,
      "share_of_post_volume": 0.023095922427115195,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TQk44sPs1rjKyEPuzXpAheJtd7vMQBeeZ2",
@@ -321,7 +149,7 @@
      "transfers": 46,
      "share_of_post_volume": 0.021338539154831356,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TXByfwCqw899fEPAWTuF3gkhPvfLMLvdr9",
@@ -329,7 +157,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.02060729891591392,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
@@ -337,7 +165,7 @@
      "transfers": 2,
      "share_of_post_volume": 0.019871984421148244,
      "entity": "UNKNOWN",
-     "was_a_counterparty": true
+     "network_rank": 10
     },
     {
      "address": "TUR6iqkZjsf6CXMg3bm5g9sBFZSLhmSjvm",
@@ -345,7 +173,7 @@
      "transfers": 49,
      "share_of_post_volume": 0.014600955337176908,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "THymE3vMHuPN8Sknshj7SZRxGwdeu1HqdS",
@@ -353,7 +181,7 @@
      "transfers": 735,
      "share_of_post_volume": 0.013769208772898266,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TD291XXvTPEwQdR7gjBapxeMunYRcg6VBG",
@@ -361,7 +189,7 @@
      "transfers": 51,
      "share_of_post_volume": 0.011431764737884629,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TYMVR7rgoxp1FERbzBhhcCwJCBkCTpLu8C",
@@ -369,7 +197,7 @@
      "transfers": 146,
      "share_of_post_volume": 0.010760004166275657,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
@@ -377,7 +205,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.009872527525905356,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": 75
     },
     {
      "address": "TJDENsfBJs4RFETt1X1W8wMDc8M5XnJhCe",
@@ -385,7 +213,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.009837088005867762,
      "entity": "UNKNOWN",
-     "was_a_counterparty": true
+     "network_rank": 8
     },
     {
      "address": "TAzsQ9Gx8eqFNFSKbeXrbi45CuVPHzA8wr",
@@ -393,7 +221,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.009578872135502261,
      "entity": "CEX",
-     "was_a_counterparty": true
+     "network_rank": 9
     },
     {
      "address": "TMgeHXmwrUXdayMDy9cs7ubjt3zhDx5LzH",
@@ -401,7 +229,7 @@
      "transfers": 176,
      "share_of_post_volume": 0.009303624069541943,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TGMwR6B5Lm9s9Dv9hTAaWr9Y9V6xNBSnJ4",
@@ -409,7 +237,7 @@
      "transfers": 532,
      "share_of_post_volume": 0.009165194435074426,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TApkMwKPaew1boeBvqncYLZGhLKKB5HDQq",
@@ -417,7 +245,7 @@
      "transfers": 13,
      "share_of_post_volume": 0.009126639823219363,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TMSgnv2rJ5c3bBYmbYZwQh1meY2Cghqoac",
@@ -425,7 +253,7 @@
      "transfers": 228,
      "share_of_post_volume": 0.008147210274426478,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TPAZQXgN7QM3iYdkFojwqpN4xnxoBaxUVU",
@@ -433,7 +261,7 @@
      "transfers": 243,
      "share_of_post_volume": 0.007785080785075991,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TL4vDVXgNCjm2rMdr81duamwzcXYJmau3W",
@@ -441,7 +269,7 @@
      "transfers": 34,
      "share_of_post_volume": 0.0075773699785979184,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TEfW3vaNKv1fjxP6JrBqaYDyQAnPd6EzmP",
@@ -449,7 +277,7 @@
      "transfers": 32,
      "share_of_post_volume": 0.007210530273187919,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "THx8hzYGUBoVpgZ7emAC5vk5nna3E6fa79",
@@ -457,7 +285,7 @@
      "transfers": 238,
      "share_of_post_volume": 0.006592241925530704,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TBe8WtDdgTmEfXfMCFWso5oTUn4fK9Lh6G",
@@ -465,7 +293,7 @@
      "transfers": 228,
      "share_of_post_volume": 0.006178994189419802,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TB2iP6zPR3Z7VAAq8kRnZgsoPP6qa9kjgH",
@@ -473,7 +301,7 @@
      "transfers": 17,
      "share_of_post_volume": 0.006146044917039662,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TYJSbi7Aq4g9quPuoo8d3QAyP4L9DDMQAP",
@@ -481,82 +309,433 @@
      "transfers": 17,
      "share_of_post_volume": 0.00605869620049003,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     }
-   ],
-   "max_overlap_existing": 18,
-   "max_overlap_new": 26,
+   ]
+  },
+  "ASO 15/22": {
+   "signed": "2022-03-07",
+   "public_from": "2022-03-07",
+   "n_designated_in_window": 42,
+   "n_counterparties_before_order": 1213,
+   "n_counterparties_observable_after": 385,
+   "post_volume_from_counterparties_usdt": 2971670233.615103,
+   "share_of_post_volume_to_labelled_entities": 0.10501655566751138,
+   "largest_single_recipient_share": 0.02005156757450591,
+   "min_usdt_per_pair": 1.0,
+   "designated_own_overlap": {
+    "p50": 16.0,
+    "p75": 28.0,
+    "p90": 56.0,
+    "p100": 464.0
+   },
+   "incumbent_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 2.0,
+    "p100": 161.0
+   },
+   "newcomer_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 2.0,
+    "p100": 51.0
+   },
    "top_new_by_overlap": [
     {
-     "address": "TLyCjdn1SZdec9nETryvc127ALU4vWKFbb",
+     "address": "TVPK634J7TSsB5mpv7wQuXB3uKHNBgYzfq",
+     "overlap": 51,
+     "usdt": 318056.729319,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TTYeqs9YdBSwuseu2Yib8NAohrRLmAuAnm",
+     "overlap": 33,
+     "usdt": 254001.858819,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TBEvhxtcaCN1gzhGNpfoLCgeKRQckEsimR",
+     "overlap": 29,
+     "usdt": 94972.993973,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa",
+     "overlap": 29,
+     "usdt": 58125356.054363,
+     "entity": "UNKNOWN",
+     "network_rank": 5,
+     "network_transfers": 37834288
+    },
+    {
+     "address": "TTKdGWjDdRZoV83y66gs9povbvo4wbMg8o",
+     "overlap": 29,
+     "usdt": 1233002.252685,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TBv24AyraA9qYyiPpYzoSTW1cRd4jqqWaM",
+     "overlap": 28,
+     "usdt": 121722.413726,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
      "overlap": 26,
-     "usdt": 2.315255,
-     "entity": null
+     "usdt": 39286838.385258,
+     "entity": "UNKNOWN",
+     "network_rank": 4,
+     "network_transfers": 41225341
     },
     {
-     "address": "TTfKXoGgtuqytwv84Vcv8HFoUrPDmtwGH4",
-     "overlap": 13,
-     "usdt": 1642651.293413,
-     "entity": null
+     "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
+     "overlap": 26,
+     "usdt": 198305.042262,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
     },
     {
-     "address": "TQ6qrV42GiD38t4XeMW4W46C9o5XjCiVaF",
-     "overlap": 12,
-     "usdt": 268348.495985,
-     "entity": null
+     "address": "TEgZr9tHVz1k1UxqPWkAN6XPnDa4yu7NB1",
+     "overlap": 24,
+     "usdt": 315138.99533,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
     },
     {
-     "address": "TQU5FuEvcmKPJj3TBLX7Kms9YbKW5JWUoR",
-     "overlap": 12,
-     "usdt": 1143553.591465,
-     "entity": null
-    },
-    {
-     "address": "TS27tCYJgxhDd2ipjfHYPFU7BmWFaPHV4W",
-     "overlap": 12,
-     "usdt": 93226.40373,
-     "entity": null
-    },
-    {
-     "address": "TK9Aj1KDUFQu3t27EDKek2Wqo8DXkWKGUw",
-     "overlap": 12,
-     "usdt": 1611722.650108,
-     "entity": null
-    },
-    {
-     "address": "TCuMg2KrTjTPS9UrjvzFopfLXgZZCmi9Vs",
-     "overlap": 12,
-     "usdt": 273396.811027,
-     "entity": null
-    },
-    {
-     "address": "TVjDh8q67rt31WyPAQjDkD3ogZY8wx8ZdJ",
-     "overlap": 12,
-     "usdt": 1714659.09064,
-     "entity": null
-    },
-    {
-     "address": "TTcsAjEsbdHVDGqkD1ae5UvVVqVVdzechw",
-     "overlap": 12,
-     "usdt": 383954.667843,
-     "entity": null
-    },
-    {
-     "address": "THkp4Mqep7U5NACE66fsPEgHU7HxvtiVgd",
-     "overlap": 12,
-     "usdt": 2114.756931,
-     "entity": null
+     "address": "TRdbfBXXGgbcW6Ng392ujEAKUzUnw1VAZR",
+     "overlap": 22,
+     "usdt": 197215.999977,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
     }
    ],
-   "n_new_with_overlap_above_max_existing": 1
+   "top_destinations": [
+    {
+     "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
+     "usdt": 59586646.498481,
+     "transfers": 1,
+     "share_of_post_volume": 0.02005156757450591,
+     "entity": "CEX",
+     "network_rank": 7
+    },
+    {
+     "address": "TU4vEruvZwLLkSfV9bNw12EJTPvNr7Pvaa",
+     "usdt": 57882051.575362995,
+     "transfers": 3,
+     "share_of_post_volume": 0.0194779524728584,
+     "entity": "UNKNOWN",
+     "network_rank": 5
+    },
+    {
+     "address": "TUuF3a3Z4g1C3ui3EN4XLihDMGtgpSWPbM",
+     "usdt": 47915382.368925,
+     "transfers": 2,
+     "share_of_post_volume": 0.016124057719094514,
+     "entity": null,
+     "network_rank": 198
+    },
+    {
+     "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
+     "usdt": 46690904.132487,
+     "transfers": 4,
+     "share_of_post_volume": 0.015712007208715913,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
+     "usdt": 44484122.269168,
+     "transfers": 403,
+     "share_of_post_volume": 0.0149694006306521,
+     "entity": "UNKNOWN",
+     "network_rank": 14
+    },
+    {
+     "address": "TSzujPhnBPbTyCVrTmx3F6reCABeJ59qhL",
+     "usdt": 33064033.540626,
+     "transfers": 90,
+     "share_of_post_volume": 0.011126414084110157,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
+     "usdt": 32423813.2028,
+     "transfers": 431,
+     "share_of_post_volume": 0.010910972838111889,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TQ1jmDKw4hwZhTFMBUpMvtYJq4DtMPzHEy",
+     "usdt": 27428403.790447,
+     "transfers": 412,
+     "share_of_post_volume": 0.00922996215400379,
+     "entity": "UNKNOWN",
+     "network_rank": null
+    },
+    {
+     "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
+     "usdt": 24471850.19,
+     "transfers": 9,
+     "share_of_post_volume": 0.008235049068762065,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
+     "usdt": 22781973.867439,
+     "transfers": 484,
+     "share_of_post_volume": 0.0076663869394836,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TEfW3vaNKv1fjxP6JrBqaYDyQAnPd6EzmP",
+     "usdt": 22690324.373947,
+     "transfers": 228,
+     "share_of_post_volume": 0.007635545868204803,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
+     "usdt": 21736156.687164,
+     "transfers": 1,
+     "share_of_post_volume": 0.007314457856490182,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "THFoT79HSFUb1jjDsF6kjDNYzBqp9BxSDW",
+     "usdt": 20111938.0,
+     "transfers": 49,
+     "share_of_post_volume": 0.0067678902498994244,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TEPSrSYPDSQ7yXpMFPq91Fb1QEWpMkRGfn",
+     "usdt": 20000000.0,
+     "transfers": 4,
+     "share_of_post_volume": 0.0067302218711090146,
+     "entity": "UNKNOWN",
+     "network_rank": 12
+    },
+    {
+     "address": "TG2tzRjDHSnuVTq6Z44BAhWhpNvgE299sc",
+     "usdt": 19091532.0,
+     "transfers": 35,
+     "share_of_post_volume": 0.006424512310968881,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TYgPxVuFYhHLDGFhFU2UpinsedxpknXGmZ",
+     "usdt": 16172095.396703,
+     "transfers": 794,
+     "share_of_post_volume": 0.005442089507027598,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TSVmpi8QTWbRC6F9wqRucSSAWEczHQqq9M",
+     "usdt": 15988558.0,
+     "transfers": 81,
+     "share_of_post_volume": 0.00538032713695475,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TGBYUnBNk7HWHkmh3S54AbrbwhYM6HnJrX",
+     "usdt": 15672798.0,
+     "transfers": 45,
+     "share_of_post_volume": 0.005274070394053681,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TVAeML9zabtzxs7kBNcqcfpe79gYyzUgFC",
+     "usdt": 15644955.0,
+     "transfers": 211,
+     "share_of_post_volume": 0.005264700915675817,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TAHV1AHmKSPotZDKTYRBqB4utDJUyn9DHa",
+     "usdt": 14308951.30201,
+     "transfers": 275,
+     "share_of_post_volume": 0.004815120850271076,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TQCHn8FBSDRko5W9yVSNxej36iDzWPBswP",
+     "usdt": 13724604.226247,
+     "transfers": 241,
+     "share_of_post_volume": 0.004618481576790139,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TLkJRoF1TN4YJULTvGonapNB9i5NCeq4ym",
+     "usdt": 13699000.0,
+     "transfers": 31,
+     "share_of_post_volume": 0.004609865470616119,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TVQwoUux7qxxaeMN2pa38RhSDHmUu2UWfG",
+     "usdt": 12887714.0,
+     "transfers": 32,
+     "share_of_post_volume": 0.004336858731569892,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TYdHV8pxoQBSDwQCR2fpyAQ5e6i4jTGTmk",
+     "usdt": 12647804.49432,
+     "transfers": 138,
+     "share_of_post_volume": 0.004256126521459167,
+     "entity": null,
+     "network_rank": null
+    },
+    {
+     "address": "TBT7LBA64Dk7Bd5EoSev8QMe4ecfZnje5B",
+     "usdt": 12553576.200552,
+     "transfers": 110,
+     "share_of_post_volume": 0.004224417655279433,
+     "entity": null,
+     "network_rank": null
+    }
+   ]
   },
   "ASO 29/23": {
    "signed": "2023-05-21",
    "public_from": "2023-06-28",
    "n_designated_in_window": 39,
    "n_counterparties_before_order": 19980,
+   "n_counterparties_observable_after": 2240,
    "post_volume_from_counterparties_usdt": 14178647822.083248,
    "share_of_post_volume_to_labelled_entities": 0.053579500204263664,
+   "largest_single_recipient_share": 0.010285365035587506,
+   "min_usdt_per_pair": 1.0,
+   "designated_own_overlap": {
+    "p50": 191.0,
+    "p75": 411.0,
+    "p90": 824.6000000000015,
+    "p100": 3063.0
+   },
+   "incumbent_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 2.0,
+    "p100": 1137.0
+   },
+   "newcomer_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 1.0,
+    "p100": 432.0
+   },
+   "top_new_by_overlap": [
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
+     "overlap": 432,
+     "usdt": 219749172.59602702,
+     "entity": "UNKNOWN",
+     "network_rank": 4,
+     "network_transfers": 41225341
+    },
+    {
+     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
+     "overlap": 104,
+     "usdt": 6747970.838028,
+     "entity": "UNKNOWN",
+     "network_rank": 57,
+     "network_transfers": 2296185
+    },
+    {
+     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
+     "overlap": 102,
+     "usdt": 7029035.177637,
+     "entity": "UNKNOWN",
+     "network_rank": 60,
+     "network_transfers": 2157410
+    },
+    {
+     "address": "TEoPgvcD4gqh9S19aDWuzFgBek9B7sxbhj",
+     "overlap": 97,
+     "usdt": 8487559.856764,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "overlap": 92,
+     "usdt": 5011692.812894,
+     "entity": "UNKNOWN",
+     "network_rank": 75,
+     "network_transfers": 1897147
+    },
+    {
+     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
+     "overlap": 91,
+     "usdt": 3689627.144958,
+     "entity": "UNKNOWN",
+     "network_rank": 63,
+     "network_transfers": 2082982
+    },
+    {
+     "address": "TMEj5xk1RL2DBziSr1YrG2t3wqtAyrxRdh",
+     "overlap": 76,
+     "usdt": 48039224.474782,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TP2sVUt2CdbvwxkgYkJzy7sKXu6tS4tHaZ",
+     "overlap": 72,
+     "usdt": 33371852.913561,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TXV39no9KvGCTKJEsag29xPjf72sBEsLE9",
+     "overlap": 70,
+     "usdt": 5101560.928148,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TDHYpZdTzGMYchX1sigGNt6LyYP77k4bNP",
+     "overlap": 65,
+     "usdt": 1527698.868435,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    }
+   ],
    "top_destinations": [
     {
      "address": "TV6MuMXfmLbBqPZvBHdwFsDnQeVfnmiuSi",
@@ -564,7 +743,7 @@
      "transfers": 2269,
      "share_of_post_volume": 0.010285365035587506,
      "entity": "CEX",
-     "was_a_counterparty": true
+     "network_rank": 2
     },
     {
      "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
@@ -572,7 +751,7 @@
      "transfers": 5026,
      "share_of_post_volume": 0.010125669347418964,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": 4
     },
     {
      "address": "TAXSAU86j58GcBVbWxt41G7UQJZgr97yJ6",
@@ -580,7 +759,7 @@
      "transfers": 84,
      "share_of_post_volume": 0.008081618576198614,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TWbfuRFaCnHtMAgw9kDDdKduHwRSPFnmSQ",
@@ -588,7 +767,7 @@
      "transfers": 217,
      "share_of_post_volume": 0.007876540971814068,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TJudDixxk4fNbq1Jc1wvkzqk8WR68DL8qs",
@@ -596,7 +775,7 @@
      "transfers": 132,
      "share_of_post_volume": 0.007427886944442482,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TFVtEVFBWbSC5HrnaNEB8XBG19EAdiU4S6",
@@ -604,7 +783,7 @@
      "transfers": 205,
      "share_of_post_volume": 0.006641309638585163,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TTd9qHyjqiUkfTxe3gotbuTMpjU8LEbpkN",
@@ -612,7 +791,7 @@
      "transfers": 1159,
      "share_of_post_volume": 0.006277916807428364,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": 29
     },
     {
      "address": "TQ5mpZPbQMSq2s1vSM3RJgiB1AsTsiTpFZ",
@@ -620,7 +799,7 @@
      "transfers": 171,
      "share_of_post_volume": 0.005178332310882043,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TByxYo5k6gAzAJdFBg3VqjvYhQn5LBQw59",
@@ -628,7 +807,7 @@
      "transfers": 376,
      "share_of_post_volume": 0.005103200138542462,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TCA3m3GC4kcQ1nHRbQs97RdPWL6xQPf9yB",
@@ -636,7 +815,7 @@
      "transfers": 134,
      "share_of_post_volume": 0.004835455553717783,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TUiRuK9R5ixFWue5JfHkB8dtiu2SnfmXNi",
@@ -644,7 +823,7 @@
      "transfers": 121,
      "share_of_post_volume": 0.00481614205084098,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TDjHshUdxPjdhGAnibV8eXeRTN7mu5t8BZ",
@@ -652,7 +831,7 @@
      "transfers": 269,
      "share_of_post_volume": 0.004643861731677858,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TYXn16VsCUfCn1WRy8iqkkHsYKBcgRPBBw",
@@ -660,7 +839,7 @@
      "transfers": 159,
      "share_of_post_volume": 0.004397010743568912,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TJNppTBzkvSPiM2NuMiZkZn9vfhrE2zai3",
@@ -668,7 +847,7 @@
      "transfers": 104,
      "share_of_post_volume": 0.004279025952355288,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
@@ -676,7 +855,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.004202561996474359,
      "entity": "CEX",
-     "was_a_counterparty": true
+     "network_rank": 7
     },
     {
      "address": "TYnAGy25PK85xwvzSBmSwradWssaNt4nYc",
@@ -684,7 +863,7 @@
      "transfers": 46,
      "share_of_post_volume": 0.004052401396388576,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TGAPaCRZ4pDnCMyRsFJg7UXP3NMcjXyBud",
@@ -692,7 +871,7 @@
      "transfers": 88,
      "share_of_post_volume": 0.003899869133774394,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TSfafBVF9z8Lv7uKEfMDj9vCk4hFcEbKaR",
@@ -700,7 +879,7 @@
      "transfers": 68,
      "share_of_post_volume": 0.0038543939934019985,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TTytieaLKQZB5k6j8gVLyByhwHg9kyTdth",
@@ -708,7 +887,7 @@
      "transfers": 62,
      "share_of_post_volume": 0.0038324315341416028,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TDH612GFGiE3LxZydTnZyfawbyZhARaRXq",
@@ -716,7 +895,7 @@
      "transfers": 64,
      "share_of_post_volume": 0.00379467489954869,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TM1zzNDZD2DPASbKcgdVoTYhfmYgtfwx9R",
@@ -724,7 +903,7 @@
      "transfers": 372,
      "share_of_post_volume": 0.0037903130193050268,
      "entity": "CEX",
-     "was_a_counterparty": true
+     "network_rank": 1
     },
     {
      "address": "TGTz8BzWkimGoKvEQFMKgGFiPB3qUsy5xZ",
@@ -732,7 +911,7 @@
      "transfers": 77,
      "share_of_post_volume": 0.003762578681079732,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TG1PjN7kR2bBUuKHtvwBWs8STaB28N5Hif",
@@ -740,7 +919,7 @@
      "transfers": 189,
      "share_of_post_volume": 0.0036543635860183917,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": 170
     },
     {
      "address": "TH6ZnJEQmyDZ2hDrR4nAFpofSovPn435J8",
@@ -748,7 +927,7 @@
      "transfers": 156,
      "share_of_post_volume": 0.0036196465025435253,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
@@ -756,82 +935,120 @@
      "transfers": 448,
      "share_of_post_volume": 0.0035763971430097536,
      "entity": "UNKNOWN",
-     "was_a_counterparty": true
+     "network_rank": 14
     }
-   ],
-   "max_overlap_existing": 1162,
-   "max_overlap_new": 432,
-   "top_new_by_overlap": [
-    {
-     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
-     "overlap": 432,
-     "usdt": 219749172.596027,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TMepesyArZzc5ifTXRvjnbWTbsXdhbaBk1",
-     "overlap": 337,
-     "usdt": 129.775185,
-     "entity": null
-    },
-    {
-     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
-     "overlap": 104,
-     "usdt": 6747970.838028,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
-     "overlap": 102,
-     "usdt": 7029035.177637001,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TEoPgvcD4gqh9S19aDWuzFgBek9B7sxbhj",
-     "overlap": 97,
-     "usdt": 8487559.856764,
-     "entity": null
-    },
-    {
-     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
-     "overlap": 92,
-     "usdt": 5011692.812894,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
-     "overlap": 91,
-     "usdt": 3689627.144958,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TMEj5xk1RL2DBziSr1YrG2t3wqtAyrxRdh",
-     "overlap": 76,
-     "usdt": 48039224.474782,
-     "entity": null
-    },
-    {
-     "address": "TP2sVUt2CdbvwxkgYkJzy7sKXu6tS4tHaZ",
-     "overlap": 72,
-     "usdt": 33371852.913561,
-     "entity": null
-    },
-    {
-     "address": "TXV39no9KvGCTKJEsag29xPjf72sBEsLE9",
-     "overlap": 70,
-     "usdt": 5101560.928148,
-     "entity": null
-    }
-   ],
-   "n_new_with_overlap_above_max_existing": 0
+   ]
   },
   "ASO 34/23": {
    "signed": "2023-07-04",
    "public_from": "2023-07-05",
    "n_designated_in_window": 25,
    "n_counterparties_before_order": 27323,
+   "n_counterparties_observable_after": 1730,
    "post_volume_from_counterparties_usdt": 2644118197.394207,
    "share_of_post_volume_to_labelled_entities": 0.10299889516573608,
+   "largest_single_recipient_share": 0.02253554570941797,
+   "min_usdt_per_pair": 1.0,
+   "designated_own_overlap": {
+    "p50": 390.0,
+    "p75": 1212.0,
+    "p90": 3541.2000000000007,
+    "p100": 8161.0
+   },
+   "incumbent_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 2.0,
+    "p100": 2914.0
+   },
+   "newcomer_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 1.0,
+    "p100": 443.0
+   },
+   "top_new_by_overlap": [
+    {
+     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
+     "overlap": 443,
+     "usdt": 53804084.894085,
+     "entity": "UNKNOWN",
+     "network_rank": 4,
+     "network_transfers": 41225341
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "overlap": 75,
+     "usdt": 1029242.321465,
+     "entity": "UNKNOWN",
+     "network_rank": 75,
+     "network_transfers": 1897147
+    },
+    {
+     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
+     "overlap": 71,
+     "usdt": 713342.825978,
+     "entity": "UNKNOWN",
+     "network_rank": 60,
+     "network_transfers": 2157410
+    },
+    {
+     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
+     "overlap": 66,
+     "usdt": 827120.089774,
+     "entity": "UNKNOWN",
+     "network_rank": 63,
+     "network_transfers": 2082982
+    },
+    {
+     "address": "TDZuGhcLL8Dj64kf5HxST649ndWA5cTbA9",
+     "overlap": 65,
+     "usdt": 164483.542256,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TDHYpZdTzGMYchX1sigGNt6LyYP77k4bNP",
+     "overlap": 65,
+     "usdt": 1424634.710568,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
+     "overlap": 64,
+     "usdt": 705231.044561,
+     "entity": "UNKNOWN",
+     "network_rank": 57,
+     "network_transfers": 2296185
+    },
+    {
+     "address": "TYuHA4pWz3tpDdf7SrbmCagBequ9YVGhch",
+     "overlap": 61,
+     "usdt": 652425.49201,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TUEXFfyo9hKTyQF6QR2fMxFT4MkYcwsdzk",
+     "overlap": 56,
+     "usdt": 55033.05,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "THESRF9s9o5PY4wPijP7BfP8K7xi5LfFu1",
+     "overlap": 48,
+     "usdt": 69795.516474,
+     "entity": "UNKNOWN",
+     "network_rank": 338,
+     "network_transfers": 392909
+    }
+   ],
    "top_destinations": [
     {
      "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
@@ -839,7 +1056,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.02253554570941797,
      "entity": "CEX",
-     "was_a_counterparty": true
+     "network_rank": 7
     },
     {
      "address": "TM1zzNDZD2DPASbKcgdVoTYhfmYgtfwx9R",
@@ -847,7 +1064,7 @@
      "transfers": 118,
      "share_of_post_volume": 0.018222169903625036,
      "entity": "CEX",
-     "was_a_counterparty": true
+     "network_rank": 1
     },
     {
      "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
@@ -855,7 +1072,7 @@
      "transfers": 4,
      "share_of_post_volume": 0.017658402781880606,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
@@ -863,7 +1080,7 @@
      "transfers": 792,
      "share_of_post_volume": 0.01735644214161579,
      "entity": "UNKNOWN",
-     "was_a_counterparty": true
+     "network_rank": 14
     },
     {
      "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
@@ -871,7 +1088,7 @@
      "transfers": 431,
      "share_of_post_volume": 0.012262618681250273,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TNJkqw1L1QV3R6LPGpfRRd38ZagAoT7M9k",
@@ -879,7 +1096,7 @@
      "transfers": 22,
      "share_of_post_volume": 0.011748950947281908,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
@@ -887,7 +1104,7 @@
      "transfers": 9,
      "share_of_post_volume": 0.009255202817376752,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
@@ -895,7 +1112,7 @@
      "transfers": 492,
      "share_of_post_volume": 0.009038356867325783,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TSPgNC4ZJRRiuUTTVrMF7hw49WaaDkgbi5",
@@ -903,7 +1120,7 @@
      "transfers": 427,
      "share_of_post_volume": 0.008914686449736182,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
@@ -911,7 +1128,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.00822056922742149,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TXByfwCqw899fEPAWTuF3gkhPvfLMLvdr9",
@@ -919,7 +1136,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.007745584319140646,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TWXrq7g5Z1kf8dv98mz1JhdLX7xSnaUkZ7",
@@ -927,7 +1144,7 @@
      "transfers": 55,
      "share_of_post_volume": 0.0065949937973008126,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TGr4m8YPxPeGKS8ivZHffwkshPvFox64xX",
@@ -935,7 +1152,7 @@
      "transfers": 41,
      "share_of_post_volume": 0.006531379730686557,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TDDBJsVQXpx1zXcf3aLKbgvumCHB8JBWN5",
@@ -943,7 +1160,7 @@
      "transfers": 60,
      "share_of_post_volume": 0.006511522470145503,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TZ7kLgS81Q2TuKataTfBhZoQksTp8pf1Zr",
@@ -951,7 +1168,7 @@
      "transfers": 44,
      "share_of_post_volume": 0.005615019427535645,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TAHV1AHmKSPotZDKTYRBqB4utDJUyn9DHa",
@@ -959,7 +1176,7 @@
      "transfers": 276,
      "share_of_post_volume": 0.005420051310918526,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TPKBiMaC38Cuiqaw5X2ghMaMU2o29Xj8st",
@@ -967,7 +1184,7 @@
      "transfers": 192,
      "share_of_post_volume": 0.00447611474616862,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TKSitnfTLVMRbJsF1i2UH5hNUeHLDrXDiY",
@@ -975,7 +1192,7 @@
      "transfers": 3,
      "share_of_post_volume": 0.004414845376997206,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TXK3EszeMNrEjJpTTs6qCXXHeRjs2Y5sck",
@@ -983,7 +1200,7 @@
      "transfers": 33,
      "share_of_post_volume": 0.004297050758787646,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TWCfWiAMTjNvnqXA3Qcq25KNscadHhv2dD",
@@ -991,7 +1208,7 @@
      "transfers": 109,
      "share_of_post_volume": 0.004222450293451266,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TCVeQH7SnDTKFfCfZBCmVuhUugEXEx5gET",
@@ -999,7 +1216,7 @@
      "transfers": 110,
      "share_of_post_volume": 0.004170168586914759,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TP4qzNYaJWgUBKGcJT4XCqZPF4cjZMXZRS",
@@ -1007,7 +1224,7 @@
      "transfers": 13,
      "share_of_post_volume": 0.004069125057000968,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TYMVR7rgoxp1FERbzBhhcCwJCBkCTpLu8C",
@@ -1015,7 +1232,7 @@
      "transfers": 151,
      "share_of_post_volume": 0.004015591358737215,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TMTuevggyCrJoZT34Ttz18Jvcqy3cAYEUR",
@@ -1023,7 +1240,7 @@
      "transfers": 221,
      "share_of_post_volume": 0.003962233235384394,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TEe9KaHQ7q8R2s7wJx4bY1LtD7nu9TozMU",
@@ -1031,82 +1248,120 @@
      "transfers": 114,
      "share_of_post_volume": 0.0039013106523713686,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     }
-   ],
-   "max_overlap_existing": 2963,
-   "max_overlap_new": 443,
-   "top_new_by_overlap": [
-    {
-     "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
-     "overlap": 443,
-     "usdt": 53804084.894085,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TMepesyArZzc5ifTXRvjnbWTbsXdhbaBk1",
-     "overlap": 84,
-     "usdt": 35.735814,
-     "entity": null
-    },
-    {
-     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
-     "overlap": 75,
-     "usdt": 1029242.3214649999,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
-     "overlap": 71,
-     "usdt": 713342.825978,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
-     "overlap": 66,
-     "usdt": 827120.089774,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TDHYpZdTzGMYchX1sigGNt6LyYP77k4bNP",
-     "overlap": 65,
-     "usdt": 1424634.710568,
-     "entity": null
-    },
-    {
-     "address": "TDZuGhcLL8Dj64kf5HxST649ndWA5cTbA9",
-     "overlap": 65,
-     "usdt": 164483.542256,
-     "entity": null
-    },
-    {
-     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
-     "overlap": 64,
-     "usdt": 705231.044561,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TYuHA4pWz3tpDdf7SrbmCagBequ9YVGhch",
-     "overlap": 61,
-     "usdt": 652425.49201,
-     "entity": null
-    },
-    {
-     "address": "TUEXFfyo9hKTyQF6QR2fMxFT4MkYcwsdzk",
-     "overlap": 56,
-     "usdt": 55033.05,
-     "entity": null
-    }
-   ],
-   "n_new_with_overlap_above_max_existing": 0
+   ]
   },
   "ASO 53/23": {
    "signed": "2023-10-20",
    "public_from": "2023-10-22",
    "n_designated_in_window": 17,
    "n_counterparties_before_order": 4054,
+   "n_counterparties_observable_after": 597,
    "post_volume_from_counterparties_usdt": 2147670896.349592,
    "share_of_post_volume_to_labelled_entities": 0.12469728834707773,
+   "largest_single_recipient_share": 0.02825218241015976,
+   "min_usdt_per_pair": 1.0,
+   "designated_own_overlap": {
+    "p50": 8.0,
+    "p75": 90.0,
+    "p90": 571.8000000000002,
+    "p100": 2051.0
+   },
+   "incumbent_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 3.0,
+    "p100": 411.0
+   },
+   "newcomer_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 1.0,
+    "p100": 83.0
+   },
+   "top_new_by_overlap": [
+    {
+     "address": "THqkxgLR12HKLPj6NCUkoJ72yMEAv58o1y",
+     "overlap": 83,
+     "usdt": 556183.322533,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TMPrY21nXwTjASWziHPXfbocxvB4auXpUw",
+     "overlap": 77,
+     "usdt": 1008991.8471629999,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TUMjBBgXWZ1BToj1hL3SRMuCJAw5PBFeq2",
+     "overlap": 52,
+     "usdt": 282519.259371,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TCr8WyYjuKra3aPCo6mNFg4G2NeJYCeyhw",
+     "overlap": 47,
+     "usdt": 1005359.832319,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
+     "overlap": 46,
+     "usdt": 540435.002893,
+     "entity": "UNKNOWN",
+     "network_rank": 60,
+     "network_transfers": 2157410
+    },
+    {
+     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
+     "overlap": 45,
+     "usdt": 11450220.895507,
+     "entity": "UNKNOWN",
+     "network_rank": 75,
+     "network_transfers": 1897147
+    },
+    {
+     "address": "TNHiU7JAEpEt5uVDV9fLJSPijHCHr89o5u",
+     "overlap": 44,
+     "usdt": 159382.666732,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
+     "overlap": 43,
+     "usdt": 539227.998543,
+     "entity": "UNKNOWN",
+     "network_rank": 57,
+     "network_transfers": 2296185
+    },
+    {
+     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
+     "overlap": 39,
+     "usdt": 1057568.017063,
+     "entity": "UNKNOWN",
+     "network_rank": 63,
+     "network_transfers": 2082982
+    },
+    {
+     "address": "TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu",
+     "overlap": 35,
+     "usdt": 493080.944405,
+     "entity": "CEX",
+     "network_rank": 23,
+     "network_transfers": 9941531
+    }
+   ],
    "top_destinations": [
     {
      "address": "TCzMZXrcbVcUoWSF2F2ybxvpikFTkPHmUo",
@@ -1114,7 +1369,7 @@
      "transfers": 134,
      "share_of_post_volume": 0.02825218241015976,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TM1zzNDZD2DPASbKcgdVoTYhfmYgtfwx9R",
@@ -1122,7 +1377,7 @@
      "transfers": 4,
      "share_of_post_volume": 0.021783826879397516,
      "entity": "CEX",
-     "was_a_counterparty": true
+     "network_rank": 1
     },
     {
      "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
@@ -1130,7 +1385,7 @@
      "transfers": 4,
      "share_of_post_volume": 0.021740250897773854,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TUpHuDkiCCmwaTZBHZvQdwWzGNm5t8J2b9",
@@ -1138,7 +1393,7 @@
      "transfers": 162,
      "share_of_post_volume": 0.020571721952011908,
      "entity": "UNKNOWN",
-     "was_a_counterparty": true
+     "network_rank": 14
     },
     {
      "address": "TDdXGoiLznKTSQ2Fnm987ChPgxMEB8qdaR",
@@ -1146,7 +1401,7 @@
      "transfers": 11,
      "share_of_post_volume": 0.016509768908386936,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TXCE8RYq6bhX2CueZBUjPbDYoJbMene5mN",
@@ -1154,7 +1409,7 @@
      "transfers": 11,
      "share_of_post_volume": 0.01561917054285009,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "THAWj7DYABiN3ZRj9JLwJqEbzC38vRnNeP",
@@ -1162,7 +1417,7 @@
      "transfers": 433,
      "share_of_post_volume": 0.015107488814021039,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TGPxr6pGHFKDrCx4ibfnobAAyZvbAUXL6Z",
@@ -1170,7 +1425,7 @@
      "transfers": 491,
      "share_of_post_volume": 0.01084090067384752,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
@@ -1178,7 +1433,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.010120804227551374,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
@@ -1186,7 +1441,7 @@
      "transfers": 2,
      "share_of_post_volume": 0.009195757002011,
      "entity": "UNKNOWN",
-     "was_a_counterparty": true
+     "network_rank": 10
     },
     {
      "address": "TWXrq7g5Z1kf8dv98mz1JhdLX7xSnaUkZ7",
@@ -1194,7 +1449,7 @@
      "transfers": 60,
      "share_of_post_volume": 0.008702870817504222,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TJNP7pH4vS4eftzcWv69PK3VYp1GcCJk1z",
@@ -1202,7 +1457,7 @@
      "transfers": 58,
      "share_of_post_volume": 0.00800573077989937,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TTZT8zstp8xUsYK1wuRuUbqnA9Ae9RW2KH",
@@ -1210,7 +1465,7 @@
      "transfers": 24,
      "share_of_post_volume": 0.006641492243641312,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TQk44sPs1rjKyEPuzXpAheJtd7vMQBeeZ2",
@@ -1218,7 +1473,7 @@
      "transfers": 30,
      "share_of_post_volume": 0.00654334102163691,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TDqSquXBgUCLYvYC4XZgrprLK589dkhSCf",
@@ -1226,7 +1481,7 @@
      "transfers": 2922,
      "share_of_post_volume": 0.0060043043174506676,
      "entity": "UNKNOWN",
-     "was_a_counterparty": true
+     "network_rank": 4
     },
     {
      "address": "TR5Q2Z15AfXBSX4PY7d389sgbDM8JTTphU",
@@ -1234,7 +1489,7 @@
      "transfers": 31,
      "share_of_post_volume": 0.005710559213054882,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TEe9KaHQ7q8R2s7wJx4bY1LtD7nu9TozMU",
@@ -1242,7 +1497,7 @@
      "transfers": 122,
      "share_of_post_volume": 0.005294083377745893,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TD291XXvTPEwQdR7gjBapxeMunYRcg6VBG",
@@ -1250,7 +1505,7 @@
      "transfers": 51,
      "share_of_post_volume": 0.005290046952828214,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TYMVR7rgoxp1FERbzBhhcCwJCBkCTpLu8C",
@@ -1258,7 +1513,7 @@
      "transfers": 152,
      "share_of_post_volume": 0.004994805397404731,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TP4qzNYaJWgUBKGcJT4XCqZPF4cjZMXZRS",
@@ -1266,7 +1521,7 @@
      "transfers": 12,
      "share_of_post_volume": 0.004986447238676822,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TB2iP6zPR3Z7VAAq8kRnZgsoPP6qa9kjgH",
@@ -1274,7 +1529,7 @@
      "transfers": 31,
      "share_of_post_volume": 0.004942855654666848,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TMTuevggyCrJoZT34Ttz18Jvcqy3cAYEUR",
@@ -1282,7 +1537,7 @@
      "transfers": 221,
      "share_of_post_volume": 0.004878127751233746,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TUJt5ebH6tWNNfturqeEWiBqv7JDhjWeVP",
@@ -1290,7 +1545,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.004656206878342978,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TL4vDVXgNCjm2rMdr81duamwzcXYJmau3W",
@@ -1298,7 +1553,7 @@
      "transfers": 39,
      "share_of_post_volume": 0.004585805422332192,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
@@ -1306,82 +1561,120 @@
      "transfers": 1,
      "share_of_post_volume": 0.00456851023027547,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": 75
     }
-   ],
-   "max_overlap_existing": 420,
-   "max_overlap_new": 83,
-   "top_new_by_overlap": [
-    {
-     "address": "THqkxgLR12HKLPj6NCUkoJ72yMEAv58o1y",
-     "overlap": 83,
-     "usdt": 556183.322533,
-     "entity": null
-    },
-    {
-     "address": "TMPrY21nXwTjASWziHPXfbocxvB4auXpUw",
-     "overlap": 77,
-     "usdt": 1008991.847163,
-     "entity": null
-    },
-    {
-     "address": "TUMjBBgXWZ1BToj1hL3SRMuCJAw5PBFeq2",
-     "overlap": 53,
-     "usdt": 282519.861372,
-     "entity": null
-    },
-    {
-     "address": "TCr8WyYjuKra3aPCo6mNFg4G2NeJYCeyhw",
-     "overlap": 47,
-     "usdt": 1005359.832319,
-     "entity": null
-    },
-    {
-     "address": "TJ5usJLLwjwn7Pw3TPbdzreG7dvgKzfQ5y",
-     "overlap": 46,
-     "usdt": 540435.002893,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TJqwA7SoZnERE4zW5uDEiPkbz4B66h9TFj",
-     "overlap": 45,
-     "usdt": 11450220.895507,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TNHiU7JAEpEt5uVDV9fLJSPijHCHr89o5u",
-     "overlap": 44,
-     "usdt": 159382.666732,
-     "entity": null
-    },
-    {
-     "address": "TK4ykR48cQQoyFcZ5N4xZCbsBaHcg6n3gJ",
-     "overlap": 43,
-     "usdt": 539227.998543,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TCLgK89AnXbC9rewvhNb9UgXCc2qJJpBXh",
-     "overlap": 39,
-     "usdt": 1057568.017063,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TFTWNgDBkQ5wQoP8RXpRznnHvAVV8x5jLu",
-     "overlap": 35,
-     "usdt": 493080.944405,
-     "entity": "CEX"
-    }
-   ],
-   "n_new_with_overlap_above_max_existing": 0
+   ]
   },
   "ASO 44/21": {
    "signed": "2021-06-30",
    "public_from": "2021-07-01",
    "n_designated_in_window": 9,
    "n_counterparties_before_order": 83,
+   "n_counterparties_observable_after": 60,
    "post_volume_from_counterparties_usdt": 675426508.260288,
    "share_of_post_volume_to_labelled_entities": 0.06367289875068201,
+   "largest_single_recipient_share": 0.0691280303059912,
+   "min_usdt_per_pair": 1.0,
+   "designated_own_overlap": {
+    "p50": 13.0,
+    "p75": 22.0,
+    "p90": 28.200000000000003,
+    "p100": 49.0
+   },
+   "incumbent_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 2.0,
+    "p100": 23.0
+   },
+   "newcomer_overlap": {
+    "p50": 1.0,
+    "p75": 1.0,
+    "p90": 1.0,
+    "p100": 13.0
+   },
+   "top_new_by_overlap": [
+    {
+     "address": "TEYFLJ2hWenLkDeTG1HtrnHiVGZoM3Ti3q",
+     "overlap": 13,
+     "usdt": 3849.051717,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TEMDMcqrabcHb7fxqhFTQwM8qwND4thPTV",
+     "overlap": 13,
+     "usdt": 27138.762919,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TEAwk1VVJdvr56SLy9VXKKJRKxYMuiQvSW",
+     "overlap": 12,
+     "usdt": 491105.95146999997,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "THmqmfVN2jyAyT1ifC1ZdosyBtUBvjrXBh",
+     "overlap": 12,
+     "usdt": 17226.90353,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TKi3eSuQzwRSj97UbF9EXVHYP9RNoXrPVk",
+     "overlap": 12,
+     "usdt": 479720.690336,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TLECAQpksCjNzboCNP4bpqiYJCQdELrkTW",
+     "overlap": 11,
+     "usdt": 1740.55,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
+     "overlap": 11,
+     "usdt": 15286.868341,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
+     "overlap": 11,
+     "usdt": 347745.878868,
+     "entity": "UNKNOWN",
+     "network_rank": 10,
+     "network_transfers": 31373120
+    },
+    {
+     "address": "TWifMQL2C3MpWMTuBG6r3Ui5oFVqKwgKqN",
+     "overlap": 11,
+     "usdt": 217968.471112,
+     "entity": null,
+     "network_rank": null,
+     "network_transfers": null
+    },
+    {
+     "address": "TYASr5UV6HEcXatwdFQfmLVUqQQQMUxHLS",
+     "overlap": 11,
+     "usdt": 1512127.336827,
+     "entity": "UNKNOWN",
+     "network_rank": 6,
+     "network_transfers": 32869522
+    }
+   ],
    "top_destinations": [
     {
      "address": "THypwNjDZr3WVWh7P885AtJw57bdhXKggM",
@@ -1389,7 +1682,7 @@
      "transfers": 4,
      "share_of_post_volume": 0.0691280303059912,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TXCE8RYq6bhX2CueZBUjPbDYoJbMene5mN",
@@ -1397,7 +1690,7 @@
      "transfers": 11,
      "share_of_post_volume": 0.049664674971674164,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TSzujPhnBPbTyCVrTmx3F6reCABeJ59qhL",
@@ -1405,7 +1698,7 @@
      "transfers": 78,
      "share_of_post_volume": 0.04846981810789382,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TQ1jmDKw4hwZhTFMBUpMvtYJq4DtMPzHEy",
@@ -1413,7 +1706,7 @@
      "transfers": 412,
      "share_of_post_volume": 0.04060901290518636,
      "entity": "UNKNOWN",
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TSPgNC4ZJRRiuUTTVrMF7hw49WaaDkgbi5",
@@ -1421,7 +1714,7 @@
      "transfers": 396,
      "share_of_post_volume": 0.03349311865069137,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TKK6d1YALy8HCSoCSWWd1ZJhyC9NPPx4wa",
@@ -1429,7 +1722,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.03218137935265575,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TMyp6ywvzgWLvRb93L58Bf5hqKrkobdjXx",
@@ -1437,7 +1730,7 @@
      "transfers": 117,
      "share_of_post_volume": 0.03011605149447015,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TGFEmE5YPLgQPZNVAgzTadcFEP4A7sFFaU",
@@ -1445,7 +1738,7 @@
      "transfers": 93,
      "share_of_post_volume": 0.02036520569742161,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TAKCDqcHDPhdrKag7qxDFt2VgshvTwqLNe",
@@ -1453,7 +1746,7 @@
      "transfers": 56,
      "share_of_post_volume": 0.01564534906576054,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TDvf1dSBhR7dEskJs17HxGHheJrjXhiFyM",
@@ -1461,7 +1754,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.010930158775552545,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": 147
     },
     {
      "address": "TTKhC17M3xdXtrKDU5niLg4YH2rK742D8D",
@@ -1469,7 +1762,7 @@
      "transfers": 2,
      "share_of_post_volume": 0.009771603452461136,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TAbCzk1UwjkMwEwiKRAmfJe2z2etZ6nGMj",
@@ -1477,7 +1770,7 @@
      "transfers": 142,
      "share_of_post_volume": 0.009010517835565422,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TV7Z1kvtQNGfC226DaFjEfYZPuySg8TdXK",
@@ -1485,7 +1778,7 @@
      "transfers": 28,
      "share_of_post_volume": 0.008783733429832605,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TJzGCzDC6V7Znd8GK4BqSUJMy1CMvPj8AN",
@@ -1493,7 +1786,7 @@
      "transfers": 209,
      "share_of_post_volume": 0.008270937761264434,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TTuxpvy4nutU752cvSsT2U8gWfXTrK4493",
@@ -1501,7 +1794,7 @@
      "transfers": 50,
      "share_of_post_volume": 0.008037884112638108,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TXK3EszeMNrEjJpTTs6qCXXHeRjs2Y5sck",
@@ -1509,7 +1802,7 @@
      "transfers": 18,
      "share_of_post_volume": 0.007947194749846035,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TA8moGJ9Mve3ej1octjz7BBZDrfrfAsCBi",
@@ -1517,7 +1810,7 @@
      "transfers": 116,
      "share_of_post_volume": 0.007185829902503049,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TBMwzhiFo8LGQFkWN9ifFgCJ2vC1WfMHdv",
@@ -1525,7 +1818,7 @@
      "transfers": 39,
      "share_of_post_volume": 0.0067177697460053575,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TVVv7j6kEtemMo89ZS1sZ6Jg54qfcH7s5V",
@@ -1533,7 +1826,7 @@
      "transfers": 1,
      "share_of_post_volume": 0.006674103233619031,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TNGBnNSp3JddQmapRTCywGkMtvR4X7s3qn",
@@ -1541,7 +1834,7 @@
      "transfers": 30,
      "share_of_post_volume": 0.006342820791909221,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TWT3L694985N2sF8aCQpMbtpxCUgRPsfME",
@@ -1549,7 +1842,7 @@
      "transfers": 8,
      "share_of_post_volume": 0.006063697413156151,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": 281
     },
     {
      "address": "TVwdt3srnsJPqy5NsA1AHz9eHVStWYPtq1",
@@ -1557,7 +1850,7 @@
      "transfers": 265,
      "share_of_post_volume": 0.0060346813800950866,
      "entity": null,
-     "was_a_counterparty": true
+     "network_rank": null
     },
     {
      "address": "TNJkqw1L1QV3R6LPGpfRRd38ZagAoT7M9k",
@@ -1565,7 +1858,7 @@
      "transfers": 3,
      "share_of_post_volume": 0.005887756774964312,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TJ9yW4CfwSP2aq2LqNSmSV6LKRUmCEij9o",
@@ -1573,7 +1866,7 @@
      "transfers": 110,
      "share_of_post_volume": 0.005725810368971542,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     },
     {
      "address": "TLB3zhhtjQJHrvJHAycSk2CNqPVCK3Nxjz",
@@ -1581,74 +1874,9 @@
      "transfers": 186,
      "share_of_post_volume": 0.005673823818183889,
      "entity": null,
-     "was_a_counterparty": false
+     "network_rank": null
     }
-   ],
-   "max_overlap_existing": 23,
-   "max_overlap_new": 13,
-   "top_new_by_overlap": [
-    {
-     "address": "TEMDMcqrabcHb7fxqhFTQwM8qwND4thPTV",
-     "overlap": 13,
-     "usdt": 27138.762919,
-     "entity": null
-    },
-    {
-     "address": "TEYFLJ2hWenLkDeTG1HtrnHiVGZoM3Ti3q",
-     "overlap": 13,
-     "usdt": 3849.051717,
-     "entity": null
-    },
-    {
-     "address": "THmqmfVN2jyAyT1ifC1ZdosyBtUBvjrXBh",
-     "overlap": 12,
-     "usdt": 17226.90353,
-     "entity": null
-    },
-    {
-     "address": "TEAwk1VVJdvr56SLy9VXKKJRKxYMuiQvSW",
-     "overlap": 12,
-     "usdt": 491105.95147,
-     "entity": null
-    },
-    {
-     "address": "TKi3eSuQzwRSj97UbF9EXVHYP9RNoXrPVk",
-     "overlap": 12,
-     "usdt": 479720.690336,
-     "entity": null
-    },
-    {
-     "address": "TNXoiAJ3dct8Fjg4M9fkLFh9S2v9TXc32G",
-     "overlap": 11,
-     "usdt": 1188108.196316,
-     "entity": "CEX"
-    },
-    {
-     "address": "TWifMQL2C3MpWMTuBG6r3Ui5oFVqKwgKqN",
-     "overlap": 11,
-     "usdt": 217968.471112,
-     "entity": null
-    },
-    {
-     "address": "TQrY8tryqsYVCYS3MFbtffiPp2ccyn4STm",
-     "overlap": 11,
-     "usdt": 347745.878868,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TYASr5UV6HEcXatwdFQfmLVUqQQQMUxHLS",
-     "overlap": 11,
-     "usdt": 1512127.336827,
-     "entity": "UNKNOWN"
-    },
-    {
-     "address": "TSvB43q7yd6FEWjwM3PJfUqog7FG57FEw6",
-     "overlap": 11,
-     "usdt": 15286.868341,
-     "entity": null
-    }
-   ],
-   "n_new_with_overlap_above_max_existing": 0
+   ]
   }
  },
  "note": "Computed on the crawled two-hop graph, whose per-address histories are truncated newest-first; 'first seen' is therefore not used as a criterion."

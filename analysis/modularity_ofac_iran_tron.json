@@ -1,0 +1,15 @@
+{
+  "dataset": "ofac_iran_tron",
+  "n_nodes": 8883,
+  "n_edges": 10490,
+  "modularity": {
+    "WCFRM": 0.045973324681083345,
+    "GCN+KMeans": 0.37938192078954003,
+    "GAT+KMeans": 0.4960101342887894,
+    "GIN+KMeans": 0.13573852685176216,
+    "GraphSAGE+KMeans": 0.3593778069097779,
+    "SuperGAT+KMeans": 0.4500568608446265,
+    "GATv2+KMeans": 0.4504630336794502,
+    "GNN-FiLM+KMeans": 0.21468418789435137
+  }
+}

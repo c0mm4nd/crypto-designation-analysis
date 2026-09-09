@@ -1,0 +1,15 @@
+{
+  "dataset": "ofac_russia_ukraine_eth",
+  "n_nodes": 51093,
+  "n_edges": 59115,
+  "modularity": {
+    "WCFRM": -0.014542185049956797,
+    "GCN+KMeans": 0.18336169688811058,
+    "GAT+KMeans": 0.2905982687799632,
+    "GIN+KMeans": 0.16334758980932076,
+    "GraphSAGE+KMeans": 0.24590727764800915,
+    "SuperGAT+KMeans": 0.267787039934602,
+    "GATv2+KMeans": 0.27018951642371236,
+    "GNN-FiLM+KMeans": 0.17768959071184187
+  }
+}

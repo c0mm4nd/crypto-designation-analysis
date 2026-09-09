@@ -1,0 +1,15 @@
+{
+  "dataset": "ofac_terrorist_financing_tron",
+  "n_nodes": 98447,
+  "n_edges": 128013,
+  "modularity": {
+    "WCFRM": -0.009041479203081404,
+    "GCN+KMeans": 0.11588610030273912,
+    "GAT+KMeans": 0.4014547410543631,
+    "GIN+KMeans": 0.1054082623041559,
+    "GraphSAGE+KMeans": 0.2886720961805962,
+    "SuperGAT+KMeans": 0.23395922981001147,
+    "GATv2+KMeans": 0.3081215220330299,
+    "GNN-FiLM+KMeans": -0.0022176787390594415
+  }
+}

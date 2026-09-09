@@ -1,0 +1,102 @@
+{
+  "TRON": {
+    "chain": "TRON (USDT TRC20)",
+    "seed": "TEFccmfQ38cZS1DTZVhsxKVDckA8Y6VfCy",
+    "raw_records": 9111,
+    "stats": {
+      "nodes": 6072,
+      "edges": 6481,
+      "connectivity": 1.0,
+      "path_efficiency": 0.28639429199953687,
+      "btw_std": 0.00011091930875525361,
+      "n_components": 1,
+      "avg_in": 1.0673583662714097,
+      "avg_out": 1.0673583662714097
+    },
+    "roles": {
+      "Donor": 3312,
+      "Core (Collection)": 1,
+      "Speculator/Other": 2725,
+      "Core Asst./Remitter": 22,
+      "CEX/DEX Account": 7,
+      "Broker": 5
+    },
+    "dismantling": {
+      "baseline": {
+        "connectivity": 1.0,
+        "path_efficiency": 0.2872346259302781,
+        "btw_std": 0.00012917661705432717,
+        "n_components": 1,
+        "removed": 0
+      },
+      "Donor": {
+        "connectivity": 1.0,
+        "path_efficiency": 0.3849002849002849,
+        "btw_std": 5.9579813658470935e-05,
+        "n_components": 1,
+        "removed": 3312
+      },
+      "Speculator/Other": {
+        "connectivity": 0.4861069614580221,
+        "path_efficiency": 0.5221787345075016,
+        "btw_std": 7.159958083260999e-06,
+        "n_components": 1721,
+        "removed": 2725
+      },
+      "Core Asst./Remitter": {
+        "connectivity": 0.6771900826446281,
+        "path_efficiency": 0.28642314054845075,
+        "btw_std": 0.00012926890147647193,
+        "n_components": 1954,
+        "removed": 22
+      },
+      "CEX/DEX Account": {
+        "connectivity": 0.8923330585325638,
+        "path_efficiency": 0.2954640609799648,
+        "btw_std": 0.0001247573228039758,
+        "n_components": 654,
+        "removed": 7
+      },
+      "Broker": {
+        "connectivity": 0.9685182132849843,
+        "path_efficiency": 0.29657504454827344,
+        "btw_std": 0.0001484398017712364,
+        "n_components": 192,
+        "removed": 5
+      }
+    }
+  },
+  "ETH": {
+    "chain": "Ethereum (USDT ERC20)",
+    "seed": "0x165CD37b4C644C2921454429E7F9358d18A45e14",
+    "raw_records": 0,
+    "stats": {
+      "nodes": 0,
+      "edges": 0,
+      "connectivity": 0,
+      "path_efficiency": 0.0,
+      "btw_std": NaN,
+      "n_components": 0,
+      "avg_in": 0,
+      "avg_out": 0
+    },
+    "roles": {},
+    "dismantling": {
+      "baseline": {
+        "connectivity": 0,
+        "path_efficiency": 0.0,
+        "btw_std": NaN,
+        "n_components": 0,
+        "removed": 0
+      }
+    }
+  },
+  "israel_palestine_reference": {
+    "nodes": 23847,
+    "edges": 444976,
+    "connectivity": 0.998,
+    "path_efficiency": 0.3,
+    "btw_std": 0.0057,
+    "seed_count": 143
+  }
+}

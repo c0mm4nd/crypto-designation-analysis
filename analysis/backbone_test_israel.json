@@ -1,0 +1,38 @@
+{
+ "designated": {
+  "connectivity": 0.994744,
+  "n_components": 2836,
+  "removed": 389
+ },
+ "top_degree_undesignated_same_count": {
+  "connectivity": 0.52454,
+  "n_components": 283481,
+  "removed": 389
+ },
+ "top_degree_any_same_count": {
+  "connectivity": 0.524,
+  "n_components": 283417,
+  "removed": 389
+ },
+ "random_same_count": {
+  "connectivity": 0.999871,
+  "n_components": 68,
+  "removed": 389
+ },
+ "designated_degree_rank": {
+  "median_rank": 8637,
+  "share_in_top_1pct": 0.4138817480719794,
+  "share_in_top_389": 0.033419023136246784,
+  "median_degree": 14.0
+ },
+ "top_1000_degree_undesignated": {
+  "connectivity": 0.350096,
+  "n_components": 387095,
+  "removed": 1000
+ },
+ "top_5000_degree_undesignated": {
+  "connectivity": 0.063485,
+  "n_components": 554027,
+  "removed": 5000
+ }
+}

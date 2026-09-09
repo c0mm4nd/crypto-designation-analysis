@@ -1,0 +1,122 @@
+{
+  "n_nodes": 600265,
+  "n_roles": 9,
+  "role_stats": {
+    "0": {
+      "size": 285089,
+      "avg_in": 0.062,
+      "avg_out": 2.589,
+      "avg_ic": 0.0002
+    },
+    "1": {
+      "size": 71151,
+      "avg_in": 3.661,
+      "avg_out": 1.397,
+      "avg_ic": 0.0204
+    },
+    "2": {
+      "size": 32224,
+      "avg_in": 2.978,
+      "avg_out": 1.655,
+      "avg_ic": 0.0082
+    },
+    "3": {
+      "size": 13375,
+      "avg_in": 1.542,
+      "avg_out": 1.32,
+      "avg_ic": 0.0014
+    },
+    "4": {
+      "size": 73732,
+      "avg_in": 16.526,
+      "avg_out": 14.732,
+      "avg_ic": 0.0186
+    },
+    "5": {
+      "size": 20760,
+      "avg_in": 1.839,
+      "avg_out": 1.516,
+      "avg_ic": 0.0037
+    },
+    "6": {
+      "size": 3899,
+      "avg_in": 1.181,
+      "avg_out": 0.246,
+      "avg_ic": 0.0021
+    },
+    "7": {
+      "size": 53277,
+      "avg_in": 1.675,
+      "avg_out": 0.409,
+      "avg_ic": 0.0052
+    },
+    "8": {
+      "size": 46758,
+      "avg_in": 19.936,
+      "avg_out": 13.44,
+      "avg_ic": 0.0344
+    }
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.217629,
+      "n_components": 1,
+      "removed": 0
+    },
+    "role_0": {
+      "connectivity": 0.952271,
+      "path_efficiency": 0.227925,
+      "n_components": 15032,
+      "removed": 285089
+    },
+    "role_1": {
+      "connectivity": 0.995678,
+      "path_efficiency": 0.21835,
+      "n_components": 2258,
+      "removed": 71151
+    },
+    "role_2": {
+      "connectivity": 0.994013,
+      "path_efficiency": 0.217334,
+      "n_components": 3401,
+      "removed": 32224
+    },
+    "role_3": {
+      "connectivity": 0.998533,
+      "path_efficiency": 0.218436,
+      "n_components": 862,
+      "removed": 13375
+    },
+    "role_4": {
+      "connectivity": 0.396518,
+      "path_efficiency": 0.218988,
+      "n_components": 317149,
+      "removed": 73732
+    },
+    "role_5": {
+      "connectivity": 0.998152,
+      "path_efficiency": 0.217273,
+      "n_components": 1063,
+      "removed": 20760
+    },
+    "role_6": {
+      "connectivity": 0.999489,
+      "path_efficiency": 0.217811,
+      "n_components": 306,
+      "removed": 3899
+    },
+    "role_7": {
+      "connectivity": 0.992921,
+      "path_efficiency": 0.218333,
+      "n_components": 3873,
+      "removed": 53277
+    },
+    "role_8": {
+      "connectivity": 0.733409,
+      "path_efficiency": 0.220211,
+      "n_components": 147413,
+      "removed": 46758
+    }
+  }
+}

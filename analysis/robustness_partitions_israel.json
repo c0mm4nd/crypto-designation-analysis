@@ -1,0 +1,186 @@
+{
+ "raw_kmeans_k9": {
+  "rows": [
+   {
+    "role": 0,
+    "size": 45373,
+    "anchors": 7,
+    "density_pct": 0.015427677252991868,
+    "loss_pct": 0.09799999999999809,
+    "random_loss_pct": 7.0694000000000035
+   },
+   {
+    "role": 1,
+    "size": 110116,
+    "anchors": 0,
+    "density_pct": 0.0,
+    "loss_pct": 0.004499999999996174,
+    "random_loss_pct": 15.171900000000004
+   },
+   {
+    "role": 2,
+    "size": 8500,
+    "anchors": 194,
+    "density_pct": 2.2823529411764705,
+    "loss_pct": 95.3757,
+    "random_loss_pct": 0.8920999999999957
+   },
+   {
+    "role": 3,
+    "size": 83144,
+    "anchors": 4,
+    "density_pct": 0.004810930433945925,
+    "loss_pct": 0.0028999999999945736,
+    "random_loss_pct": 12.126499999999997
+   },
+   {
+    "role": 4,
+    "size": 50626,
+    "anchors": 4,
+    "density_pct": 0.00790107849721487,
+    "loss_pct": 0.004199999999998649,
+    "random_loss_pct": 6.696100000000005
+   },
+   {
+    "role": 5,
+    "size": 142190,
+    "anchors": 11,
+    "density_pct": 0.007736127716435755,
+    "loss_pct": 0.0024000000000024,
+    "random_loss_pct": 20.916999999999998
+   },
+   {
+    "role": 6,
+    "size": 54248,
+    "anchors": 0,
+    "density_pct": 0.0,
+    "loss_pct": 2.1293000000000006,
+    "random_loss_pct": 8.170200000000005
+   },
+   {
+    "role": 7,
+    "size": 25845,
+    "anchors": 154,
+    "density_pct": 0.595859934223254,
+    "loss_pct": 0.8739000000000052,
+    "random_loss_pct": 3.0909999999999993
+   },
+   {
+    "role": 8,
+    "size": 76591,
+    "anchors": 15,
+    "density_pct": 0.01958454648718518,
+    "loss_pct": 0.0012000000000012,
+    "random_loss_pct": 10.687999999999997
+   }
+  ],
+  "anchor_densest": {
+   "role": 2,
+   "size": 8500,
+   "anchors": 194,
+   "density_pct": 2.2823529411764705,
+   "loss_pct": 95.3757,
+   "random_loss_pct": 0.8920999999999957
+  },
+  "most_damaging": {
+   "role": 2,
+   "size": 8500,
+   "anchors": 194,
+   "density_pct": 2.2823529411764705,
+   "loss_pct": 95.3757,
+   "random_loss_pct": 0.8920999999999957
+  }
+ },
+ "wcfrm_v2": {
+  "rows": [
+   {
+    "role": 0,
+    "size": 296217,
+    "anchors": 6,
+    "density_pct": 0.0020255420857006857,
+    "loss_pct": 15.224599999999999,
+    "random_loss_pct": 45.8917
+   },
+   {
+    "role": 1,
+    "size": 48353,
+    "anchors": 110,
+    "density_pct": 0.2274936405186855,
+    "loss_pct": 9.513000000000005,
+    "random_loss_pct": 7.397299999999996
+   },
+   {
+    "role": 2,
+    "size": 52206,
+    "anchors": 41,
+    "density_pct": 0.07853503428724667,
+    "loss_pct": 15.200000000000003,
+    "random_loss_pct": 7.7475999999999985
+   },
+   {
+    "role": 3,
+    "size": 10545,
+    "anchors": 0,
+    "density_pct": 0.0,
+    "loss_pct": 1.8171000000000048,
+    "random_loss_pct": 0.9243000000000001
+   },
+   {
+    "role": 4,
+    "size": 47950,
+    "anchors": 9,
+    "density_pct": 0.018769551616266946,
+    "loss_pct": 3.1656000000000017,
+    "random_loss_pct": 8.518000000000004
+   },
+   {
+    "role": 5,
+    "size": 34004,
+    "anchors": 27,
+    "density_pct": 0.0794024232443242,
+    "loss_pct": 3.3506999999999953,
+    "random_loss_pct": 5.098599999999998
+   },
+   {
+    "role": 6,
+    "size": 51248,
+    "anchors": 90,
+    "density_pct": 0.17561660942866064,
+    "loss_pct": 18.3454,
+    "random_loss_pct": 6.1545999999999985
+   },
+   {
+    "role": 7,
+    "size": 30357,
+    "anchors": 2,
+    "density_pct": 0.006588266297723754,
+    "loss_pct": 0.4614000000000007,
+    "random_loss_pct": 5.906100000000003
+   },
+   {
+    "role": 8,
+    "size": 25753,
+    "anchors": 104,
+    "density_pct": 0.4038364462392731,
+    "loss_pct": 5.898099999999995,
+    "random_loss_pct": 2.9734999999999956
+   }
+  ],
+  "anchor_densest": {
+   "role": 8,
+   "size": 25753,
+   "anchors": 104,
+   "density_pct": 0.4038364462392731,
+   "loss_pct": 5.898099999999995,
+   "random_loss_pct": 2.9734999999999956
+  },
+  "most_damaging": {
+   "role": 6,
+   "size": 51248,
+   "anchors": 90,
+   "density_pct": 0.17561660942866064,
+   "loss_pct": 18.3454,
+   "random_loss_pct": 6.1545999999999985
+  }
+ }
+}

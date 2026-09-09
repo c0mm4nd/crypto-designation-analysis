@@ -1,0 +1,59 @@
+{
+  "label": "Israel-v2",
+  "n_seeds": 490,
+  "stats": {
+    "nodes": 600265,
+    "edges": 931109,
+    "connectivity": 1.0,
+    "path_efficiency": 0.21862393991362722,
+    "btw_std": 0.00010747010780266042,
+    "n_components": 1,
+    "avg_in": 1.5511632362373284,
+    "avg_out": 1.5511632362373284
+  },
+  "roles": {
+    "Core (Sanctioned)": 389,
+    "Donor": 371736,
+    "Speculator/Other": 222170,
+    "Core Asst./Remitter": 32,
+    "CEX/DEX Account": 5,
+    "Broker": 5933
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.2190219841198685,
+      "btw_std": 0.00011660900664327752,
+      "n_components": 1,
+      "removed": 0
+    },
+    "Donor": {
+      "connectivity": 0.9999256111915774,
+      "path_efficiency": 0.2332851007217326,
+      "btw_std": 0.00015931706774152722,
+      "n_components": 18,
+      "removed": 371736
+    },
+    "Speculator/Other": {
+      "connectivity": 0.2162049220434018,
+      "path_efficiency": 0.2512828226033174,
+      "btw_std": 4.699106553413135e-06,
+      "n_components": 296350,
+      "removed": 222170
+    },
+    "CEX/DEX Account": {
+      "connectivity": 0.967495751840869,
+      "path_efficiency": 0.2171001343425256,
+      "btw_std": 6.339732686455114e-05,
+      "n_components": 19512,
+      "removed": 5
+    },
+    "Broker": {
+      "connectivity": 0.9445781145891522,
+      "path_efficiency": 0.21904186466016878,
+      "btw_std": 6.451747756985269e-05,
+      "n_components": 32940,
+      "removed": 5933
+    }
+  }
+}

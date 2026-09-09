@@ -1,0 +1,59 @@
+{
+  "label": "Ukraine-TRON",
+  "n_seeds": 1,
+  "stats": {
+    "nodes": 117673,
+    "edges": 129407,
+    "connectivity": 1.0,
+    "path_efficiency": 0.2393028107008587,
+    "btw_std": 0.00036740953941771283,
+    "n_components": 1,
+    "avg_in": 1.099717012398766,
+    "avg_out": 1.099717012398766
+  },
+  "roles": {
+    "Donor": 65646,
+    "Core (Sanctioned)": 1,
+    "CEX/DEX Account": 5,
+    "Speculator/Other": 51967,
+    "Core Asst./Remitter": 8,
+    "Broker": 46
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.2375897290231841,
+      "btw_std": 0.00040040017011730065,
+      "n_components": 1,
+      "removed": 0
+    },
+    "Donor": {
+      "connectivity": 0.9999615584215887,
+      "path_efficiency": 0.2491778816864858,
+      "btw_std": 0.00019031305787053335,
+      "n_components": 3,
+      "removed": 65646
+    },
+    "CEX/DEX Account": {
+      "connectivity": 0.8574973654689465,
+      "path_efficiency": 0.24148598302774574,
+      "btw_std": 0.0002879900902129153,
+      "n_components": 16769,
+      "removed": 5
+    },
+    "Speculator/Other": {
+      "connectivity": 0.2762457005448513,
+      "path_efficiency": 0.3557074589820456,
+      "btw_std": 1.6815958594507324e-05,
+      "n_components": 47556,
+      "removed": 51967
+    },
+    "Broker": {
+      "connectivity": 0.9990648405553146,
+      "path_efficiency": 0.24030894469306083,
+      "btw_std": 0.0004114663225574987,
+      "n_components": 111,
+      "removed": 46
+    }
+  }
+}

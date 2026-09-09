@@ -1,0 +1,54 @@
+{
+  "chain": "TRON (USDT TRC20)",
+  "context": "Israel-Palestine Sanctioned Addresses",
+  "n_seeds": 490,
+  "max_timestamp": 1735689600000,
+  "raw_total": 105260,
+  "stats": {
+    "nodes": 20735,
+    "edges": 27694,
+    "connectivity": 1.0,
+    "path_efficiency": 0.2451243046083027,
+    "btw_std": 0.0008208109552897595,
+    "n_components": 1,
+    "avg_in": 1.3356161080299012,
+    "avg_out": 1.3356161080299012
+  },
+  "roles": {
+    "Speculator/Other": 9065,
+    "Donor": 11575,
+    "Core Asst./Remitter": 6,
+    "Broker": 87,
+    "CEX/DEX Account": 2
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.24470136497936668,
+      "btw_std": 0.00086249227552178,
+      "n_components": 1,
+      "removed": 0
+    },
+    "Speculator/Other": {
+      "connectivity": 0.189031705227078,
+      "path_efficiency": 0.5267695099818511,
+      "btw_std": 1.1515180818569699e-06,
+      "n_components": 9261,
+      "removed": 9065
+    },
+    "Donor": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.2578284469220882,
+      "btw_std": 0.0007755572442658785,
+      "n_components": 1,
+      "removed": 11575
+    },
+    "Broker": {
+      "connectivity": 0.9862456412243317,
+      "path_efficiency": 0.24477720928145055,
+      "btw_std": 0.0009199419123855927,
+      "n_components": 283,
+      "removed": 87
+    }
+  }
+}

@@ -5,7 +5,10 @@
  "designated_history_source": {
   "source": "complete on-chain history (ClickHouse full node export)",
   "transfers_complete": 368430,
-  "transfers_in_crawl": 159283
+  "transfers_in_crawl": 159283,
+  "transfers_in_crawl_unfiltered": 178242,
+  "crawl_capture_filtered": 0.4323290720082512,
+  "crawl_capture_unfiltered": 0.4837879651494178
  },
  "nbctf_orders": [
   {
@@ -1241,6 +1244,15 @@
    "median_post_share_of_window_volume": 0.0,
    "share_with_any_post_activity": 0.4427118644067797,
    "share_with_any_pre_activity": 0.9691525423728814
+  },
+  "across_seeds": {
+   "n_seeds": 12,
+   "volume_ratio_min": 0.6253990560600026,
+   "volume_ratio_max": 1.0554654730220314,
+   "volume_ratio_median": 0.8917154451100178,
+   "transfer_ratio_min": 0.6125631222238219,
+   "transfer_ratio_max": 0.9738908570871387,
+   "transfer_ratio_median": 0.7668317968283362
   }
  },
  "counterparty_persistence": {

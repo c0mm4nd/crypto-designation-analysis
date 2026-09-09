@@ -282,7 +282,14 @@ def main():
         crawl_seed_rows = int(df["to"].isin(seed_set).sum() + df["from"].isin(seed_set).sum())
         sin = complete[complete["to"].isin(seed_set)]
         sout = complete[complete["from"].isin(seed_set)]
-        out["designated_history_source"] = {"source": "complete on-chain history (ClickHouse full node export)", "transfers_complete": int(len(sin) + len(sout)), "transfers_in_crawl": crawl_seed_rows}
+        raw_seed_rows = int(pd.read_csv(find("israel_tron_usdt_edges_2hop.csv"), usecols=["from", "to"])
+                            .isin(seed_set).sum().sum())
+        out["designated_history_source"] = {"source": "complete on-chain history (ClickHouse full node export)",
+                                            "transfers_complete": int(len(sin) + len(sout)),
+                                            "transfers_in_crawl": crawl_seed_rows,
+                                            "transfers_in_crawl_unfiltered": raw_seed_rows,
+                                            "crawl_capture_filtered": crawl_seed_rows / (len(sin) + len(sout)),
+                                            "crawl_capture_unfiltered": raw_seed_rows / (len(sin) + len(sout))}
         print(f"designated-address transfers: complete {len(sin)+len(sout):,} vs crawl {crawl_seed_rows:,}")
     else:
         sin = df[df["to"].isin(seed_set)]
@@ -428,6 +435,37 @@ def main():
                                   "pre_mean_weekly_transfers": float(pc[:W].mean()), "post_mean_weekly_transfers": float(pc[W + 1:].mean()),
                                   "per_address": per_address_ratio(p_in.rename(columns={"addr": "_a"}).assign(to=lambda x: x["_a"]).drop(columns="_a"),
                                                                    p_out.rename(columns={"addr": "_a"}).assign(**{"from": lambda x: x["_a"]}).drop(columns="_a"), placebo)}
+
+    # The placebo is one random draw of 3,000 addresses and pseudo-event dates. Reporting a
+    # single draw as if it were the placebo overstates its precision, so repeat the whole
+    # construction under a set of seeds and report the spread.
+    seed_ratios, seed_tx = [], []
+    for sd in range(1, 13):
+        r2 = np.random.default_rng(sd)
+        pl = {}
+        for addr, r in cand.sample(frac=1.0, random_state=sd).iterrows():
+            dd = pd.Timestamp(r2.choice(dates))
+            if r["min"] <= dd and r["max"] >= dd - pd.Timedelta(weeks=W):
+                pl[addr] = dd
+            if len(pl) >= 3000:
+                break
+        q_in = h1_act[h1_act["addr"].isin(pl) & (h1_act["to"] == h1_act["addr"])]
+        q_out = h1_act[h1_act["addr"].isin(pl) & (h1_act["from"] == h1_act["addr"])]
+        qv_in, qc_in = weekly_series(q_in, "addr", pl)
+        qv_out, qc_out = weekly_series(q_out, "addr", pl)
+        qv, qc = qv_in + qv_out, qc_in + qc_out
+        if qv[:W].mean() > 0:
+            seed_ratios.append(float(qv[W + 7:].mean() / qv[:W].mean()))
+            seed_tx.append(float(qc[W + 7:].mean() / qc[:W].mean()))
+    out["placebo_event_study"]["across_seeds"] = {
+        "n_seeds": len(seed_ratios),
+        "volume_ratio_min": min(seed_ratios), "volume_ratio_max": max(seed_ratios),
+        "volume_ratio_median": float(np.median(seed_ratios)),
+        "transfer_ratio_min": min(seed_tx), "transfer_ratio_max": max(seed_tx),
+        "transfer_ratio_median": float(np.median(seed_tx))}
+    print(f"placebo across {len(seed_ratios)} seeds: volume ratio "
+          f"{min(seed_ratios):.2f}-{max(seed_ratios):.2f} (median {np.median(seed_ratios):.2f}), "
+          f"transfers {min(seed_tx):.2f}-{max(seed_tx):.2f}")
 
     # ============================================================ B. counterparty persistence
     cps = pd.concat([sin[sin["to"].isin(ev_in)].rename(columns={"from": "cp", "to": "seed"}), sout[sout["from"].isin(ev_in)].rename(columns={"to": "cp", "from": "seed"})])

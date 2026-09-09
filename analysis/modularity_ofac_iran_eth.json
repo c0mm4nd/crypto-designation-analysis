@@ -1,0 +1,15 @@
+{
+  "dataset": "ofac_iran_eth",
+  "n_nodes": 234768,
+  "n_edges": 244317,
+  "modularity": {
+    "WCFRM": -0.304999905846419,
+    "GCN+KMeans": -0.07453303369866449,
+    "GAT+KMeans": -0.0029744982203356,
+    "GIN+KMeans": -0.132950031535683,
+    "GraphSAGE+KMeans": -0.26243439901588206,
+    "SuperGAT+KMeans": -0.07149057665200768,
+    "GATv2+KMeans": 0.057650533755852586,
+    "GNN-FiLM+KMeans": -0.21888760561242185
+  }
+}

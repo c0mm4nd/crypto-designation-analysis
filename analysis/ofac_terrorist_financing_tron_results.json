@@ -1,0 +1,59 @@
+{
+  "label": "OFAC_terrorist_financing",
+  "n_seeds": 30,
+  "stats": {
+    "nodes": 98447,
+    "edges": 128013,
+    "connectivity": 1.0,
+    "path_efficiency": 0.22589831546357367,
+    "btw_std": 0.000324161931543441,
+    "n_components": 1,
+    "avg_in": 1.3003240322203826,
+    "avg_out": 1.3003240322203826
+  },
+  "roles": {
+    "Core (Sanctioned)": 21,
+    "Speculator/Other": 39041,
+    "Donor": 58968,
+    "Broker": 402,
+    "Core Asst./Remitter": 12,
+    "CEX/DEX Account": 3
+  },
+  "dismantling": {
+    "baseline": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.22424730516756622,
+      "btw_std": 0.0002976847290293702,
+      "n_components": 1,
+      "removed": 0
+    },
+    "Speculator/Other": {
+      "connectivity": 0.25162441504225164,
+      "path_efficiency": 0.29392266916120985,
+      "btw_std": 1.1512713665350156e-05,
+      "n_components": 44458,
+      "removed": 39041
+    },
+    "Donor": {
+      "connectivity": 1.0,
+      "path_efficiency": 0.2300304662037693,
+      "btw_std": 0.0002741295664670931,
+      "n_components": 1,
+      "removed": 58968
+    },
+    "Broker": {
+      "connectivity": 0.9527563873731449,
+      "path_efficiency": 0.22695089570509835,
+      "btw_std": 0.0002948819051220901,
+      "n_components": 4633,
+      "removed": 402
+    },
+    "CEX/DEX Account": {
+      "connectivity": 0.9520945918491731,
+      "path_efficiency": 0.2312650038095888,
+      "btw_std": 0.0003057915575501604,
+      "n_components": 4717,
+      "removed": 3
+    }
+  }
+}

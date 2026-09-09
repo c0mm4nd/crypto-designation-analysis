@@ -207,7 +207,7 @@ def backbone_tables() -> None:
         if not a:
             continue
         lines.append(f"{names[tag]} & {r['n_anchors']} & {a['anchor_median_degree']:.0f} & {100*a['anchor_share_in_top_1pct_degree']:.0f} & {a['remove_anchors_loss_pct']:.2f} & {a['remove_top_degree_undesignated_loss_pct']:.1f} & {a['remove_random_loss_pct_mean']:.2f} \\\\")
-    write("table_backbone_tests.tex", "\\begin{tabular}{lrrrrrr}\n\\toprule\n\\textbf{Network} & \\textbf{Anchors $n$} & \\textbf{Anchor median degree} & \\textbf{Anchors in top 1\\% by degree (\\%)} & \\multicolumn{3}{c}{\\textbf{Connectivity loss after removing $n$ addresses (\\%)}} \\\\\n\\cmidrule(lr){5-7}\n & & & & \\textbf{anchors} & \\textbf{top-degree undesignated} & \\textbf{random} \\\\\n\\midrule\n" + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
+    write("table_backbone_tests.tex", "\\begin{tabular}{lrrrrrr}\n\\toprule\n\\textbf{Network} & \\textbf{Anchors $n$} & \\textbf{Anchor median deg.} & \\textbf{Anchors in top 1\\% (\\%)} & \\multicolumn{3}{c}{\\textbf{Connectivity loss (\\%)}} \\\\\n\\cmidrule(lr){5-7}\n & & & & \\textbf{anchors} & \\textbf{top-degree undes.} & \\textbf{random} \\\\\n\\midrule\n" + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
     lines = []
     for tag, r in bt.items():
         b = r["B_raw_feature_partition"]
