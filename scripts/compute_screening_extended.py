@@ -109,7 +109,7 @@ def main():
         scores_mlp = None
     assert len(scores) == n
 
-    seeds = israel_seeds(ROOT / "IsraelAddrs.xlsx")
+    seeds = israel_seeds(find("IsraelAddrs.xlsx"))
     labels = np.array([a in set(seeds) for a in nodes], dtype=int)
     print(f"nodes={n:,} edges={len(src):,} seeds_listed={len(seeds)} seeds_in_graph={labels.sum()}")
 

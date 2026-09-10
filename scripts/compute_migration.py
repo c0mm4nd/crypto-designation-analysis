@@ -226,7 +226,8 @@ def main():
         # size-matched null on the crawl: undesignated addresses whose post-cut degree lies
         # within a factor of two of the wallet's, and their reach into the same observable set
         post_deg = pd.concat([post_all["from"], post_all["to"]]).value_counts()
-        cp_deg = pd.concat([crawl["from"], crawl["to"]]).value_counts()
+        cp_deg = pd.concat([crawl[["from", "to"]].rename(columns={"from": "a", "to": "b"}),
+                            crawl[["to", "from"]].rename(columns={"to": "a", "from": "b"})]).drop_duplicates().groupby("a")["b"].nunique()
         for r in succ[:3]:
             a = r["address"]
             dg = int(post_deg.get(a, 0))
@@ -239,7 +240,9 @@ def main():
             # what it reaches: small addresses specific to the layer, or infrastructure
             m = post_c[((post_c["from"] == a) & (post_c["to"].isin(cps))) | ((post_c["to"] == a) & (post_c["from"].isin(cps)))]
             reached = set(np.where(m["from"] == a, m["to"], m["from"]))
-            degs = cp_deg.reindex(list(reached)).fillna(0)
+            degs = cp_deg.reindex(list(reached))
+            r["reached_unobserved_in_crawl"] = int(degs.isna().sum())
+            degs = degs.dropna()
             r["reached_with_crawl_degree_le5"] = int((degs <= 5).sum())
             r["reached_with_crawl_degree_ge100"] = int((degs >= 100).sum())
             r["reached_in_top400_hubs"] = int(sum(1 for x in reached if x in hub_rank))
@@ -247,7 +250,9 @@ def main():
         out["orders"][str(order)] = {
             "later_designated_reaching_counterparties": succ[:10],
             "max_reach_by_later_designated_after": succ[0]["reaches_after"] if succ else 0,
-            "max_reach_by_later_designated_before": max((r["reaches_before"] for r in succ), default=0),
+            "leading_later_designated_before": succ[0]["reaches_before"] if succ else 0,
+            "leading_later_designated_address": succ[0]["address"] if succ else None,
+            "max_reach_by_later_designated_before_any_wallet": max((r["reaches_before"] for r in succ), default=0),
             "max_reach_by_later_designated_on_crawl_basis": max((r["reach_on_crawl_observable_basis"] for r in succ), default=0),
             "max_reach_by_any_undesignated_on_crawl_basis": int(ov["overlap"].max()) if len(ov) else 0,
             "n_later_designated_reaching_counterparties": len(succ),
@@ -280,7 +285,7 @@ def main():
               f"(rank {top_new['network_rank'] if top_new else '-'}, "
               f"{e['n_designated_reaching_at_least_best_newcomer']} of {e['n_designated_with_observable_reach']} "
               f"designated reach at least as far); later-designated reach after {e['max_reach_by_later_designated_after']} "
-              f"/ before {e['max_reach_by_later_designated_before']}, {e['n_later_designated_already_linked_before_order']} of "
+              f"/ its own before {e['leading_later_designated_before']}, {e['n_later_designated_already_linked_before_order']} of "
               f"{e['n_later_designated_reaching_counterparties']} already linked before the order",
               flush=True)
 

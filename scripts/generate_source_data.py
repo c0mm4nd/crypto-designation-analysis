@@ -256,7 +256,9 @@ def main() -> None:
         e, pl = ph["nbctf_event_study"], ph["placebo_event_study"]
         pd.DataFrame({"week_relative_to_event": e["weeks"], "designated_volume_usdt": e["volume_usdt"], "designated_inflow_usdt": e["inflow_usdt"], "designated_outflow_usdt": e["outflow_usdt"],
                       "designated_transfers": e["transfers"], "designated_share_active": e["per_address"]["share_active_by_week"],
-                      "placebo_volume_usdt": pl["volume_usdt"], "placebo_transfers": pl["transfers"], "placebo_share_active": pl["per_address"]["share_active_by_week"]}).to_excel(xl, sheet_name="Fig 2b-c", index=False)
+                      "placebo_volume_usdt": pl["volume_usdt"], "placebo_transfers": pl["transfers"], "placebo_share_active": pl["per_address"]["share_active_by_week"],
+                      "designated_full_history_share_active": [ph["nbctf_event_concentration"]["active_share_pct_by_week"].get(str(w), 0.0) / 100 for w in e["weeks"]]}).to_excel(xl, sheet_name="Fig 2b-c", index=False)
+        pd.DataFrame([{"series": "designated, any activity", "n": e["per_address"]["n"]}, {"series": "designated, full history", "n": ph["nbctf_event_concentration"]["n_addresses_covering_full_window"]}, {"series": "placebo", "n": pl["per_address"]["n"]}]).to_excel(xl, sheet_name="Fig 2c n", index=False)
         c = ph["counterparty_persistence"]
         pd.DataFrame([{"group": "designated addresses", "n": e["n_addresses"], "share_active_after_order": t["share_active_after_signing"], "volume_share_after_order": t["volume_after_signing_share"]},
                       {"group": "undesignated counterparties", "n": c["n_counterparties"], "share_active_after_order": c["share_active_after_order"], "share_active_90d_after_order": c["share_active_90d_after_order"], "volume_share_after_order": c["volume_share_after_order"]}]).to_excel(xl, sheet_name="Fig 2d", index=False)

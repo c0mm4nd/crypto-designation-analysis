@@ -14,8 +14,9 @@
      "crawl_post_degree": 784,
      "size_matched_n": 1932,
      "size_matched_percentile": 99.63768115942028,
-     "reached_with_crawl_degree_le5": 38,
-     "reached_with_crawl_degree_ge100": 52,
+     "reached_unobserved_in_crawl": 19,
+     "reached_with_crawl_degree_le5": 23,
+     "reached_with_crawl_degree_ge100": 46,
      "reached_in_top400_hubs": 27
     },
     {
@@ -30,8 +31,9 @@
      "crawl_post_degree": 17314,
      "size_matched_n": 11,
      "size_matched_percentile": 90.9090909090909,
-     "reached_with_crawl_degree_le5": 11,
-     "reached_with_crawl_degree_ge100": 57,
+     "reached_unobserved_in_crawl": 3,
+     "reached_with_crawl_degree_le5": 17,
+     "reached_with_crawl_degree_ge100": 48,
      "reached_in_top400_hubs": 26
     },
     {
@@ -46,8 +48,9 @@
      "crawl_post_degree": 1587,
      "size_matched_n": 956,
      "size_matched_percentile": 99.7907949790795,
-     "reached_with_crawl_degree_le5": 19,
-     "reached_with_crawl_degree_ge100": 61,
+     "reached_unobserved_in_crawl": 8,
+     "reached_with_crawl_degree_le5": 17,
+     "reached_with_crawl_degree_ge100": 49,
      "reached_in_top400_hubs": 25
     },
     {
@@ -122,7 +125,9 @@
     }
    ],
    "max_reach_by_later_designated_after": 111,
-   "max_reach_by_later_designated_before": 113,
+   "leading_later_designated_before": 113,
+   "leading_later_designated_address": "TVzsknku8cubpukTmUVn5Ro747Bgw3GS63",
+   "max_reach_by_later_designated_before_any_wallet": 113,
    "max_reach_by_later_designated_on_crawl_basis": 95,
    "max_reach_by_any_undesignated_on_crawl_basis": 175,
    "n_later_designated_reaching_counterparties": 186,
@@ -491,8 +496,9 @@
      "crawl_post_degree": 756,
      "size_matched_n": 875,
      "size_matched_percentile": 94.85714285714286,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 0,
-     "reached_with_crawl_degree_ge100": 14,
+     "reached_with_crawl_degree_ge100": 13,
      "reached_in_top400_hubs": 13
     },
     {
@@ -507,6 +513,7 @@
      "crawl_post_degree": 3582,
      "size_matched_n": 87,
      "size_matched_percentile": 85.0574712643678,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 0,
      "reached_with_crawl_degree_ge100": 13,
      "reached_in_top400_hubs": 13
@@ -523,6 +530,7 @@
      "crawl_post_degree": 1027,
      "size_matched_n": 673,
      "size_matched_percentile": 99.40564635958395,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 0,
      "reached_with_crawl_degree_ge100": 13,
      "reached_in_top400_hubs": 13
@@ -599,7 +607,9 @@
     }
    ],
    "max_reach_by_later_designated_after": 14,
-   "max_reach_by_later_designated_before": 14,
+   "leading_later_designated_before": 0,
+   "leading_later_designated_address": "TYy8cFhadMXY6K9Bt5NBewZnQrZ6UpiZrA",
+   "max_reach_by_later_designated_before_any_wallet": 14,
    "max_reach_by_later_designated_on_crawl_basis": 13,
    "max_reach_by_any_undesignated_on_crawl_basis": 15,
    "n_later_designated_reaching_counterparties": 93,
@@ -968,8 +978,9 @@
      "crawl_post_degree": 319,
      "size_matched_n": 2051,
      "size_matched_percentile": 88.29839102876646,
-     "reached_with_crawl_degree_le5": 3,
-     "reached_with_crawl_degree_ge100": 42,
+     "reached_unobserved_in_crawl": 0,
+     "reached_with_crawl_degree_le5": 4,
+     "reached_with_crawl_degree_ge100": 38,
      "reached_in_top400_hubs": 19
     },
     {
@@ -984,8 +995,9 @@
      "crawl_post_degree": 3640,
      "size_matched_n": 130,
      "size_matched_percentile": 70.0,
-     "reached_with_crawl_degree_le5": 1,
-     "reached_with_crawl_degree_ge100": 41,
+     "reached_unobserved_in_crawl": 0,
+     "reached_with_crawl_degree_le5": 3,
+     "reached_with_crawl_degree_ge100": 36,
      "reached_in_top400_hubs": 22
     },
     {
@@ -1000,8 +1012,9 @@
      "crawl_post_degree": 1113,
      "size_matched_n": 992,
      "size_matched_percentile": 95.36290322580645,
-     "reached_with_crawl_degree_le5": 2,
-     "reached_with_crawl_degree_ge100": 40,
+     "reached_unobserved_in_crawl": 1,
+     "reached_with_crawl_degree_le5": 1,
+     "reached_with_crawl_degree_ge100": 33,
      "reached_in_top400_hubs": 19
     },
     {
@@ -1076,7 +1089,9 @@
     }
    ],
    "max_reach_by_later_designated_after": 54,
-   "max_reach_by_later_designated_before": 466,
+   "leading_later_designated_before": 0,
+   "leading_later_designated_address": "TUkxNX8KsL72RTRCdDqoG7MiXi9973wX4K",
+   "max_reach_by_later_designated_before_any_wallet": 466,
    "max_reach_by_later_designated_on_crawl_basis": 36,
    "max_reach_by_any_undesignated_on_crawl_basis": 526,
    "n_later_designated_reaching_counterparties": 144,
@@ -1445,8 +1460,9 @@
      "crawl_post_degree": 3640,
      "size_matched_n": 130,
      "size_matched_percentile": 86.15384615384616,
-     "reached_with_crawl_degree_le5": 4,
-     "reached_with_crawl_degree_ge100": 52,
+     "reached_unobserved_in_crawl": 1,
+     "reached_with_crawl_degree_le5": 5,
+     "reached_with_crawl_degree_ge100": 37,
      "reached_in_top400_hubs": 24
     },
     {
@@ -1461,8 +1477,9 @@
      "crawl_post_degree": 1105,
      "size_matched_n": 987,
      "size_matched_percentile": 98.48024316109422,
-     "reached_with_crawl_degree_le5": 2,
-     "reached_with_crawl_degree_ge100": 40,
+     "reached_unobserved_in_crawl": 0,
+     "reached_with_crawl_degree_le5": 3,
+     "reached_with_crawl_degree_ge100": 34,
      "reached_in_top400_hubs": 19
     },
     {
@@ -1477,8 +1494,9 @@
      "crawl_post_degree": 319,
      "size_matched_n": 2034,
      "size_matched_percentile": 79.89183874139626,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 2,
-     "reached_with_crawl_degree_ge100": 39,
+     "reached_with_crawl_degree_ge100": 36,
      "reached_in_top400_hubs": 20
     },
     {
@@ -1553,7 +1571,9 @@
     }
    ],
    "max_reach_by_later_designated_after": 65,
-   "max_reach_by_later_designated_before": 330,
+   "leading_later_designated_before": 0,
+   "leading_later_designated_address": "TGMRPZ5ncwSVYQ7GqUoejN1GMe19F8dsgY",
+   "max_reach_by_later_designated_before_any_wallet": 330,
    "max_reach_by_later_designated_on_crawl_basis": 45,
    "max_reach_by_any_undesignated_on_crawl_basis": 757,
    "n_later_designated_reaching_counterparties": 136,
@@ -1922,8 +1942,9 @@
      "crawl_post_degree": 3640,
      "size_matched_n": 102,
      "size_matched_percentile": 92.15686274509804,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 4,
-     "reached_with_crawl_degree_ge100": 38,
+     "reached_with_crawl_degree_ge100": 33,
      "reached_in_top400_hubs": 22
     },
     {
@@ -1938,8 +1959,9 @@
      "crawl_post_degree": 319,
      "size_matched_n": 1674,
      "size_matched_percentile": 28.31541218637993,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 0,
-     "reached_with_crawl_degree_ge100": 27,
+     "reached_with_crawl_degree_ge100": 26,
      "reached_in_top400_hubs": 19
     },
     {
@@ -1954,8 +1976,9 @@
      "crawl_post_degree": 2734,
      "size_matched_n": 183,
      "size_matched_percentile": 95.08196721311475,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 0,
-     "reached_with_crawl_degree_ge100": 25,
+     "reached_with_crawl_degree_ge100": 23,
      "reached_in_top400_hubs": 19
     },
     {
@@ -2030,7 +2053,9 @@
     }
    ],
    "max_reach_by_later_designated_after": 42,
-   "max_reach_by_later_designated_before": 19,
+   "leading_later_designated_before": 0,
+   "leading_later_designated_address": "TGMRPZ5ncwSVYQ7GqUoejN1GMe19F8dsgY",
+   "max_reach_by_later_designated_before_any_wallet": 19,
    "max_reach_by_later_designated_on_crawl_basis": 28,
    "max_reach_by_any_undesignated_on_crawl_basis": 274,
    "n_later_designated_reaching_counterparties": 129,
@@ -2399,8 +2424,9 @@
      "crawl_post_degree": 1005,
      "size_matched_n": 1593,
      "size_matched_percentile": 80.97928436911488,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 0,
-     "reached_with_crawl_degree_ge100": 20,
+     "reached_with_crawl_degree_ge100": 19,
      "reached_in_top400_hubs": 12
     },
     {
@@ -2415,8 +2441,9 @@
      "crawl_post_degree": 1347,
      "size_matched_n": 1197,
      "size_matched_percentile": 98.4126984126984,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 0,
-     "reached_with_crawl_degree_ge100": 20,
+     "reached_with_crawl_degree_ge100": 19,
      "reached_in_top400_hubs": 14
     },
     {
@@ -2431,6 +2458,7 @@
      "crawl_post_degree": 2475,
      "size_matched_n": 476,
      "size_matched_percentile": 99.57983193277312,
+     "reached_unobserved_in_crawl": 0,
      "reached_with_crawl_degree_le5": 1,
      "reached_with_crawl_degree_ge100": 16,
      "reached_in_top400_hubs": 10
@@ -2507,7 +2535,9 @@
     }
    ],
    "max_reach_by_later_designated_after": 23,
-   "max_reach_by_later_designated_before": 15,
+   "leading_later_designated_before": 0,
+   "leading_later_designated_address": "TVzsknku8cubpukTmUVn5Ro747Bgw3GS63",
+   "max_reach_by_later_designated_before_any_wallet": 15,
    "max_reach_by_later_designated_on_crawl_basis": 12,
    "max_reach_by_any_undesignated_on_crawl_basis": 21,
    "n_later_designated_reaching_counterparties": 152,

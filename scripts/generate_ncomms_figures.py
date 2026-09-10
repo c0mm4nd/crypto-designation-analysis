@@ -686,12 +686,13 @@ def generate_designation():
         for xi, v in zip(x + (i - 0.5) * wbar, vals):
             ax_d.text(xi, v + 1.5, f"{v:.0f}%", ha="center", va="bottom", fontsize=6.6, color=INK)
     ax_d.set_xticks(x)
-    ax_d.set_xticklabels(["share of addresses with any\ntransfer after the order", "share of the address's USDT\nvolume occurring after the order"])
+    ax_d.set_xticklabels(["share of addresses with any\ntransfer after the order", "share of the group's USDT\nvolume occurring after the order"])
     ax_d.set_ylabel("per cent")
     ax_d.set_ylim(0, 100)
     light_grid(ax_d, axis="y")
-    ax_d.legend(loc="upper left", labelspacing=0.3, handlelength=1.0, handleheight=0.8)
-    ax_d.text(0.02, 0.97, f"{c['share_active_90d_after_order']*100:.0f}% of counterparties still\nactive 90 days after the order", transform=ax_d.transAxes, fontsize=6.6, color=INK_2, ha="left", va="top", linespacing=1.25)
+    ax_d.legend(loc="upper right", frameon=False, labelspacing=0.3, handlelength=1.0, handleheight=0.8)
+    # the 90-day persistence share is stated in the text and carried in the Source Data sheet
+
 
     fig.savefig(ROOT / "fig_designation.pdf")
     fig.savefig(ROOT / "fig_designation.png", dpi=300)
@@ -953,7 +954,7 @@ def generate_enforcement():
     ax_a.set_ylim(0, 100)
     light_grid(ax_a, axis="y")
     ax_a.set_xlabel("seizure order (signing date, addresses with an observed transfer)")
-    ax_a.legend(loc="upper left", bbox_to_anchor=(0.0, -0.62), ncol=2, columnspacing=0.8,
+    ax_a.legend(loc="upper left", bbox_to_anchor=(0.0, -0.80), ncol=2, columnspacing=0.8,
                 handlelength=1.0, handleheight=0.8, labelspacing=0.3, fontsize=6.6, frameon=False)
 
     # ---- b. days from signing to Tether freeze

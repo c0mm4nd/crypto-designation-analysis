@@ -169,8 +169,9 @@ def tether_enforcement(df: pd.DataFrame, seeds: pd.DataFrame, act: pd.DataFrame,
         "usdt_sent_after_freeze": float(post_out["value"].sum()),
     }
 
-    fin = df[df["to"].isin(ev_fr)]
-    fout = df[df["from"].isin(ev_fr)]
+    src = txn if txn is not None else df
+    fin = src[src["to"].isin(ev_fr)]
+    fout = src[src["from"].isin(ev_fr)]
     vi, ci = weekly_series(fin, "to", ev_fr)
     vo, co = weekly_series(fout, "from", ev_fr)
     out["event_study_freeze"] = {"n_addresses": len(ev_fr), "weeks": list(range(-W, W + 1)), "inflow_usdt": vi.tolist(), "outflow_usdt": vo.tolist(), "transfers": (ci + co).tolist()}
@@ -416,11 +417,19 @@ def main():
     h1_act = h1_act[h1_act["addr"].isin(hop1)]
     dates = inwin["signed"].to_numpy()
     cand = h1_act.groupby("addr")["t"].agg(["min", "max"])
+    h1_times = h1_act.groupby("addr")["t"].apply(lambda x: np.sort(x.to_numpy()))
+    def active_in_pre_window(addr, d):
+        ts = h1_times.get(addr)
+        if ts is None:
+            return False
+        lo = np.datetime64(d - pd.Timedelta(weeks=W)); hi = np.datetime64(d)
+        i = np.searchsorted(ts, lo)
+        return i < len(ts) and ts[i] < hi
     placebo = {}
     for addr, r in cand.sample(frac=1.0, random_state=42).iterrows():
         d = pd.Timestamp(rng.choice(dates))
         # require activity within the 26 weeks before the pseudo-event (as designated addresses have)
-        if r["min"] <= d and r["max"] >= d - pd.Timedelta(weeks=W):
+        if r["min"] <= d and active_in_pre_window(addr, d):
             placebo[addr] = d
         if len(placebo) >= 3000:
             break
@@ -445,7 +454,7 @@ def main():
         pl = {}
         for addr, r in cand.sample(frac=1.0, random_state=sd).iterrows():
             dd = pd.Timestamp(r2.choice(dates))
-            if r["min"] <= dd and r["max"] >= dd - pd.Timedelta(weeks=W):
+            if r["min"] <= dd and active_in_pre_window(addr, dd):
                 pl[addr] = dd
             if len(pl) >= 3000:
                 break
@@ -479,7 +488,7 @@ def main():
     for sd in range(1, 101):
         pl = {}
         for addr, r in cand.sample(frac=1.0, random_state=sd).iterrows():
-            if r["min"] <= dom_date and r["max"] >= dom_date - pd.Timedelta(weeks=W):
+            if r["min"] <= dom_date and active_in_pre_window(addr, dom_date):
                 pl[addr] = dom_date
             if len(pl) >= 3000:
                 break
