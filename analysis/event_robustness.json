@@ -752,18 +752,18 @@
   },
   "placebo_crawled": {
    "n_addresses": 3000,
-   "pre_mean_weekly_volume": 326182034.81899,
-   "post_weeks_7_26_mean_volume": 251988420.44900113,
-   "ratio_post_to_pre": 0.772539237450151,
-   "pre_trend_log10_per_week": 0.016891842741197944,
-   "pre_first_week_volume": 134771035.96840993,
-   "pre_last_week_volume": 397629506.52473223,
-   "pre_last_over_first": 2.9504077316578305,
+   "pre_mean_weekly_volume": 348363122.7009837,
+   "post_weeks_7_26_mean_volume": 258331135.44403514,
+   "ratio_post_to_pre": 0.7415570667787726,
+   "pre_trend_log10_per_week": 0.016468757337727017,
+   "pre_first_week_volume": 141707790.90522587,
+   "pre_last_week_volume": 416526001.647551,
+   "pre_last_over_first": 2.939330286548066,
    "per_address": {
     "n": 3000,
-    "share_any_post_activity": 0.5886666666666667,
-    "median_post_share_of_volume": 0.053826794015873244,
-    "mean_post_share_of_volume": 0.30642421960687405
+    "share_any_post_activity": 0.5666666666666667,
+    "median_post_share_of_volume": 0.03836160512380128,
+    "mean_post_share_of_volume": 0.29832956172405867
    }
   }
  },
@@ -786,108 +786,108 @@
    }
   },
   "ratio_post_to_pre": [
-   0.6869879845259612,
-   0.616347242243088,
-   0.616347242243088,
-   0.6869879845259612,
-   0.7852657169482083
+   0.9466339255500857,
+   1.0040454395096967,
+   0.9466339255500857,
+   1.0040417583043306,
+   1.0040208126026235
   ],
   "share_any_post_activity": [
-   0.8051948051948052,
-   0.8051948051948052,
-   0.8051948051948052,
-   0.8051948051948052,
-   0.8051948051948052
+   0.7857142857142857,
+   0.7857142857142857,
+   0.7857142857142857,
+   0.7857142857142857,
+   0.7857142857142857
   ],
   "runs": [
    {
     "n": 154,
-    "match_log10_abs_median": 0.0023421430539591398,
-    "match_log10_abs_p90": 0.012160776384467803,
-    "pre_mean_weekly_volume": 69206087.38267277,
-    "post_weeks_7_26_mean_volume": 47543750.48794992,
-    "ratio_post_to_pre": 0.6869879845259612,
-    "pre_trend_log10_per_week": 0.03668644455047698,
-    "pre_first_week_volume": 12760533.49277299,
-    "pre_last_week_volume": 101019232.74792485,
-    "pre_last_over_first": 7.916536781564637,
+    "match_log10_abs_median": 0.0006755589174238764,
+    "match_log10_abs_p90": 0.003663357129557166,
+    "pre_mean_weekly_volume": 76826978.25353485,
+    "post_weeks_7_26_mean_volume": 72727024.01229477,
+    "ratio_post_to_pre": 0.9466339255500857,
+    "pre_trend_log10_per_week": 0.03856474074802378,
+    "pre_first_week_volume": 11299339.868183998,
+    "pre_last_week_volume": 229113355.07210895,
+    "pre_last_over_first": 20.2767026874935,
     "per_address": {
      "n": 154,
-     "share_any_post_activity": 0.8051948051948052,
-     "median_post_share_of_volume": 0.45016210506105836,
-     "mean_post_share_of_volume": 0.4694880644319072
+     "share_any_post_activity": 0.7857142857142857,
+     "median_post_share_of_volume": 0.4700703338731793,
+     "mean_post_share_of_volume": 0.46164536629507186
     }
    },
    {
     "n": 154,
-    "match_log10_abs_median": 0.002451901632499544,
-    "match_log10_abs_p90": 0.01267959271352856,
-    "pre_mean_weekly_volume": 69205550.62627597,
-    "post_weeks_7_26_mean_volume": 42654650.27641961,
-    "ratio_post_to_pre": 0.616347242243088,
-    "pre_trend_log10_per_week": 0.03668548926588549,
-    "pre_first_week_volume": 12760533.49277299,
-    "pre_last_week_volume": 100982370.74392486,
-    "pre_last_over_first": 7.913648030555843,
+    "match_log10_abs_median": 0.0006755589174238764,
+    "match_log10_abs_p90": 0.0035348991743488684,
+    "pre_mean_weekly_volume": 76826913.49663135,
+    "post_weeks_7_26_mean_volume": 77137712.12789868,
+    "ratio_post_to_pre": 1.0040454395096967,
+    "pre_trend_log10_per_week": 0.038707620786615056,
+    "pre_first_week_volume": 11299143.892457,
+    "pre_last_week_volume": 229115960.04210895,
+    "pre_last_over_first": 20.277284918467185,
     "per_address": {
      "n": 154,
-     "share_any_post_activity": 0.8051948051948052,
-     "median_post_share_of_volume": 0.44697166155536244,
-     "mean_post_share_of_volume": 0.465938483182351
+     "share_any_post_activity": 0.7857142857142857,
+     "median_post_share_of_volume": 0.4977239599973381,
+     "mean_post_share_of_volume": 0.47006175538320893
     }
    },
    {
     "n": 154,
-    "match_log10_abs_median": 0.0023916779471118404,
-    "match_log10_abs_p90": 0.012455608048980923,
-    "pre_mean_weekly_volume": 69205550.62627597,
-    "post_weeks_7_26_mean_volume": 42654650.27641961,
-    "ratio_post_to_pre": 0.616347242243088,
-    "pre_trend_log10_per_week": 0.03668548926588549,
-    "pre_first_week_volume": 12760533.49277299,
-    "pre_last_week_volume": 100982370.74392486,
-    "pre_last_over_first": 7.913648030555843,
+    "match_log10_abs_median": 0.0006755589174238764,
+    "match_log10_abs_p90": 0.003663357129557166,
+    "pre_mean_weekly_volume": 76826978.25353485,
+    "post_weeks_7_26_mean_volume": 72727024.01229477,
+    "ratio_post_to_pre": 0.9466339255500857,
+    "pre_trend_log10_per_week": 0.03856474074802378,
+    "pre_first_week_volume": 11299339.868183998,
+    "pre_last_week_volume": 229113355.07210895,
+    "pre_last_over_first": 20.2767026874935,
     "per_address": {
      "n": 154,
-     "share_any_post_activity": 0.8051948051948052,
-     "median_post_share_of_volume": 0.44697166155536244,
-     "mean_post_share_of_volume": 0.465938483182351
+     "share_any_post_activity": 0.7857142857142857,
+     "median_post_share_of_volume": 0.4700703338731793,
+     "mean_post_share_of_volume": 0.46164536629507186
     }
    },
    {
     "n": 154,
-    "match_log10_abs_median": 0.0025515124405564357,
-    "match_log10_abs_p90": 0.012637102405548752,
-    "pre_mean_weekly_volume": 69206087.38267277,
-    "post_weeks_7_26_mean_volume": 47543750.48794992,
-    "ratio_post_to_pre": 0.6869879845259612,
-    "pre_trend_log10_per_week": 0.03668644455047698,
-    "pre_first_week_volume": 12760533.49277299,
-    "pre_last_week_volume": 101019232.74792485,
-    "pre_last_over_first": 7.916536781564637,
+    "match_log10_abs_median": 0.0006755589174238764,
+    "match_log10_abs_p90": 0.0035348991743488684,
+    "pre_mean_weekly_volume": 76827195.17380652,
+    "post_weeks_7_26_mean_volume": 77137712.12789868,
+    "ratio_post_to_pre": 1.0040417583043306,
+    "pre_trend_log10_per_week": 0.03870857881676262,
+    "pre_first_week_volume": 11298599.432457,
+    "pre_last_week_volume": 229115960.04210895,
+    "pre_last_over_first": 20.27826204581936,
     "per_address": {
      "n": 154,
-     "share_any_post_activity": 0.8051948051948052,
-     "median_post_share_of_volume": 0.45016210506105836,
-     "mean_post_share_of_volume": 0.4694880644319072
+     "share_any_post_activity": 0.7857142857142857,
+     "median_post_share_of_volume": 0.4977239599973381,
+     "mean_post_share_of_volume": 0.4703060222125312
     }
    },
    {
     "n": 154,
-    "match_log10_abs_median": 0.002381700897474117,
-    "match_log10_abs_p90": 0.012714792014221595,
-    "pre_mean_weekly_volume": 74180737.78450821,
-    "post_weeks_7_26_mean_volume": 58251590.24009889,
-    "ratio_post_to_pre": 0.7852657169482083,
-    "pre_trend_log10_per_week": 0.03841934623399128,
-    "pre_first_week_volume": 12760533.49277299,
-    "pre_last_week_volume": 84566337.30797495,
-    "pre_last_over_first": 6.627178821000676,
+    "match_log10_abs_median": 0.0006970693071109392,
+    "match_log10_abs_p90": 0.0035348991743488684,
+    "pre_mean_weekly_volume": 76826876.85832816,
+    "post_weeks_7_26_mean_volume": 77135783.33302033,
+    "ratio_post_to_pre": 1.0040208126026235,
+    "pre_trend_log10_per_week": 0.038707956668013306,
+    "pre_first_week_volume": 11299143.892457,
+    "pre_last_week_volume": 229115129.04210895,
+    "pre_last_over_first": 20.27721137307225,
     "per_address": {
      "n": 154,
-     "share_any_post_activity": 0.8051948051948052,
-     "median_post_share_of_volume": 0.4622027052936497,
-     "mean_post_share_of_volume": 0.4706792440024458
+     "share_any_post_activity": 0.7857142857142857,
+     "median_post_share_of_volume": 0.4977239599973381,
+     "mean_post_share_of_volume": 0.4679879691703296
     }
    }
   ]

@@ -123,3 +123,17 @@ lower bounds, as empty.
 `scripts/label_complete_network_hubs.py` names the highest-activity undesignated addresses of
 the complete network, and `analysis/complete_network_hubs.json` records the ranking and the
 aggregate entity composition (per-address labels are not redistributed).
+
+## Rebuilding the complete network: what the node must provide
+
+`scripts/export_full_tron_network.sh` reads a ClickHouse table `tron.events` holding decoded
+TRON contract event logs with at least these columns: `address` (contract, 40 hex chars without
+the 0x41 prefix), `topic0`, `topic1`, `topic2` (64-hex-character strings; `topic2` nullable),
+`data` (64-hex-character string), and `blockTimestamp` (milliseconds). The USDT contract is
+`a614f803b6fd780986a42c78ec9c7f77e6ded13c` and the Transfer topic
+`ddf252ad...b3ef`. The script runs `clickhouse-client` inside a Docker container named
+`clickhouse-analyticaldb*`; set `CH_USER`/`CH_PASSWORD`, or edit the `docker exec` line to
+point at your client. Each of the 32 buckets needs about 12 GB of memory and the two exports
+take roughly a day on a single node; the count-only export is ~15 GB and the value-carrying
+one ~18 GB. `scripts/designated_hashes.py` writes `designated_hash.tsv` next to the analysis
+outputs, which is where `full_network_*.py` read it.

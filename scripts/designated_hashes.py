@@ -39,12 +39,15 @@ def b58_to_hex20(addr: str) -> str | None:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--seeds", default=os.path.join(ROOT, "IsraelAddrs.xlsx"))
-    ap.add_argument("--out", default="/tmp/designated_hash.tsv")
+    ap.add_argument("--seeds", default=None, help="defaults to IsraelAddrs.xlsx wherever the layout puts it")
+    ap.add_argument("--out", default=os.path.join(ROOT, "designated_hash.tsv"), help="where full_network_*.py look for it by default")
     ap.add_argument("--container", default="clickhouse-analyticaldb-1")
     args = ap.parse_args()
 
-    hexes = sorted({h for a in load_seed_addresses(args.seeds, "tron") if (h := b58_to_hex20(a))})
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from paths import find
+    seeds = args.seeds or str(find("IsraelAddrs.xlsx"))
+    hexes = sorted({h for a in load_seed_addresses(seeds, "tron") if (h := b58_to_hex20(a))})
     print(f"{len(hexes)} designated addresses converted to hex")
 
     lst = ",".join(f"'{h}'" for h in hexes)

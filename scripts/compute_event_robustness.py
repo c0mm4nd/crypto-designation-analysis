@@ -216,12 +216,19 @@ def main():
     h_act = pd.concat([h.assign(addr=h["from"]), h.assign(addr=h["to"])])
     h_act = h_act[h_act["addr"].isin(set(hop1))]
     span = h_act.groupby("addr")["t"].agg(["min", "max"])
+    h_times = h_act.groupby("addr")["t"].apply(lambda x: np.sort(x.to_numpy()))
+    def active_before(addr, d0):
+        ts = h_times.get(addr)
+        if ts is None:
+            return False
+        i = np.searchsorted(ts, np.datetime64(d0 - pd.Timedelta(weeks=W)))
+        return i < len(ts) and ts[i] < np.datetime64(d0)
     rng2 = np.random.default_rng(42)
     dates = np.array(sorted(ev.values()))
     placebo: dict[str, pd.Timestamp] = {}
     for addr, r in span.sample(frac=1.0, random_state=42).iterrows():
         d0 = pd.Timestamp(rng2.choice(dates))
-        if r["min"] <= d0 and r["max"] >= d0 - pd.Timedelta(weeks=W):
+        if r["min"] <= d0 and active_before(addr, d0):
             placebo[addr] = d0
         if len(placebo) >= 3000:
             break
@@ -247,33 +254,35 @@ def main():
         w = r[(r["t"] >= ev_d - pd.Timedelta(weeks=W)) & (r["t"] < ev_d)]["value"].sum()
         if w > 0:
             pre_vol[addr] = float(w)
-    cand = {}
-    for addr, d0 in placebo.items():
-        r = h_act[h_act["addr"] == addr]
-        w = r[(r["t"] >= d0 - pd.Timedelta(weeks=W)) & (r["t"] < d0)]["value"].sum()
-        if w > 0:
-            cand[addr] = float(w)
-    cand_addr = np.array(list(cand)); cand_v = np.array([cand[a] for a in cand_addr])
-    order_v = np.argsort(cand_v); cand_addr, cand_v = cand_addr[order_v], cand_v[order_v]
+    # weekly volume of every hop-1 address, so a candidate's volume in the 26 weeks before any
+    # given date can be read off for each designated address's own event date
+    wk = ((h_act["t"] - pd.Timestamp("2020-01-06")).dt.days // 7).astype(int)
+    hop1_weekly = h_act.assign(_w=wk).groupby(["addr", "_w"])["value"].sum().unstack(fill_value=0.0)
+    def cand_at(d0):
+        w_end = int((d0 - pd.Timestamp("2020-01-06")).days // 7)
+        cols = [c for c in hop1_weekly.columns if w_end - W <= c < w_end]
+        v = hop1_weekly[cols].sum(axis=1)
+        v = v[v > 0]
+        return v.index.to_numpy(), np.log(v.to_numpy())
+    cand_addr, cand_v = None, None
     matched_runs = []
+    # candidates are read at each designated address's own event date, so the match holds the
+    # calendar window fixed as well as the volume; the nearest neighbour is the unused
+    # candidate with the smallest absolute log-volume gap, on either side
+    cand_cache = {d0: cand_at(d0) for d0 in sorted(set(ev.values()))}
     for seed in range(5):
         rr = np.random.default_rng(seed)
-        used = set(); sel = {}; matched_to = []
+        used = set(); sel = {}; gaps = []; matched_to = []
         for addr in rr.permutation(list(pre_vol)):
-            j = int(np.searchsorted(cand_v, pre_vol[addr]))
-            for off in range(len(cand_addr)):
-                for k in (j + off, j - off - 1):
-                    if 0 <= k < len(cand_addr) and cand_addr[k] not in used:
-                        used.add(cand_addr[k]); sel[cand_addr[k]] = placebo[cand_addr[k]]
-                        matched_to.append(addr)
-                        break
-                else:
-                    continue
-                break
+            d0 = ev[addr]
+            c_addr, c_logv = cand_cache[d0]
+            gap = np.abs(c_logv - np.log(pre_vol[addr]))
+            for k in np.argsort(gap):
+                if c_addr[k] not in used and c_addr[k] not in seed_set:
+                    used.add(c_addr[k]); sel[c_addr[k]] = d0; gaps.append(gap[k] / np.log(10)); matched_to.append(addr)
+                    break
         mv, mc = weekly(h_act, sel)
-        # match quality: how far apart the matched pre-event volumes are, in decades
-        q = np.abs(np.log10(np.array([cand[a] for a in sel.keys()]) /
-                            np.array([pre_vol[a] for a in matched_to])))
+        q = np.array(gaps)
         matched_runs.append({"n": len(sel), "match_log10_abs_median": float(np.median(q)),
                              "match_log10_abs_p90": float(np.percentile(q, 90)),
                              **{k: v for k, v in summarise(mv, mc).items()

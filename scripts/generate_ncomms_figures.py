@@ -646,10 +646,10 @@ def generate_designation():
     ev = np.array(e["volume_usdt"]) / e["pre_mean_weekly_volume"]
     pv = np.array(p["volume_usdt"]) / p["pre_mean_weekly_volume"]
     ax_b.axvspan(-0.5, 0.5, color=GRID, zorder=1)
-    ax_b.plot(weeks, np.maximum(pv, 6e-3), color=MUTED, lw=1.0, marker="o", ms=2.2, mec="white", mew=0.3, zorder=3, label=f"placebo ($n$ = {p['n_addresses']:,})")
-    ax_b.plot(weeks, np.maximum(ev, 6e-3), color=SETTING_COLORS["sanctions"], lw=1.4, marker="o", ms=2.6, mec="white", mew=0.3, zorder=4, label=f"designated ($n$ = {e['n_addresses']})")
+    ax_b.plot(weeks, np.maximum(pv, 1e-4), color=MUTED, lw=1.0, marker="o", ms=2.2, mec="white", mew=0.3, zorder=3, label=f"placebo ($n$ = {p['n_addresses']:,})")
+    ax_b.plot(weeks, np.maximum(ev, 1e-4), color=SETTING_COLORS["sanctions"], lw=1.4, marker="o", ms=2.6, mec="white", mew=0.3, zorder=4, label=f"designated ($n$ = {e['n_addresses']})")
     ax_b.set_yscale("log")
-    ax_b.set_ylim(0.005, 5)
+    ax_b.set_ylim(8e-5, 5)
     ax_b.set_xlabel("weeks relative to signing of the seizure order")
     ax_b.set_ylabel("weekly USDT volume,\nrelative to pre-signing mean")
     ax_b.axhline(1, color=INK_2, lw=0.5, ls=(0, (2, 2)), zorder=2)
