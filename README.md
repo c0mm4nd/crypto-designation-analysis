@@ -137,3 +137,14 @@ point at your client. Each of the 32 buckets needs about 12 GB of memory and the
 take roughly a day on a single node; the count-only export is ~15 GB and the value-carrying
 one ~18 GB. `scripts/designated_hashes.py` writes `designated_hash.tsv` next to the analysis
 outputs, which is where `full_network_*.py` read it.
+
+## Duplicate event rows in the source table (resolved in v1.5.2)
+
+`tron.events` holds duplicate rows where blocks were ingested more than once: over the USDT
+Transfer events before 1 January 2025 there are 2,375,557,775 rows but about 2,227,597,271
+distinct (transactionHash, logIndex) pairs, 6.2% fewer. The per-address export deduplicates;
+the complete-network export, as originally run, did not, so the deposited `full_tron_*.json`
+transfer counts and value sums are overstated by about 6-7% (deduplicated sums for the
+designated addresses match the per-address histories exactly). Duplicate rows do not create
+pairs, so connectivity results are unaffected. `scripts/export_full_tron_network.sh` now
+deduplicates inside every query; a re-run will produce corrected counts and sums.

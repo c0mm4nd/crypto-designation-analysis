@@ -7,6 +7,11 @@
 # the network that has no boundary — every USDT TRC-20 Transfer event on TRON before the
 # cut, aggregated to unique directed address pairs.
 #
+# The events table holds duplicate rows where blocks were ingested more than once (about 6% of
+# rows); every query below deduplicates on (transactionHash, logIndex) first. The deposited
+# complete-network outputs predate this and count duplicates, which inflates transfer counts and
+# value sums by that share without changing which pairs exist.
+#
 # Addresses are carried as cityHash64 of the 20-byte address rather than as text, which
 # keeps the edge list to 20 bytes per pair (about 15 GB) instead of about 70. At 2.1e8
 # addresses the expected number of colliding pairs is n^2/2^65 ~ 1e-3, and the chance that
@@ -37,13 +42,13 @@ for B in $(seq 0 31); do
     docker exec -i "$CH" clickhouse-client --user "${CH_USER:-w3r}" --password "${CH_PASSWORD:?set CH_PASSWORD}" \
       --max_bytes_before_external_group_by=6000000000 --max_memory_usage=12000000000 \
       --format RowBinary --query "
-SELECT cityHash64(assumeNotNull(substring(topic1,25,40))) AS fi,
-       cityHash64(assumeNotNull(substring(topic2,25,40))) AS ti,
-       toUInt32(count()) AS cnt
-FROM tron.events
-WHERE address='$USDT' AND topic0='$TRANSFER'
-  AND topic2 IS NOT NULL AND blockTimestamp < $CUT
-  AND cityHash64(assumeNotNull(substring(topic1,25,40))) % 32 = $B
+SELECT cityHash64(f) AS fi, cityHash64(t) AS ti, toUInt32(count()) AS cnt
+FROM (SELECT DISTINCT transactionHash, logIndex,
+             assumeNotNull(substring(topic1,25,40)) AS f, assumeNotNull(substring(topic2,25,40)) AS t
+      FROM tron.events
+      WHERE address='$USDT' AND topic0='$TRANSFER'
+        AND topic2 IS NOT NULL AND blockTimestamp < $CUT
+        AND cityHash64(assumeNotNull(substring(topic1,25,40))) % 32 = $B)
 GROUP BY fi, ti" > "$F" 2>> logs/export.err
     rc=$?; sz=$(stat -c %s "$F")
     if [ $rc -eq 0 ] && [ "$sz" -gt 0 ] && [ $(( sz % 20 )) -eq 0 ]; then touch "$F.ok"; fi
@@ -73,13 +78,15 @@ for B in $(seq 0 31); do
     docker exec -i "$CH" clickhouse-client --user "${CH_USER:-w3r}" --password "${CH_PASSWORD:?set CH_PASSWORD}" \
       --max_bytes_before_external_group_by=6000000000 --max_memory_usage=12000000000 \
       --format RowBinary --query "
-SELECT cityHash64(assumeNotNull(substring(topic1,25,40))) AS fi,
-       cityHash64(assumeNotNull(substring(topic2,25,40))) AS ti,
-       sum(reinterpretAsUInt64(reverse(unhex(substring(assumeNotNull(data), 49, 16)))) / 1000000.) AS val
-FROM tron.events
-WHERE address='$USDT' AND topic0='$TRANSFER'
-  AND topic2 IS NOT NULL AND blockTimestamp < $CUT
-  AND cityHash64(assumeNotNull(substring(topic1,25,40))) % 32 = $B
+SELECT cityHash64(f) AS fi, cityHash64(t) AS ti,
+       sum(reinterpretAsUInt64(reverse(unhex(substring(d, 49, 16)))) / 1000000.) AS val
+FROM (SELECT DISTINCT transactionHash, logIndex,
+             assumeNotNull(substring(topic1,25,40)) AS f, assumeNotNull(substring(topic2,25,40)) AS t,
+             assumeNotNull(data) AS d
+      FROM tron.events
+      WHERE address='$USDT' AND topic0='$TRANSFER'
+        AND topic2 IS NOT NULL AND blockTimestamp < $CUT
+        AND cityHash64(assumeNotNull(substring(topic1,25,40))) % 32 = $B)
 GROUP BY fi, ti" > "$F" 2>> logs/export_val.err
     rc=$?; sz=$(stat -c %s "$F")
     if [ $rc -eq 0 ] && [ "$sz" -gt 0 ] && [ $(( sz % 24 )) -eq 0 ]; then touch "$F.ok"; fi
@@ -90,7 +97,7 @@ echo "value buckets complete: $(ls "$OUTV"/*.ok 2>/dev/null | wc -l)/32"
 
 # Row and address counts quoted in the paper, from the same filter.
 docker exec -i "$CH" clickhouse-client --user "${CH_USER:-w3r}" --password "${CH_PASSWORD:?}" --query "
-SELECT count() AS transfers_before_cut,
+SELECT count() AS rows_before_cut, uniqExact(transactionHash, logIndex) AS transfers_before_cut,
        uniqExact(assumeNotNull(substring(topic1,25,40))) AS senders
 FROM tron.events
 WHERE address='$USDT' AND topic0='$TRANSFER' AND topic2 IS NOT NULL AND blockTimestamp < $CUT"
