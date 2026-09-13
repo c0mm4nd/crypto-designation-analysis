@@ -39,7 +39,30 @@ DESIGNATED = os.environ.get("ROTOR_DESIGNATED_HASHES", os.path.join(DATA, "desig
 OUT_DIR = os.environ.get("ROTOR_OUT", DATA)
 
 
+
+def _cached_value_graph():
+    """Load the value graph from the cache when the streaming rebuild has written it.
+
+    scripts/rerun_complete_network_local.py stores the deduplicated network as index arrays
+    plus a value array, so the 24-byte bucket files need not exist; this returns the same
+    (n, si, di, val, anchors) tuple load() builds from them, or None if the cache is absent.
+    """
+    vpath = CACHE + "_val.npy"
+    if not os.path.exists(vpath):
+        return None
+    nodes = np.load(CACHE + "_nodes.npy"); n = len(nodes)
+    si = np.load(CACHE + "_si.npy"); di = np.load(CACHE + "_di.npy")
+    val = np.load(vpath).astype(np.float64)
+    arr = np.array(sorted(int(l.split()[1]) for l in open(DESIGNATED)), dtype=np.uint64)
+    pos = np.searchsorted(nodes, arr); pos = pos[pos < n]
+    ok = nodes[pos] == arr[: len(pos)]
+    anchors = np.zeros(n, bool); anchors[pos[ok]] = True
+    return n, si, di, val, anchors
+
 def load():
+    cached = _cached_value_graph()
+    if cached is not None:
+        return cached
     """Map the value-carrying pairs onto the address indices already built for the count graph."""
     nodes = np.load(CACHE + "_nodes.npy")
     n = len(nodes)

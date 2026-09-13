@@ -93,9 +93,10 @@ in `analysis/` can be recomputed rather than only re-read:
 - `ukraine_eth_anchor_usdt.csv` — complete USDT history of the Aid for Ukraine Ethereum address.
 - `*.sql` — the ClickHouse queries that produced the exports.
 
-The complete TRON USDT network (2.38 billion transfers) is not deposited: it is 40 GB in the
-binary bucket form the analysis uses. `scripts/export_full_tron_network.sh` rebuilds it from any
-archival TRON node indexed in ClickHouse.
+The complete TRON USDT network (2.23 billion distinct transfers) is not deposited: it is
+40 GB in the binary bucket form the analysis uses. `scripts/export_full_tron_network.sh` rebuilds it
+from any archival TRON node indexed in ClickHouse, and `scripts/rerun_complete_network_local.py`
+streams the same deduplicated graph straight into the `graph_cache_*.npy` arrays the analyses read.
 
 ## analysis/ additions in v1.1.2
 
@@ -138,13 +139,24 @@ take roughly a day on a single node; the count-only export is ~15 GB and the val
 one ~18 GB. `scripts/designated_hashes.py` writes `designated_hash.tsv` next to the analysis
 outputs, which is where `full_network_*.py` read it.
 
-## Duplicate event rows in the source table (resolved in v1.5.2)
+## Duplicate event rows in the source table (re-run completed in v1.6.0)
 
 `tron.events` holds duplicate rows where blocks were ingested more than once: over the USDT
-Transfer events before 1 January 2025 there are 2,375,557,775 rows but about 2,227,597,271
-distinct (transactionHash, logIndex) pairs, 6.2% fewer. The per-address export deduplicates;
-the complete-network export, as originally run, did not, so the deposited `full_tron_*.json`
-transfer counts and value sums are overstated by about 6-7% (deduplicated sums for the
-designated addresses match the per-address histories exactly). Duplicate rows do not create
-pairs, so connectivity results are unaffected. `scripts/export_full_tron_network.sh` now
-deduplicates inside every query; a re-run will produce corrected counts and sums.
+Transfer events before 1 January 2025 there are 2,375,557,775 rows but 2,225,933,042
+distinct (transactionHash, logIndex) pairs, 6.30% fewer (`analysis/distinct_transfers.json`,
+counted exactly by `scripts/count_distinct_transfers.sh`). The per-address export always
+deduplicated; the complete-network export first deposited (v1.5.1 and earlier) did not, so its
+value sums were overstated by about seven per cent. In v1.6.0 the complete network was rebuilt
+with the duplicates removed (`scripts/rerun_complete_network_local.py`) and every complete-network
+analysis was re-run on it. Duplicate rows never created pairs, so the address set (213,338,784),
+the pair set (744,543,633) and every connectivity result are byte-identical to the earlier build
+(`full_tron_backbone.json`, `full_tron_kcore.json`, `zero_value_pairs.json` unchanged); the
+value-carrying outputs changed: total value 15.50 -> 14.43 trillion USDT, value incident to the
+designated addresses 10.65 -> 9.94 billion USDT (now equal to the per-address histories), stranded
+value for the 400 / 1,000 / 10,000 highest-degree undesignated addresses 3.41 / 5.04 / 9.61 ->
+3.15 / 4.70 / 8.98 billion USDT, throughput 44.95 / 47.06 / 54.28 -> 44.35 / 46.48 / 53.81%. The
+designated stranded value (590 USDT) and stranded share (0.022%) are unchanged.
+`scripts/compare_dedup_outputs.py` prints the full old-versus-new comparison.
+`scripts/degree_matched_interval.py` gained `--phase draws|exact`, which splits its two memory
+peaks so it runs on a machine with less free memory; the two phases merge into one output that
+is identical to a single-process run.

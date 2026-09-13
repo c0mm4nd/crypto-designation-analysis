@@ -1,0 +1,7 @@
+{
+ "description": "Exact number of distinct USDT transfer events on TRON before 1 January 2025 in the archive node's event table, against the number of stored rows. Rows are deduplicated on (transactionHash, logIndex); the table holds duplicate rows where blocks were ingested more than once. Counted with uniqExact over 64 buckets by cityHash64(transactionHash) % 64 (scripts/count_distinct_transfers.sh).",
+ "rows": 2375557775,
+ "distinct_transfers": 2225933042,
+ "duplicate_rows": 149624733,
+ "duplicate_share_pct": 6.298509536355099
+}

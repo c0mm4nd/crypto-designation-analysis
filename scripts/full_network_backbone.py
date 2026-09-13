@@ -66,6 +66,7 @@ def edge_arrays(nodes):
 
 
 CACHE = os.path.join(DATA, "tron_full2/graph_cache")
+OUT_DIR = os.environ.get("ROTOR_OUT", DATA)
 
 
 def main():
@@ -128,6 +129,9 @@ def main():
     top = order[~anchors[order]][:na]
     m = np.zeros(n, bool); m[top] = True
     out["remove_top_degree_undesignated_pct"] = loss(m, f"remove {na} top-degree undesignated")
+    for budget in (1000, 10000):
+        m = np.zeros(n, bool); m[order[~anchors[order]][:budget]] = True
+        out[f"remove_top_degree_undesignated_{budget}_pct"] = loss(m, f"remove {budget} top-degree undesignated")
     und = np.where(~anchors)[0]; ud = deg[und]; o = np.argsort(ud); sd = ud[o]; ou = und[o]
     ad = deg[anchors]; dm = []
     for seed in range(3):
@@ -163,7 +167,7 @@ def main():
     out["designated_median_degree"] = float(np.median(deg[anchors]))
     out["network_median_degree"] = float(np.median(deg))
     out["designated_share_top1pct_degree"] = float((rank[anchors] < n // 100).mean())
-    json.dump(out, open(os.path.join(DATA, "full_tron_backbone.json"), "w"), indent=1)
+    json.dump(out, open(os.path.join(OUT_DIR, "full_tron_backbone.json"), "w"), indent=1)
     print("saved full_tron_backbone.json", flush=True)
 
 if __name__ == "__main__":

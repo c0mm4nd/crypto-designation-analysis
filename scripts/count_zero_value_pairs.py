@@ -20,6 +20,11 @@ DT = np.dtype([("f", "<u8"), ("t", "<u8"), ("v", "<f8")])
 
 def main():
     z = n = 0
+    vpath = os.path.join(DATA, "tron_full2", "graph_cache_val.npy")
+    if os.path.exists(vpath):
+        # the streaming rebuild stores values in the graph cache instead of bucket files
+        v = np.load(vpath, mmap_mode="r")
+        z = int((v == 0).sum()); n = int(len(v))
     for f in sorted(glob.glob(os.path.join(DATA, "tron_full_val", "bucket_*.bin"))):
         a = np.fromfile(f, dtype=DT)
         z += int((a["v"] == 0).sum())

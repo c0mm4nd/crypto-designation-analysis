@@ -747,7 +747,7 @@ def draw_removal_columns(axes):
             if v is None and ci is not None:
                 for x in ci:
                     ax.plot(max(x, lo * 1.25), yi, "o", ms=3.4, color=c, mec="white", mew=0.5, zorder=4)
-                ax.text(max(ci[-1], lo * 1.25) * 1.55, yi, "  ".join(f"{x:,.0f}" for x in ci),
+                ax.text(max(ci[-1], lo * 1.25) * 1.55, yi, f"{ci[0]:,.0f}\u2013{ci[-1]:,.0f}",
                         fontsize=6.6, color=INK_2, va="center")
                 continue
             if v is None:
@@ -772,7 +772,8 @@ def draw_removal_columns(axes):
         ax.set_yticklabels([r[0] for r in rows] if col == 0 else [])
         ax.tick_params(axis="y", length=0)
         light_grid(ax, axis="x")
-    axes[0].text(0.0, 1.045, "complete TRON USDT network: 213M addresses, 745M directed pairs, 15.5 trillion USDT",
+    total_t = load_json("full_tron_stranded.json")["total_value_usdt"] / 1e12
+    axes[0].text(0.0, 1.045, f"complete TRON USDT network: 213M addresses, 745M directed pairs, {total_t:.1f} trillion USDT",
                  transform=axes[0].transAxes, fontsize=6.6, color=INK, va="bottom")
 
 

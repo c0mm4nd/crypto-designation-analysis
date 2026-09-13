@@ -1,4 +1,4 @@
-\caption{\textbf{Address-level removal test on the complete TRON USDT network.} The entire USDT transfer graph on TRON to 1 January 2025, built from an archival node with no seeding and no sampling: 2.38 billion transfers between 213 million addresses, aggregated to unique directed pairs. Of the 490 addresses named in the seizure orders, 400 appear. The degree-matched row gives the mean and 2.5--97.5 percentile range over 200 draws, with the structural column giving the share of addresses whose whole neighbourhood is removed; the random row is the mean of three. Removing every designated address costs about the same as removing the same number of undesignated addresses of the same degree on the structural measure, where it sits at the 68th percentile of the draws, and more than all of them on throughput, which is what designation selected for. Throughput is value on pairs incident to the removed set and excludes the stranded value, which is reported separately in the last column. Stranded value is not baseline-subtracted: it counts value on pairs off the largest component after the removal without subtracting the value already off it, so each figure is an upper bound. The node's event table holds duplicate rows for re-ingested blocks (2.38 billion rows, 2.23 billion distinct transfers), and this export did not deduplicate them, so its transfer counts and value sums are overstated by about six to seven per cent; deduplicated sums for the designated addresses match the per-address histories exactly. Duplicate rows do not create pairs, so connectivity is unaffected; the comparison in this table spans six orders of magnitude. It strands 590 USDT between surviving addresses, whereas 400 undesignated addresses of the highest degree strand 3.4 billion, 0.022\% of all transferred value.}
+\caption{\textbf{Address-level removal test on the complete TRON USDT network.} The entire USDT transfer graph on TRON to 1 January 2025, built from an archival node with no seeding and no sampling: 2.38 billion transfers between 213 million addresses, aggregated to unique directed pairs. Of the 490 addresses named in the seizure orders, 400 appear. The degree-matched row gives the mean and 2.5--97.5 percentile range over 200 draws, with the structural column giving the share of addresses whose whole neighbourhood is removed; the random row is the mean of three. Removing every designated address costs about the same as removing the same number of undesignated addresses of the same degree on the structural measure, where it sits at the 68th percentile of the draws, and more than all of them on throughput, which is what designation selected for. Throughput is value on pairs incident to the removed set and excludes the stranded value, which is reported separately in the last column. Stranded value is not baseline-subtracted: it counts value on pairs off the largest component after the removal without subtracting the value already off it, so each figure is an upper bound. The node's event table holds duplicate rows for re-ingested blocks (2,375,557,775 rows for 2,225,933,042 distinct transfers); the network was rebuilt with them removed, and the designated addresses' incident value now matches their per-address histories exactly. Duplicate rows never created pairs, so every connectivity figure is unchanged from the earlier build; value sums fell by about seven per cent. It strands 590 USDT between surviving addresses, whereas 400 undesignated addresses of the highest degree strand 3.2 billion, 0.022\% of all transferred value.}
 \label{tab:full-network}
 \small
 \begin{tabular}{lrrrr}
@@ -6,8 +6,8 @@
 Quantity & Value & Addresses lost (\%) & Throughput (\%) & Value stranded \\
 \midrule
 Addresses & 213,338,784 & & & \\
-Event rows before the cut (2.23 billion distinct transfers) & 2,375,557,775 & & & \\
-USDT transferred & 15.50 trillion & & & \\
+Transfers before the cut (distinct; 2,375,557,775 event rows) & 2,225,933,042 & & & \\
+USDT transferred & 14.43 trillion & & & \\
 Unique directed pairs & 744,543,633 & & & \\
 Largest weakly connected component & 99.999\% & & & \\
 Designated addresses present & 400 of 490 & & & \\
@@ -15,11 +15,11 @@ Median degree, designated & 18 & & & \\
 Median degree, all addresses & 2 & & & \\
 Designated in top 1\% by degree & 38.2\% & & & \\
 \midrule
-Remove all 400 designated & & 0.0023 & 0.0687 & 590 USDT \\
-Remove 400 degree-matched undesignated & 200 draws & 0.0021 [0.0013, 0.0040] & 0.0178 [0.0099, 0.0317] & 3,168--12,139 USDT \\
+Remove all 400 designated & & 0.0023 & 0.0688 & 590 USDT \\
+Remove 400 degree-matched undesignated & 200 draws & 0.0021 [0.0013, 0.0040] & 0.0179 [0.0100, 0.0319] & 3,095--21,341 USDT \\
 Remove 400 random undesignated & & $<10^{-4}$ & --- & --- \\
-Remove 400 highest-degree undesignated & & 26.8733 & 44.9468 & 3.41 billion \\
-Remove 1,000 highest-degree undesignated & & 34.2322 & 47.0639 & 5.04 billion \\
-Remove 10,000 highest-degree undesignated & & 48.3707 & 54.2844 & 9.61 billion \\
+Remove 400 highest-degree undesignated & & 26.8733 & 44.3526 & 3.15 billion \\
+Remove 1,000 highest-degree undesignated & & 34.2322 & 46.4845 & 4.70 billion \\
+Remove 10,000 highest-degree undesignated & & 48.3707 & 53.8136 & 8.98 billion \\
 \bottomrule
 \end{tabular}
