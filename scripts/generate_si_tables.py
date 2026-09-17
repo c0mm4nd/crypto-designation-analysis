@@ -216,6 +216,30 @@ def backbone_tables() -> None:
     write("table_raw_partition.tex", "\\begin{tabular}{lrlrrlrl}\n\\toprule\n\\textbf{Network} & $K$ & \\textbf{Anchor-densest role} & \\textbf{Density (\\%)} & \\textbf{Loss (\\%)} & \\textbf{Most damaging role} & \\textbf{Loss (\\%)} & \\textbf{Roles} \\\\\n\\midrule\n" + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
 
 
+def zero_value_table() -> None:
+    path = ROOT / "zero_value_sensitivity.json"
+    if not path.exists():
+        return
+    zv = json.load(open(path))
+    a, b = zv["all_pairs"], zv["value_carrying_pairs"]
+    labels = {"designated": "Remove all 400 designated", "top_degree_undesignated": "Remove 400 highest-degree undesignated",
+              "degree_matched_undesignated": "Remove 400 degree-matched undesignated (one draw)", "random_undesignated": "Remove 400 random undesignated (one draw)"}
+    def usdt(v):
+        return f"{v/1e9:.2f} billion" if v >= 1e9 else f"{v:,.0f} USDT"
+    lines = [f"Pairs & {a['n_pairs']:,} & {b['n_pairs']:,} \\\\",
+             f"Addresses with an edge & {a['n_addresses_with_an_edge']:,} & {b['n_addresses_with_an_edge']:,} \\\\",
+             f"Largest component before removal (\\% of addresses) & {100*a['baseline_lcc_share']:.4f} & {100*b['baseline_lcc_share']:.4f} \\\\",
+             "\\midrule"]
+    for k, lab in labels.items():
+        ra, rb = a["removals"][k], b["removals"][k]
+        lines.append(f"{lab}: addresses lost (\\%) & {ra['connectivity_loss_pct']:.4f} & {rb['connectivity_loss_pct']:.4f} \\\\")
+        lines.append(f"\\quad throughput (\\% of value) & {ra['incident_pct']:.4f} & {rb['incident_pct']:.4f} \\\\")
+        lines.append(f"\\quad value stranded between survivors & {usdt(ra['stranded_usdt'])} & {usdt(rb['stranded_usdt'])} \\\\")
+    write("table_zero_value.tex",
+          "\\caption{\\textbf{The removal test with and without the pairs that carry no value.} The complete TRON USDT network to 1 January 2025 is built with no value filter, so a zero-value transfer creates an edge. The test of Supplementary Table~\\ref{tab:full-network} is repeated on the subgraph of pairs carrying a positive amount; removal sets are chosen on each graph's own degrees, and the share of addresses lost is taken over the addresses that have an edge in the graph in question. Dropping the zero-value pairs widens the gap between the designated set and the highest-degree undesignated addresses on both component-based measures; throughput is unaffected by construction (\\texttt{scripts/zero\\_value\\_sensitivity.py}).}\n\\label{tab:zero-value}\n"
+          "\\begin{tabular}{lrr}\n\\toprule\n & \\textbf{All pairs} & \\textbf{Value-carrying pairs} \\\\\n\\midrule\n" + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
+
+
 def diffusion_table() -> None:
     path = ROOT / "diffusion_validation.json"
     if not path.exists():
@@ -240,3 +264,4 @@ if __name__ == "__main__":
     validation_tables()
     backbone_tables()
     diffusion_table()
+    zero_value_table()

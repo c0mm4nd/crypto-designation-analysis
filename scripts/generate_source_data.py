@@ -189,6 +189,7 @@ def main() -> None:
         fs = load_json("full_tron_stranded.json")["decomposition"]
         dmi = load_json("degree_matched_interval.json")
         iso, thr = dmi["isolated_share_pct_summary"], dmi["throughput_pct_summary"]
+        zv = load_json("zero_value_sensitivity.json"); zvr = zv["all_pairs"]["removals"]["random_undesignated"]
         rows4a = [{"removed": "the 400 designated addresses", "addresses_lost_pct": fn["remove_designated_pct"],
                    "throughput_pct": fs["designated"]["incident_pct"], "value_stranded_usdt": fs["designated"]["stranded_usdt"]},
                   {"removed": "400 undesignated, degree-matched (200 draws)", "addresses_lost_pct": iso["mean"],
@@ -196,8 +197,9 @@ def main() -> None:
                    "throughput_pct": thr["mean"], "throughput_ci_low": thr["ci"][0], "throughput_ci_high": thr["ci"][1],
                    "value_stranded_usdt": float(sum(dmi["stranded_usdt_exact_draws"]) / len(dmi["stranded_usdt_exact_draws"])),
                    "value_stranded_low": min(dmi["stranded_usdt_exact_draws"]), "value_stranded_high": max(dmi["stranded_usdt_exact_draws"])},
-                  {"removed": "400 undesignated, at random", "addresses_lost_pct": fn["remove_random_pct_mean"],
-                   "throughput_pct": None, "value_stranded_usdt": None},
+                  {"removed": "400 undesignated, at random (address measure: mean of 3 draws; throughput and stranded value: 1 draw)",
+                   "addresses_lost_pct": fn["remove_random_pct_mean"],
+                   "throughput_pct": zvr["incident_pct"], "value_stranded_usdt": zvr["stranded_usdt"]},
                   {"removed": "400 undesignated, highest degree", "addresses_lost_pct": fn["remove_top_degree_undesignated_pct"],
                    "throughput_pct": fs["top_degree_400"]["incident_pct"], "value_stranded_usdt": fs["top_degree_400"]["stranded_usdt"]},
                   {"removed": "1,000 undesignated, highest degree", "addresses_lost_pct": fn["remove_top_degree_undesignated_1000_pct"],
@@ -205,6 +207,15 @@ def main() -> None:
                   {"removed": "10,000 undesignated, highest degree", "addresses_lost_pct": fn["remove_top_degree_undesignated_10000_pct"],
                    "throughput_pct": fs["top_degree_10000"]["incident_pct"], "value_stranded_usdt": fs["top_degree_10000"]["stranded_usdt"]}]
         pd.DataFrame(rows4a).to_excel(xl, sheet_name="Fig 4a", index=False)
+        zrows = []
+        for graph in ("all_pairs", "value_carrying_pairs"):
+            g = zv[graph]
+            for k, r in g["removals"].items():
+                zrows.append({"graph": graph, "n_pairs": g["n_pairs"], "n_addresses_with_an_edge": g["n_addresses_with_an_edge"],
+                              "baseline_lcc_share": g["baseline_lcc_share"], "removed": k,
+                              "addresses_lost_pct": r["connectivity_loss_pct"], "throughput_pct": r["incident_pct"],
+                              "value_stranded_usdt": r["stranded_usdt"]})
+        pd.DataFrame(zrows).to_excel(xl, sheet_name="Supp Table zero-value", index=False)
 
         bs = load_json("boundary_sensitivity.json")
         rows4b = []

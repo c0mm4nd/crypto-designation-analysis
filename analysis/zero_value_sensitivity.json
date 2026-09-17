@@ -1,0 +1,127 @@
+{
+ "description": "The address-level removal test on the complete TRON USDT network run twice: on all pairs, and on the subgraph of pairs carrying a positive amount. Removal sets are chosen on each graph's own degrees. The share of addresses lost from the largest component is taken over addresses that have an edge in the graph in question.",
+ "all_pairs": {
+  "n_pairs": 744543633,
+  "n_addresses_with_an_edge": 213338784,
+  "n_designated_present": 400,
+  "total_value_usdt": 14431615676691.406,
+  "baseline_lcc_share": 0.9999869268965178,
+  "removals": {
+   "designated": {
+    "lcc_share": 0.9999642961577885,
+    "incident_pct": 0.06884952128720442,
+    "incident_usdt": 9936098307.41118,
+    "stranded_pct": 4.088246342042719e-09,
+    "stranded_usdt": 590.0,
+    "connectivity_loss_pct": 0.002263103458721716
+   },
+   "top_degree_undesignated": {
+    "lcc_share": 0.731257854657791,
+    "incident_pct": 44.3525653021727,
+    "incident_usdt": 6400791767163.148,
+    "stranded_pct": 0.02185488012872348,
+    "stranded_usdt": 3154012306.7789726,
+    "connectivity_loss_pct": 26.873258540762478
+   },
+   "degree_matched_undesignated": {
+    "lcc_share": 0.9999528354916197,
+    "incident_pct": 0.01436078948853521,
+    "incident_usdt": 2072493947.1240988,
+    "stranded_pct": 2.1443543193649334e-08,
+    "stranded_usdt": 3094.6497411727905,
+    "connectivity_loss_pct": 0.0034091850584339056
+   },
+   "random_undesignated": {
+    "lcc_share": 0.9999868143746696,
+    "incident_pct": 0.00025026467035604817,
+    "incident_usdt": 36117235.40032352,
+    "stranded_pct": 0.0,
+    "stranded_usdt": 0.0,
+    "connectivity_loss_pct": 1.1252331921784986e-05
+   }
+  }
+ },
+ "value_carrying_pairs": {
+  "n_pairs": 695762180,
+  "n_addresses_with_an_edge": 199343561,
+  "n_designated_present": 400,
+  "total_value_usdt": 14431615676691.258,
+  "baseline_lcc_share": 1.0,
+  "removals": {
+   "designated": {
+    "lcc_share": 0.9999949333601668,
+    "incident_pct": 0.06884952128720513,
+    "incident_usdt": 9936098307.41118,
+    "stranded_pct": 4.088246342042761e-09,
+    "stranded_usdt": 590.0,
+    "connectivity_loss_pct": 0.0005066639833239961
+   },
+   "top_degree_undesignated": {
+    "lcc_share": 0.710959976199033,
+    "incident_pct": 44.347764790824705,
+    "incident_usdt": 6400098975814.824,
+    "stranded_pct": 0.023485533557635108,
+    "stranded_usdt": 3389341942.6582546,
+    "connectivity_loss_pct": 28.904002380096706
+   },
+   "degree_matched_undesignated": {
+    "lcc_share": 0.9999949885413927,
+    "incident_pct": 0.014635837260207793,
+    "incident_usdt": 2112187784.459168,
+    "stranded_pct": 2.462995192286027e-09,
+    "stranded_usdt": 355.4500002861023,
+    "connectivity_loss_pct": 0.0005011458607317998
+   },
+   "random_undesignated": {
+    "lcc_share": 0.9999999247528738,
+    "incident_pct": 0.00019701706651052058,
+    "incident_usdt": 28432745.85628953,
+    "stranded_pct": 0.0,
+    "stranded_usdt": 0.0,
+    "connectivity_loss_pct": 7.524712619666474e-06
+   }
+  }
+ },
+ "comparison": {
+  "designated": {
+   "connectivity_loss_pct": [
+    0.002263103458721716,
+    0.0005066639833239961
+   ],
+   "stranded_usdt": [
+    590.0,
+    590.0
+   ]
+  },
+  "top_degree_undesignated": {
+   "connectivity_loss_pct": [
+    26.873258540762478,
+    28.904002380096706
+   ],
+   "stranded_usdt": [
+    3154012306.7789726,
+    3389341942.6582546
+   ]
+  },
+  "degree_matched_undesignated": {
+   "connectivity_loss_pct": [
+    0.0034091850584339056,
+    0.0005011458607317998
+   ],
+   "stranded_usdt": [
+    3094.6497411727905,
+    355.4500002861023
+   ]
+  },
+  "random_undesignated": {
+   "connectivity_loss_pct": [
+    1.1252331921784986e-05,
+    7.524712619666474e-06
+   ],
+   "stranded_usdt": [
+    0.0,
+    0.0
+   ]
+  }
+ }
+}

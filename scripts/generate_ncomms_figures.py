@@ -715,6 +715,8 @@ def draw_removal_columns(axes):
     na = fn["n_designated"]
     iso, thr = dmi["isolated_share_pct_summary"], dmi["throughput_pct_summary"]
     strand_draws = dmi.get("stranded_usdt_exact_draws", [])
+    # throughput and stranded value of the random control, one draw computed exactly
+    rnd = load_json("zero_value_sensitivity.json")["all_pairs"]["removals"]["random_undesignated"]
 
     rows = [
         (f"the {na} designated", SETTING_COLORS["sanctions"],
@@ -724,7 +726,7 @@ def draw_removal_columns(axes):
          (iso["mean"], iso["ci"]), (thr["mean"], thr["ci"]),
          (None, sorted(strand_draws) if strand_draws else None)),
         (f"{na} undesignated, at random", MUTED,
-         (fn["remove_random_pct_mean"], None), (None, None), (None, None)),
+         (fn["remove_random_pct_mean"], None), (rnd["incident_pct"], None), (rnd["stranded_usdt"], None)),
         (f"{na} undesignated, highest degree", INK_2,
          (fn["remove_top_degree_undesignated_pct"], None), (fs[f"top_degree_{na}"]["incident_pct"], None),
          (fs[f"top_degree_{na}"]["stranded_usdt"], None)),

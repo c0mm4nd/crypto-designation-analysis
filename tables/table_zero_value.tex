@@ -1,0 +1,24 @@
+\caption{\textbf{The removal test with and without the pairs that carry no value.} The complete TRON USDT network to 1 January 2025 is built with no value filter, so a zero-value transfer creates an edge. The test of Supplementary Table~\ref{tab:full-network} is repeated on the subgraph of pairs carrying a positive amount; removal sets are chosen on each graph's own degrees, and the share of addresses lost is taken over the addresses that have an edge in the graph in question. Dropping the zero-value pairs widens the gap between the designated set and the highest-degree undesignated addresses on both component-based measures; throughput is unaffected by construction (\texttt{scripts/zero\_value\_sensitivity.py}).}
+\label{tab:zero-value}
+\begin{tabular}{lrr}
+\toprule
+ & \textbf{All pairs} & \textbf{Value-carrying pairs} \\
+\midrule
+Pairs & 744,543,633 & 695,762,180 \\
+Addresses with an edge & 213,338,784 & 199,343,561 \\
+Largest component before removal (\% of addresses) & 99.9987 & 100.0000 \\
+\midrule
+Remove all 400 designated: addresses lost (\%) & 0.0023 & 0.0005 \\
+\quad throughput (\% of value) & 0.0688 & 0.0688 \\
+\quad value stranded between survivors & 590 USDT & 590 USDT \\
+Remove 400 highest-degree undesignated: addresses lost (\%) & 26.8733 & 28.9040 \\
+\quad throughput (\% of value) & 44.3526 & 44.3478 \\
+\quad value stranded between survivors & 3.15 billion & 3.39 billion \\
+Remove 400 degree-matched undesignated (one draw): addresses lost (\%) & 0.0034 & 0.0005 \\
+\quad throughput (\% of value) & 0.0144 & 0.0146 \\
+\quad value stranded between survivors & 3,095 USDT & 355 USDT \\
+Remove 400 random undesignated (one draw): addresses lost (\%) & 0.0000 & 0.0000 \\
+\quad throughput (\% of value) & 0.0003 & 0.0002 \\
+\quad value stranded between survivors & 0 USDT & 0 USDT \\
+\bottomrule
+\end{tabular}

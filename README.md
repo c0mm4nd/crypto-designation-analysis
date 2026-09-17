@@ -160,3 +160,15 @@ designated stranded value (590 USDT) and stranded share (0.022%) are unchanged.
 `scripts/degree_matched_interval.py` gained `--phase draws|exact`, which splits its two memory
 peaks so it runs on a machine with less free memory; the two phases merge into one output that
 is identical to a single-process run.
+
+## Zero-value sensitivity (v1.6.1)
+
+The complete network is built with no value filter, so a zero-value transfer creates an edge.
+`scripts/zero_value_sensitivity.py` repeats the removal test on the subgraph of pairs carrying a
+positive amount (695,762,180 of 744,543,633 pairs; 199,343,561 of 213,338,784 addresses keep an
+edge) and writes `analysis/zero_value_sensitivity.json`. Dropping the zero-value pairs widens the
+gap: removing the designated addresses costs 0.0005% of addresses instead of 0.0023% and strands
+the same 590 USDT, while removing the 400 highest-degree undesignated addresses costs 28.90%
+instead of 26.87% and strands 3.39 instead of 3.15 billion USDT. The same run supplies the
+throughput and stranded value of the random-removal control (one draw), previously reported only
+as an address count.
