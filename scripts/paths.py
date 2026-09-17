@@ -63,9 +63,16 @@ def out_path(name: str) -> Path:
         return find(name)
     except FileNotFoundError:
         pass
-    if Path(name).suffix == ".json":
+    suffix = Path(name).suffix
+    if suffix == ".json":
         for d in (ROOT, ROOT / "analysis"):
             if d.is_dir() and any(d.glob("*.json")):
+                return d / name
+    if suffix == ".tex":
+        # tables go beside the existing tables: the repository root in the working layout,
+        # tables/ in the archive
+        for d in (ROOT, ROOT / "tables"):
+            if d.is_dir() and any(d.glob("table_*.tex")):
                 return d / name
     d = ROOT / "analysis"
     return (d / name) if d.is_dir() else (ROOT / name)
