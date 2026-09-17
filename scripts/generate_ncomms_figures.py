@@ -377,7 +377,7 @@ def generate_role_landscape():
         ax_c.plot(deg, yi, marker="D", ms=3.0, ls="", color=MUTED, zorder=3)
         ax_c.plot(r["loss"], yi, "o", ms=4.6, color=FAMILY_COLORS[r["family"]], mec="white", mew=0.5, zorder=4)
     ax_c.set_yticks(yc)
-    ax_c.set_yticklabels([f"R{r['role']} {ROLE_NAMES_ISRAEL[r['role']]} ({100 * r['share']:.1f}%, {r['seed_count']} designated)" for r in order])
+    ax_c.set_yticklabels([f"R{r['role']} {ROLE_NAMES_ISRAEL[r['role']]}\n({100 * r['share']:.1f}%, {r['seed_count']} designated)" for r in order], fontsize=6.2, linespacing=1.1)
     ax_c.set_xlim(-3, 105)
     ax_c.set_xlabel("connectivity loss at the same removal budget (%)")
     ax_c.tick_params(axis="y", length=0)
@@ -448,12 +448,12 @@ def generate_timelines():
     # ---- a. schematic (reuse)
     ax_a.set_axis_off()
     ax_a.set_xlim(0, 1)
-    ax_a.set_ylim(0, 1)
+    ax_a.set_ylim(0, 1.06)
     col_x = [0.0, 0.245, 0.495, 0.755]
     col_w = [0.215, 0.205, 0.225, 0.245]
     headers = ["Public anchors", "USDT transfer network", "Role assignment", "Analyses"]
     for x, w, head in zip(col_x, col_w, headers):
-        ax_a.text(x + w / 2, 0.985, head, ha="center", va="top", fontsize=6.8, fontweight="bold", color=INK)
+        ax_a.text(x + w / 2, 1.05, head, ha="center", va="top", fontsize=6.8, fontweight="bold", color=INK)
     rounded_box(ax_a, col_x[0], 0.56, col_w[0], 0.32, SETTING_COLORS["sanctions"], "sanctions designations\nNBCTF (Israel): 20 orders\nOFAC: 3 programmes", fontsize=6.6)
     rounded_box(ax_a, col_x[0], 0.16, col_w[0], 0.32, SETTING_COLORS["fundraising"], "public donation wallets\nAid for Ukraine\n1 address per chain", fontsize=6.6)
     ax_a.text(col_x[0] + col_w[0] / 2, 0.10, "TRON and Ethereum,\n2-hop neighbourhoods", ha="center", va="top", fontsize=6.6, color=INK_2, linespacing=1.25)
@@ -518,8 +518,8 @@ def generate_timelines():
               label="share of donations made")
     ax_c.axvspan(1, 7, color=SETTING_COLORS["fundraising"], alpha=0.10, lw=0, zorder=1)
     w1 = u["windows"]["week1"]
-    ax_c.text(1.15, 46,
-              f"first week:\n{w1['volume_usdt']/1e6:.2f} M USDT from {w1['donors']:,} donors",
+    ax_c.text(1.15, 62,
+              f"first week:\n{w1['volume_usdt']/1e6:.2f} M USDT,\n{w1['donors']:,} donors",
               fontsize=6.6, color=INK_2, va="bottom", linespacing=1.25)
     ax_c.set_xscale("log")
     ax_c.set_xlim(1, 1100)
@@ -675,22 +675,28 @@ def generate_designation():
     ax_c.legend(loc="upper right", bbox_to_anchor=(1.0, 1.0), frameon=False, labelspacing=0.3, handlelength=1.6)
 
     # ---- d. persistence after designation
+    # counterparties on their complete histories (the crawl-based values in phenomena.json are truncated
+    # newest-first); the pooled volume share is an exchange statistic, so the 1% largest are also shown apart
+    cf = load_json("counterparty_full.json")
+    cpf, cpx = cf["counterparties"], cf["counterparties_excluding_top_1pct_by_volume"]
     groups = [
         ("designated\naddresses", [t["share_active_after_signing"] * 100, t["volume_after_signing_share"] * 100], SETTING_COLORS["sanctions"]),
-        ("their undesignated\ncounterparties", [c["share_active_after_order"] * 100, c["volume_share_after_order"] * 100], INK_2),
+        ("their undesignated\ncounterparties", [cpf["share_active_after_order"] * 100, cpf["volume_share_after_order"] * 100], INK_2),
+        ("counterparties without\nthe 1% largest", [cpx["share_active_after_order"] * 100, cpx["volume_share_after_order"] * 100], NEUTRAL),
     ]
     x = np.arange(2)
-    wbar = 0.36
+    wbar = 0.26
     for i, (lab, vals, col) in enumerate(groups):
-        ax_d.bar(x + (i - 0.5) * wbar, vals, width=wbar - 0.04, color=col, alpha=0.9, zorder=3, label=lab.replace("\n", " "))
-        for xi, v in zip(x + (i - 0.5) * wbar, vals):
+        ax_d.bar(x + (i - 1) * wbar, vals, width=wbar - 0.04, color=col, alpha=0.9, zorder=3, label=lab.replace("\n", " "))
+        for xi, v in zip(x + (i - 1) * wbar, vals):
             ax_d.text(xi, v + 1.5, f"{v:.0f}%", ha="center", va="bottom", fontsize=6.6, color=INK)
     ax_d.set_xticks(x)
     ax_d.set_xticklabels(["share of addresses with any\ntransfer after the order", "share of the group's USDT\nvolume occurring after the order"])
     ax_d.set_ylabel("per cent")
-    ax_d.set_ylim(0, 100)
+    ax_d.set_ylim(0, 118)  # headroom for the legend above the tallest bar
+    ax_d.set_yticks([0, 20, 40, 60, 80, 100])
     light_grid(ax_d, axis="y")
-    ax_d.legend(loc="upper right", frameon=False, labelspacing=0.3, handlelength=1.0, handleheight=0.8)
+    ax_d.legend(loc="upper left", frameon=False, labelspacing=0.3, handlelength=1.0, handleheight=0.8)
     # the 90-day persistence share is stated in the text and carried in the Source Data sheet
 
 
@@ -956,7 +962,7 @@ def generate_enforcement():
     ax_a.set_ylabel("designated addresses (%)")
     ax_a.set_ylim(0, 100)
     light_grid(ax_a, axis="y")
-    ax_a.set_xlabel("seizure order (signing date, addresses with an observed transfer)")
+    ax_a.set_xlabel("seizure order (signing date, addresses named)")
     ax_a.legend(loc="upper left", bbox_to_anchor=(0.0, -0.80), ncol=2, columnspacing=0.8,
                 handlelength=1.0, handleheight=0.8, labelspacing=0.3, fontsize=6.6, frameon=False)
 

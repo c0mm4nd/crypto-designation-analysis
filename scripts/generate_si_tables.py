@@ -240,6 +240,86 @@ def zero_value_table() -> None:
           "\\begin{tabular}{lrr}\n\\toprule\n & \\textbf{All pairs} & \\textbf{Value-carrying pairs} \\\\\n\\midrule\n" + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
 
 
+def custody_tables() -> None:
+    if not find("custody.json", required=False).exists():
+        return
+    cu = json.load(open(find("custody.json")))
+    def row(name, a):
+        fz = a["n_frozen"]
+        left = f"{a['left_between_signing_and_freeze_total']/1e6:.1f}" if a["left_between_signing_and_freeze_total"] is not None else "--"
+        atf = f"{a['balance_at_freeze_total']/1e6:.2f}" if a["balance_at_freeze_total"] is not None else "--"
+        return (f"{name} & {a['n']} & {a['deposit_by_own_label']} & {a['deposit_by_recipient']} & {a['deposit_by_behaviour']} & {a['deposit_any']} & "
+                f"{a['median_recipients']:.0f} & {a['median_top_recipient_share']:.2f} & {a['median_sweep_share_24h']:.2f} & {a['median_dwell_hours']:.0f} & "
+                f"{a['median_peak_balance']/1e3:.1f} & {100*a['peak_balance_total']/a['inflow_total']:.1f} & {100*a['share_balance_at_signing_gt_1']:.0f} & "
+                f"{a['balance_at_signing_total']/1e6:.2f} & {fz} & {atf} & {left} \\\\")
+    orders = sorted(cu["by_order"].items(), key=lambda kv: kv[1]["n"], reverse=True)
+    lines = [row(tex_escape(k), v) for k, v in orders if v["n"] >= 3]
+    lines.append("\\midrule")
+    lines.append(row("All orders", cu["overall"]))
+    write("table_custody.tex",
+          "\\caption{\\textbf{Custody indicators for the designated addresses, by order.} From the complete USDT histories of the "
+          f"{cu['n_addresses_with_transfer']} designated addresses with a transfer (to {cu['history_end']}). An address is counted as an exchange deposit "
+          "address on three kinds of evidence: its own third-party label names it as an exchange user address (label); at least 90\\% of its outflow "
+          "value went to one recipient that carries an exchange label (recipient); or at least 90\\% of its inflow value left within 24 hours, value "
+          "dwelt in it for a median of at most 24 hours and it forwarded to at most three recipients (behaviour). Labels cover few addresses, so the first "
+          "two columns are lower bounds. Recipients, top-recipient share, sweep share (share of inflow value gone within 24 hours), dwell (hours until "
+          "an inflow is forwarded) and peak balance are per-address medians; peak/inflow is the summed peak balance over the summed inflow; "
+          "balance at signing is the share of addresses holding more than 1 USDT and the total held; freeze columns give the total held when Tether "
+          "blacklisted the address and the total that left the addresses between signing and freezing. Orders with fewer than three addresses are "
+          "pooled into the last row only (\\texttt{scripts/compute\\_custody.py}).}\n\\label{tab:custody}\n"
+          "\\begin{tabular}{lrrrrrrrrrrrrrrrr}\n\\toprule\n"
+          " & & \\multicolumn{4}{c}{\\textbf{Deposit-address evidence}} & \\multicolumn{4}{c}{\\textbf{Forwarding (medians)}} & \\multicolumn{2}{c}{\\textbf{Peak balance}} & "
+          "\\multicolumn{2}{c}{\\textbf{At signing}} & \\multicolumn{3}{c}{\\textbf{Freeze}} \\\\\n"
+          "\\cmidrule(lr){3-6}\\cmidrule(lr){7-10}\\cmidrule(lr){11-12}\\cmidrule(lr){13-14}\\cmidrule(lr){15-17}\n"
+          "\\textbf{Order} & $n$ & label & recipient & behaviour & any & recip. & top share & sweep & dwell (h) & median (k USDT) & /inflow (\\%) & "
+          "$>1$ USDT (\\%) & total (M) & $n$ & held (M) & left after signing (M) \\\\\n\\midrule\n" + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
+
+    if find("publication_alignment.json", required=False).exists():
+        pa = json.load(open(find("publication_alignment.json")))
+        lines = []
+        for k, v in pa["orders"].items():
+            if "ratio_weeks_7_26" not in v:
+                continue
+            pw = v["publication_week"]
+            between = f"{v['ratio_weeks_between_signing_and_publication']:.2f}" if v.get("ratio_weeks_between_signing_and_publication") is not None else "--"
+            after = f"{v['ratio_weeks_after_publication_to_26']:.4f}" if v.get("ratio_weeks_after_publication_to_26") is not None else "--"
+            first = v["first_week_below_10pct_and_staying"]
+            lines.append(f"{tex_escape(k)} & {v['signed']} & {v['published']} & {v['days_signing_to_publication']} & {v['n_addresses']} & "
+                         f"{v['pre_mean_weekly_volume']/1e6:.2f} & {between} & {after} & {v['ratio_weeks_7_26']:.4f} & {first if first is not None else '--'} \\\\")
+        write("table_publication.tex",
+              "\\caption{\\textbf{Flows through each order's addresses between signing and publication.} Weekly USDT volume through the addresses of "
+              "each order inside the event window, relative to the mean of the 26 weeks before signing: in the weeks from signing up to the week of "
+              "publication, in the weeks after publication to week 26, and in weeks 7 to 26 (the event-study window). The last column is the first week "
+              "after signing from which volume stays below 10\\% of the pre-signing mean. For the two orders whose addresses were still moving money "
+              "at signing, the fall coincides with publication rather than signature (\\texttt{scripts/compute\\_publication\\_alignment.py}).}\n"
+              "\\label{tab:publication}\n\\begin{tabular}{lllrrrrrrr}\n\\toprule\n"
+              "\\textbf{Order} & \\textbf{Signed} & \\textbf{Published} & \\textbf{Days} & $n$ & \\textbf{Pre (M/week)} & "
+              "\\textbf{Signing to publication} & \\textbf{After publication} & \\textbf{Weeks 7--26} & \\textbf{Below 10\\% from week} \\\\\n\\midrule\n"
+              + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
+
+    if find("counterparty_full.json", required=False).exists():
+        cf = json.load(open(find("counterparty_full.json")))
+        ph = json.load(open(find("phenomena.json")))["counterparty_persistence"]
+        def r(name, a, med=True):
+            m = f"{100*a['median_per_address_post_share']:.0f}" if med and "median_per_address_post_share" in a else "--"
+            return f"{name} & {a['n']:,} & {100*a['share_active_after_order']:.0f} & {100*a['share_active_90d_after_order']:.0f} & {100*a['volume_share_after_order']:.0f} & {m} \\\\"
+        lines = [r("Designated addresses (complete histories)", cf["designated"]),
+                 r("Counterparties with pre-order contact (complete histories)", cf["counterparties"]),
+                 r("\\quad excluding the 1\\% largest by volume", cf["counterparties_excluding_top_1pct_by_volume"]),
+                 r("Counterparties reached by the crawl (crawled histories, earlier basis)", dict(ph, n=ph["n_counterparties"]), med=False)]
+        chk = cf["check_designated_transfer_count_csv_vs_node"]
+        write("table_counterparty_full.tex",
+              "\\caption{\\textbf{Counterparty persistence on complete histories.} Every undesignated address that transacted with one of the 178 "
+              "in-window designated addresses before that address's order, dated by the earliest such order, with its full USDT history read from the "
+              f"archive node to {cf['data_end']} and the designated addresses measured identically. Share active: any transfer after the order; 90 d: a transfer more "
+              "than 90 days after it; volume share: the pooled group's USDT volume after the order over its volume in the window; median: the per-address "
+              "share of volume after the order. The pooled volume share is carried by exchange-scale counterparties, so it is also given without the 1\\% "
+              f"largest by volume. The last row is the earlier measure on crawled histories. The node and the per-address export agree on the designated addresses' transfer counts to within {100*abs(chk['node']-chk['csv'])/chk['csv']:.1f}\\% "
+              "(\\texttt{scripts/compute\\_counterparty\\_full.py}).}\n\\label{tab:counterparty-full}\n"
+              "\\begin{tabular}{lrrrrr}\n\\toprule\n\\textbf{Group} & $n$ & \\textbf{Active after (\\%)} & \\textbf{Active 90 d (\\%)} & \\textbf{Volume share after (\\%)} & \\textbf{Median (\\%)} \\\\\n\\midrule\n"
+              + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
+
+
 def diffusion_table() -> None:
     path = ROOT / "diffusion_validation.json"
     if not path.exists():
@@ -265,3 +345,4 @@ if __name__ == "__main__":
     backbone_tables()
     diffusion_table()
     zero_value_table()
+    custody_tables()

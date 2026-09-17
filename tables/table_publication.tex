@@ -1,0 +1,16 @@
+\caption{\textbf{Flows through each order's addresses between signing and publication.} Weekly USDT volume through the addresses of each order inside the event window, relative to the mean of the 26 weeks before signing: in the weeks from signing up to the week of publication, in the weeks after publication to week 26, and in weeks 7 to 26 (the event-study window). The last column is the first week after signing from which volume stays below 10\% of the pre-signing mean. For the two orders whose addresses were still moving money at signing, the fall coincides with publication rather than signature (\texttt{scripts/compute\_publication\_alignment.py}).}
+\label{tab:publication}
+\begin{tabular}{lllrrrrrrr}
+\toprule
+\textbf{Order} & \textbf{Signed} & \textbf{Published} & \textbf{Days} & $n$ & \textbf{Pre (M/week)} & \textbf{Signing to publication} & \textbf{After publication} & \textbf{Weeks 7--26} & \textbf{Below 10\% from week} \\
+\midrule
+ASO 15/22 & 2022-03-07 & 2022-03-07 & 0 & 46 & 1.12 & -- & -- & 0.1396 & -- \\
+ASO 19/23 & 2023-03-28 & 2023-04-23 & 26 & 4 & 0.28 & 1.04 & 0.0000 & 0.0000 & 4 \\
+ASO 2/24 & 2024-01-21 & 2024-04-02 & 72 & 1 & 0.00 & 0.00 & 0.0000 & 0.0000 & 0 \\
+ASO 29/23 & 2023-05-21 & 2023-06-28 & 38 & 39 & 190.95 & 0.62 & 0.0132 & 0.0068 & 7 \\
+ASO 34/23 & 2023-07-04 & 2023-07-05 & 1 & 25 & 1.31 & -- & -- & 0.0000 & 0 \\
+ASO 44/21 & 2021-06-30 & 2021-07-01 & 1 & 10 & 0.17 & -- & -- & 0.0000 & 0 \\
+ASO 5/24 & 2024-03-24 & 2024-03-28 & 4 & 42 & 0.09 & -- & -- & 0.0000 & 0 \\
+ASO 53/23 & 2023-10-20 & 2023-10-22 & 2 & 17 & 0.85 & -- & -- & 0.0000 & 1 \\
+\bottomrule
+\end{tabular}

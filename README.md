@@ -172,3 +172,19 @@ the same 590 USDT, while removing the 400 highest-degree undesignated addresses 
 instead of 26.87% and strands 3.39 instead of 3.15 billion USDT. The same run supplies the
 throughput and stranded value of the random-removal control (one draw), previously reported only
 as an address count.
+
+## Custody, publication alignment and complete-history counterparties (v1.7.0)
+
+Three analyses added in response to referee-style audits, all from the designated addresses' complete
+USDT histories and the archive node:
+
+- `scripts/compute_custody.py` -> `analysis/custody.json`: per-address custody indicators (own entity label,
+  destination of outflows, sweep behaviour, balance at signing / publication / freezing / peak) and their
+  aggregates by seizure order (Supplementary Table 10). Per-address labels are not redistributed.
+- `scripts/compute_publication_alignment.py` -> `analysis/publication_alignment.json`: weekly volume per
+  order relative to signing with the publication week marked (Supplementary Table 7).
+- `scripts/compute_counterparty_full.py` -> `analysis/counterparty_full.json`: counterparty persistence
+  recomputed from every pre-order counterparty's complete history in the node, with the designated addresses
+  measured identically (Supplementary Table 11; needs CH_URL/CH_AUTH).
+- `scripts/count_source_records.py` -> `analysis/source_counts.json`: counts quoted in the text that come
+  straight from the source records.

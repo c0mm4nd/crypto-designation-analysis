@@ -1,0 +1,31 @@
+{
+ "data_end": "2025-01-01",
+ "nbctf_crawl": {
+  "n_addresses": 596633,
+  "share_with_single_counterparty": 0.8494266994953347
+ },
+ "frozen_at_least_90d_before_data_end": {
+  "of_all_designated": 100,
+  "of_crawl_reached": 98,
+  "n_designated": 490,
+  "n_crawl_reached": 389
+ },
+ "destroyed_black_funds_events": {
+  "events": 835,
+  "distinct_addresses": 777
+ },
+ "ofac_tron_addresses": {
+  "ofac_iran": {
+   "listed": 16,
+   "present_in_crawl": 9
+  },
+  "ofac_russia_ukraine": {
+   "listed": 10,
+   "present_in_crawl": 5
+  },
+  "ofac_terrorist_financing": {
+   "listed": 30,
+   "present_in_crawl": 21
+  }
+ }
+}

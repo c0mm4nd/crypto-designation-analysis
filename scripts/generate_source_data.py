@@ -74,7 +74,8 @@ def main() -> None:
                 ("Fig 1e", "Share of addresses per learned role in the three focal networks."),
                 ("Fig 2a", "Days from last observed transfer to signing, per designated address, with the order that named it."),
                 ("Fig 2b-c", "Weekly volume, transfers and share of active addresses relative to the event, designated versus placebo."),
-                ("Fig 2d", "Persistence after the order for designated addresses and their counterparties."),
+                ("Fig 2c n", "Number of addresses behind each series of Fig 2c."),
+                ("Fig 2d", "Persistence after the order for designated addresses and their counterparties, from complete histories."),
                 ("Fig 3a", "Tether blacklisting of designated addresses by seizure order."),
                 ("Fig 3b", "Days from signing of the order to Tether blacklisting, per frozen address."),
                 ("Fig 3c", "Weekly USDT inflow and outflow relative to the week of blacklisting."),
@@ -86,6 +87,10 @@ def main() -> None:
                 ("Supp Fig 4", "Connectivity loss for the anchor-densest role and the most damaging role in each network (learned partition)."),
                 ("Fig 4b", "Connectivity loss from removing the designated addresses and from removing the same number of undesignated hubs, at each crawl boundary and on the complete network."),
                 ("Fig 4c", "Cumulative volume share by top share of addresses: counterparties of designated addresses and Ukraine donors."),
+                ("Fig 4c donors", "Per-donor totals behind the Ukraine curve of Fig 4c."),
+                ("Supp Table zero-value", "Removal test with and without zero-value pairs (Supplementary Table 13)."),
+                ("Supp Table custody", "Custody indicators for the designated addresses by order (Supplementary Table 10)."),
+                ("Supp Table publication", "Weekly volume per order relative to signing, with the publication week (Supplementary Table 7)."),
                 ("Supp Fig 2", "Donation-size histogram, Aid for Ukraine TRON address."),
                 ("Supp Fig 3a", "Recall of designated addresses among the K highest-ranked, per score."),
                 ("Supp Fig 3b", "ROC-AUC per score over all addresses, with bootstrap intervals."),
@@ -128,12 +133,8 @@ def main() -> None:
             [{"score": m, **{f"recall_at_{k}": e["recall_at_k"][k] for k in ks}} for m, e in allm.items()]
         ).to_excel(xl, sheet_name="Supp Fig 3a", index=False)
 
-        # Supplementary screening figure b: AUC with bootstrap CI (IC coverage and centralities from screening_extended.json;
-        # betweenness and GNN baselines from wcfrm_results.json)
+        # Supplementary screening figure b: AUC with bootstrap CI, the six scores the panel plots, from screening_extended.json
         rows2b = [{"score": m, "auc": e["auc"], "ci95_low": e["ci_low"], "ci95_high": e["ci_high"], "source": "screening_extended.json"} for m, e in allm.items()]
-        rows2b.append({"score": "betweenness", "auc": results["auc"]["Betweenness"]["auc"], "ci95_low": results["auc"]["Betweenness"]["ci_low"], "ci95_high": results["auc"]["Betweenness"]["ci_high"], "source": "wcfrm_results.json"})
-        for m in GNN_METHODS:
-            rows2b.append({"score": m, "auc": results["auc"][m]["auc"], "ci95_low": results["auc"][m]["ci_low"], "ci95_high": results["auc"][m]["ci_high"], "source": "wcfrm_results.json"})
         pd.DataFrame(rows2b).to_excel(xl, sheet_name="Supp Fig 3b", index=False)
 
         # Supp Fig 3c: designated addresses against their direct counterparties, the set an
@@ -271,8 +272,21 @@ def main() -> None:
                       "designated_full_history_share_active": [ph["nbctf_event_concentration"]["active_share_pct_by_week"].get(str(w), 0.0) / 100 for w in e["weeks"]]}).to_excel(xl, sheet_name="Fig 2b-c", index=False)
         pd.DataFrame([{"series": "designated, any activity", "n": e["per_address"]["n"]}, {"series": "designated, full history", "n": ph["nbctf_event_concentration"]["n_addresses_covering_full_window"]}, {"series": "placebo", "n": pl["per_address"]["n"]}]).to_excel(xl, sheet_name="Fig 2c n", index=False)
         c = ph["counterparty_persistence"]
-        pd.DataFrame([{"group": "designated addresses", "n": e["n_addresses"], "share_active_after_order": t["share_active_after_signing"], "volume_share_after_order": t["volume_after_signing_share"]},
-                      {"group": "undesignated counterparties", "n": c["n_counterparties"], "share_active_after_order": c["share_active_after_order"], "share_active_90d_after_order": c["share_active_90d_after_order"], "volume_share_after_order": c["volume_share_after_order"]}]).to_excel(xl, sheet_name="Fig 2d", index=False)
+        cf = load_json("counterparty_full.json"); cpf, cpx, cpd = cf["counterparties"], cf["counterparties_excluding_top_1pct_by_volume"], cf["designated"]
+        pd.DataFrame([{"group": "designated addresses", "history": "complete", "n": e["n_addresses"], "share_active_after_order": t["share_active_after_signing"], "share_active_90d_after_order": cpd["share_active_90d_after_order"], "volume_share_after_order": t["volume_after_signing_share"]},
+                      {"group": "undesignated counterparties with pre-order contact", "history": "complete", "n": cpf["n"], "share_active_after_order": cpf["share_active_after_order"], "share_active_90d_after_order": cpf["share_active_90d_after_order"], "volume_share_after_order": cpf["volume_share_after_order"], "median_per_address_post_share": cpf["median_per_address_post_share"]},
+                      {"group": "the same, excluding the 1% largest by volume", "history": "complete", "n": cpx["n"], "share_active_after_order": cpx["share_active_after_order"], "share_active_90d_after_order": cpx["share_active_90d_after_order"], "volume_share_after_order": cpx["volume_share_after_order"], "median_per_address_post_share": cpx["median_per_address_post_share"]},
+                      {"group": "undesignated counterparties reached by the crawl (earlier basis, not plotted)", "history": "crawled", "n": c["n_counterparties"], "share_active_after_order": c["share_active_after_order"], "share_active_90d_after_order": c["share_active_90d_after_order"], "volume_share_after_order": c["volume_share_after_order"]}]).to_excel(xl, sheet_name="Fig 2d", index=False)
+        cu = load_json("custody.json")
+        crows = [dict(order=k, **{kk: vv for kk, vv in v.items() if not isinstance(vv, dict)}) for k, v in cu["by_order"].items()]
+        crows.append(dict(order="all orders", **{kk: vv for kk, vv in cu["overall"].items() if not isinstance(vv, dict)}))
+        pd.DataFrame(crows).to_excel(xl, sheet_name="Supp Table custody", index=False)
+        pa = load_json("publication_alignment.json")
+        prow = []
+        for k, v in pa["orders"].items():
+            for w, vol in enumerate(v["weekly_volume"]):
+                prow.append({"order": k, "signed": v["signed"], "published": v["published"], "publication_week": v["publication_week"], "week_relative_to_signing": w - pa["window_weeks"], "volume_usdt": vol, "pre_mean_weekly_volume": v["pre_mean_weekly_volume"]})
+        pd.DataFrame(prow).to_excel(xl, sheet_name="Supp Table publication", index=False)
         k = ph["concentration"]
         xs = [i * 100 / 199 for i in range(200)]
         pd.DataFrame({"counterparty_rank": k["counterparty_lorenz_log_rank"],

@@ -1,0 +1,28 @@
+\caption{\textbf{Custody indicators for the designated addresses, by order.} From the complete USDT histories of the 484 designated addresses with a transfer (to 2025-12-22). An address is counted as an exchange deposit address on three kinds of evidence: its own third-party label names it as an exchange user address (label); at least 90\% of its outflow value went to one recipient that carries an exchange label (recipient); or at least 90\% of its inflow value left within 24 hours, value dwelt in it for a median of at most 24 hours and it forwarded to at most three recipients (behaviour). Labels cover few addresses, so the first two columns are lower bounds. Recipients, top-recipient share, sweep share (share of inflow value gone within 24 hours), dwell (hours until an inflow is forwarded) and peak balance are per-address medians; peak/inflow is the summed peak balance over the summed inflow; balance at signing is the share of addresses holding more than 1 USDT and the total held; freeze columns give the total held when Tether blacklisted the address and the total that left the addresses between signing and freezing. Orders with fewer than three addresses are pooled into the last row only (\texttt{scripts/compute\_custody.py}).}
+\label{tab:custody}
+\begin{tabular}{lrrrrrrrrrrrrrrrr}
+\toprule
+ & & \multicolumn{4}{c}{\textbf{Deposit-address evidence}} & \multicolumn{4}{c}{\textbf{Forwarding (medians)}} & \multicolumn{2}{c}{\textbf{Peak balance}} & \multicolumn{2}{c}{\textbf{At signing}} & \multicolumn{3}{c}{\textbf{Freeze}} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-10}\cmidrule(lr){11-12}\cmidrule(lr){13-14}\cmidrule(lr){15-17}
+\textbf{Order} & $n$ & label & recipient & behaviour & any & recip. & top share & sweep & dwell (h) & median (k USDT) & /inflow (\%) & $>1$ USDT (\%) & total (M) & $n$ & held (M) & left after signing (M) \\
+\midrule
+ASO 43/25 & 187 & 3 & 5 & 79 & 82 & 2 & 1.00 & 0.75 & 13 & 25.3 & 19.8 & 24 & 1.59 & 187 & 1.48 & 0.0 \\
+ASO 1/25 & 58 & 0 & 1 & 1 & 1 & 28 & 0.30 & 0.28 & 102 & 168.4 & 8.9 & 43 & 0.45 & 58 & 0.48 & 0.3 \\
+ASO 15/22 & 42 & 4 & 22 & 6 & 26 & 2 & 0.93 & 0.58 & 37 & 17.8 & 5.5 & 40 & 0.03 & 0 & -- & -- \\
+ASO 5/24 & 42 & 1 & 2 & 2 & 5 & 2 & 0.59 & 0.00 & 68 & 9.2 & 55.0 & 17 & 0.03 & 42 & 0.01 & 0.0 \\
+ASO 29/23 & 39 & 0 & 0 & 0 & 0 & 140 & 0.17 & 0.52 & 38 & 701.2 & 1.4 & 54 & 2.63 & 39 & 0.24 & 351.4 \\
+ASO 34/23 & 25 & 0 & 0 & 2 & 2 & 139 & 0.30 & 0.46 & 49 & 25.0 & 1.8 & 56 & 0.02 & 0 & -- & -- \\
+ASO 53/25 & 21 & 0 & 0 & 0 & 0 & 1 & 0.50 & 0.00 & 238 & 45.0 & 51.8 & 100 & 0.71 & 21 & 0.70 & 0.0 \\
+ASO 53/23 & 17 & 0 & 0 & 1 & 1 & 6 & 0.36 & 0.34 & 71 & 22.3 & 1.2 & 88 & 0.13 & 17 & 0.08 & 0.1 \\
+ASO 49/25 & 10 & 0 & 0 & 0 & 0 & 29 & 0.18 & 0.13 & 228 & 114.5 & 22.5 & 60 & 0.01 & 0 & -- & -- \\
+ASO 44/21 & 9 & 0 & 0 & 2 & 2 & 1 & 1.00 & 0.35 & 74 & 20.5 & 27.8 & 22 & 0.00 & 0 & -- & -- \\
+ASO 51/25 & 9 & 0 & 0 & 0 & 0 & 3 & 0.55 & 0.04 & 44 & 724.4 & 5.5 & 89 & 4.65 & 9 & 1.13 & 0.0 \\
+ASO 33/24 & 5 & 0 & 0 & 0 & 0 & 5 & 0.44 & 0.18 & 89 & 91.0 & 15.4 & 100 & 0.25 & 5 & 0.10 & 0.0 \\
+ASO 34/24 & 5 & 0 & 0 & 0 & 0 & 386 & 0.15 & 0.18 & 132 & 484.0 & 3.4 & 60 & 0.27 & 5 & 0.27 & 0.0 \\
+ASO 20/25 & 4 & 0 & 0 & 2 & 2 & 2 & 0.92 & 0.92 & 14 & 1.1 & 98.7 & 0 & -0.00 & 4 & -0.00 & 0.0 \\
+ASO 16/25 & 3 & 0 & 0 & 0 & 0 & 66 & 0.18 & 0.37 & 26 & 68.4 & 3.9 & 100 & 0.02 & 3 & 0.02 & 0.0 \\
+ASO 19/23 & 3 & 1 & 2 & 0 & 2 & 1 & 1.00 & 0.11 & 169 & 54.6 & 3.4 & 33 & 0.00 & 1 & 0.00 & 0.5 \\
+\midrule
+All orders & 484 & 9 & 32 & 95 & 123 & 3 & 0.60 & 0.37 & 49 & 45.4 & 6.5 & 41 & 10.99 & 396 & 4.70 & 352.4 \\
+\bottomrule
+\end{tabular}

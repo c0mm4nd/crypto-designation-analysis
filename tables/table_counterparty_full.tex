@@ -1,0 +1,12 @@
+\caption{\textbf{Counterparty persistence on complete histories.} Every undesignated address that transacted with one of the 178 in-window designated addresses before that address's order, dated by the earliest such order, with its full USDT history read from the archive node to 2025-01-01 and the designated addresses measured identically. Share active: any transfer after the order; 90 d: a transfer more than 90 days after it; volume share: the pooled group's USDT volume after the order over its volume in the window; median: the per-address share of volume after the order. The pooled volume share is carried by exchange-scale counterparties, so it is also given without the 1\% largest by volume. The last row is the earlier measure on crawled histories. The node and the per-address export agree on the designated addresses' transfer counts to within 1.3\% (\texttt{scripts/compute\_counterparty\_full.py}).}
+\label{tab:counterparty-full}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Group} & $n$ & \textbf{Active after (\%)} & \textbf{Active 90 d (\%)} & \textbf{Volume share after (\%)} & \textbf{Median (\%)} \\
+\midrule
+Designated addresses (complete histories) & 178 & 41 & 26 & 9 & 0 \\
+Counterparties with pre-order contact (complete histories) & 49,945 & 27 & 16 & 71 & 0 \\
+\quad excluding the 1\% largest by volume & 49,445 & 26 & 15 & 27 & 0 \\
+Counterparties reached by the crawl (crawled histories, earlier basis) & 20,295 & 29 & 18 & 58 & -- \\
+\bottomrule
+\end{tabular}

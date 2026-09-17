@@ -1,0 +1,36 @@
+{
+ "description": "Counterparty persistence recomputed from the complete USDT history of every counterparty that transacted with a designated address before that address's order, cut at data_end, with the designated addresses measured identically.",
+ "data_end": "2025-01-01",
+ "min_post_days": 90,
+ "counterparties": {
+  "n": 49945,
+  "share_active_after_order": 0.2660927019721694,
+  "share_active_90d_after_order": 0.1597156872559816,
+  "volume_share_after_order": 0.7079362054255082,
+  "median_per_address_post_share": 0.0,
+  "volume_before": 1851116899679.128,
+  "volume_after": 4486939833357.648
+ },
+ "designated": {
+  "n": 178,
+  "share_active_after_order": 0.4101123595505618,
+  "share_active_90d_after_order": 0.2640449438202247,
+  "volume_share_after_order": 0.08625801530445747,
+  "median_per_address_post_share": 0.0,
+  "volume_before": 7573027205.735661,
+  "volume_after": 714900166.0803361
+ },
+ "counterparties_excluding_top_1pct_by_volume": {
+  "n": 49445,
+  "share_active_after_order": 0.260734149054505,
+  "share_active_90d_after_order": 0.154575791283244,
+  "volume_share_after_order": 0.26798129882975774,
+  "median_per_address_post_share": 0.0,
+  "volume_before": 172258938571.31525,
+  "volume_after": 63061468265.19503
+ },
+ "check_designated_transfer_count_csv_vs_node": {
+  "csv": 308274,
+  "node": 312316
+ }
+}
