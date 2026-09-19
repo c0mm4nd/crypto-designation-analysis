@@ -1,0 +1,375 @@
+{
+ "description": "USDT sent by frozen designated addresses between the signing of their order and their freeze, by category of recipient; labels are third-party entity tags and are sparse, so the labelled shares are lower bounds.",
+ "all_frozen": {
+  "total_usdt": 352403489.78343,
+  "n_sending_addresses": 38,
+  "n_recipients": 1342,
+  "share_by_category": {
+   "unlabelled": 0.989618649911077,
+   "designated (same programme)": 0.008531623798185693,
+   "other labelled": 0.0018213497272528423,
+   "labelled exchange or payment processor": 2.837656348450327e-05
+  },
+  "top10_recipients": [
+   {
+    "rank": 1,
+    "share_of_outflow": 0.05632747916616218,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 2,
+    "share_of_outflow": 0.034384057908866214,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 3,
+    "share_of_outflow": 0.033714195075938334,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 4,
+    "share_of_outflow": 0.030019024517893456,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 5,
+    "share_of_outflow": 0.029114788296521667,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 6,
+    "share_of_outflow": 0.02897247131767784,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 7,
+    "share_of_outflow": 0.027289741103046793,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 8,
+    "share_of_outflow": 0.025970480614776057,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 9,
+    "share_of_outflow": 0.02364166145210445,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 10,
+    "share_of_outflow": 0.016773386675689884,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   }
+  ],
+  "share_top10": 0.30620728612867687,
+  "share_top1": 0.05632747916616218
+ },
+ "top20_recipients_all_frozen": [
+  {
+   "rank": 1,
+   "share_of_outflow": 0.05632747916616218,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 449,
+   "first_seen": "2023-05-24",
+   "counterparties": 135
+  },
+  {
+   "rank": 2,
+   "share_of_outflow": 0.034384057908866214,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 1133,
+   "first_seen": "2023-05-10",
+   "counterparties": 197
+  },
+  {
+   "rank": 3,
+   "share_of_outflow": 0.033714195075938334,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 3992,
+   "first_seen": "2023-01-10",
+   "counterparties": 934
+  },
+  {
+   "rank": 4,
+   "share_of_outflow": 0.030019024517893456,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 3294,
+   "first_seen": "2023-05-19",
+   "counterparties": 500
+  },
+  {
+   "rank": 5,
+   "share_of_outflow": 0.029114788296521667,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 874,
+   "first_seen": "2023-03-25",
+   "counterparties": 317
+  },
+  {
+   "rank": 6,
+   "share_of_outflow": 0.02897247131767784,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 3171,
+   "first_seen": "2021-09-03",
+   "counterparties": 128
+  },
+  {
+   "rank": 7,
+   "share_of_outflow": 0.027289741103046793,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 11436,
+   "first_seen": "2023-05-01",
+   "counterparties": 2402
+  },
+  {
+   "rank": 8,
+   "share_of_outflow": 0.025970480614776057,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 2645,
+   "first_seen": "2023-05-04",
+   "counterparties": 18
+  },
+  {
+   "rank": 9,
+   "share_of_outflow": 0.02364166145210445,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 965,
+   "first_seen": "2023-03-29",
+   "counterparties": 210
+  },
+  {
+   "rank": 10,
+   "share_of_outflow": 0.016773386675689884,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 6292,
+   "first_seen": "2023-04-04",
+   "counterparties": 1166
+  },
+  {
+   "rank": 11,
+   "share_of_outflow": 0.013750400581418545,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 1084,
+   "first_seen": "2023-06-05",
+   "counterparties": 249
+  },
+  {
+   "rank": 12,
+   "share_of_outflow": 0.01085908939877909,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 3008,
+   "first_seen": "2023-04-08",
+   "counterparties": 446
+  },
+  {
+   "rank": 13,
+   "share_of_outflow": 0.010783094124111242,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 1848,
+   "first_seen": "2022-10-21",
+   "counterparties": 248
+  },
+  {
+   "rank": 14,
+   "share_of_outflow": 0.010547001115920175,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 1962,
+   "first_seen": "2021-02-08",
+   "counterparties": 45
+  },
+  {
+   "rank": 15,
+   "share_of_outflow": 0.010374670245878787,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 26566,
+   "first_seen": "2021-10-22",
+   "counterparties": 3879
+  },
+  {
+   "rank": 16,
+   "share_of_outflow": 0.00851296904535098,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 228,
+   "first_seen": "2023-06-12",
+   "counterparties": 33
+  },
+  {
+   "rank": 17,
+   "share_of_outflow": 0.008257579973990452,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 108,
+   "first_seen": "2021-12-24",
+   "counterparties": 14
+  },
+  {
+   "rank": 18,
+   "share_of_outflow": 0.00824622934859665,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 4818,
+   "first_seen": "2022-12-23",
+   "counterparties": 1100
+  },
+  {
+   "rank": 19,
+   "share_of_outflow": 0.007907129414956835,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 11214,
+   "first_seen": "2022-07-21",
+   "counterparties": 3699
+  },
+  {
+   "rank": 20,
+   "share_of_outflow": 0.007633414758898015,
+   "category": "unlabelled",
+   "label": null,
+   "in_top400_by_activity": false,
+   "transfers": 3544,
+   "first_seen": "2022-07-18",
+   "counterparties": 916
+  }
+ ],
+ "ASO 29/23": {
+  "total_usdt": 351416993.917833,
+  "n_sending_addresses": 24,
+  "n_recipients": 1254,
+  "share_by_category": {
+   "unlabelled": 0.9897479488403956,
+   "designated (same programme)": 0.008416624839411064,
+   "other labelled": 0.0018069700981748007,
+   "labelled exchange or payment processor": 2.84562220185008e-05
+  },
+  "top10_recipients": [
+   {
+    "rank": 1,
+    "share_of_outflow": 0.05648560135797034,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 2,
+    "share_of_outflow": 0.03448058064839393,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 3,
+    "share_of_outflow": 0.0338088373801808,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 4,
+    "share_of_outflow": 0.03010329375953144,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 5,
+    "share_of_outflow": 0.029196519171178704,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 6,
+    "share_of_outflow": 0.029053802680889317,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 7,
+    "share_of_outflow": 0.02736634871519222,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 8,
+    "share_of_outflow": 0.026043384806085694,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 9,
+    "share_of_outflow": 0.023708028194982564,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   },
+   {
+    "rank": 10,
+    "share_of_outflow": 0.01682047283513582,
+    "category": "unlabelled",
+    "label": null,
+    "designated_order": null
+   }
+  ],
+  "share_top10": 0.3070668695495409,
+  "share_top1": 0.05648560135797034
+ }
+}

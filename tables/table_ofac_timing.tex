@@ -1,0 +1,22 @@
+\caption{\textbf{Timing and Tether enforcement for the OFAC-listed TRON USDT addresses.} Every TRON USDT address listed under the three OFAC programmes used in this study, grouped by the listed entity, with the same measures as for the NBCTF orders computed from complete histories to 1 July 2026, the end of the node export (last transfer 2026-05-14), and the blacklist to 1 January 2026. Listed: the date of the SDN List publication that added the address (23 of 24 addresses are dated by the list's change history; the remaining address predates it and carries its entity's date). Entity: the date the entity itself was first listed, where earlier. Lag: median days from the address's last transfer before listing to the listing. Dormant: share inactive for more than 90 days at listing. Active after: share with any transfer after listing. Freeze: median days from listing to Tether's blacklisting, and the number blacklisted before listing. Balance at freeze, summed peak balance and lifetime volume are in thousand, million and million USDT (\texttt{scripts/compute\_ofac\_timing.py}, \texttt{scripts/fetch\_ofac\_address\_dates.py}).}
+\label{tab:ofac-timing}
+\begin{tabular}{llllrrrrrrrrr}
+\toprule
+\textbf{Entity} & \textbf{Programme} & \textbf{Listed} & \textbf{Entity} & $n$ & \textbf{Lag (d)} & \textbf{Dormant (\%)} & \textbf{Active after (\%)} & \textbf{Freeze (d)} & \textbf{Before} & \textbf{At freeze (k)} & \textbf{Peak (M)} & \textbf{Volume (M)} \\
+\midrule
+Task Force Rusich & Russia & 2022-09-15 & -- & 1 & 62 & 0 & 0 & 450 & 0 & 0.0 & 0.00 & 0.0 \\
+Shafiu, Ali & Terrorism & 2023-07-31 & -- & 1 & 432 & 100 & 0 & 131 & 0 & 0.0 & 0.01 & 0.0 \\
+Gambashidze, Ilya Andreevich & Russia & 2024-03-20 & -- & 2 & 20 & 0 & 100 & 0 & 0 & 39.0 & 0.11 & 0.4 \\
+Al-Law, Tawfiq Muhammad Sa'id & Terrorism & 2024-03-26 & -- & 1 & 19 & 0 & 100 & -299 & 1 & 228.5 & 1.11 & 34.8 \\
+Gaza Now & Terrorism & 2024-03-27 & -- & 4 & 182 & 100 & 25 & 0 & 1 & 0.8 & 0.47 & 8.9 \\
+KB Vostok (OOO) & Russia & 2024-08-23 & -- & 1 & 17 & 0 & 100 & 0 & 0 & 1.3 & 0.02 & 0.1 \\
+Chirkinyan, Elena & Russia & 2024-12-04 & -- & 1 & 648 & 100 & 0 & 0 & 0 & 0.0 & 0.03 & 0.3 \\
+Al-Jamal, Sa'id Ahmad Muhammad & Iran & 2024-12-19 & 2021-06-10 & 5 & 58 & 40 & 20 & 0 & 0 & 3.8 & 29.46 & 664.1 \\
+Ansarallah & Terrorism & 2025-04-02 & 2024-02-16 & 8 & 172 & 88 & 25 & 0 & 2 & 750.3 & 26.88 & 1868.5 \\
+\midrule
+All Iran &  &  &  & 5 & 58 & 40 & 20 & 0 & 0 & 3.8 & 29.46 & 664.1 \\
+All Russia &  &  &  & 5 & 23 & 20 & 60 & 0 & 0 & 40.3 & 0.16 & 0.7 \\
+All Terrorism &  &  &  & 14 & 176 & 86 & 29 & 0 & 4 & 979.7 & 28.47 & 1912.2 \\
+All OFAC TRON USDT addresses &  &  &  & 24 & 140 & 62 & 33 & 0 & 4 & 1023.8 & 58.08 & 2577.0 \\
+\bottomrule
+\end{tabular}

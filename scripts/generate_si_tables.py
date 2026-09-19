@@ -320,6 +320,72 @@ def custody_tables() -> None:
               + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
 
 
+def post_signing_table() -> None:
+    if not find("post_signing_flows.json", required=False).exists():
+        return
+    ps = json.load(open(find("post_signing_flows.json")))
+    a, o = ps["all_frozen"], ps.get("ASO 29/23")
+    cats = ["unlabelled", "designated (same programme)", "labelled exchange or payment processor", "other labelled"]
+    names = {"unlabelled": "Unlabelled addresses", "designated (same programme)": "Other designated addresses",
+             "labelled exchange or payment processor": "Labelled exchanges and payment processors", "other labelled": "Other labelled addresses"}
+    def col(x, k):
+        return f"{100*x['share_by_category'].get(k, 0):.2f}"
+    lines = [f"USDT sent (million) & {a['total_usdt']/1e6:.1f} & {o['total_usdt']/1e6:.1f} \\\\",
+             f"Sending addresses & {a['n_sending_addresses']} & {o['n_sending_addresses']} \\\\",
+             f"Distinct recipients & {a['n_recipients']:,} & {o['n_recipients']:,} \\\\", "\\midrule"]
+    lines += [f"{names[k]} (\\% of value) & {col(a, k)} & {col(o, k)} \\\\" for k in cats]
+    lines += ["\\midrule", f"Largest recipient (\\% of value) & {100*a['share_top1']:.1f} & {100*o['share_top1']:.1f} \\\\",
+              f"Ten largest recipients (\\% of value) & {100*a['share_top10']:.1f} & {100*o['share_top10']:.1f} \\\\"]
+    top = ps["top20_recipients_all_frozen"][:10]
+    top_lines = [f"{r['rank']} & {100*r['share_of_outflow']:.1f} & {r['first_seen']} & {r['transfers']:,} & {r['counterparties']:,} & {'yes' if r['in_top400_by_activity'] else 'no'} \\\\" for r in top]
+    write("table_post_signing.tex",
+          "\\caption{\\textbf{Where the USDT that left frozen designated addresses between signing and freeze went.} Outflows of the frozen designated "
+          "addresses between the signing of their order and Tether's blacklisting, from complete histories, by category of recipient; the "
+          "May 2023 order (ASO 29/23) is shown separately because it supplies almost all of the value. Recipients are categorised by third-party "
+          "entity labels, which are sparse, so the labelled shares are lower bounds. The lower panel describes the ten largest recipients of the "
+          "pooled outflow from their own complete histories: the date of their first USDT transfer, their lifetime transfer count, their distinct "
+          "counterparties, and whether they are among the 400 most active addresses of the complete network "
+          "(\\texttt{scripts/compute\\_post\\_signing\\_flows.py}).}\n\\label{tab:post-signing}\n"
+          "\\begin{tabular}{lrr}\n\\toprule\n & \\textbf{All frozen addresses} & \\textbf{ASO 29/23} \\\\\n\\midrule\n" + "\n".join(lines) +
+          "\n\\bottomrule\n\\end{tabular}\n\n\\medskip\n\n\\begin{tabular}{lrrrrl}\n\\toprule\n\\textbf{Recipient rank} & \\textbf{Share (\\%)} & "
+          "\\textbf{First transfer} & \\textbf{Transfers} & \\textbf{Counterparties} & \\textbf{Top-400 hub} \\\\\n\\midrule\n" + "\n".join(top_lines) +
+          "\n\\bottomrule\n\\end{tabular}\n")
+
+
+def ofac_timing_table() -> None:
+    if not find("ofac_timing.json", required=False).exists():
+        return
+    ot = json.load(open(find("ofac_timing.json")))
+    prog = {"ofac_iran": "Iran", "ofac_russia_ukraine": "Russia", "ofac_terrorist_financing": "Terrorism"}
+    def f(x, fmt="{:.0f}"):
+        return "--" if x is None else fmt.format(x)
+    def row(name, v, listed="", entity_listed="", programmes=""):
+        return (f"{name} & {programmes} & {listed} & {entity_listed} & {v['n_listed']} & {f(v['median_days_last_to_listing'])} & "
+                f"{f(100*v['share_dormant_90d'] if v['share_dormant_90d'] is not None else None)} & {f(100*v['share_active_after_listing'])} & "
+                f"{f(v['median_days_listing_to_freeze'])} & {v['n_frozen_before_listing']} & {v['balance_at_freeze_total']/1e3:.1f} & "
+                f"{v['peak_balance_total']/1e6:.2f} & {v['volume_total']/1e6:.1f} \\\\")
+    ents = sorted(ot["by_entity"].items(), key=lambda kv: kv[1]["listed"])
+    short = {"OBSHCHESTVO S OGRANICHENNOI OTVETSTVENNOSTYU KONSTRUKTORSKOE BYURO VOSTOK": "KB Vostok (OOO)", "AL-LAW Tawfiq Muhammad Sa'id": "Al-Law, Tawfiq Muhammad Sa'id",
+             "Al-Jamal Sa'id Ahmad Muhammad": "Al-Jamal, Sa'id Ahmad Muhammad", "Gambashidze Ilya Andreevich": "Gambashidze, Ilya Andreevich", "Chirkinyan Elena": "Chirkinyan, Elena", "Shafiu Ali": "Shafiu, Ali"}
+    lines = [row(tex_escape(short.get(e, e)), v, v["listed"], v["entity_listed"] if v["entity_listed"] != v["listed"] else "--",
+                 ", ".join(prog[p] for p in v["programmes"])) for e, v in ents]
+    lines.append("\\midrule")
+    lines += [row(f"All {prog[p]}", v, programmes="") for p, v in ot["by_programme"].items()]
+    lines.append(row("All OFAC TRON USDT addresses", ot["pooled"]))
+    write("table_ofac_timing.tex",
+          "\\caption{\\textbf{Timing and Tether enforcement for the OFAC-listed TRON USDT addresses.} Every TRON USDT address listed under the three OFAC programmes "
+          "used in this study, grouped by the listed entity, with the same measures as for the NBCTF orders computed from complete histories to 1 July 2026, the end of the node export "
+          f"(last transfer {ot['history_end']}), and the blacklist to 1 January 2026. Listed: the date of the SDN List publication that added the address ({ot['n_dated_by_change_history']} of {ot['pooled']['n_listed']} "
+          "addresses are dated by the list's change history; the remaining address predates it and carries its entity's date). Entity: the date the entity itself "
+          "was first listed, where earlier. Lag: median days from the address's last transfer before listing to the listing. Dormant: share inactive for more "
+          "than 90 days at listing. Active after: share with any transfer after listing. Freeze: median days from listing to Tether's blacklisting, and the "
+          "number blacklisted before listing. Balance at freeze, summed peak balance and lifetime volume are in thousand, million and million USDT "
+          "(\\texttt{scripts/compute\\_ofac\\_timing.py}, \\texttt{scripts/fetch\\_ofac\\_address\\_dates.py}).}\n\\label{tab:ofac-timing}\n"
+          "\\begin{tabular}{llllrrrrrrrrr}\n\\toprule\n\\textbf{Entity} & \\textbf{Programme} & \\textbf{Listed} & \\textbf{Entity} & $n$ & \\textbf{Lag (d)} & "
+          "\\textbf{Dormant (\\%)} & \\textbf{Active after (\\%)} & \\textbf{Freeze (d)} & \\textbf{Before} & \\textbf{At freeze (k)} & \\textbf{Peak (M)} & \\textbf{Volume (M)} \\\\\n\\midrule\n"
+          + "\n".join(lines) + "\n\\bottomrule\n\\end{tabular}\n")
+
+
 def diffusion_table() -> None:
     path = ROOT / "diffusion_validation.json"
     if not path.exists():
@@ -346,3 +412,5 @@ if __name__ == "__main__":
     diffusion_table()
     zero_value_table()
     custody_tables()
+    post_signing_table()
+    ofac_timing_table()

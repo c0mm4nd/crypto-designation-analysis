@@ -88,9 +88,11 @@ def main() -> None:
                 ("Fig 4b", "Connectivity loss from removing the designated addresses and from removing the same number of undesignated hubs, at each crawl boundary and on the complete network."),
                 ("Fig 4c", "Cumulative volume share by top share of addresses: counterparties of designated addresses and Ukraine donors."),
                 ("Fig 4c donors", "Per-donor totals behind the Ukraine curve of Fig 4c."),
-                ("Supp Table zero-value", "Removal test with and without zero-value pairs (Supplementary Table 13)."),
+                ("Supp Table zero-value", "Removal test with and without zero-value pairs (Supplementary Table 15)."),
                 ("Supp Table custody", "Custody indicators for the designated addresses by order (Supplementary Table 10)."),
                 ("Supp Table publication", "Weekly volume per order relative to signing, with the publication week (Supplementary Table 7)."),
+                ("Supp Table post-signing", "Outflows of frozen designated addresses between signing and freeze by recipient category, and the ten largest recipients (Supplementary Table 11)."),
+                ("Supp Table OFAC timing", "Timing and Tether enforcement per OFAC-listed TRON USDT address (Supplementary Table 12)."),
                 ("Supp Fig 2", "Donation-size histogram, Aid for Ukraine TRON address."),
                 ("Supp Fig 3a", "Recall of designated addresses among the K highest-ranked, per score."),
                 ("Supp Fig 3b", "ROC-AUC per score over all addresses, with bootstrap intervals."),
@@ -287,6 +289,17 @@ def main() -> None:
             for w, vol in enumerate(v["weekly_volume"]):
                 prow.append({"order": k, "signed": v["signed"], "published": v["published"], "publication_week": v["publication_week"], "week_relative_to_signing": w - pa["window_weeks"], "volume_usdt": vol, "pre_mean_weekly_volume": v["pre_mean_weekly_volume"]})
         pd.DataFrame(prow).to_excel(xl, sheet_name="Supp Table publication", index=False)
+        ps = load_json("post_signing_flows.json")
+        psrow = []
+        for grp in ("all_frozen", "ASO 29/23"):
+            g = ps[grp]
+            for cat, sh in g["share_by_category"].items():
+                psrow.append({"group": grp, "kind": "category", "category": cat, "share_of_value": sh, "total_usdt": g["total_usdt"], "n_sending_addresses": g["n_sending_addresses"], "n_recipients": g["n_recipients"]})
+        for r in ps["top20_recipients_all_frozen"]:
+            psrow.append({"group": "all_frozen", "kind": "top recipient", "category": r["category"], "recipient_rank": r["rank"], "share_of_value": r["share_of_outflow"], "first_seen": r.get("first_seen"), "transfers": r.get("transfers"), "counterparties": r.get("counterparties"), "in_top400_by_activity": r.get("in_top400_by_activity")})
+        pd.DataFrame(psrow).to_excel(xl, sheet_name="Supp Table post-signing", index=False)
+        ot = load_json("ofac_timing.json")
+        pd.DataFrame(ot["per_address"]).drop(columns=["profile_id"], errors="ignore").to_excel(xl, sheet_name="Supp Table OFAC timing", index=False)
         k = ph["concentration"]
         xs = [i * 100 / 199 for i in range(200)]
         pd.DataFrame({"counterparty_rank": k["counterparty_lorenz_log_rank"],

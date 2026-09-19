@@ -1,0 +1,1087 @@
+{
+ "source": "OFAC Sanctions List Service (https://sanctionslistservice.ofac.treas.gov): entity records, the baseline snapshot and the delta file of every publication from 2022-09-26 to 2026-09-18, accessed 19 September 2026",
+ "publications": 514,
+ "entities": {
+  "52074": {
+   "date_published": "2024-12-04",
+   "list": "SDN List",
+   "name": "CHIRKINYAN, Elena"
+  },
+  "50110": {
+   "date_published": "2024-08-23",
+   "list": "SDN List",
+   "name": "OBSHCHESTVO S OGRANICHENNOI OTVETSTVENNOSTYU KONSTRUKTORSKOE BYURO VOSTOK"
+  },
+  "55484": {
+   "date_published": "2025-09-16",
+   "list": "SDN List",
+   "name": "DERAKHSHAN, Alireza"
+  },
+  "36025": {
+   "date_published": "2022-04-05",
+   "list": "SDN List",
+   "name": "GARANTEX EUROPE OU"
+  },
+  "48302": {
+   "date_published": "2024-03-26",
+   "list": "SDN List",
+   "name": "AL-LAW, Tawfiq Muhammad Sa'id"
+  },
+  "47635": {
+   "date_published": "2024-03-27",
+   "list": "SDN List",
+   "name": "GAZA NOW"
+  },
+  "44445": {
+   "date_published": "2023-07-31",
+   "list": "SDN List",
+   "name": "SHAFIU, Ali"
+  },
+  "45213": {
+   "date_published": "2024-03-20",
+   "list": "SDN List",
+   "name": "GAMBASHIDZE, Ilya Andreevich"
+  },
+  "56865": {
+   "date_published": "2026-01-30",
+   "list": "SDN List",
+   "name": "ZEDCEX EXCHANGE LTD"
+  },
+  "38665": {
+   "date_published": "2022-09-15",
+   "list": "SDN List",
+   "name": "TASK FORCE RUSICH"
+  },
+  "55502": {
+   "date_published": "2025-09-16",
+   "list": "SDN List",
+   "name": "ALIVAND, Arash Estaki"
+  },
+  "48432": {
+   "date_published": "2024-05-01",
+   "list": "SDN List",
+   "name": "OKO DESIGN BUREAU"
+  },
+  "32171": {
+   "date_published": "2021-06-10",
+   "list": "SDN List",
+   "name": "AL-JAMAL, Sa'id Ahmad Muhammad"
+  },
+  "50641": {
+   "date_published": "2024-09-26",
+   "list": "SDN List",
+   "name": "CRYPTEX"
+  },
+  "47664": {
+   "date_published": "2024-02-16",
+   "list": "SDN List",
+   "name": "ANSARALLAH"
+  }
+ },
+ "addresses": {
+  "TLNRT524dzL5FF1nJHDhYEMFpeWjLjRbz1": {
+   "profile_id": "32171",
+   "entity": "Al-Jamal Sa'id Ahmad Muhammad",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2021-06-10",
+   "date_listed": "2024-12-19",
+   "date_source": "delta file",
+   "publication_id": 470
+  },
+  "THh5woR8qfmDsNknQ3agPYzQSiRtMnKsTh": {
+   "profile_id": "32171",
+   "entity": "Al-Jamal Sa'id Ahmad Muhammad",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2021-06-10",
+   "date_listed": "2024-12-19",
+   "date_source": "delta file",
+   "publication_id": 470
+  },
+  "TV5ZTpKDszLTF6XcMnPongS33pwBgF91by": {
+   "profile_id": "32171",
+   "entity": "Al-Jamal Sa'id Ahmad Muhammad",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2021-06-10",
+   "date_listed": "2024-12-19",
+   "date_source": "delta file",
+   "publication_id": 470
+  },
+  "TTAHMdqoom4f2VTWniroPWQHcTRZ4caoH4": {
+   "profile_id": "32171",
+   "entity": "Al-Jamal Sa'id Ahmad Muhammad",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2021-06-10",
+   "date_listed": "2024-12-19",
+   "date_source": "delta file",
+   "publication_id": 470
+  },
+  "TFFvv7NAWmbcVfA7QN81mMvUC25TWj1WJx": {
+   "profile_id": "32171",
+   "entity": "Al-Jamal Sa'id Ahmad Muhammad",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2021-06-10",
+   "date_listed": "2024-12-19",
+   "date_source": "delta file",
+   "publication_id": 470
+  },
+  "1H939dom7i4WDLCKyGbXUp3fs9CSTNRzgL": {
+   "profile_id": "38419",
+   "entity": "Khatibi Aghada Ahmad",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_iran",
+    "ofac_iran"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "bc1q3y5v2khlyvemcz042wl98dzflywr8ghglqws6s": {
+   "profile_id": "38419",
+   "entity": "Khatibi Aghada Ahmad",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_iran"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "bc1qx3e2axj3wsfn0ndtvlwmkghmmgm4583nqg8ngk": {
+   "profile_id": "38419",
+   "entity": "Khatibi Aghada Ahmad",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_iran"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "bc1qsxf77cvwcd6jv6j8d8j3uhh4g0xqw4meswmwuc": {
+   "profile_id": "38420",
+   "entity": "Nikaeen Ravari Amir Hossein",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_iran"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "bc1q9lvynkfpaw330uhqmunzdz6gmafsvapv7y3zty": {
+   "profile_id": "38420",
+   "entity": "Nikaeen Ravari Amir Hossein",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_iran"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "bc1qpaly5nm7pfka9v92d6qvl4fc2l9xzee8a6ys3s": {
+   "profile_id": "38420",
+   "entity": "Nikaeen Ravari Amir Hossein",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_iran"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "TSxAAo67VTDgKT537EVXxdogkJtk9c6ojz": {
+   "profile_id": "55484",
+   "entity": "DERAKHSHAN Alireza",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2025-09-16",
+   "date_listed": "2025-09-16",
+   "date_source": "delta file",
+   "publication_id": 743
+  },
+  "0xdb2720ebad55399117ddb4c4a4afd9a4ccada8fe": {
+   "profile_id": "55484",
+   "entity": "DERAKHSHAN Alireza",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2025-09-16",
+   "date_listed": "2025-09-16",
+   "date_source": "delta file",
+   "publication_id": 743
+  },
+  "TYDUutYN4YLKUPeT7TG27Yyqw6kNVLq9QZ": {
+   "profile_id": "55502",
+   "entity": "ALIVAND Arash Estaki",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2025-09-16",
+   "date_listed": "2025-09-16",
+   "date_source": "delta file",
+   "publication_id": 743
+  },
+  "TRakpsE1mZjCUMNPyozR4BW2ZtJsF7ZWFN": {
+   "profile_id": "55502",
+   "entity": "ALIVAND Arash Estaki",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2025-09-16",
+   "date_listed": "2025-09-16",
+   "date_source": "delta file",
+   "publication_id": 743
+  },
+  "0xe3d35f68383732649669aa990832e017340dbca5": {
+   "profile_id": "55502",
+   "entity": "ALIVAND Arash Estaki",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2025-09-16",
+   "date_listed": "2025-09-16",
+   "date_source": "delta file",
+   "publication_id": 743
+  },
+  "0x532b77b33a040587e9fd1800088225f99b8b0e8a": {
+   "profile_id": "55502",
+   "entity": "ALIVAND Arash Estaki",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2025-09-16",
+   "date_listed": "2025-09-16",
+   "date_source": "delta file",
+   "publication_id": 743
+  },
+  "TQ5H49Wz3K57zNHmuXVp6uLzFwitxviABs": {
+   "profile_id": "55502",
+   "entity": "ALIVAND Arash Estaki",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2025-09-16",
+   "date_listed": "2025-09-16",
+   "date_source": "delta file",
+   "publication_id": 743
+  },
+  "TCA9vmjsYw9MtPKEwRBtGhKFRfr4CLxJAv": {
+   "profile_id": "56865",
+   "entity": "Zedcex Exchange Ltd",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2026-01-30",
+   "date_listed": "2026-01-30",
+   "date_source": "delta file",
+   "publication_id": 811
+  },
+  "TGsNFrgWfbGN2gX25Wcf8oTejtxtQkvmEx": {
+   "profile_id": "56865",
+   "entity": "Zedcex Exchange Ltd",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2026-01-30",
+   "date_listed": "2026-01-30",
+   "date_source": "delta file",
+   "publication_id": 811
+  },
+  "TASWbk6X1wiTku5TMmMQYqYFvshVEtfJy8": {
+   "profile_id": "56865",
+   "entity": "Zedcex Exchange Ltd",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2026-01-30",
+   "date_listed": "2026-01-30",
+   "date_source": "delta file",
+   "publication_id": 811
+  },
+  "TTS9o5KkpGgH8cK9LofLmMAPYb5zfQvSNa": {
+   "profile_id": "56865",
+   "entity": "Zedcex Exchange Ltd",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2026-01-30",
+   "date_listed": "2026-01-30",
+   "date_source": "delta file",
+   "publication_id": 811
+  },
+  "TCzq6m2zxnQkrZrf8cqYcK6bbXQYAfWYKC": {
+   "profile_id": "56865",
+   "entity": "Zedcex Exchange Ltd",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2026-01-30",
+   "date_listed": "2026-01-30",
+   "date_source": "delta file",
+   "publication_id": 811
+  },
+  "TLvuvpfBKdxddxSsJefeiGCe9eVY8HUroE": {
+   "profile_id": "56865",
+   "entity": "Zedcex Exchange Ltd",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2026-01-30",
+   "date_listed": "2026-01-30",
+   "date_source": "delta file",
+   "publication_id": 811
+  },
+  "TNuA5CQ6LB4jTHoNrjEeQZJmcmhQuHMbQ7": {
+   "profile_id": "56865",
+   "entity": "Zedcex Exchange Ltd",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_iran",
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2026-01-30",
+   "date_listed": "2026-01-30",
+   "date_source": "delta file",
+   "publication_id": 811
+  },
+  "XyARKoupuArYtToA2S6yMdnoquDCDaBsaT": {
+   "profile_id": "31164",
+   "entity": "Association for Free Research and International Cooperation",
+   "currency": "DASH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "t1MMXtBrSp1XG38Lx9cePcNUCJj5vdWfUWL": {
+   "profile_id": "31164",
+   "entity": "Association for Free Research and International Cooperation",
+   "currency": "ZEC",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "3Lpoy53K625zVeE47ZasiG5jGkAxJ27kh1": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2022-04-05",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "0x7FF9cFad3877F21d41Da833E2F775dB0569eE3D9": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2022-04-05",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "3E6ZCKRrsdPc35chA9Eftp1h3DLW18NFNV": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2022-04-05",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "0x8Dce2aAC0dE82bdCAf6b4373B79f94331b8e4995": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "0xf4377edA661e04B6DDA78969796Ed31658D602D4": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "0xb338962B92CD818D6aef0A32a9ECD01212a71f33": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "0x57EC89A0C056163A0314e413320f9B3ABe761259": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "0xD8500C631dC32FA18645B7436344a99E4825e10e": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "0x7CEd75026204aC29C34bEA98905D4C949F27361e": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "TFwjPScaJRCbSWVAywE1S1WgaUgSnyYUbD": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "TJkBr9TZ1xBeJoF7RNWqyEMbYqVJ6fXXHR": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "TNDjh6WGLYyWmkh8vfu42bXVHUqFNQ3rDq": {
+   "profile_id": "36025",
+   "entity": "GARANTEX EUROPE OU",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-04-05",
+   "date_listed": "2025-08-14",
+   "date_source": "delta file",
+   "publication_id": 729
+  },
+  "0xc2a3829F459B3Edd87791c74cD45402BA0a20Be3": {
+   "profile_id": "38665",
+   "entity": "Task Force Rusich",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-09-15",
+   "date_listed": "2022-09-15",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "TX5GV4DyfxNB3rPkzZJhmqZ1efVmL4rEqG": {
+   "profile_id": "38665",
+   "entity": "Task Force Rusich",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-09-15",
+   "date_listed": "2022-09-15",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "bc1ql7dlyh8xz6tpqk92vztrhqh88dmjvcwrmsemrm": {
+   "profile_id": "38665",
+   "entity": "Task Force Rusich",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-09-15",
+   "date_listed": "2022-09-15",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "bc1q2lpgjntr348pfvxhfy33ehmdzy3gmx8w4052z6": {
+   "profile_id": "38665",
+   "entity": "Task Force Rusich",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-09-15",
+   "date_listed": "2022-09-15",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "0x3AD9dB589d201A710Ed237c829c7860Ba86510Fc": {
+   "profile_id": "38665",
+   "entity": "Task Force Rusich",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2022-09-15",
+   "date_listed": "2022-09-15",
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "0x39D908dac893CBCB53Cc86e0ECc369aA4DeF1A29": {
+   "profile_id": "40488",
+   "entity": "Zimenkov Jonatan",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2023-02-01",
+   "date_source": "delta file",
+   "publication_id": 54
+  },
+  "bc1qfg4gfg0y6t6xjnpmlhuwx5k0wlw6nmfzxn2psc": {
+   "profile_id": "40488",
+   "entity": "Zimenkov Jonatan",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2023-02-01",
+   "date_source": "delta file",
+   "publication_id": 54
+  },
+  "0x38735f03b30FbC022DdD06ABED01F0Ca823C6a94": {
+   "profile_id": "43085",
+   "entity": "Hanafin John Desmond",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2023-05-19",
+   "date_source": "delta file",
+   "publication_id": 90
+  },
+  "1Ljk8RNNabkZ9bfDYQBn98XfFozJhTjqcZ": {
+   "profile_id": "45188",
+   "entity": "Zhdanova Ekaterina Valeryevna",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2023-11-03",
+   "date_source": "delta file",
+   "publication_id": 158
+  },
+  "3685sEusmTwZBiKJ4cgV73EAhpVD1nbgbe": {
+   "profile_id": "45188",
+   "entity": "Zhdanova Ekaterina Valeryevna",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2023-11-03",
+   "date_source": "delta file",
+   "publication_id": 158
+  },
+  "39p8qWp1bkBNhi4vPpFTetKPtH7goqNDZf": {
+   "profile_id": "45188",
+   "entity": "Zhdanova Ekaterina Valeryevna",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2023-11-03",
+   "date_source": "delta file",
+   "publication_id": 158
+  },
+  "TEFph7dZoUN5233cGEzF6XFwRpjPF8fQDS": {
+   "profile_id": "45213",
+   "entity": "Gambashidze Ilya Andreevich",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-03-20",
+   "date_listed": "2024-03-20",
+   "date_source": "delta file",
+   "publication_id": 223
+  },
+  "TMGLqRQ4twjW8wJhVH1mQR7nUThpGHUsN3": {
+   "profile_id": "45213",
+   "entity": "Gambashidze Ilya Andreevich",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-03-20",
+   "date_listed": "2024-03-20",
+   "date_source": "delta file",
+   "publication_id": 223
+  },
+  "0x19F8f2B0915Daa12a3f5C9CF01dF9E24D53794F7": {
+   "profile_id": "48432",
+   "entity": "OKO DESIGN BUREAU",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-05-01",
+   "date_listed": "2024-05-01",
+   "date_source": "delta file",
+   "publication_id": 240
+  },
+  "TFdTr9C3BqQrzKBXqSxJfAZFTh8UwBAfSg": {
+   "profile_id": "48432",
+   "entity": "OKO DESIGN BUREAU",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-05-01",
+   "date_listed": "2024-05-01",
+   "date_source": "delta file",
+   "publication_id": 240
+  },
+  "13fhnkmpBBWXUQucJd6efWvXdEj78DKavk": {
+   "profile_id": "48432",
+   "entity": "OKO DESIGN BUREAU",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-05-01",
+   "date_listed": "2024-05-01",
+   "date_source": "delta file",
+   "publication_id": 240
+  },
+  "TLM3zA3EWycoDX4ZX4gKze7sgfbdkntTum": {
+   "profile_id": "50110",
+   "entity": "OBSHCHESTVO S OGRANICHENNOI OTVETSTVENNOSTYU KONSTRUKTORSKOE BYURO VOSTOK",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-08-23",
+   "date_listed": "2024-08-23",
+   "date_source": "delta file",
+   "publication_id": 309
+  },
+  "13JtX4h7G5ZuNK5mFudKGq9DHLvvMFuNuz": {
+   "profile_id": "50641",
+   "entity": "Cryptex",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-09-26",
+   "date_listed": "2024-09-26",
+   "date_source": "delta file",
+   "publication_id": 346
+  },
+  "TTUDyVhhpCC1xJoPmWzdjLAzeoPwbSABdr": {
+   "profile_id": "50641",
+   "entity": "Cryptex",
+   "currency": "TRX",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-09-26",
+   "date_listed": "2024-09-26",
+   "date_source": "delta file",
+   "publication_id": 346
+  },
+  "0x0931cA4D13BB4ba75D9B7132AB690265D749a5E7": {
+   "profile_id": "50641",
+   "entity": "Cryptex",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-09-26",
+   "date_listed": "2024-09-26",
+   "date_source": "delta file",
+   "publication_id": 346
+  },
+  "M8yFL6SFC6TreATegTyuSYkDfDRbisdpT3": {
+   "profile_id": "50641",
+   "entity": "Cryptex",
+   "currency": "LTC",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-09-26",
+   "date_listed": "2024-09-26",
+   "date_source": "delta file",
+   "publication_id": 346
+  },
+  "0x1999ef52700c34de7ec2b68a28aafb37db0c5ade": {
+   "profile_id": "52071",
+   "entity": "Magomedov Khadzhi Murat Dalgatovich",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2024-12-04",
+   "date_source": "delta file",
+   "publication_id": 428
+  },
+  "TDdbRFoBTEmE3qiR69Y6rKRSG1hoF65QaE": {
+   "profile_id": "52074",
+   "entity": "Chirkinyan Elena",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_russia_ukraine"
+   ],
+   "entity_date_published": "2024-12-04",
+   "date_listed": "2024-12-04",
+   "date_source": "delta file",
+   "publication_id": 428
+  },
+  "17a5bpKvEp1j1Trs4qTbcNZrby53JbaS9C": {
+   "profile_id": "31811",
+   "entity": "FAYZIMATOV Farrukh Furkatovitch",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": null,
+   "date_listed": null,
+   "publication_id": 1,
+   "date_source": "entity listing (address already on the list in the baseline snapshot of 2022-09-22)"
+  },
+  "TVacWx7F5wgMgn49L5frDf9KLgdYy8nPHL": {
+   "profile_id": "44445",
+   "entity": "Shafiu Ali",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2023-07-31",
+   "date_listed": "2023-07-31",
+   "date_source": "delta file",
+   "publication_id": 122
+  },
+  "19D1iGzDr7FyAdiy3ZZdxMd6ttHj1kj6WW": {
+   "profile_id": "45678",
+   "entity": "Buy Cash Money and Money Transfer Company",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": null,
+   "date_listed": "2023-10-18",
+   "date_source": "delta file",
+   "publication_id": 150
+  },
+  "0xE950DC316b836e4EeFb8308bf32Bf7C72a1358FF": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "0x21B8d56BDA776bbE68655A16895afd96F5534feD": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "ETH",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "3Q8H2ZWMtc4R1M3mkmhnTjCoYKTeCFigDP": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "XBT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "TTgcTTNbNuFdbrhvbjMZVrdU5KALyzDaPw": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "TGJVc32ig2u8tQsYMLE7KXHT5NDQroaVNU": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "TXEsK1sEsKjZ1xtHitnyAAoqw3WLdYdRNW": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "TH96tFMn8KGiYSLiwcV3E2UiaJc8jmcbz3": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "0x175d44451403Edf28469dF03A9280c1197ADb92c": {
+   "profile_id": "47635",
+   "entity": "Gaza Now",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-27",
+   "date_listed": "2024-03-27",
+   "date_source": "delta file",
+   "publication_id": 229
+  },
+  "TC4VsFHJdZ66BdwobZxkudVZBVmQZgCP65": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TQ5mpZPbQMSq2s1vSM3RJgiB1AsTsiTpFZ": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TXEaKf4rT3rMoD3Vuqnuhwr6vLq6BL5t33": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TGUPpmW2bAnMCLe5ih2CFisfCHk4gTFDsx": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TDwN1Eq62bqvVhfGAjdRRJjE46jsi5KNMV": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TM6Kix9wH8cYQ4rLpFifsQ4ddH3rPX3f8p": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TDprk9jeYPVm6khkBp1u7fwuyJcEJFrPWD": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TVn4q7L4fKEPbygi7UHq1CKfZxtbeuMV5q": {
+   "profile_id": "47664",
+   "entity": "Ansarallah",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-02-16",
+   "date_listed": "2025-04-02",
+   "date_source": "delta file",
+   "publication_id": 640
+  },
+  "TWBAPzpPiZarfVsY2BLXeaLhNHurn4wkWG": {
+   "profile_id": "48302",
+   "entity": "AL-LAW Tawfiq Muhammad Sa'id",
+   "currency": "USDT",
+   "programmes": [
+    "ofac_terrorist_financing"
+   ],
+   "entity_date_published": "2024-03-26",
+   "date_listed": "2024-03-26",
+   "date_source": "delta file",
+   "publication_id": 227
+  }
+ }
+}

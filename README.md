@@ -185,6 +185,22 @@ USDT histories and the archive node:
   order relative to signing with the publication week marked (Supplementary Table 7).
 - `scripts/compute_counterparty_full.py` -> `analysis/counterparty_full.json`: counterparty persistence
   recomputed from every pre-order counterparty's complete history in the node, with the designated addresses
-  measured identically (Supplementary Table 11; needs CH_URL/CH_AUTH).
+  measured identically (Supplementary Table 13; needs CH_URL/CH_AUTH).
 - `scripts/count_source_records.py` -> `analysis/source_counts.json`: counts quoted in the text that come
   straight from the source records.
+
+## Post-signing flows and OFAC listing timing (v1.8.0)
+
+Two further analyses on the same complete histories:
+
+- `scripts/compute_post_signing_flows.py` -> `analysis/post_signing_flows.json`: where the USDT that left frozen
+  designated addresses between the signing of their order and Tether's freeze went, by recipient category, with the
+  ten largest recipients described from their own node histories (Supplementary Table 11; needs CH_URL/CH_AUTH for
+  the recipient descriptions).
+- `scripts/fetch_ofac_address_dates.py` -> `analysis/ofac_listing_dates.json`: the date each OFAC-listed
+  digital-currency address was added to the SDN List, from the Sanctions List Service's baseline snapshot and the
+  delta file of every publication since (needs internet access; the delta files are cached in a directory given
+  by `OFAC_DELTA_CACHE`).
+- `scripts/compute_ofac_timing.py` -> `analysis/ofac_timing.json`: the timing and Tether-enforcement measures of the
+  paper repeated for the 24 OFAC-listed TRON USDT addresses, dated by their own listing (Supplementary Table 12;
+  needs CH_URL/CH_AUTH).

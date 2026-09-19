@@ -1,0 +1,38 @@
+\caption{\textbf{Where the USDT that left frozen designated addresses between signing and freeze went.} Outflows of the frozen designated addresses between the signing of their order and Tether's blacklisting, from complete histories, by category of recipient; the May 2023 order (ASO 29/23) is shown separately because it supplies almost all of the value. Recipients are categorised by third-party entity labels, which are sparse, so the labelled shares are lower bounds. The lower panel describes the ten largest recipients of the pooled outflow from their own complete histories: the date of their first USDT transfer, their lifetime transfer count, their distinct counterparties, and whether they are among the 400 most active addresses of the complete network (\texttt{scripts/compute\_post\_signing\_flows.py}).}
+\label{tab:post-signing}
+\begin{tabular}{lrr}
+\toprule
+ & \textbf{All frozen addresses} & \textbf{ASO 29/23} \\
+\midrule
+USDT sent (million) & 352.4 & 351.4 \\
+Sending addresses & 38 & 24 \\
+Distinct recipients & 1,342 & 1,254 \\
+\midrule
+Unlabelled addresses (\% of value) & 98.96 & 98.97 \\
+Other designated addresses (\% of value) & 0.85 & 0.84 \\
+Labelled exchanges and payment processors (\% of value) & 0.00 & 0.00 \\
+Other labelled addresses (\% of value) & 0.18 & 0.18 \\
+\midrule
+Largest recipient (\% of value) & 5.6 & 5.6 \\
+Ten largest recipients (\% of value) & 30.6 & 30.7 \\
+\bottomrule
+\end{tabular}
+
+\medskip
+
+\begin{tabular}{lrrrrl}
+\toprule
+\textbf{Recipient rank} & \textbf{Share (\%)} & \textbf{First transfer} & \textbf{Transfers} & \textbf{Counterparties} & \textbf{Top-400 hub} \\
+\midrule
+1 & 5.6 & 2023-05-24 & 449 & 135 & no \\
+2 & 3.4 & 2023-05-10 & 1,133 & 197 & no \\
+3 & 3.4 & 2023-01-10 & 3,992 & 934 & no \\
+4 & 3.0 & 2023-05-19 & 3,294 & 500 & no \\
+5 & 2.9 & 2023-03-25 & 874 & 317 & no \\
+6 & 2.9 & 2021-09-03 & 3,171 & 128 & no \\
+7 & 2.7 & 2023-05-01 & 11,436 & 2,402 & no \\
+8 & 2.6 & 2023-05-04 & 2,645 & 18 & no \\
+9 & 2.4 & 2023-03-29 & 965 & 210 & no \\
+10 & 1.7 & 2023-04-04 & 6,292 & 1,166 & no \\
+\bottomrule
+\end{tabular}
